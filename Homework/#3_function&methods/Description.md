@@ -11,5 +11,5 @@
 
 ### [Решение][Final]
 
-[Final]: <https://github.com/DaniilYarmolenko/Otus_GPB/blob/main/README.md>
+[Final]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/main/Homework/%233_function%26methods/homework%233.playground>
 [Teacher]: <https://otus.ru/teacher/2295>
