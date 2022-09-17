@@ -10,5 +10,5 @@
 
 ### [Решение][Final]
 
-[Final]: <https://github.com/DaniilYarmolenko/Otus_GPB/blob/main/README.md>
+[Final]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/main/Homework/%232_collection_map_reduce_filter/lesson_5_homework_Yarmolenko_GBP.playground>
 [Teacher]: <https://otus.ru/teacher/2295>
