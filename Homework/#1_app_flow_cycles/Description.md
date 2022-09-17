@@ -10,5 +10,5 @@
 
 ### [Решение][Final]
 
-[Final]: <https://github.com/DaniilYarmolenko/Otus_GPB/blob/main/README.md>
+[Final]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%231_app_flow_cycles/homework_%231.playground>
 [Teacher]: <https://otus.ru/teacher/2295>
