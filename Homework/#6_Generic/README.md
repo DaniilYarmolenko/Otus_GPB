@@ -8,9 +8,10 @@
 - Реализуйте дженерик-класс для структуры данных Stack, Deque или Queue.
 - Класс должен содержать дженерик-методы согласно выбранному типу структуры данных.
 - В Playground основном пространстве напишите пример с использованием созданного класса
-- [Двухсторонняя очередь] [deque]
-- [Стек][stack]
-- [Очередь] [Queue]
+
+[Двухсторонняя очередь][deque]
+[Стек][stack]
+[Очередь][Queue]
 
 #### Критерии оценки:
 - Факт сдачи - 40 баллов
@@ -21,7 +22,7 @@
 
 [Teacher]: <https://habr.com/ru/users/srk1nn/>
 
-[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%235_OOP_Inheritance/homework_5.playground>
+[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%236_Generic/deque_lesson6.playground>
 [deque]: <https://ru.wikipedia.org/wiki/Двухсторонняя_очередь>
 [stack]: <https://ru.wikipedia.org/wiki/Стек>
 [Queue]: <https://ru.wikipedia.org/wiki/Очередь_(программирование)>
