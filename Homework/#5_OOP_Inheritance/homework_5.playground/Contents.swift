@@ -115,7 +115,7 @@ class Boss: Manager {
 
 // -MARK: Обычный работник
 var empl1 = Employee(name: "Jack", salaryMonth: [22, 321, 20 ,32, 201, 12])
-print(empl1.description)
+
 
 // -MARK: Менеджер проектов
 // Переопределено свойство description
@@ -123,8 +123,8 @@ var manager = Manager(name: "Mike", hobbe: "Fishing", salaryMonth: [12, 3000, 30
 manager.addWork()
 manager.checkWork()
 manager.acceptWork()
+manager.addWork()
 
-print(manager.description)
 // -MARK: Начальник
 // Переопределены методы
 //Полиморфизм - свойство description
@@ -133,4 +133,10 @@ var boss = Boss(name: "Alex", salaryMonth: [434, 4320,12310 ,23002 ,2030], budje
 boss.addWork()
 boss.checkWork()
 boss.acceptWork()
-print(boss.description)
+
+
+var arrayEmploy: [Employee] = [empl1, manager, boss]
+for employee in arrayEmploy {
+    print(employee.description)
+    print("-------------------")
+}
