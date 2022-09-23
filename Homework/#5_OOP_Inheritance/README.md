@@ -22,4 +22,4 @@
 
 [Teacher]: <https://otus.ru/teacher/1232>
 
-[rep]: <https://github.com/DaniilYarmolenko/GPB_lesson_7>
+[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%235_OOP_Inheritance/homework_5.playground>
