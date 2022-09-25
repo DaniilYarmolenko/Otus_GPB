@@ -27,5 +27,5 @@
 
 [Teacher]: <https://career.habr.com/sergey-balalaev>
 
-[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%236_Generic/deque_lesson6.playground>
+[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%237_function_and_closure/function%26closure.playground>
 
