@@ -13,7 +13,7 @@
 6. При разворачивании таймер и счет нужно пускать с того же места, если до сворачивания таймер работал.
 Код нужно загрузить в public github репозиторий или bitbucket. Сюда отправить ссылку на репозиторий.
 
-[https://github.com/DaniilYarmolenko/Otus_GPB/blob/dev_homework/Homework/%238_RunLoop/image.png]
+
 
 #### Критерии оценки:
 - Факт сдачи ДЗ - 40 баллов
@@ -21,10 +21,10 @@
 - Реализован таймер, счет времени выводится в надпись, кнопки управляют таймером - 20 баллов
 - Таймер реагирует на события сворачивания/разворачивания - 20 баллов
 
+![Скриншот](https://github.com/DaniilYarmolenko/Otus_GPB/blob/dev_homework/Homework/%238_RunLoop/image.png)
 [Решение][rep]
 
 [Teacher]: <https://career.habr.com/anioutka>
 
 [rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%237_function_and_closure/function%26closure.playground>
 
-[image]: <image>
