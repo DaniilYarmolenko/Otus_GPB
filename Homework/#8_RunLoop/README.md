@@ -22,7 +22,7 @@
 - Таймер реагирует на события сворачивания/разворачивания - 20 баллов
 
 
-![Скриншот](https://github.com/DaniilYarmolenko/Otus_GPB/blob/dev_homework/Homework/%238_RunLoop/image.png=200x400)
+![Скриншот](https://github.com/DaniilYarmolenko/Otus_GPB/blob/homework/Homework/%238_RunLoop/image.png=200x400)
 
 [Решение][rep]
 
