@@ -21,8 +21,7 @@
 - Реализован таймер, счет времени выводится в надпись, кнопки управляют таймером - 20 баллов
 - Таймер реагирует на события сворачивания/разворачивания - 20 баллов
 
-![Скриншот](https://github.com/DaniilYarmolenko/Otus_GPB/blob/dev_homework/Homework/%238_RunLoop/image.png)
-<img src="https://github.com/DaniilYarmolenko/Otus_GPB/blob/dev_homework/Homework/%238_RunLoop/image.png" alt="Screenshot" style="height: 800; width:300;"/>
+<img src="https://github.com/DaniilYarmolenko/Otus_GPB/blob/dev_homework/Homework/%238_RunLoop/image.png" alt="Screenshot" style="height: 400; width:200;"/>
 [Решение][rep]
 
 [Teacher]: <https://career.habr.com/anioutka>
