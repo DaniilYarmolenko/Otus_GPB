@@ -27,5 +27,5 @@
 
 [Teacher]: <https://career.habr.com/anioutka>
 
-[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%238_RunLoop/TimerBase_GPB>
+[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%239_NavigationContollers_TabBarControllers/%239_NavigatoControllers
 
