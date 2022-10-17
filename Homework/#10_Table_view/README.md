@@ -25,4 +25,4 @@
 
 [Teacher]: <https://otus.ru/teacher/1232>
 
-[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%235_OOP_Inheritance/homework_5.playground>
+[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%2310_Table_view/TableView_Homework>
