@@ -11,6 +11,8 @@ class MainViewController: TableVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "World City"
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupConstaints()
         tableView.register(MainCell.self, forCellReuseIdentifier: .tableId)
         tableView.dataSource = self

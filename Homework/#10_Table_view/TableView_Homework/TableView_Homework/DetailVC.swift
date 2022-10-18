@@ -39,7 +39,7 @@ class DetailVC: UIViewController {
     
     lazy var descriptionCity: UILabel = {
         descriptionCity = UILabel()
-        descriptionCity.font = UIFont(name: "Kurale-Regular", size: 18)
+        descriptionCity.font = UIFont(name: "Kurale-Regular", size: UIFont.labelFontSize)
         descriptionCity.numberOfLines = 0
         descriptionCity.textColor = .black
         descriptionCity.translatesAutoresizingMaskIntoConstraints = false
@@ -62,17 +62,17 @@ class DetailVC: UIViewController {
         }
         NSLayoutConstraint.activate([
             cityImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            cityImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cityImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -16),
             cityImageView.heightAnchor.constraint(equalToConstant: view.frame.height/3),
             cityImageView.widthAnchor.constraint(equalToConstant: view.frame.width/1.8),
             
-            nameCityLong.topAnchor.constraint(equalTo: cityImageView.bottomAnchor, constant: 16),
+            nameCityLong.topAnchor.constraint(equalTo: cityImageView.bottomAnchor, constant: 8),
             nameCityLong.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            countryName.topAnchor.constraint(equalTo: nameCityLong.bottomAnchor, constant: 8),
+            countryName.topAnchor.constraint(equalTo: nameCityLong.bottomAnchor, constant: 4),
             countryName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            descriptionCity.topAnchor.constraint(equalTo: countryName.bottomAnchor, constant: 24),
+            descriptionCity.topAnchor.constraint(equalTo: countryName.bottomAnchor, constant: 8),
             descriptionCity.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             descriptionCity.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
     
