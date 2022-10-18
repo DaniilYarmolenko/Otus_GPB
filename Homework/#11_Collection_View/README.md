@@ -24,4 +24,4 @@
 
 [Teacher]: <https://sbergraduate.ru/success_stories/aleksey-levanov/>
 
-[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%235_OOP_Inheritance/homework_5.playground>
+[rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%2311_Collection_View/CollectionViewProject>

@@ -64,7 +64,7 @@ class DetailVC: UIViewController {
             cityImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             cityImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             cityImageView.heightAnchor.constraint(equalToConstant: view.frame.height/3),
-            cityImageView.widthAnchor.constraint(equalToConstant: view.frame.width/2),
+            cityImageView.widthAnchor.constraint(equalToConstant: view.frame.width/1.8),
             
             nameCityLong.topAnchor.constraint(equalTo: cityImageView.bottomAnchor, constant: 16),
             nameCityLong.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -78,14 +78,5 @@ class DetailVC: UIViewController {
     
         ])
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
