@@ -1,6 +1,6 @@
 # Homework #11
 ## Вывод изображений в UICollectionView
-Преподаватель [Алексей Леванов][Teacher]
+Преподаватель [Сергей Балалаев][Teacher]
 
 ### Цель:
  _Закрепление навыков и знаний, полученных на лекции_
@@ -22,6 +22,6 @@
 
 [Решение][rep]
 
-[Teacher]: <https://sbergraduate.ru/success_stories/aleksey-levanov/>
+[Teacher]: <https://career.habr.com/sergey-balalaev>
 
 [rep]: <https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%2311_Collection_View/CollectionViewProject>
