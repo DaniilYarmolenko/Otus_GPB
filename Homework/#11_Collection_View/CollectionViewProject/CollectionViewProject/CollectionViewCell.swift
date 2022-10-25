@@ -94,4 +94,10 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func update(data: ModelData){
+        self.cityImage.image = UIImage(named: data.photo ?? "noPhoto")
+        self.cityLongName.text = data.cityNameLong
+        self.countryName.text = data.countryName
+    }
+
 }

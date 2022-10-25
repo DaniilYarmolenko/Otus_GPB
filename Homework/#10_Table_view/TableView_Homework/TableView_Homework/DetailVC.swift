@@ -78,5 +78,11 @@ class DetailVC: UIViewController {
     
         ])
     }
+    func update(data: ModelData){
+        self.countryName.text = data.countryName
+        self.descriptionCity.text = data.description
+        self.nameCityLong.text = data.cityNameLong
+        self.cityImageView.image = UIImage(named: data.photo ?? "noPhoto")
+    }
 
 }

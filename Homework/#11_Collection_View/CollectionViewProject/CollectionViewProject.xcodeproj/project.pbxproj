@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		265C174928FE88010057FB2F /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C174828FE88010057FB2F /* DetailVC.swift */; };
+		265C174B2907C67A0057FB2F /* CollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C174A2907C67A0057FB2F /* CollectionAdapter.swift */; };
 		268B66B528FE0B4C00437D58 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B66B428FE0B4C00437D58 /* CollectionViewCell.swift */; };
 		268B66B728FE0C0F00437D58 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B66B628FE0C0F00437D58 /* ModelData.swift */; };
 		26D0C0EC28FDFD4C002F4D68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C0EB28FDFD4C002F4D68 /* AppDelegate.swift */; };
@@ -15,11 +16,11 @@
 		26D0C0F028FDFD4C002F4D68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C0EF28FDFD4C002F4D68 /* ViewController.swift */; };
 		26D0C0F528FDFD4D002F4D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C0F428FDFD4D002F4D68 /* Assets.xcassets */; };
 		26D0C0F828FDFD4D002F4D68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C0F628FDFD4D002F4D68 /* LaunchScreen.storyboard */; };
-		26D0C10028FDFDC9002F4D68 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C0FF28FDFDC9002F4D68 /* CollectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		265C174828FE88010057FB2F /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailVC.swift; path = "../../../#10_Table_view/TableView_Homework/TableView_Homework/DetailVC.swift"; sourceTree = "<group>"; };
+		265C174A2907C67A0057FB2F /* CollectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAdapter.swift; sourceTree = "<group>"; };
 		268B66B428FE0B4C00437D58 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		268B66B628FE0C0F00437D58 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelData.swift; path = "../../../#10_Table_view/TableView_Homework/TableView_Homework/ModelData.swift"; sourceTree = "<group>"; };
 		26D0C0E828FDFD4C002F4D68 /* CollectionViewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,7 +30,6 @@
 		26D0C0F428FDFD4D002F4D68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26D0C0F728FDFD4D002F4D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26D0C0F928FDFD4D002F4D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26D0C0FF28FDFDC9002F4D68 /* CollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 				26D0C0EB28FDFD4C002F4D68 /* AppDelegate.swift */,
 				26D0C0ED28FDFD4C002F4D68 /* SceneDelegate.swift */,
 				26D0C0EF28FDFD4C002F4D68 /* ViewController.swift */,
-				26D0C0FF28FDFDC9002F4D68 /* CollectionVC.swift */,
+				265C174A2907C67A0057FB2F /* CollectionAdapter.swift */,
 				268B66B428FE0B4C00437D58 /* CollectionViewCell.swift */,
 				268B66B628FE0C0F00437D58 /* ModelData.swift */,
 				265C174828FE88010057FB2F /* DetailVC.swift */,
@@ -149,10 +149,10 @@
 				268B66B528FE0B4C00437D58 /* CollectionViewCell.swift in Sources */,
 				26D0C0F028FDFD4C002F4D68 /* ViewController.swift in Sources */,
 				26D0C0EC28FDFD4C002F4D68 /* AppDelegate.swift in Sources */,
-				26D0C10028FDFDC9002F4D68 /* CollectionVC.swift in Sources */,
 				26D0C0EE28FDFD4C002F4D68 /* SceneDelegate.swift in Sources */,
 				268B66B728FE0C0F00437D58 /* ModelData.swift in Sources */,
 				265C174928FE88010057FB2F /* DetailVC.swift in Sources */,
+				265C174B2907C67A0057FB2F /* CollectionAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
