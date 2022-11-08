@@ -1,0 +1,35 @@
+#extend("base"):
+  #export("content"):
+    <p>#(nameEvent)<p>
+
+    <h2>#(authorName)</h2>
+
+    <h3>#(description)</h3>
+
+    <h3>#(dateStart)</h3>
+
+    <h3>#(event)</h3>
+    #if(count(eventTokens) > 0):
+        #extend("eventTokenTable")
+    #else:
+    <h3>There aren’t any token for event yet!</h3>
+    #endif
+    #if(count(categories) > 0):
+      <h3>Categories</h3>
+      <ul>
+        #for(category in categories):
+          <li>
+            <a href="/categories/#(category.id)">
+              #(category.name)
+            </a>
+          </li>
+        #endfor
+      </ul>
+    #endif
+    <form method="post" action="/acronyms/#(acronym.id)/delete">
+      <a class="btn btn-primary" href="/acronyms/#(acronym.id)/edit"
+      role="button">Edit</a>&nbsp;
+      <input class="btn btn-danger" type="submit" value="Delete" />
+    </form>
+  #endexport
+#endextend
