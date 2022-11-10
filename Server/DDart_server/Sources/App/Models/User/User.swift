@@ -58,7 +58,7 @@ final class User: Model, Content {
         var email: String
         var photos: [String]?
         var userType: UserType
-        init(id: UUID?, firstName: String, lastName: String, username: String, email: String, photo: [String]? = nil, userType: UserType) {
+        init(id: UUID?, firstName: String, lastName: String, username: String, email: String, photo: [String]? = nil, userType: UserType = .standard) {
             self.id = id
             self.firstName = firstName
             self.lastName = lastName

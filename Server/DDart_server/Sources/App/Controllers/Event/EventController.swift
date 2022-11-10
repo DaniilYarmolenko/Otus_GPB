@@ -21,6 +21,7 @@ struct EventController: RouteCollection {
         let tokenAuthMiddleware = Token.authenticator()
         let guardAuthMiddleware = User.guardMiddleware()
         let tokenAuthGroup = eventRoutes.grouped(tokenAuthMiddleware, guardAuthMiddleware)
+        tokenAuthGroup.get("admin", use: getAllHandler)
         tokenAuthGroup.post(use: createHandler)
         tokenAuthGroup.delete(":eventsID", use: deleteHandler)
         tokenAuthGroup.put(":eventsID", use: updateHandler)
@@ -193,5 +194,5 @@ struct CreateEventData: Content {
     let description: String
     let dateStart: String
     let dateEnd: String
-    let photos: [String]?
+    let photos: [String]
 }

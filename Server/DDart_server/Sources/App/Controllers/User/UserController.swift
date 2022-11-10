@@ -8,6 +8,8 @@
 import Vapor
 
 struct UsersController: RouteCollection {
+    let imageFolderUsers = "Pictures/UsersPictures/"
+    
     func boot(routes: RoutesBuilder) throws {
         let usersRoute = routes.grouped("api", "users")
         //        usersRoute.get(use: getAllHandler)
@@ -27,6 +29,7 @@ struct UsersController: RouteCollection {
     func createHandler(_ req: Request) throws -> EventLoopFuture<User.Public> {
         let user = try req.content.decode(User.self)
         user.password = try Bcrypt.hash(user.password)
+        user.userType =  .standard
         return user.save(on: req.db).map { user.convertToPublic() }
     }
     
@@ -52,40 +55,59 @@ struct UsersController: RouteCollection {
                     .transform(to: .noContent)
             }
     }
-        //    func changeEmailUser(_ req: Request){}
-        //MARK: Get all user data
-        //    func getAllHandler(_ req: Request) -> EventLoopFuture<[User.Public]> {
-        //        User.query(on: req.db).all().convertToPublic()
-        //    }
-        //
-        //MARK: GetUserData
-        //    func getHandler(_ req: Request) -> EventLoopFuture<User.Public> {
-        //        User.find(req.parameters.get("userID"), on: req.db).unwrap(or: Abort(.notFound)).convertToPublic()
-        //    }
-        
-        //MARK: Get all events token Handler
-        func getEventsTokenHandler(_ req: Request) throws -> EventLoopFuture<[EventToken]> {
-            let user = try req.auth.require(User.self)
-            return user.$eventTokens.get(on: req.db)
-        }
-        
-        //MARK: login handler
-        func loginHandler(_ req: Request) throws -> EventLoopFuture<Token> {
-            let user = try req.auth.require(User.self)
-            let token = try Token.generate(for: user)
-            return token.save(on: req.db).map { token }
-        }
+    //    func changeEmailUser(_ req: Request){}
+    //MARK: Get all user data
+    //    func getAllHandler(_ req: Request) -> EventLoopFuture<[User.Public]> {
+    //        User.query(on: req.db).all().convertToPublic()
+    //    }
+    //
+    //MARK: GetUserData
+    //    func getHandler(_ req: Request) -> EventLoopFuture<User.Public> {
+    //        User.find(req.parameters.get("userID"), on: req.db).unwrap(or: Abort(.notFound)).convertToPublic()
+    //    }
+    
+    //MARK: Get all events token Handler
+    func getEventsTokenHandler(_ req: Request) throws -> EventLoopFuture<[EventToken]> {
+        let user = try req.auth.require(User.self)
+        return user.$eventTokens.get(on: req.db)
     }
     
-    struct CreateUserData: Content {
-        let firstName: String
-        let lastName: String
-        let username: String
-        let photos: [String]?
+    //MARK: login handler
+    func loginHandler(_ req: Request) throws -> EventLoopFuture<Token> {
+        let user = try req.auth.require(User.self)
+        let token = try Token.generate(for: user)
+        return token.save(on: req.db).map { token }
     }
-    struct CreateUserAdminData: Content {
-        let addminStatus: Bool
-    }
-    struct CreateUserEmailData: Content {
-        let email: String
-    }
+//    func addUserPicturePostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+//        let data = try req.content.decode(ImageUploadData.self)
+//        return User.find(req.parameters.get("userID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { user in
+//            let userID: UUID
+//            do {
+//                userID = try user.requireID()
+//            } catch {
+//                return req.eventLoop.future(error: error)
+//            }
+//            let name = "\(userID)-\(UUID()).jpg"
+//            let path = req.application.directory.workingDirectory + imageFolderUsers + name
+//            user.profilePicture.append(name)
+//            return req.fileio.writeFile(.init(data: data.picture), at: path).flatMap {
+//                let redirect = req.redirect(to: "/users/\(userID)")
+//                return user.save(on: req.db).transform(to: redirect)
+//            }
+//        }
+//    }
+    
+}
+
+struct CreateUserData: Content {
+    let firstName: String
+    let lastName: String
+    let username: String
+    let photos: [String]?
+}
+struct CreateUserAdminData: Content {
+    let addminStatus: Bool
+}
+struct CreateUserEmailData: Content {
+    let email: String
+}

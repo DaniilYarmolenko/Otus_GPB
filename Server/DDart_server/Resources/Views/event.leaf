@@ -1,14 +1,35 @@
 #extend("base"):
   #export("content"):
-    <p>#(nameEvent)<p>
-
-    <h2>#(authorName)</h2>
-
-    <h3>#(description)</h3>
-
-    <h3>#(dateStart)</h3>
-
-    <h3>#(event)</h3>
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>Name Event</th>
+        <th>Author</th>
+        <th>Date Start Event</th>
+        <th>Date End Event</th>
+        <th>Description</th>
+        <th>Event Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>#(event.nameEvent)</a></td>
+            <td>#(event.authorName)</td>
+            <td>#(event.dateStart)</td>
+            <td>#(event.dateEnd)</td>
+            <td>#(event.description)</td>
+            <td>#(event.eventType.)</td>
+        </tr>
+    </tbody>
+    </table>
+    <p id = "example"> #(event.description)</p>
+        #if(count(event.photos) > 0):
+            <div class="row">
+            #for(photoName in event.photos):
+                <img src="/Pictures/EventPictures/#(photoName)" class="rounded img-fluid" alt="#(nameEvent)" />
+             #endfor
+            </div>
+         #endif
     #if(count(eventTokens) > 0):
         #extend("eventTokenTable")
     #else:
@@ -26,8 +47,8 @@
         #endfor
       </ul>
     #endif
-    <form method="post" action="/acronyms/#(acronym.id)/delete">
-      <a class="btn btn-primary" href="/acronyms/#(acronym.id)/edit"
+    <form method="post" action="/events/#(event.id)/delete">
+      <a class="btn btn-primary" href="/events/#(event.id)/edit"
       role="button">Edit</a>&nbsp;
       <input class="btn btn-danger" type="submit" value="Delete" />
     </form>

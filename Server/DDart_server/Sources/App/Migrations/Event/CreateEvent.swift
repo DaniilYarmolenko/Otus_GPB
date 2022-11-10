@@ -20,7 +20,7 @@ struct CreateEvent: Migration {
                 .field("authorName", .string, .required)
                 .field("nameEvent", .string, .required)
                 .field("description", .string, .required)
-                .field("photos", .array(of: .string))
+                .field("photos", .array(of: .string), .required)
                 .field("dateStartEvent", .string, .required)
                 .field("dateEndEvent", .string, .required)
                 .field("eventType", eventType, .required)

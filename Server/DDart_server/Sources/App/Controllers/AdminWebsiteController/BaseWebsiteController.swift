@@ -8,18 +8,39 @@
 import Vapor
 
 struct WebsiteController: RouteCollection {
+    
+    let imageFolderEvent = "Public/Pictures/EventPictures/"
+    let imageFolderCategories = "Public/Pictures/CategoriesPictures/"
+    let imageFolderFood = "Public/Pictures/FoodPictures/"
+    let imageFolderFoodCategories = "Public/Pictures/FoodCategoriesPictures/"
+    
     func boot(routes: RoutesBuilder) throws {
+        //MARK: Login
         let authSessionsRoutes = routes.grouped(User.sessionAuthenticator())
-        
         authSessionsRoutes.get("login", use: loginHandler)
         let credentialsAuthRoutes = authSessionsRoutes.grouped(User.credentialsAuthenticator())
         credentialsAuthRoutes.post("login", use: loginPostHandler)
         authSessionsRoutes.post("logout", use: logoutHandler)
         let protectedRoutes = authSessionsRoutes.grouped(User.redirectMiddleware(path: "/login"))
+        //MARK: Events
         protectedRoutes.get(use: indexHandler)
         protectedRoutes.get("events", ":eventID", use: eventHandler)
+        protectedRoutes.get("events", "create", use: createEventHandler)
+        protectedRoutes.on(.POST, "events", "create", body: .collect(maxSize: "10mb"), use: createNewEventPostHandler)
+        protectedRoutes.post("events", ":eventID", "delete", use: deleteEventHandler)
+        protectedRoutes.get("events", ":eventID", "edit", use: editEventHandler)
+        protectedRoutes.on(.POST, "events", ":eventID", "edit", body: .collect(maxSize: "10mb"), use: editEventPostHandler)
+        
+        //MARK: Events categories
+        protectedRoutes.get("categories", use: allCategoriesHandler)
+        
+        //MARK: Food
+        
+        //MARK: FoodCategories
+        
+        //MARK: AboutDD
     }
-    
+    //MARK: Login method
     //MARK: Login view
     func loginHandler(_ req: Request) -> EventLoopFuture<View> {
         let context: LoginContext
@@ -45,11 +66,13 @@ struct WebsiteController: RouteCollection {
         }
         return req.eventLoop.future(req.redirect(to: "/"))
     }
-    
+    // MARK: Logout
     func logoutHandler(_ req: Request) -> Response {
         req.auth.logout(User.self)
         return req.redirect(to: "/")
+        
     }
+    //MARK: Event method
     //MARK: Go to all event
     func indexHandler(_ req: Request) -> EventLoopFuture<View> {
         Event.query(on: req.db).all().flatMap { events in
@@ -65,18 +88,209 @@ struct WebsiteController: RouteCollection {
             let categoriesFuture = event.$categories.query(on: req.db).all()
             let eventTokensFuture = event.$eventTokens.query(on: req.db).all()
             return eventTokensFuture.and(categoriesFuture).flatMap { eventTokens, categories in
-                    let context = EventContext(
-                        title: event.nameEvent,
-                        event: event,
-                        eventTokens: eventTokens,
-                        categories: categories
-                    )
-                    return req.view.render("event", context)
+                let context = EventContext(
+                    title: event.nameEvent,
+                    event: event,
+                    eventTokens: eventTokens,
+                    categories: categories
+                )
+                return req.view.render("event", context)
+            }
+        }
+    }
+    //MARK: Create new event
+    func createNewEventPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let data = try req.content.decode(CreateEventFormData.self)
+        let photo = try req.content.decode(ImageUploadData.self)
+        let event = Event(id: UUID(), authorName: data.authorName, nameEvent: data.nameEvent, description: data.description, photos: [], dateStart: data.dateStart, dateEnd: data.dateEnd, eventType: data.eventType)
+        guard let id = event.id else {
+            return req.eventLoop.future(error: Abort(.internalServerError))
+        }
+        var uploadFutures = [EventLoopFuture<Void>]()
+        print("PROVERKA FUTURES \(uploadFutures)")
+        print("PROVERKA PHOTO \(photo.files)")
+        print(photo.files.capacity)
+        print(photo.files.count)
+        print(photo.files.description)
+        if photo.files.first! != Data() {
+            uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
+                print("ZAHPDIM ZAHODIM")
+                let name = "\(id)-\(UUID()).jpg"
+                let path = req.application.directory.workingDirectory + imageFolderEvent + name
+                event.photos.append(name)
+                return req.fileio.writeFile(.init(data: file), at: path)
+            }
+        }
+        print("PROVERKA FUTURES \(uploadFutures)")
+            
+        let redirect = req.redirect(to: "/events/\(id)")
+        event.save(on: req.db).map {
+            var categorySaves: [EventLoopFuture<Void>] = []
+            for category in data.categories ?? [] {
+                categorySaves.append(Category.addCategory(category, to: event, on: req))
+            }
+        }
+        return req.eventLoop.flatten(uploadFutures).transform(to: redirect)
+    }
+    //MARK: page create event
+    func createEventHandler(_ req: Request) -> EventLoopFuture<View> {
+        let token = [UInt8].random(count: 16).base64
+        let context = CreateEventContext(csrfToken: token)
+        req.session.data["CSRF_TOKEN"] = token
+        return req.view.render("createEvent", context)
+    }
+    //MARK: Delete event
+    func deleteEventHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let event = try Event.find(req.parameters.get("eventID"), on: req.db).unwrap(or: Abort(.notFound))
+        var photos = [String]()
+        print("photos = \(photos)")
+        event.map { event in
+            print("1")
+            photos = event.photos
+            print("photos = \(photos)")
+            photos.forEach { photo in
+                let filepath = req.application.directory.workingDirectory + imageFolderEvent + photo
+                do {
+                    try FileManager.default.removeItem(atPath: filepath)
+                }
+                catch {
+                    print("OSHIBKA")
+                    print(error)
                 }
             }
         }
+        return Event.find(req.parameters.get("eventID"), on: req.db)
+        .unwrap(or: Abort(.notFound)).flatMap { event in
+            return event.delete(on: req.db).transform(to: req.redirect(to: "/"))
+        }
+    }
+//MARK: Create event update page
+func editEventHandler(_ req: Request) -> EventLoopFuture<View> {
+    return Event.find(req.parameters.get("eventID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { event in
+        event.$categories.get(on: req.db).flatMap { categories in
+            let context = EditEventContext(event: event, categories: categories)
+            return req.view.render("createEvent", context)
+        }
+    }
+}
+    func allCategoriesHandler(_ req: Request) -> EventLoopFuture<View> {
+        Category.query(on: req.db).all().flatMap { categories in
+            let context = AllCategoriesContext(categories: categories)
+            return req.view.render("allCategories", context)
+        }
+    }
+
+//    //MARK: Edit event method
+    func editEventPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let updateData = try req.content.decode(CreateEventFormData.self)
+        let photo = try req.content.decode(ImageUploadData.self)
+        var photos = [String]()
+        return Event.find(req.parameters.get("eventID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { event in
+            event.authorName = updateData.authorName
+            event.nameEvent = updateData.nameEvent
+            event.description = updateData.description
+            event.dateStart = updateData.dateStart
+            event.dateEnd = updateData.dateEnd
+            event.eventType = updateData.eventType
+            photos = event.photos
+            guard let id = event.id else {
+                return req.eventLoop.future(error: Abort(.internalServerError))
+            }
+            photos.forEach { photo in
+                let filepath = req.application.directory.workingDirectory + imageFolderEvent + photo
+                    do {
+                        try FileManager.default.removeItem(atPath: filepath)
+                    }
+                    catch {
+                        print("OSHIBKA")
+                        print(error)
+                    }
+                }
+            event.photos = []
+            var uploadFutures = [EventLoopFuture<Void>]()
+            if photo.files.first != Data() {
+                uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
+                    let name = "\(id)-\(UUID()).jpg"
+                    let path = req.application.directory.workingDirectory + imageFolderEvent + name
+                    event.photos.append(name)
+                    return req.fileio.writeFile(.init(data: file), at: path)
+                }
+            }
+            return event.save(on: req.db).flatMap {
+                event.$categories.get(on: req.db)
+            }.flatMap { existingCategories in
+                let existingStringArray = existingCategories.map {
+                    $0.name
+                }
+
+                let existingSet = Set<String>(existingStringArray)
+                let newSet = Set<String>(updateData.categories ?? [])
+
+                let categoriesToAdd = newSet.subtracting(existingSet)
+                let categoriesToRemove = existingSet.subtracting(newSet)
+
+                var categoryResults: [EventLoopFuture<Void>] = []
+                for newCategory in categoriesToAdd {
+                    categoryResults.append(Category.addCategory(newCategory, to: event, on: req))
+                }
+
+                for categoryNameToRemove in categoriesToRemove {
+                    let categoryToRemove = existingCategories.first {
+                        $0.name == categoryNameToRemove
+                    }
+                    if let category = categoryToRemove {
+                        categoryResults.append(
+                            event.$categories.detach(category, on: req.db))
+                    }
+                }
+                categoryResults.append(contentsOf: uploadFutures)
+                let redirect = req.redirect(to: "/events/\(id)")
+                return categoryResults.flatten(on: req.eventLoop).transform(to: redirect)
+            }
+        }
+    }
 }
 
+//    func getEventProfilePictureHandler(_ req: Request)
+//      -> EventLoopFuture<Response> {
+//          let namePhoto = req.parameters.get("photoID") ?? "anonim"
+//          let path = req.application.directory
+//                  .workingDirectory + imageFolderEvent + namePhoto
+//          return req.eventLoop.
+//            req.fileio.streamFile(at: path)
+//      }
+//    }
+//    func addEventPicturePostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+//        let data = try req.content.decode(ImageUploadData.self)
+//        return data.images.map { file in
+//            let fileName = ""
+//        }
+//    }
+//        return User.find(req.parameters.get("userID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { user in
+//            let userID: UUID
+//            do {
+//                userID = try user.requireID()
+//            } catch {
+//                return req.eventLoop.future(error: error)
+//            }
+//            let name = "\(userID)-\(UUID()).jpg"
+//            let path = req.application.directory.workingDirectory + imageFolderEvent + name
+//            user.profilePicture = name
+//            return req.fileio.writeFile(.init(data: data.picture), at: path).flatMap {
+//                let redirect = req.redirect(to: "/users/\(userID)")
+//                return user.save(on: req.db).transform(to: redirect)
+//            }
+//        }
+//MARK: Login context
+struct LoginContext: Encodable {
+    let title = "Log In"
+    let loginError: Bool
+    
+    init(loginError: Bool = false) {
+        self.loginError = loginError
+    }
+}
+//MARK: Events context
 struct IndexContext: Encodable {
     let title: String
     let events: [Event]
@@ -90,6 +304,36 @@ struct EventContext: Encodable {
     let eventTokens: [EventToken]
     let categories: [Category]
 }
+struct CreateEventContext: Encodable {
+    let title = "Create event"
+    let csrfToken: String
+}
+struct CreateEventFormData: Content {
+    let authorName: String
+    let nameEvent: String
+    let description: String
+    let dateStart: String
+    let dateEnd: String
+    var eventType: EventType = .admin
+    let categories: [String]?
+    let csrfToken: String?
+}
+struct EditEventContext: Encodable {
+    let title = "Edit event"
+    let event: Event
+    let editing = true
+    let categories: [Category]
+}
+//MARK: Categories context
+struct AllCategoriesContext: Encodable {
+    let title = "All Categories"
+    let categories: [Category]
+}
+//MARK: Image content
+struct ImageUploadData: Content {
+    var files: [Data]
+}
+
 //    authSessionsRoutes.get("register", use: registerHandler)
 //    authSessionsRoutes.post("register", use: registerPostHandler)
 //
@@ -200,14 +444,7 @@ struct EventContext: Encodable {
 //    }
 //  }
 //
-//  func editAcronymHandler(_ req: Request) -> EventLoopFuture<View> {
-//    return Acronym.find(req.parameters.get("acronymID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { acronym in
-//      acronym.$categories.get(on: req.db).flatMap { categories in
-//        let context = EditAcronymContext(acronym: acronym, categories: categories)
-//        return req.view.render("createAcronym", context)
-//      }
-//    }
-//  }
+
 //
 //  func editAcronymPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
 //    let user = try req.auth.require(User.self)
@@ -254,11 +491,6 @@ struct EventContext: Encodable {
 //    }
 //  }
 //
-//  func deleteAcronymHandler(_ req: Request) -> EventLoopFuture<Response> {
-//    Acronym.find(req.parameters.get("acronymID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { acronym in
-//      acronym.delete(on: req.db).transform(to: req.redirect(to: "/"))
-//    }
-//  }
 //
 //
 //
@@ -347,14 +579,6 @@ struct EventContext: Encodable {
 //  let csrfToken: String?
 //}
 //
-struct LoginContext: Encodable {
-    let title = "Log In"
-    let loginError: Bool
-    
-    init(loginError: Bool = false) {
-        self.loginError = loginError
-    }
-}
 //
 //struct RegisterContext: Encodable {
 //  let title = "Register"

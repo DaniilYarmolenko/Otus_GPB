@@ -1,0 +1,71 @@
+#extend("base"):
+  #export("content"):
+    <h1>#(title)</h1>
+
+    <form method="post" enctype="multipart/form-data">
+      #if(csrfToken):
+        <input type="hidden" name="csrfToken" value="#(csrfToken)">
+      #endif
+      
+      <div class="form-group">
+        <label for="nameEvent">Name event</label>
+        <input type="text" name="nameEvent" class="form-control"
+        id="eventName" #if(editing): value="#(event.nameEvent)" #endif/>
+      </div>
+
+      <div class="form-group">
+        <label for="authorName">Author name</label>
+        <input type="text" name="authorName" class="form-control"
+        id="authorName" #if(editing): value="#(event.authorName)" #endif/>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" rows="4" class="form-control"
+        id="description" #if(editing): value="#(event)" #endif>
+        </textarea>
+      </div>
+      
+      <div class="form-group">
+            <div class="mb-3">
+                <label for="files">Images (Нужно выбирать в нужном порядке и ккаждый раз при обновлении)</label>
+                <input type="file" accept="image/*" name="files[]" class="form-control"
+                id="files" #if(editing): value="#(event)" #endif multiple/>
+              </div>
+        </div>
+       <div class="row">
+            <div class="form-group">
+                <label for="dateStart">Start event d/M/yyyy, HH:mm</label>
+                <input type="text" name="dateStart" class="form-control"
+                id="dateStart" #if(editing): value="#(event.dateStart)" #endif/>
+            </div>   
+            <div class="form-group">
+                <label for="dateEnd">End event d/M/yyyy, HH:mm</label>
+                <input type="text" name="dateEnd" class="form-control"
+                id="dateEnd" #if(editing): value="#(event.dateEnd)" #endif/>
+             </div>
+        </div>
+        <div class="form-group">
+        <label for="eventType">Event type (admin/standard)</label>
+        <input type="text" name="eventType" class="form-control"
+        id="eventType" #if(editing): value="#(event.eventType)" #endif/>
+        </div>
+        <div class="form-group">
+        <label for="categories">Categories</label>
+        <select name="categories[]" class="form-control"
+         id="categories" placeholder="Categories" multiple="multiple">
+        #if(editing):
+            #for(category in categories):
+              <option value="#(category.name)" selected="selected">
+                #(category.name)
+              </option>
+            #endfor
+        #endif
+        </select>
+        </div>
+            <button type="submit" class="btn btn-primary">
+            #if(editing): Update #else: Submit #endif
+        </button>
+    </form>
+  #endexport
+#endextend

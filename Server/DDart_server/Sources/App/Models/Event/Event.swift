@@ -23,8 +23,8 @@ final class Event: Model {
     @Field(key: "description")
     var description: String
     
-    @OptionalField(key: "photos")
-    var photos: [String]?
+    @Field(key: "photos")
+    var photos: [String]
     
     @Field(key: "dateStartEvent")
     var dateStart: String
@@ -44,7 +44,7 @@ final class Event: Model {
     
     init() {}
     
-    init(id: UUID? = nil, authorName: String, nameEvent: String, description: String, photos: [String]? = nil, dateStart: String, dateEnd: String, eventType: EventType = .admin) {
+    init(id: UUID? = nil, authorName: String, nameEvent: String, description: String, photos: [String] = [], dateStart: String, dateEnd: String, eventType: EventType = .admin) {
         self.id = id
         self.authorName = authorName
         self.nameEvent = nameEvent
@@ -64,7 +64,7 @@ extension Event: Content {}
 extension String {
     func toDate() -> Date {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d M yyyy, HH:mm"
+        formatter.dateFormat = "d/M/yyyy, HH:mm"
         formatter.timeZone = TimeZone(abbreviation: "MSD")
         return formatter.date(from: self) ?? Date()
     }
@@ -72,7 +72,7 @@ extension String {
 extension Date {
     func toString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d M yyyy, HH:mm"
+        formatter.dateFormat = "d/M/yyyy, HH:mm"
         formatter.timeZone = TimeZone(abbreviation: "MSD")
         return formatter.string(from: self)
     }
