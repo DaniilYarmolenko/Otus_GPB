@@ -40,6 +40,9 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateCategoryFood())
     app.migrations.add(CreateFoodCategoryPivot())
     app.migrations.add(CreateToken())
+    app.migrations.add(CreateInfo())
+    app.migrations.add(CreateNews())
+    app.migrations.add(CreateInfoInitial())
     app.migrations.add(CreateAdminUser())
 
     

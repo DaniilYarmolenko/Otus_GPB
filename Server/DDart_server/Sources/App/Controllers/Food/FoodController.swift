@@ -144,5 +144,5 @@ struct CreateFoodData: Content {
     let nameFood: String
     let description: String
     let photos: [String]?
-    let cost: String
+    let cost: Int
 }

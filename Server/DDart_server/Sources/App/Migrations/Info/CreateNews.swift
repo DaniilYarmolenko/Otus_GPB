@@ -1,26 +1,25 @@
 //
-//  CreateFood.swift
+//  CreateNews.swift
+//  
 //
-//
-//  Created by Даниил Ярмоленко on 06.11.2022.
+//  Created by Даниил Ярмоленко on 12.11.2022.
 //
 
 import Foundation
 import Fluent
 
-struct CreateFood: Migration {
+struct CreateNews: Migration {
   func prepare(on database: Database) -> EventLoopFuture<Void> {
-    database.schema("foods")
+    database.schema("news")
       .id()
-      .field("nameFood", .string, .required)
+      .field("titleNews", .string, .required)
+      .field("newsName", .string, .required)
       .field("description", .string, .required)
       .field("photos", .array(of: .string), .required)
-      .field("cost", .int, .required)
-      .unique(on: "nameFood")
       .create()
   }
   
   func revert(on database: Database) -> EventLoopFuture<Void> {
-    database.schema("foods").delete()
+    database.schema("news").delete()
   }
 }

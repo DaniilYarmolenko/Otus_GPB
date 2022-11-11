@@ -20,3 +20,4 @@ struct CreateCategoryFood: Migration {
     database.schema("category-food").delete()
   }
 }
+

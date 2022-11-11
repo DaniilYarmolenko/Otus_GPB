@@ -41,7 +41,7 @@ Friday:
 - All About Web
 
 - Do it all homework
-Satarday:
+Saturday:
 
 - Update all mobile method
 - write all test

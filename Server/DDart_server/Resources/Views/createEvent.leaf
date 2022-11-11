@@ -22,8 +22,7 @@
       <div class="form-group">
         <label for="description">Description</label>
         <textarea name="description" rows="4" class="form-control"
-        id="description" #if(editing): value="#(event)" #endif>
-        </textarea>
+        id="description" #if(editing): value="#(event)" #endif></textarea>
       </div>
       
       <div class="form-group">
