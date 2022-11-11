@@ -24,18 +24,18 @@ final class CategoryFood: Model, Content {
     @Field(key: "name")
     var name: String
     
-    @OptionalField(key: "photo")
-    var photo: String?
+    @Field(key: "photos")
+    var photos: [String]
     
     @Siblings(through: FoodCategoryPivot.self, from: \.$categoryFood, to: \.$food)
     var foods: [Food]
     
     init() {}
     
-    init(id: UUID? = nil, name: String, photo: String? = nil) {
+    init(id: UUID? = nil, name: String, photos: [String] = []) {
         self.id = id
         self.name = name
-        self.photo = photo
+        self.photos = photos
     }
 }
 

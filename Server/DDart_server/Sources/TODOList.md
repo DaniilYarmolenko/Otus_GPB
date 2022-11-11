@@ -33,9 +33,9 @@ pay server
 deploy on server - check
 
 Friday: 
-- Update categories
-- Upload photo Categories
-- Delete Categories
+- Update categories +
+- Upload photo Categories +
+- Delete Categories +
 
 - All Food Web
 - All About Web

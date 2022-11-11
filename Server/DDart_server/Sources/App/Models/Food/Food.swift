@@ -20,8 +20,8 @@ final class Food: Model {
     @Field(key: "description")
     var description: String
     
-    @OptionalField(key: "photos")
-    var photos: [String]?
+    @Field(key: "photos")
+    var photos: [String]
     
     @Field(key: "cost")
     var cost: String
@@ -31,7 +31,7 @@ final class Food: Model {
     
     init() {}
     
-    init(id: UUID? = nil, nameFood: String, cost: String, description: String, photos: [String]? = nil) {
+    init(id: UUID? = nil, nameFood: String, cost: String, description: String, photos: [String] = []) {
         self.id = id
         self.nameFood = nameFood
         self.cost = cost

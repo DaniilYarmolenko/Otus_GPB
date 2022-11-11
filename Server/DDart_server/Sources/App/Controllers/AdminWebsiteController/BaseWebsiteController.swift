@@ -31,9 +31,13 @@ struct WebsiteController: RouteCollection {
         protectedRoutes.get("events", ":eventID", "edit", use: editEventHandler)
         protectedRoutes.on(.POST, "events", ":eventID", "edit", body: .collect(maxSize: "10mb"), use: editEventPostHandler)
         
+        
         //MARK: Events categories
         protectedRoutes.get("categories", use: allCategoriesHandler)
-        
+        protectedRoutes.get("categories",":categoryID", use: categoryHandler)
+        protectedRoutes.post("categories", ":categoryID", "delete", use: deleteCategoryHandler)
+        protectedRoutes.get("categories", ":categoryID", "edit", use: editCategoryHandler)
+        protectedRoutes.on(.POST, "categories", ":categoryID", "edit", body: .collect(maxSize: "10mb"), use: editCategoryPostHandler)
         //MARK: Food
         
         //MARK: FoodCategories
@@ -107,22 +111,14 @@ struct WebsiteController: RouteCollection {
             return req.eventLoop.future(error: Abort(.internalServerError))
         }
         var uploadFutures = [EventLoopFuture<Void>]()
-        print("PROVERKA FUTURES \(uploadFutures)")
-        print("PROVERKA PHOTO \(photo.files)")
-        print(photo.files.capacity)
-        print(photo.files.count)
-        print(photo.files.description)
         if photo.files.first! != Data() {
             uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
-                print("ZAHPDIM ZAHODIM")
                 let name = "\(id)-\(UUID()).jpg"
                 let path = req.application.directory.workingDirectory + imageFolderEvent + name
                 event.photos.append(name)
                 return req.fileio.writeFile(.init(data: file), at: path)
             }
         }
-        print("PROVERKA FUTURES \(uploadFutures)")
-            
         let redirect = req.redirect(to: "/events/\(id)")
         event.save(on: req.db).map {
             var categorySaves: [EventLoopFuture<Void>] = []
@@ -143,44 +139,34 @@ struct WebsiteController: RouteCollection {
     func deleteEventHandler(_ req: Request) throws -> EventLoopFuture<Response> {
         let event = try Event.find(req.parameters.get("eventID"), on: req.db).unwrap(or: Abort(.notFound))
         var photos = [String]()
-        print("photos = \(photos)")
         event.map { event in
-            print("1")
             photos = event.photos
-            print("photos = \(photos)")
             photos.forEach { photo in
                 let filepath = req.application.directory.workingDirectory + imageFolderEvent + photo
                 do {
                     try FileManager.default.removeItem(atPath: filepath)
                 }
                 catch {
-                    print("OSHIBKA")
                     print(error)
                 }
             }
         }
         return Event.find(req.parameters.get("eventID"), on: req.db)
-        .unwrap(or: Abort(.notFound)).flatMap { event in
-            return event.delete(on: req.db).transform(to: req.redirect(to: "/"))
+            .unwrap(or: Abort(.notFound)).flatMap { event in
+                return event.delete(on: req.db).transform(to: req.redirect(to: "/"))
+            }
+    }
+    //MARK: Create event update page
+    func editEventHandler(_ req: Request) -> EventLoopFuture<View> {
+        return Event.find(req.parameters.get("eventID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { event in
+            event.$categories.get(on: req.db).flatMap { categories in
+                let context = EditEventContext(event: event, categories: categories)
+                return req.view.render("createEvent", context)
+            }
         }
     }
-//MARK: Create event update page
-func editEventHandler(_ req: Request) -> EventLoopFuture<View> {
-    return Event.find(req.parameters.get("eventID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { event in
-        event.$categories.get(on: req.db).flatMap { categories in
-            let context = EditEventContext(event: event, categories: categories)
-            return req.view.render("createEvent", context)
-        }
-    }
-}
-    func allCategoriesHandler(_ req: Request) -> EventLoopFuture<View> {
-        Category.query(on: req.db).all().flatMap { categories in
-            let context = AllCategoriesContext(categories: categories)
-            return req.view.render("allCategories", context)
-        }
-    }
-
-//    //MARK: Edit event method
+    
+    //    //MARK: Edit event method
     func editEventPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
         let updateData = try req.content.decode(CreateEventFormData.self)
         let photo = try req.content.decode(ImageUploadData.self)
@@ -198,14 +184,13 @@ func editEventHandler(_ req: Request) -> EventLoopFuture<View> {
             }
             photos.forEach { photo in
                 let filepath = req.application.directory.workingDirectory + imageFolderEvent + photo
-                    do {
-                        try FileManager.default.removeItem(atPath: filepath)
-                    }
-                    catch {
-                        print("OSHIBKA")
-                        print(error)
-                    }
+                do {
+                    try FileManager.default.removeItem(atPath: filepath)
                 }
+                catch {
+                    print(error)
+                }
+            }
             event.photos = []
             var uploadFutures = [EventLoopFuture<Void>]()
             if photo.files.first != Data() {
@@ -222,18 +207,18 @@ func editEventHandler(_ req: Request) -> EventLoopFuture<View> {
                 let existingStringArray = existingCategories.map {
                     $0.name
                 }
-
+                
                 let existingSet = Set<String>(existingStringArray)
                 let newSet = Set<String>(updateData.categories ?? [])
-
+                
                 let categoriesToAdd = newSet.subtracting(existingSet)
                 let categoriesToRemove = existingSet.subtracting(newSet)
-
+                
                 var categoryResults: [EventLoopFuture<Void>] = []
                 for newCategory in categoriesToAdd {
                     categoryResults.append(Category.addCategory(newCategory, to: event, on: req))
                 }
-
+                
                 for categoryNameToRemove in categoriesToRemove {
                     let categoryToRemove = existingCategories.first {
                         $0.name == categoryNameToRemove
@@ -249,38 +234,117 @@ func editEventHandler(_ req: Request) -> EventLoopFuture<View> {
             }
         }
     }
+    
+    //MARK: Categories
+    func allCategoriesHandler(_ req: Request) -> EventLoopFuture<View> {
+        Category.query(on: req.db).all().flatMap { categories in
+            let context = AllCategoriesContext(categories: categories)
+            return req.view.render("allCategories", context)
+        }
+    }
+    //MARK: Get category info
+    func categoryHandler(_ req: Request) -> EventLoopFuture<View> {
+        Category.find(req.parameters.get("categoryID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { category in
+            category.$event.query(on: req.db).all().flatMap { events in
+                let context = CategoryContext(title: category.name, events: events, category: category)
+                return req.view.render("category", context)
+            }
+        }
+    }
+    //MARK: Delete category
+    func deleteCategoryHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let category = try Category.find(req.parameters.get("categoryID"), on: req.db).unwrap(or: Abort(.notFound))
+        var photos = [String]()
+        category.map { category in
+            photos = category.photos
+            photos.forEach { photo in
+                let filepath = req.application.directory.workingDirectory + imageFolderCategories + photo
+                do {
+                    try FileManager.default.removeItem(atPath: filepath)
+                }
+                catch {
+                    print(error)
+                }
+            }
+        }
+        return Category.find(req.parameters.get("categoryID"), on: req.db)
+            .unwrap(or: Abort(.notFound)).flatMap { category in
+                return category.delete(on: req.db).transform(to: req.redirect(to: "/"))
+            }
+    }
+    func editCategoryHandler(_ req: Request) -> EventLoopFuture<View> {
+        Category.find(req.parameters.get("categoryID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { category in
+                let context = EditCategoryContext(category: category)
+                return req.view.render("editCategory", context)
+        }
+    }
+    func editCategoryPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let updateData = try req.content.decode(CreateCategoryFormData.self)
+        let photo = try req.content.decode(ImageUploadData.self)
+        var photos = [String]()
+        return Category.find(req.parameters.get("categoryID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { category in
+            category.name = updateData.name
+            photos = category.photos
+            guard let id = category.id else {
+                return req.eventLoop.future(error: Abort(.internalServerError))
+            }
+            photos.forEach { photo in
+                let filepath = req.application.directory.workingDirectory + imageFolderCategories + photo
+                do {
+                    try FileManager.default.removeItem(atPath: filepath)
+                }
+                catch {
+                    print(error)
+                }
+            }
+            category.photos = []
+            var uploadFutures = [EventLoopFuture<Void>]()
+            if photo.files.first != Data() {
+                uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
+                    let name = "\(id)-\(UUID()).jpg"
+                    let path = req.application.directory.workingDirectory + imageFolderCategories + name
+                    category.photos.append(name)
+                    return req.fileio.writeFile(.init(data: file), at: path)
+                }
+            }
+            let redirect = req.redirect(to: "/categories/\(id)")
+            return category.save(on: req.db).transform(to: redirect)
+        }
+    }
 }
+//                .flatMap {
+//                event.$categories.get(on: req.db)
+//            }
+//            .flatMap { existingCategories in
+//                let existingStringArray = existingCategories.map {
+//                    $0.name
+//                }
+//
+//                let existingSet = Set<String>(existingStringArray)
+//                let newSet = Set<String>(updateData.categories ?? [])
+//
+//                let categoriesToAdd = newSet.subtracting(existingSet)
+//                let categoriesToRemove = existingSet.subtracting(newSet)
+//
+//                var categoryResults: [EventLoopFuture<Void>] = []
+//                for newCategory in categoriesToAdd {
+//                    categoryResults.append(Category.addCategory(newCategory, to: event, on: req))
+//                }
+//
+//                for categoryNameToRemove in categoriesToRemove {
+//                    let categoryToRemove = existingCategories.first {
+//                        $0.name == categoryNameToRemove
+//                    }
+//                    if let category = categoryToRemove {
+//                        categoryResults.append(
+//                            event.$categories.detach(category, on: req.db))
+//                    }
+//                }
+//                categoryResults.append(contentsOf: uploadFutures)
+//                let redirect = req.redirect(to: "/events/\(id)")
+//                return categoryResults.flatten(on: req.eventLoop).transform(to: redirect)
+//            }
 
-//    func getEventProfilePictureHandler(_ req: Request)
-//      -> EventLoopFuture<Response> {
-//          let namePhoto = req.parameters.get("photoID") ?? "anonim"
-//          let path = req.application.directory
-//                  .workingDirectory + imageFolderEvent + namePhoto
-//          return req.eventLoop.
-//            req.fileio.streamFile(at: path)
-//      }
-//    }
-//    func addEventPicturePostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
-//        let data = try req.content.decode(ImageUploadData.self)
-//        return data.images.map { file in
-//            let fileName = ""
-//        }
-//    }
-//        return User.find(req.parameters.get("userID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { user in
-//            let userID: UUID
-//            do {
-//                userID = try user.requireID()
-//            } catch {
-//                return req.eventLoop.future(error: error)
-//            }
-//            let name = "\(userID)-\(UUID()).jpg"
-//            let path = req.application.directory.workingDirectory + imageFolderEvent + name
-//            user.profilePicture = name
-//            return req.fileio.writeFile(.init(data: data.picture), at: path).flatMap {
-//                let redirect = req.redirect(to: "/users/\(userID)")
-//                return user.save(on: req.db).transform(to: redirect)
-//            }
-//        }
 //MARK: Login context
 struct LoginContext: Encodable {
     let title = "Log In"
@@ -326,8 +390,24 @@ struct EditEventContext: Encodable {
 }
 //MARK: Categories context
 struct AllCategoriesContext: Encodable {
-    let title = "All Categories"
+    let title = "Event Categories"
     let categories: [Category]
+}
+//MARK: Category info context
+struct CategoryContext: Encodable {
+    let title: String
+    let events: [Event]
+    let category: Category
+    
+}
+struct EditCategoryContext: Encodable {
+    let title = "Edit event"
+    let category: Category
+}
+struct CreateCategoryFormData: Content {
+    let name: String
+    let events: [String]?
+    let csrfToken: String?
 }
 //MARK: Image content
 struct ImageUploadData: Content {

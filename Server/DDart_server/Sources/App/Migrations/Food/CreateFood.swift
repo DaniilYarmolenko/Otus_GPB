@@ -14,7 +14,7 @@ struct CreateFood: Migration {
       .id()
       .field("nameFood", .string, .required)
       .field("description", .string, .required)
-      .field("photos", .array(of: .string))
+      .field("photos", .array(of: .string), .required)
       .field("cost", .date, .required)
       .unique(on: "nameFood")
       .create()

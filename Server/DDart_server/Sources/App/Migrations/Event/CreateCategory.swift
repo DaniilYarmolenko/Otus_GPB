@@ -12,7 +12,7 @@ struct CreateCategory: Migration {
     database.schema("categories")
       .id()
       .field("name", .string, .required)
-      .field("photo", .array(of: .string))
+      .field("photos", .array(of: .string), .required)
       .create()
   }
   

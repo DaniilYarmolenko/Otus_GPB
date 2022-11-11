@@ -1,0 +1,33 @@
+#extend("base"):
+  #export("content"):
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>Name Category</th>
+        <th>Count event</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>#(category.name)</a></td>
+            <td>#(count(events))</td>
+        </tr>
+    </tbody>
+    </table>
+    #if(count(category.photos) > 0):
+        <div class="row">
+            #for(photoName in category.photos):
+                <img src="/Pictures/CategoriesPictures/#(photoName)" class="rounded img-fluid" alt="#(category.name)" />
+            #endfor
+        </div>
+    #endif    
+    #if(count(events) > 0):
+      #extend("eventTable")
+    #endif
+    <form method="post" action="/categories/#(category.id)/delete">
+      <a class="btn btn-primary" href="/categories/#(category.id)/edit"
+      role="button">Edit</a>&nbsp;
+      <input class="btn btn-danger" type="submit" value="Delete" />
+    </form>
+  #endexport
+#endextend

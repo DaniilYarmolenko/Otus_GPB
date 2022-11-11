@@ -31,14 +31,18 @@
          <li class="nav-item #if(title == "Create event"): active #endif">
           <a href="/events/create" class="nav-link">Create Event</a>
         </li>
-       <li class="nav-item #if(title == "All Categories"): active #endif">
+       <li class="nav-item #if(title == "Event Categories"): active #endif">
+          <a href="/categories" class="nav-link">Event Categories</a>
+        </li>
+        <li class="nav-item #if(title == "Food"): active #endif">
           <a href="/categories" class="nav-link">Food</a>
         </li>
-        <li class="nav-item #if(title == "Create An Acronym"): active #endif">
-          <a href="/acronyms/create" class="nav-link">
-            Create Food
-          </a>
-        </li> 
+        <li class="nav-item #if(title == "Create food"): active #endif">
+          <a href="/acronyms/create" class="nav-link">Create Food</a>
+        </li>
+         <li class="nav-item #if(title == "Food Categories"): active #endif">
+          <a href="/acronyms/create" class="nav-link">Create Food</a>
+        </li>  
         <!-- #if(!userLoggedIn):
          
           <li class="nav-item #if(title == "Register"): active #endif">
