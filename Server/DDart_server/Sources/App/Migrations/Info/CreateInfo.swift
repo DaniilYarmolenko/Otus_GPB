@@ -12,7 +12,7 @@ struct CreateInfo: Migration {
   func prepare(on database: Database) -> EventLoopFuture<Void> {
     database.schema("info")
       .id()
-      .field("phoneNumber", .array(of: .string), .required)
+      .field("phoneNumber", .string, .required)
       .field("email", .string, .required)
       .field("address", .string, .required)
       .field("vk", .string)

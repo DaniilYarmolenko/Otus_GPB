@@ -15,7 +15,7 @@ final class Info: Model {
     var id: UUID?
     
     @Field(key: "phoneNumber")
-    var phoneNumber: [String]
+    var phoneNumber: String
     @Field(key: "email")
     var email: String
     @Field(key: "address")
@@ -32,7 +32,7 @@ final class Info: Model {
     var latitude: String
     init() {}
     
-    init(id: UUID? = nil, phoneNumber: [String], email: String, address: String, vk: String? = nil, instagram: String? = nil, telegram: String? = nil, longitude: String, latitude: String) {
+    init(id: UUID? = nil, phoneNumber: String, email: String, address: String, vk: String? = nil, instagram: String? = nil, telegram: String? = nil, longitude: String, latitude: String) {
         self.id = id
         self.phoneNumber = phoneNumber
         self.email = email

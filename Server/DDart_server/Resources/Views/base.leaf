@@ -43,6 +43,15 @@
          <li class="nav-item #if(title == "Food Categories"): active #endif">
           <a href="/foodCategories" class="nav-link">Food Categories</a>
         </li>  
+        <li class="nav-item #if(title == "Infos"): active #endif">
+          <a href="/info" class="nav-link">infoPage</a>
+        </li> 
+        <li class="nav-item #if(title == "All news"): active #endif">
+          <a href="/news" class="nav-link">News</a>
+        </li>
+        <li class="nav-item #if(title == "Create news"): active #endif">
+          <a href="/news/create" class="nav-link">Create News</a>
+        </li> 
         <!-- #if(!userLoggedIn):
          
           <li class="nav-item #if(title == "Register"): active #endif">

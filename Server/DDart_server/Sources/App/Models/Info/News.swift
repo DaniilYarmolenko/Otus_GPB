@@ -16,7 +16,7 @@ final class News: Model {
     @Field(key: "titleNews")
     var titleNews: String
     
-    @Field(key: "nameFood")
+    @Field(key: "newsName")
     var newsName: String
     
     @Field(key: "description")

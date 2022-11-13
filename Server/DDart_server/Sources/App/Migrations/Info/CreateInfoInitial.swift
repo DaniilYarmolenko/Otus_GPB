@@ -12,7 +12,7 @@ import Vapor
 struct CreateInfoInitial: Migration {
   func prepare(on database: Database) -> EventLoopFuture<Void> {
       
-      let info = Info(phoneNumber: ["+79162804297"], email: "DaniilYarmolenko@gmail.com", address: "Moscow, Tverskaya str. 1", vk: "https://vk.com/daniilwisniewski", telegram: "t.me/ydmsu", longitude: "55.770076", latitude: "37.595079")
+      let info = Info(phoneNumber: "+79162804297", email: "DaniilYarmolenko@gmail.com", address: "Moscow, Tverskaya str. 1", vk: "https://vk.com/daniilwisniewski", telegram: "t.me/ydmsu", longitude: "55.770076", latitude: "37.595079")
     return info.save(on: database)
   }
 

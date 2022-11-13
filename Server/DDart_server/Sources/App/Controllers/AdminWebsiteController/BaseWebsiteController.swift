@@ -13,6 +13,7 @@ struct WebsiteController: RouteCollection {
     let imageFolderCategories = "Public/Pictures/CategoriesPictures/"
     let imageFolderFood = "Public/Pictures/FoodPictures/"
     let imageFolderFoodCategories = "Public/Pictures/FoodCategoriesPictures/"
+    let imageFolderNews = "Public/Pictures/NewsPictures/"
     
     func boot(routes: RoutesBuilder) throws {
         //MARK: Login
@@ -40,7 +41,7 @@ struct WebsiteController: RouteCollection {
         protectedRoutes.on(.POST, "categories", ":categoryID", "edit", body: .collect(maxSize: "10mb"), use: editCategoryPostHandler)
         //MARK: Food
         protectedRoutes.get("foods", use: allFoodHandler)
-        protectedRoutes.get("foods", ":foodID", use: foodHandler(_:))
+        protectedRoutes.get("foods", ":foodID", use: foodHandler)
         protectedRoutes.get("foods", "create", use: createFoodHandler)
         protectedRoutes.on(.POST, "foods", "create", body: .collect(maxSize: "10mb"), use: createNewFoodPostHandler)
         protectedRoutes.post("foods", ":foodID", "delete", use: deleteFoodHandler)
@@ -52,7 +53,20 @@ struct WebsiteController: RouteCollection {
         protectedRoutes.post("foodCategories", ":categoryFoodID", "delete", use: deleteFoodCategoryHandler)
         protectedRoutes.get("foodCategories", ":categoryFoodID", "edit", use: editFoodCategoryHandler)
         protectedRoutes.on(.POST, "foodCategories", ":categoryFoodID", "edit", body: .collect(maxSize: "10mb"), use: editFoodCategoryPostHandler)
-        //MARK: AboutDD
+        //MARK: Info
+        protectedRoutes.get("info", use: basicInfoHandler)
+        protectedRoutes.get("info",":infoID", use: infoHandler)
+        protectedRoutes.get("info", ":infoID", "edit", use: editInfoHandler)
+        protectedRoutes.on(.POST, "info", ":infoID", "edit", body: .collect(maxSize: "10mb"), use: editInfoPostHandler)
+        //MARK: News
+        protectedRoutes.get("news", use: allNewsHandler)
+        protectedRoutes.get("news", ":newsID", use: newsHandler)
+        protectedRoutes.get("news", "create", use: createNewsHandler)
+        protectedRoutes.on(.POST, "news", "create", body: .collect(maxSize: "10mb"), use: createNewNewsPostHandler)
+        protectedRoutes.post("news", ":newsID", "delete", use: deleteNewsHandler)
+        protectedRoutes.get("news", ":newsID", "edit", use: editNewsHandler)
+        protectedRoutes.on(.POST, "news", ":newsID", "edit", body: .collect(maxSize: "10mb"), use: editNewsPostHandler)
+        
     }
     //MARK: Login method
     //MARK: Login view
@@ -333,14 +347,14 @@ struct WebsiteController: RouteCollection {
         }
     }
     
-   
+    
     //MARK: Food methods
     //MARK: all Food page
     func allFoodHandler(_ req: Request) -> EventLoopFuture<View> {
-        Food.query(on: req.db).all().flatMap { events in
+        Food.query(on: req.db).all().flatMap { foods in
             let userLoggedIn = req.auth.has(User.self)
             let showCookieMessage = req.cookies["cookies-accepted"] == nil
-            let context = FoodsContext(title: "Foods", foods: events, userLoggedIn: userLoggedIn, showCookieMessage: showCookieMessage)
+            let context = FoodsContext(title: "Foods", foods: foods, userLoggedIn: userLoggedIn, showCookieMessage: showCookieMessage)
             return req.view.render("foods", context)
         }
     }
@@ -350,14 +364,14 @@ struct WebsiteController: RouteCollection {
         Food.find(req.parameters.get("foodID"), on: req.db)
             .unwrap(or: Abort(.notFound)).flatMap { food in
                 food.$categoriesFood.query(on: req.db).all().flatMap { categories in
-                let context = FoodContext(
-                    title: food.nameFood,
-                    food: food,
-                    categories: categories
-                )
-                return req.view.render("foodPage", context)
+                    let context = FoodContext(
+                        title: food.nameFood,
+                        food: food,
+                        categories: categories
+                    )
+                    return req.view.render("foodPage", context)
+                }
             }
-        }
     }
     
     //MARK: Create new Food Post Request
@@ -421,11 +435,11 @@ struct WebsiteController: RouteCollection {
     func editFoodHandler(_ req: Request) -> EventLoopFuture<View> {
         return Food.find(req.parameters.get("foodID"), on: req.db)
             .unwrap(or: Abort(.notFound)).flatMap { food in
-            food.$categoriesFood.get(on: req.db).flatMap { categoriesFood in
-                let context = EditFoodContext(food: food, categoriesFood: categoriesFood)
-                return req.view.render("createFood", context)
+                food.$categoriesFood.get(on: req.db).flatMap { categoriesFood in
+                    let context = EditFoodContext(food: food, categoriesFood: categoriesFood)
+                    return req.view.render("createFood", context)
+                }
             }
-        }
     }
     
     //    //MARK: Edit food POST method
@@ -439,60 +453,60 @@ struct WebsiteController: RouteCollection {
                 food.description = updateData.description
                 food.cost = updateData.cost
                 photos = food.photos
-            guard let id = food.id else {
-                return req.eventLoop.future(error: Abort(.internalServerError))
-            }
-            photos.forEach { photo in
-                let filepath = req.application.directory.workingDirectory + imageFolderFood + photo
-                do {
-                    try FileManager.default.removeItem(atPath: filepath)
+                guard let id = food.id else {
+                    return req.eventLoop.future(error: Abort(.internalServerError))
                 }
-                catch {
-                    print(error)
-                }
-            }
-            food.photos = []
-            var uploadFutures = [EventLoopFuture<Void>]()
-            if photo.files.first != Data() {
-                uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
-                    let name = "\(id)-\(UUID()).jpg"
-                    let path = req.application.directory.workingDirectory + imageFolderFood + name
-                    food.photos.append(name)
-                    return req.fileio.writeFile(.init(data: file), at: path)
-                }
-            }
-            return food.save(on: req.db).flatMap {
-                food.$categoriesFood.get(on: req.db)
-            }.flatMap { existingCategories in
-                let existingStringArray = existingCategories.map {
-                    $0.name
-                }
-                
-                let existingSet = Set<String>(existingStringArray)
-                let newSet = Set<String>(updateData.categoriesFood ?? [])
-                
-                let categoriesToAdd = newSet.subtracting(existingSet)
-                let categoriesToRemove = existingSet.subtracting(newSet)
-                
-                var categoryResults: [EventLoopFuture<Void>] = []
-                for newCategory in categoriesToAdd {
-                    categoryResults.append(CategoryFood.addCategoryFood(newCategory, to: food, on: req))
-                }
-                
-                for categoryNameToRemove in categoriesToRemove {
-                    let categoryToRemove = existingCategories.first {
-                        $0.name == categoryNameToRemove
+                photos.forEach { photo in
+                    let filepath = req.application.directory.workingDirectory + imageFolderFood + photo
+                    do {
+                        try FileManager.default.removeItem(atPath: filepath)
                     }
-                    if let category = categoryToRemove {
-                        categoryResults.append(
-                            food.$categoriesFood.detach(category, on: req.db))
+                    catch {
+                        print(error)
                     }
                 }
-                categoryResults.append(contentsOf: uploadFutures)
-                let redirect = req.redirect(to: "/foods/\(id)")
-                return categoryResults.flatten(on: req.eventLoop).transform(to: redirect)
+                food.photos = []
+                var uploadFutures = [EventLoopFuture<Void>]()
+                if photo.files.first != Data() {
+                    uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
+                        let name = "\(id)-\(UUID()).jpg"
+                        let path = req.application.directory.workingDirectory + imageFolderFood + name
+                        food.photos.append(name)
+                        return req.fileio.writeFile(.init(data: file), at: path)
+                    }
+                }
+                return food.save(on: req.db).flatMap {
+                    food.$categoriesFood.get(on: req.db)
+                }.flatMap { existingCategories in
+                    let existingStringArray = existingCategories.map {
+                        $0.name
+                    }
+                    
+                    let existingSet = Set<String>(existingStringArray)
+                    let newSet = Set<String>(updateData.categoriesFood ?? [])
+                    
+                    let categoriesToAdd = newSet.subtracting(existingSet)
+                    let categoriesToRemove = existingSet.subtracting(newSet)
+                    
+                    var categoryResults: [EventLoopFuture<Void>] = []
+                    for newCategory in categoriesToAdd {
+                        categoryResults.append(CategoryFood.addCategoryFood(newCategory, to: food, on: req))
+                    }
+                    
+                    for categoryNameToRemove in categoriesToRemove {
+                        let categoryToRemove = existingCategories.first {
+                            $0.name == categoryNameToRemove
+                        }
+                        if let category = categoryToRemove {
+                            categoryResults.append(
+                                food.$categoriesFood.detach(category, on: req.db))
+                        }
+                    }
+                    categoryResults.append(contentsOf: uploadFutures)
+                    let redirect = req.redirect(to: "/foods/\(id)")
+                    return categoryResults.flatten(on: req.eventLoop).transform(to: redirect)
+                }
             }
-        }
     }
     
     
@@ -511,9 +525,9 @@ struct WebsiteController: RouteCollection {
             .unwrap(or: Abort(.notFound)).flatMap { categoryFood in
                 categoryFood.$foods.query(on: req.db).all().flatMap { foods in
                     let context = FoodCategoryContext(title: categoryFood.name, foods: foods, categoryFood: categoryFood)
-                return req.view.render("categoryFood", context)
+                    return req.view.render("categoryFood", context)
+                }
             }
-        }
     }
     
     //MARK: Delete  FoodCategory
@@ -548,7 +562,8 @@ struct WebsiteController: RouteCollection {
         }
     }
     //MARK: Edit category post request
-    func editFoodCategoryPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+    func editFoodCategoryPostHandler(_ req: Request) throws ->
+    EventLoopFuture<Response> {
         let updateData = try req.content.decode(CreateFoodCategoryFormData.self)
         let photo = try req.content.decode(ImageUploadData.self)
         var photos = [String]()
@@ -556,11 +571,136 @@ struct WebsiteController: RouteCollection {
             .unwrap(or: Abort(.notFound)).flatMap { categoryFood in
                 categoryFood.name = updateData.name
                 photos = categoryFood.photos
-            guard let id = categoryFood.id else {
-                return req.eventLoop.future(error: Abort(.internalServerError))
+                guard let id = categoryFood.id else {
+                    return req.eventLoop.future(error: Abort(.internalServerError))
+                }
+                photos.forEach { photo in
+                    let filepath = req.application.directory.workingDirectory + imageFolderFoodCategories + photo
+                    do {
+                        try FileManager.default.removeItem(atPath: filepath)
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
+                categoryFood.photos = []
+                var uploadFutures = [EventLoopFuture<Void>]()
+                if photo.files.first != Data() {
+                    uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
+                        let name = "\(id)-\(UUID()).jpg"
+                        let path = req.application.directory.workingDirectory + imageFolderFoodCategories + name
+                        categoryFood.photos.append(name)
+                        return req.fileio.writeFile(.init(data: file), at: path)
+                    }
+                }
+                let redirect = req.redirect(to: "/foodCategories/\(id)")
+                return categoryFood.save(on: req.db).transform(to: redirect)
             }
+    }
+    
+    //MARK: AboutDD
+    //    MARK: basic infos page
+    func basicInfoHandler(_ req: Request) -> EventLoopFuture<View> {
+        Info.query(on: req.db).all().flatMap { info in
+            let context = InfosContext(infos: info)
+            return req.view.render("infoPage", context)
+        }
+    }
+    
+    //         MARK: basic info page
+    func infoHandler(_ req: Request) -> EventLoopFuture<View> {
+        Info.find(req.parameters.get("infoID"), on: req.db)
+            .unwrap(or: Abort(.notFound)).flatMap { info in
+                let context = InfoContext(title: "info", info: info)
+                return req.view.render("info", context)
+            }
+    }
+    //MARK: Edit info page
+    func editInfoHandler(_ req: Request) -> EventLoopFuture<View> {
+        Info.find(req.parameters.get("infoID"), on: req.db).unwrap(or: Abort(.notFound)).flatMap { info in
+            let context = EditInfoContext(info: info)
+            return req.view.render("editInfo", context)
+        }
+    }
+    //MARK: Edit info post request
+    func editInfoPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let updateData = try req.content.decode(CreateInfoFormData.self)
+        return Info.find(req.parameters.get("infoID"), on: req.db)
+            .unwrap(or: Abort(.notFound)).flatMap { info in
+                info.phoneNumber = updateData.phoneNumber
+                info.email = updateData.email
+                info.address = updateData.address
+                info.vk = updateData.vk
+                info.instagram = updateData.instagram
+                info.telegram = updateData.telegram
+                info.longitude = info.longitude
+                info.latitude = updateData.latitude
+                guard let id = info.id else {
+                    return req.eventLoop.future(error: Abort(.internalServerError))
+                }
+                let redirect = req.redirect(to: "/info/\(id)")
+                return info.save(on: req.db).transform(to: redirect)
+            }
+    }
+    
+    //MARK: News methods
+    //MARK: all News page
+    func allNewsHandler(_ req: Request) -> EventLoopFuture<View> {
+        News.query(on: req.db).all().flatMap { news in
+            let context = NewsAllContext(news: news)
+            return req.view.render("allNews", context)
+        }
+    }
+    
+    //MARK: Get News info
+    func newsHandler(_ req: Request) -> EventLoopFuture<View> {
+        News.find(req.parameters.get("newsID"), on: req.db)
+            .unwrap(or: Abort(.notFound)).flatMap { news in
+                let context = NewsContext(
+                    title: news.titleNews,
+                    news: news
+                )
+                return req.view.render("newsPage", context)
+            }
+        }
+    
+    //MARK: Create new News Post Request
+    func createNewNewsPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let data = try req.content.decode(CreateNewsFormData.self)
+        let photo = try req.content.decode(ImageUploadData.self)
+        let news = News(id: UUID(), titleNews: data.titleNews, newsName: data.newsName, description: data.description, photos: [])
+        guard let id = news.id else {
+            return req.eventLoop.future(error: Abort(.internalServerError))
+        }
+        var uploadFutures = [EventLoopFuture<Void>]()
+        if photo.files.first! != Data() {
+            uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
+                let name = "\(id)-\(UUID()).jpg"
+                let path = req.application.directory.workingDirectory + imageFolderNews + name
+                news.photos.append(name)
+                return req.fileio.writeFile(.init(data: file), at: path)
+            }
+        }
+        let redirect = req.redirect(to: "/news/\(id)")
+        return news.save(on: req.db).transform(to: redirect)
+    }
+    
+    //MARK: Create News page
+    func createNewsHandler(_ req: Request) -> EventLoopFuture<View> {
+        let token = [UInt8].random(count: 16).base64
+        let context = CreateNewsContext(csrfToken: token)
+        req.session.data["CSRF_TOKEN"] = token
+        return req.view.render("createNews", context)
+    }
+    
+    //MARK: Delete News
+    func deleteNewsHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let news = try News.find(req.parameters.get("newsID"), on: req.db).unwrap(or: Abort(.notFound))
+        var photos = [String]()
+        news.map { news in
+            photos = news.photos
             photos.forEach { photo in
-                let filepath = req.application.directory.workingDirectory + imageFolderFoodCategories + photo
+                let filepath = req.application.directory.workingDirectory + imageFolderNews + photo
                 do {
                     try FileManager.default.removeItem(atPath: filepath)
                 }
@@ -568,18 +708,59 @@ struct WebsiteController: RouteCollection {
                     print(error)
                 }
             }
-                categoryFood.photos = []
+        }
+        return News.find(req.parameters.get("newsID"), on: req.db)
+            .unwrap(or: Abort(.notFound)).flatMap { news in
+                return news.delete(on: req.db).transform(to: req.redirect(to: "/news"))
+            }
+    }
+    
+    //MARK: Create News update page
+    func editNewsHandler(_ req: Request) -> EventLoopFuture<View> {
+        return News.find(req.parameters.get("newsID"), on: req.db)
+            .unwrap(or: Abort(.notFound)).flatMap { news in
+                let context = EditNewsContext(news: news)
+                return req.view.render("createNews", context)
+            }
+        }
+    
+    //    //MARK: Edit News POST method
+    func editNewsPostHandler(_ req: Request) throws -> EventLoopFuture<Response> {
+        let updateData = try req.content.decode(CreateNewsFormData.self)
+        let photo = try req.content.decode(ImageUploadData.self)
+        var photos = [String]()
+        return News.find(req.parameters.get("newsID"), on: req.db)
+            .unwrap(or: Abort(.notFound)).flatMap { news in
+                news.titleNews = updateData.titleNews
+                news.newsName = updateData.newsName
+                news.description = updateData.description
+                photos = news.photos
+            guard let id = news.id else {
+                return req.eventLoop.future(error: Abort(.internalServerError))
+            }
+            photos.forEach { photo in
+                let filepath = req.application.directory.workingDirectory + imageFolderNews + photo
+                do {
+                    try FileManager.default.removeItem(atPath: filepath)
+                }
+                catch {
+                    print(error)
+                }
+            }
+                news.photos = []
             var uploadFutures = [EventLoopFuture<Void>]()
             if photo.files.first != Data() {
                 uploadFutures = photo.files.map { file -> EventLoopFuture<Void> in
                     let name = "\(id)-\(UUID()).jpg"
-                    let path = req.application.directory.workingDirectory + imageFolderFoodCategories + name
-                    categoryFood.photos.append(name)
+                    let path = req.application.directory.workingDirectory + imageFolderNews + name
+                    news.photos.append(name)
                     return req.fileio.writeFile(.init(data: file), at: path)
                 }
             }
-            let redirect = req.redirect(to: "/foodCategories/\(id)")
-            return categoryFood.save(on: req.db).transform(to: redirect)
+            return news.save(on: req.db).flatMap {
+                let redirect = req.redirect(to: "/news/\(id)")
+                return uploadFutures.flatten(on: req.eventLoop).transform(to: redirect)
+            }
         }
     }
 }
@@ -640,14 +821,19 @@ struct CategoryContext: Encodable {
     let category: Category
     
 }
+struct CreateCategoryFormData: Content {
+    let name: String
+    let events: [Event]?
+    let csrfToken: String?
+}
+struct CreateCategoryContext: Encodable {
+    let title = "Create event"
+    let category: Category
+}
+
 struct EditCategoryContext: Encodable {
     let title = "Edit event"
     let category: Category
-}
-struct CreateCategoryFormData: Content {
-    let name: String
-    let events: [String]?
-    let csrfToken: String?
 }
 
 //MARK: Food context
@@ -700,10 +886,60 @@ struct CreateFoodCategoryFormData: Content {
     let foods: [String]?
     let csrfToken: String?
 }
+//MARK: INFO context
+struct InfosContext: Encodable {
+    let title = "Infos"
+    let infos: [Info]
+}
+struct InfoContext: Encodable {
+    let title: String
+    let info: Info
+}
+struct EditInfoContext: Encodable {
+    let title = "Edit info"
+    let info: Info
+    let editing = true
+}
+struct CreateInfoFormData: Content {
+    let phoneNumber: String
+    let email: String
+    let address: String
+    let vk: String?
+    let instagram: String?
+    let telegram: String?
+    let longitude: String
+    let latitude: String
+}
+
+//MARK: News context
+struct NewsAllContext: Encodable {
+    let title = "All news"
+    let news: [News]
+}
+struct NewsContext: Encodable {
+    let title: String
+    let news: News
+}
+struct CreateNewsFormData: Content {
+    let titleNews: String
+    let newsName: String
+    var description: String
+    let csrfToken: String?
+}
+struct CreateNewsContext: Encodable {
+    let title = "Create news"
+    let csrfToken: String
+}
+struct EditNewsContext: Encodable {
+    let title = "Edit news"
+    let news: News
+    let editing = true
+}
 //MARK: Image content
 struct ImageUploadData: Content {
     var files: [Data]
 }
+//
 
 //    authSessionsRoutes.get("register", use: registerHandler)
 //    authSessionsRoutes.post("register", use: registerPostHandler)
