@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260BA224292406A1002590B4 /* ResourceRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA223292406A1002590B4 /* ResourceRequestError.swift */; };
+		260BA22629240755002590B4 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA22529240755002590B4 /* ErrorPresenter.swift */; };
+		260BA229292408B1002590B4 /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA228292408B1002590B4 /* String_Extension.swift */; };
+		260BA22D29241332002590B4 /* CustomTodayViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA22C29241332002590B4 /* CustomTodayViewLayout.swift */; };
+		260BA231292414D1002590B4 /* TodayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA230292414D1002590B4 /* TodayCollectionViewCell.swift */; };
+		260BA233292414FD002590B4 /* TodayCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA232292414FD002590B4 /* TodayCollectionView.swift */; };
+		260BA2352924154D002590B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA2342924154D002590B4 /* User.swift */; };
+		260BA23729241556002590B4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA23629241556002590B4 /* Event.swift */; };
+		260BA23929241577002590B4 /* CategoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA23829241577002590B4 /* CategoryEvent.swift */; };
+		260BA23D29241591002590B4 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA23C29241591002590B4 /* Food.swift */; };
+		260BA23F2924159C002590B4 /* CategoryFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA23E2924159C002590B4 /* CategoryFood.swift */; };
+		260BA241292415A7002590B4 /* EventToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA240292415A7002590B4 /* EventToken.swift */; };
+		260BA244292415C6002590B4 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA243292415C6002590B4 /* News.swift */; };
+		260BA247292415D4002590B4 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA246292415D4002590B4 /* Info.swift */; };
 		262A3FE62913E09B00D8C46E /* Moniqa-MediumNarrowHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */; };
 		262A3FE82913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */; };
 		265C17892912CF420057FB2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C17882912CF420057FB2F /* AppDelegate.swift */; };
@@ -65,6 +79,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260BA223292406A1002590B4 /* ResourceRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequestError.swift; sourceTree = "<group>"; };
+		260BA22529240755002590B4 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		260BA228292408B1002590B4 /* String_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extension.swift; sourceTree = "<group>"; };
+		260BA22C29241332002590B4 /* CustomTodayViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTodayViewLayout.swift; sourceTree = "<group>"; };
+		260BA230292414D1002590B4 /* TodayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewCell.swift; sourceTree = "<group>"; };
+		260BA232292414FD002590B4 /* TodayCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionView.swift; sourceTree = "<group>"; };
+		260BA2342924154D002590B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		260BA23629241556002590B4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		260BA23829241577002590B4 /* CategoryEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEvent.swift; sourceTree = "<group>"; };
+		260BA23C29241591002590B4 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		260BA23E2924159C002590B4 /* CategoryFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFood.swift; sourceTree = "<group>"; };
+		260BA240292415A7002590B4 /* EventToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventToken.swift; sourceTree = "<group>"; };
+		260BA243292415C6002590B4 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		260BA246292415D4002590B4 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-MediumNarrowHeading.otf"; sourceTree = "<group>"; };
 		262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-LightItalicHeading.otf"; sourceTree = "<group>"; };
 		265C17852912CF420057FB2F /* DDArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +163,99 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260BA22029240523002590B4 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				265C17E92912E0740057FB2F /* EventDetailModule */,
+				265C17E62912E03A0057FB2F /* EventsFutureModule */,
+				265C17B52912DC260057FB2F /* EventsModule */,
+				265C17E72912E0470057FB2F /* EventsSearchModule */,
+				265C17E52912E0290057FB2F /* EventsTodayModule */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		260BA22129240597002590B4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		260BA22229240659002590B4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				260BA223292406A1002590B4 /* ResourceRequestError.swift */,
+				260BA22529240755002590B4 /* ErrorPresenter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		260BA2272924086C002590B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				260BA228292408B1002590B4 /* String_Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		260BA22A29241311002590B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				260BA22F29241487002590B4 /* TodayCollectionView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		260BA22E292413FB002590B4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				260BA242292415B4002590B4 /* News + info */,
+				260BA23B29241584002590B4 /* Food */,
+				260BA23A2924157B002590B4 /* Event */,
+				260BA2342924154D002590B4 /* User.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		260BA22F29241487002590B4 /* TodayCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				260BA22C29241332002590B4 /* CustomTodayViewLayout.swift */,
+				260BA230292414D1002590B4 /* TodayCollectionViewCell.swift */,
+				260BA232292414FD002590B4 /* TodayCollectionView.swift */,
+			);
+			path = TodayCollectionView;
+			sourceTree = "<group>";
+		};
+		260BA23A2924157B002590B4 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				260BA23829241577002590B4 /* CategoryEvent.swift */,
+				260BA240292415A7002590B4 /* EventToken.swift */,
+				260BA23629241556002590B4 /* Event.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		260BA23B29241584002590B4 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				260BA23C29241591002590B4 /* Food.swift */,
+				260BA23E2924159C002590B4 /* CategoryFood.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		260BA242292415B4002590B4 /* News + info */ = {
+			isa = PBXGroup;
+			children = (
+				260BA243292415C6002590B4 /* News.swift */,
+				260BA246292415D4002590B4 /* Info.swift */,
+			);
+			path = "News + info";
+			sourceTree = "<group>";
+		};
 		262A3FE42913DF3700D8C46E /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,11 +300,7 @@
 				265C17EB2912E0D30057FB2F /* AboutDDModule */,
 				265C17EE2912E10B0057FB2F /* Auth */,
 				265C17C22912DC430057FB2F /* DDModule */,
-				265C17E92912E0740057FB2F /* EventDetailModule */,
-				265C17E62912E03A0057FB2F /* EventsFutureModule */,
-				265C17B52912DC260057FB2F /* EventsModule */,
-				265C17E72912E0470057FB2F /* EventsSearchModule */,
-				265C17E52912E0290057FB2F /* EventsTodayModule */,
+				260BA22029240523002590B4 /* Event */,
 				265C17CF2912DC660057FB2F /* ExtraScreenModule */,
 				265C17EA2912E0C60057FB2F /* FoodDetailModule */,
 				265C17E82912E0580057FB2F /* MenuModule */,
@@ -219,6 +336,10 @@
 		265C17AE2912D36C0057FB2F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				260BA22E292413FB002590B4 /* Entity */,
+				260BA2272924086C002590B4 /* Extensions */,
+				260BA22229240659002590B4 /* Utilities */,
+				260BA22129240597002590B4 /* Services */,
 				265C1817291325320057FB2F /* Custom View */,
 				265C17882912CF420057FB2F /* AppDelegate.swift */,
 				265C178A2912CF420057FB2F /* SceneDelegate.swift */,
@@ -280,6 +401,7 @@
 		265C17E52912E0290057FB2F /* EventsTodayModule */ = {
 			isa = PBXGroup;
 			children = (
+				260BA22A29241311002590B4 /* Views */,
 				265C17FC2912EC390057FB2F /* EventsTodayPresenter.swift */,
 				265C17FD2912EC390057FB2F /* EventsTodayRouter.swift */,
 				265C17FE2912EC390057FB2F /* EventsTodayViewController.swift */,
@@ -472,12 +594,18 @@
 			files = (
 				265C17A82912CFFD0057FB2F /* TabBarInteractor.swift in Sources */,
 				265C17BD2912DC3B0057FB2F /* EventsRouter.swift in Sources */,
+				260BA244292415C6002590B4 /* News.swift in Sources */,
+				260BA247292415D4002590B4 /* Info.swift in Sources */,
 				265C17A42912CFFD0057FB2F /* TabBarPresenter.swift in Sources */,
 				265C17CC2912DC5C0057FB2F /* DDProtocols.swift in Sources */,
+				260BA229292408B1002590B4 /* String_Extension.swift in Sources */,
 				265C18042912EC390057FB2F /* EventsTodayViewController.swift in Sources */,
+				260BA23929241577002590B4 /* CategoryEvent.swift in Sources */,
 				265C1819291325620057FB2F /* DDSegmentControl.swift in Sources */,
 				265C17F72912EC1B0057FB2F /* EventsFutureRouter.swift in Sources */,
+				260BA2352924154D002590B4 /* User.swift in Sources */,
 				265C18072912EC390057FB2F /* EventsTodayContainer.swift in Sources */,
+				260BA23729241556002590B4 /* Event.swift in Sources */,
 				265C180E2912EC4D0057FB2F /* EventsSearchPresenter.swift in Sources */,
 				265C17AC2912D0980057FB2F /* TabBarItemModel.swift in Sources */,
 				265C17B12912D3D30057FB2F /* StringConstants.swift in Sources */,
@@ -491,6 +619,7 @@
 				265C18122912EC4D0057FB2F /* EventsSearchInteractor.swift in Sources */,
 				265C17C02912DC3B0057FB2F /* EventsInteractor.swift in Sources */,
 				265C17F62912EC1B0057FB2F /* EventsFuturePresenter.swift in Sources */,
+				260BA22D29241332002590B4 /* CustomTodayViewLayout.swift in Sources */,
 				265C18132912EC4D0057FB2F /* EventsSearchContainer.swift in Sources */,
 				265C17DB2912DC960057FB2F /* ExtraScreenContainer.swift in Sources */,
 				265C18102912EC4D0057FB2F /* EventsSearchViewController.swift in Sources */,
@@ -500,21 +629,28 @@
 				265C180F2912EC4D0057FB2F /* EventsSearchRouter.swift in Sources */,
 				265C17C92912DC5C0057FB2F /* DDPresenter.swift in Sources */,
 				265C18112912EC4D0057FB2F /* EventsSearchProtocols.swift in Sources */,
+				260BA233292414FD002590B4 /* TodayCollectionView.swift in Sources */,
 				265C17CA2912DC5C0057FB2F /* DDRouter.swift in Sources */,
 				265C17892912CF420057FB2F /* AppDelegate.swift in Sources */,
+				260BA224292406A1002590B4 /* ResourceRequestError.swift in Sources */,
 				265C17F92912EC1B0057FB2F /* EventsFutureProtocols.swift in Sources */,
 				265C178B2912CF420057FB2F /* SceneDelegate.swift in Sources */,
 				265C17A92912CFFD0057FB2F /* TabBarContainer.swift in Sources */,
 				265C18022912EC390057FB2F /* EventsTodayPresenter.swift in Sources */,
 				265C17FB2912EC1B0057FB2F /* EventsFutureContainer.swift in Sources */,
+				260BA231292414D1002590B4 /* TodayCollectionViewCell.swift in Sources */,
 				265C18032912EC390057FB2F /* EventsTodayRouter.swift in Sources */,
+				260BA22629240755002590B4 /* ErrorPresenter.swift in Sources */,
 				265C17CD2912DC5C0057FB2F /* DDInteractor.swift in Sources */,
 				265C18162912ECC40057FB2F /* EventsTitleModel.swift in Sources */,
 				265C17BF2912DC3B0057FB2F /* EventsProtocols.swift in Sources */,
+				260BA23D29241591002590B4 /* Food.swift in Sources */,
 				265C17F82912EC1B0057FB2F /* EventsFutureViewController.swift in Sources */,
 				265C18052912EC390057FB2F /* EventsTodayProtocols.swift in Sources */,
 				265C181E29134CAD0057FB2F /* PageControllerAdapter.swift in Sources */,
 				265C17A62912CFFD0057FB2F /* TabBarViewController.swift in Sources */,
+				260BA241292415A7002590B4 /* EventToken.swift in Sources */,
+				260BA23F2924159C002590B4 /* CategoryFood.swift in Sources */,
 				265C17A52912CFFD0057FB2F /* TabBarRouter.swift in Sources */,
 				265C17A72912CFFD0057FB2F /* TabBarProtocols.swift in Sources */,
 				265C17D72912DC960057FB2F /* ExtraScreenRouter.swift in Sources */,
