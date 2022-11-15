@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		265C174928FE88010057FB2F /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C174828FE88010057FB2F /* DetailVC.swift */; };
 		265C174B2907C67A0057FB2F /* CollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C174A2907C67A0057FB2F /* CollectionAdapter.swift */; };
+		265C175929097FF30057FB2F /* First in Resources */ = {isa = PBXBuildFile; fileRef = 265C175829097FF30057FB2F /* First */; };
+		265C175B290981000057FB2F /* Second in Resources */ = {isa = PBXBuildFile; fileRef = 265C175A290981000057FB2F /* Second */; };
+		265C17612909824E0057FB2F /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265C175C2909824E0057FB2F /* Third.storyboard */; };
+		265C17622909824E0057FB2F /* ThirdPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C175D2909824E0057FB2F /* ThirdPresenter.swift */; };
+		265C17632909824E0057FB2F /* ThirdInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C175E2909824E0057FB2F /* ThirdInteractor.swift */; };
+		265C17642909824E0057FB2F /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C175F2909824E0057FB2F /* ThirdView.swift */; };
+		265C17652909824E0057FB2F /* ThirdWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C17602909824E0057FB2F /* ThirdWireframe.swift */; };
+		265C176A290982DC0057FB2F /* ThirdInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1766290982DC0057FB2F /* ThirdInteractorTests.swift */; };
+		265C176B290982DC0057FB2F /* ThirdViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1767290982DC0057FB2F /* ThirdViewTests.swift */; };
+		265C176C290982DC0057FB2F /* ThirdWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1768290982DC0057FB2F /* ThirdWireframeTests.swift */; };
+		265C176D290982DC0057FB2F /* ThirdPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1769290982DC0057FB2F /* ThirdPresenterTests.swift */; };
 		268B66B528FE0B4C00437D58 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B66B428FE0B4C00437D58 /* CollectionViewCell.swift */; };
 		268B66B728FE0C0F00437D58 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B66B628FE0C0F00437D58 /* ModelData.swift */; };
 		26D0C0EC28FDFD4C002F4D68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C0EB28FDFD4C002F4D68 /* AppDelegate.swift */; };
@@ -21,6 +32,17 @@
 /* Begin PBXFileReference section */
 		265C174828FE88010057FB2F /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailVC.swift; path = "../../../#10_Table_view/TableView_Homework/TableView_Homework/DetailVC.swift"; sourceTree = "<group>"; };
 		265C174A2907C67A0057FB2F /* CollectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAdapter.swift; sourceTree = "<group>"; };
+		265C175829097FF30057FB2F /* First */ = {isa = PBXFileReference; lastKnownFileType = folder; path = First; sourceTree = "<group>"; };
+		265C175A290981000057FB2F /* Second */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Second; sourceTree = "<group>"; };
+		265C175C2909824E0057FB2F /* Third.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Third.storyboard; sourceTree = "<group>"; };
+		265C175D2909824E0057FB2F /* ThirdPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPresenter.swift; sourceTree = "<group>"; };
+		265C175E2909824E0057FB2F /* ThirdInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdInteractor.swift; sourceTree = "<group>"; };
+		265C175F2909824E0057FB2F /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
+		265C17602909824E0057FB2F /* ThirdWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdWireframe.swift; sourceTree = "<group>"; };
+		265C1766290982DC0057FB2F /* ThirdInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdInteractorTests.swift; sourceTree = "<group>"; };
+		265C1767290982DC0057FB2F /* ThirdViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewTests.swift; sourceTree = "<group>"; };
+		265C1768290982DC0057FB2F /* ThirdWireframeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdWireframeTests.swift; sourceTree = "<group>"; };
+		265C1769290982DC0057FB2F /* ThirdPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPresenterTests.swift; sourceTree = "<group>"; };
 		268B66B428FE0B4C00437D58 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		268B66B628FE0C0F00437D58 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelData.swift; path = "../../../#10_Table_view/TableView_Homework/TableView_Homework/ModelData.swift"; sourceTree = "<group>"; };
 		26D0C0E828FDFD4C002F4D68 /* CollectionViewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +90,17 @@
 				265C174A2907C67A0057FB2F /* CollectionAdapter.swift */,
 				268B66B428FE0B4C00437D58 /* CollectionViewCell.swift */,
 				268B66B628FE0C0F00437D58 /* ModelData.swift */,
+				265C175C2909824E0057FB2F /* Third.storyboard */,
+				265C1766290982DC0057FB2F /* ThirdInteractorTests.swift */,
+				265C1767290982DC0057FB2F /* ThirdViewTests.swift */,
+				265C1768290982DC0057FB2F /* ThirdWireframeTests.swift */,
+				265C1769290982DC0057FB2F /* ThirdPresenterTests.swift */,
+				265C175D2909824E0057FB2F /* ThirdPresenter.swift */,
+				265C175E2909824E0057FB2F /* ThirdInteractor.swift */,
+				265C175F2909824E0057FB2F /* ThirdView.swift */,
+				265C17602909824E0057FB2F /* ThirdWireframe.swift */,
+				265C175A290981000057FB2F /* Second */,
+				265C175829097FF30057FB2F /* First */,
 				265C174828FE88010057FB2F /* DetailVC.swift */,
 				26D0C0F428FDFD4D002F4D68 /* Assets.xcassets */,
 				26D0C0F628FDFD4D002F4D68 /* LaunchScreen.storyboard */,
@@ -134,8 +167,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				265C175929097FF30057FB2F /* First in Resources */,
 				26D0C0F828FDFD4D002F4D68 /* LaunchScreen.storyboard in Resources */,
+				265C175B290981000057FB2F /* Second in Resources */,
 				26D0C0F528FDFD4D002F4D68 /* Assets.xcassets in Resources */,
+				265C17612909824E0057FB2F /* Third.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,10 +183,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				268B66B528FE0B4C00437D58 /* CollectionViewCell.swift in Sources */,
+				265C17652909824E0057FB2F /* ThirdWireframe.swift in Sources */,
 				26D0C0F028FDFD4C002F4D68 /* ViewController.swift in Sources */,
+				265C17622909824E0057FB2F /* ThirdPresenter.swift in Sources */,
 				26D0C0EC28FDFD4C002F4D68 /* AppDelegate.swift in Sources */,
 				26D0C0EE28FDFD4C002F4D68 /* SceneDelegate.swift in Sources */,
+				265C176C290982DC0057FB2F /* ThirdWireframeTests.swift in Sources */,
+				265C176D290982DC0057FB2F /* ThirdPresenterTests.swift in Sources */,
+				265C176B290982DC0057FB2F /* ThirdViewTests.swift in Sources */,
+				265C176A290982DC0057FB2F /* ThirdInteractorTests.swift in Sources */,
 				268B66B728FE0C0F00437D58 /* ModelData.swift in Sources */,
+				265C17642909824E0057FB2F /* ThirdView.swift in Sources */,
+				265C17632909824E0057FB2F /* ThirdInteractor.swift in Sources */,
 				265C174928FE88010057FB2F /* DetailVC.swift in Sources */,
 				265C174B2907C67A0057FB2F /* CollectionAdapter.swift in Sources */,
 			);
