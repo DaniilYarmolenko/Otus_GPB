@@ -36,3 +36,13 @@ protocol EventsInteractorOutput: AnyObject {
 protocol EventsRouterInput: AnyObject {
     func getViews() -> [UIViewController]
 }
+
+protocol NetServiveInput: AnyObject {
+    
+    
+}
+protocol NetServiveOutput: AnyObject {
+    func reseiveFrromService<T>(data: T)
+    func didFail(with error: Error)
+    
+}

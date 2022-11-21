@@ -9,6 +9,6 @@ import Foundation
 
 enum ResourceRequestError: Error {
     case noData
-    case DecodingError
-    case EncodingError
+    case decodingError
+    case encodingError
 }

@@ -9,7 +9,7 @@ import Foundation
 
 final class Event: Codable {
     
-    enum EventType {
+    enum EventType: Codable {
         case admin
         case standard
     }

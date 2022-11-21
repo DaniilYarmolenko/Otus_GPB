@@ -76,6 +76,8 @@
 		265C1819291325620057FB2F /* DDSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1818291325620057FB2F /* DDSegmentControl.swift */; };
 		265C181C29132AC80057FB2F /* EventsViewController + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */; };
 		265C181E29134CAD0057FB2F /* PageControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */; };
+		26A86152292428CE00EB4CA2 /* ResourceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A86150292428CE00EB4CA2 /* ResourceRequest.swift */; };
+		26A86153292428CE00EB4CA2 /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A86151292428CE00EB4CA2 /* EventRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +152,8 @@
 		265C1818291325620057FB2F /* DDSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSegmentControl.swift; sourceTree = "<group>"; };
 		265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventsViewController + Constraints.swift"; sourceTree = "<group>"; };
 		265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerAdapter.swift; sourceTree = "<group>"; };
+		26A86150292428CE00EB4CA2 /* ResourceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequest.swift; sourceTree = "<group>"; };
+		26A86151292428CE00EB4CA2 /* EventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,13 +177,6 @@
 				265C17E52912E0290057FB2F /* EventsTodayModule */,
 			);
 			path = Event;
-			sourceTree = "<group>";
-		};
-		260BA22129240597002590B4 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		260BA22229240659002590B4 /* Utilities */ = {
@@ -336,10 +333,10 @@
 		265C17AE2912D36C0057FB2F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				26A8614F292428B400EB4CA2 /* Services */,
 				260BA22E292413FB002590B4 /* Entity */,
 				260BA2272924086C002590B4 /* Extensions */,
 				260BA22229240659002590B4 /* Utilities */,
-				260BA22129240597002590B4 /* Services */,
 				265C1817291325320057FB2F /* Custom View */,
 				265C17882912CF420057FB2F /* AppDelegate.swift */,
 				265C178A2912CF420057FB2F /* SceneDelegate.swift */,
@@ -520,6 +517,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		26A8614F292428B400EB4CA2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				26A86151292428CE00EB4CA2 /* EventRequest.swift */,
+				26A86150292428CE00EB4CA2 /* ResourceRequest.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -605,6 +611,7 @@
 				265C17F72912EC1B0057FB2F /* EventsFutureRouter.swift in Sources */,
 				260BA2352924154D002590B4 /* User.swift in Sources */,
 				265C18072912EC390057FB2F /* EventsTodayContainer.swift in Sources */,
+				26A86152292428CE00EB4CA2 /* ResourceRequest.swift in Sources */,
 				260BA23729241556002590B4 /* Event.swift in Sources */,
 				265C180E2912EC4D0057FB2F /* EventsSearchPresenter.swift in Sources */,
 				265C17AC2912D0980057FB2F /* TabBarItemModel.swift in Sources */,
@@ -655,6 +662,7 @@
 				265C17A72912CFFD0057FB2F /* TabBarProtocols.swift in Sources */,
 				265C17D72912DC960057FB2F /* ExtraScreenRouter.swift in Sources */,
 				265C17B32912D9E50057FB2F /* ColorsConstants.swift in Sources */,
+				26A86153292428CE00EB4CA2 /* EventRequest.swift in Sources */,
 				265C17D92912DC960057FB2F /* ExtraScreenProtocols.swift in Sources */,
 				265C17BE2912DC3B0057FB2F /* EventsViewController.swift in Sources */,
 			);
