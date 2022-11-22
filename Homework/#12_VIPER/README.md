@@ -22,6 +22,7 @@ Simple VIPER app (Order Color)
 - CoreData, CollectionView, TableView
 - Patterns: Singletone, Observer, Abstract Factory, Momento, Adapter, Mediator
 - GRASP: Informational expert, polymorphism, pure fabrication
+![](https://github.com/DaniilYarmolenko/Otus_GPB/blob/homework/Homework/%2312_VIPER/simulator.gif)
 
 [Teacher]: <https://career.habr.com/anioutka>
 
