@@ -65,7 +65,7 @@
 		268E0916292D0D45007F4A5D /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E0915292D0D45007F4A5D /* MosaicLayout.swift */; };
 		268E0919292D0DDB007F4A5D /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E0917292D0DDA007F4A5D /* ColorCell.swift */; };
 		268E091A292D0DDB007F4A5D /* CollorCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E0918292D0DDB007F4A5D /* CollorCell+Constraints.swift */; };
-		268E091C292D0E14007F4A5D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E091B292D0E14007F4A5D /* Utilities.swift */; };
+		268E091E292D5498007F4A5D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E091D292D5498007F4A5D /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,7 +129,7 @@
 		268E0915292D0D45007F4A5D /* MosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
 		268E0917292D0DDA007F4A5D /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		268E0918292D0DDB007F4A5D /* CollorCell+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollorCell+Constraints.swift"; sourceTree = "<group>"; };
-		268E091B292D0E14007F4A5D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../../../../../../../.Trash/VIPER_Otus/VIPER_Otus/Extra/Utilities.swift; sourceTree = "<group>"; };
+		268E091D292D5498007F4A5D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				268E08A2292BEFCA007F4A5D /* BaseCellModel.swift */,
-				268E091B292D0E14007F4A5D /* Utilities.swift */,
+				268E091D292D5498007F4A5D /* Utilities.swift */,
 				268E090B292CE453007F4A5D /* BaseCell.swift */,
 			);
 			path = Base;
@@ -554,7 +554,6 @@
 				268E08C2292C0242007F4A5D /* DetailColorCell.swift in Sources */,
 				268E08F8292C2A8C007F4A5D /* CartModel.xcdatamodeld in Sources */,
 				268E0888292BECF2007F4A5D /* ColorDetailPresenter.swift in Sources */,
-				268E091C292D0E14007F4A5D /* Utilities.swift in Sources */,
 				268E08DF292C20BA007F4A5D /* BuyColorProtocols.swift in Sources */,
 				268E0895292BED08007F4A5D /* CartPresenter.swift in Sources */,
 				268E090A292CE323007F4A5D /* CartTableViewCell.swift in Sources */,
@@ -564,6 +563,7 @@
 				268E087B292BECDB007F4A5D /* ColorsPresenter.swift in Sources */,
 				268E086E292BECB6007F4A5D /* TabBarPresenter.swift in Sources */,
 				268E08FB292C2AE9007F4A5D /* DataManager.swift in Sources */,
+				268E091E292D5498007F4A5D /* Utilities.swift in Sources */,
 				268E08B0292BF220007F4A5D /* ColumnFlowLayout.swift in Sources */,
 				268E0898292BED08007F4A5D /* CartProtocols.swift in Sources */,
 				268E089A292BED08007F4A5D /* CartContainer.swift in Sources */,
