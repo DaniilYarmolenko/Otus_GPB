@@ -25,6 +25,11 @@ extension CartInteractor: CartInteractorInput {
     
     func deleteBy(with id: Int) {
         ServiceAddCart.shared.delete(with: id)
+        var count = UserDefaults.standard.integer(forKey: "cart_count")
+        count = ServiceAddCart.shared.fetchAll().count
+        UserDefaults.standard.set(count, forKey: "cart_count")
+        NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("delete_cart"), object: nil)
         getCartItems()
     }
     
@@ -35,16 +40,6 @@ extension CartInteractor: CartInteractorInput {
             return model
         }
         output?.getCartItems(colors: models)
-    }
-    
-    func deleteBuy(with id: Int) {
-        ServiceAddCart.shared.delete(with: id)
-        var count = UserDefaults.standard.integer(forKey: "cart_count")
-        count = ServiceAddCart.shared.fetchAll().count
-        UserDefaults.standard.set(count, forKey: "cart_count")
-        NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
-        NotificationCenter.default.post(name: NSNotification.Name("delete_cart"), object: nil)
-        getCartItems()
     }
     
 }
