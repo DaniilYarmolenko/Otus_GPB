@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 class DetailColorCell: UICollectionViewCell {
-    static let cellIdentifier = "DetailColorCell"
+    static let cellIdentifier = String(describing: DetailColorCell.self)
 
     var viewColor = UIView()
     

@@ -8,7 +8,7 @@
 import UIKit
 
 final class ColorCell: UICollectionViewCell {
-    static let cellIdentifier = "ColorCell"
+    static let cellIdentifier = String(describing: ColorCell.self)
     internal var label = UILabel()
     
     override init(frame: CGRect) {
