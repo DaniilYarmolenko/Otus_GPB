@@ -26,7 +26,6 @@ extension MainInteractor: MainInteractorInput {
         ApiSevice.shared.request { [weak self] result in
             switch result{
             case .failure:
-                print("LOGIC Get data interactor error")
                 break
             case .success(let data):
                 self?.apiModel = data

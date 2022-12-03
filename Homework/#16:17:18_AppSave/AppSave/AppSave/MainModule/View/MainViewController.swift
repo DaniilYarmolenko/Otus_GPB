@@ -123,23 +123,19 @@ final class MainViewController: UIViewController {
     @objc
     private func addToCache() {
         if cacheButton.isSelected {
-            print("1 \(cacheButton.isSelected)")
             output.addToCache(name: textField.text ?? " ", selected: true)
             cacheButton.isSelected = false
         } else if !output.inCacheData(name: textField.text ?? " "){
             labelError.text = "ERROR.Only latin letters and number(one word) letters count > 6"
             isInputCorrect(true, type: .Cache)
-            print("2 \(cacheButton.isSelected)")
             output.addToCache(name: textField.text ?? " ", selected: false)
             cacheButton.isSelected = true
         } else if !errorFounded {
-            print("3 \(cacheButton.isSelected)")
             labelError.text = "Такое имя уже есть в Cache"
             errorFounded = false
             isInputCorrect(true, type: .Cache)
             cacheButton.isSelected = false
         } else {
-            print("4 \(cacheButton.isSelected)")
             errorFounded = false
             isInputCorrect(false, type: .Cache)
             labelError.text = "ERROR.Only latin letters and number(one word) letters count > 6"
@@ -148,23 +144,19 @@ final class MainViewController: UIViewController {
     @objc
     private func addToCoreData() {
         if coreDataButton.isSelected {
-            print("1 \(coreDataButton.isSelected)")
             output.addToCoreData(name: textField.text ?? " ", selected: true)
             coreDataButton.isSelected = false
         } else if !output.inCoreData(name: textField.text ?? " "){
             labelError.text = "ERROR.Only latin letters and number(one word) letters count > 6"
             isInputCorrect(true, type: .CoreData)
-            print("2 \(coreDataButton.isSelected)")
             output.addToCoreData(name: textField.text ?? " ", selected: false)
             coreDataButton.isSelected = true
         } else if !errorFounded {
-            print("3 \(coreDataButton.isSelected)")
             labelError.text = "Такое имя уже есть в Core Data"
             errorFounded = false
             isInputCorrect(true, type: .CoreData)
             coreDataButton.isSelected = false
         } else {
-            print("4 \(coreDataButton.isSelected)")
             errorFounded = false
             isInputCorrect(false, type: .CoreData)
             labelError.text = "ERROR. Name count char > 6"
