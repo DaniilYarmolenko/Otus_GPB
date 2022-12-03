@@ -8,7 +8,7 @@
 - [Маргарита Жерихова][Teacher2]
 - [Николай Бакланов][3]
 
-![](https://github.com/DaniilYarmolenko/Otus_GPB/blob/homework/Homework/%2312_VIPER/simulator.gif)
+![](https://github.com/DaniilYarmolenko/Otus_GPB/blob/homework/Homework/%2316:17:18_AppSave/AppSaveGif.gif)
 
 [Решение][rep]
 
