@@ -8,9 +8,9 @@ Pod::Spec.new do |spec|
 	This is project for OTUS homework
                    DESC
 
-  spec.homepage     = "https://github.com/NikkoGladkko/OtusHomework"
+  spec.homepage     = "https://github.com/DaniilYarmolenko/Otus_GPB/tree/homework/Homework/%2313_Cocoa_SPM/YarmolenkoHomework"
   spec.license      = { :type => "MIT" }
-  spec.author             = { "Николай Гладковский" => "ngladkovskiy@vtb.ru" }
+  spec.author             = { "Николай Гладковский" => "yarmolenkoDaniil@gmail.com" }
 
   spec.platform     = :ios, "13.0"
   spec.source       = { :git => "https://github.com/NikkoGladkko/OtusHomework.git", :tag => "#{spec.version}" }
