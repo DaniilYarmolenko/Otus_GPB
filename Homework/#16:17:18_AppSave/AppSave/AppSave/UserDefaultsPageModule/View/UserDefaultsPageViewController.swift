@@ -52,7 +52,6 @@ final class UserDefaultsPageViewController: UIViewController {
     }
     @objc
     private func deleteAlertCache() {
-        print("DELETE")
         output.deleteAll()
     }
 

@@ -64,7 +64,6 @@ extension MainPresenter: MainViewOutput {
     
     func addToCache(name: String, selected: Bool) {
         guard let image = image else {return}
-        print("Add to cache")
         let model = ImageSaveModel(id: self.model?.first?.id ?? "", url: self.model?.first?.url ?? "", data: image, name: name)
         interactor.addToCache(model: model, selected: selected)
     }

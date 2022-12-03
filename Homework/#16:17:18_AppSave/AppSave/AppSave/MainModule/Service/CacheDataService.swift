@@ -43,9 +43,7 @@ final class CacheDataService: ServiceCacheDataInput {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         let docURL = URL(string: documentsDirectory)!
-        print("doc URL \(docURL)")
         let dataPath = docURL.appendingPathComponent("AppSave")
-        print("dataPath \(dataPath)")
         if !FileManager.default.fileExists(atPath: dataPath.path) {
             do {
                 try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)

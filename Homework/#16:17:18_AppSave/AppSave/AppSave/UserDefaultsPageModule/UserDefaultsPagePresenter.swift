@@ -32,7 +32,6 @@ extension UserDefaultsPagePresenter: UserDefaultsPageViewOutput {
     }
     
     func checkEmpty() -> Bool {
-        print("LOGIC \(array.isEmpty)")
         return array.isEmpty
     }
     
@@ -65,8 +64,6 @@ extension UserDefaultsPagePresenter: UserDefaultsPageViewOutput {
 extension UserDefaultsPagePresenter: UserDefaultsPageInteractorOutput {
     func receiveCacheDataItems(images: [ImageSaveModel]) {
         array = images
-        print("RECEIVE PRESENTER")
-        print(array)
         view?.loadData()
     }
     
