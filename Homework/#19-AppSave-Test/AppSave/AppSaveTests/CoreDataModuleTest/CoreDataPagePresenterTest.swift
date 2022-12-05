@@ -45,10 +45,7 @@ final class CoreDataPagePresenterTest: XCTestCase {
         CoreDataService.shared.insert(with: cat2)
 
         presenter.viewDidLoad()
-        print(self.presenter.array)
         var count = self.presenter.getCellsCount()
-        print("TUT")
-        print(self.presenter.array)
         XCTAssertEqual(count, 2, "Cell count should be 2")
         
         presenter.delete(name: "randomFirst")
@@ -58,7 +55,6 @@ final class CoreDataPagePresenterTest: XCTestCase {
         
         presenter.deleteAll()
         presenter.viewDidLoad()
-        print(presenter.array)
         XCTAssertTrue(router.showAlert)
         count = presenter.getCellsCount()
         XCTAssertEqual(count, 0, "Cell count should be 0")

@@ -23,7 +23,6 @@ final class CacheDataService: ServiceCacheDataInput {
             return false
         }
         for url in directoryContents {
-            print(url.lastPathComponent)
             if url.lastPathComponent == "\(name).json" {
                 return true
             }

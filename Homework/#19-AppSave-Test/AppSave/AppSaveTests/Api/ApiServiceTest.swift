@@ -16,7 +16,6 @@ final class ApiServiceTest: XCTestCase {
             case .failure(let error):
                 XCTExpectFailure(error.localizedDescription)
             case .success(let data):
-                print(data)
                 XCTAssertEqual(data.count, 1, "mock data count should be 1, but it's  \(data.count)")
                 XCTAssertEqual(data.first!.id, "584", "mock data id should be 584, but it's  \(data.first!.id)")
                 XCTAssertEqual(data.first!.url, "https://cdn2.thecatapi.com/images/584.gif", "mock data id should be 584, but it's  \(data.first!.url)")
