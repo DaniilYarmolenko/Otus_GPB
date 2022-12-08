@@ -9,24 +9,133 @@
 import UIKit
 
 final class DDViewController: UIViewController {
-	private let output: DDViewOutput
-
+    private let output: DDViewOutput
+    internal var tableView =  UITableView()
+    //    private var activityIndicatorView: !
     init(output: DDViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-        view.backgroundColor = .red
-	}
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUp()
+        output.viewDidLoad()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        addConstraint()
+    }
+    private func setUp() {
+        navigationController?.navigationBar.isHidden = true
+        setUpTableView()
+        //        setUpIndicator()
+        
+        self.view.backgroundColor = .white
+//        self.view.addSubview(activityIndicatorView)
+//        activityIndicatorView.startAnimating()
+    }
+    private func setUpTableView() {
+        setUpTableViewBase()
+        registerCells()
+    }
+    private func registerCells() {
+        tableView.register(HeaderCellView.self, forCellReuseIdentifier: HeaderCellView.cellIdentifier)
+        tableView.register(NewsCollectionTableViewCell.self, forCellReuseIdentifier: NewsCollectionTableViewCell.cellIdentifier)
+        tableView.register(FoodCategoriesCollectionViewCell.self, forCellReuseIdentifier: FoodCategoriesCollectionViewCell.cellIdentifier)
+        tableView.register(InfoViewCell.self, forCellReuseIdentifier: InfoViewCell.cellIdentifier)
+    }
+    private func setUpTableViewBase() {
+        self.view.addSubview(tableView)
+        tableView.backgroundColor = .clear
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
+//        tableView.tableHeaderView = UIView()
+        tableView.separatorStyle = .none
+    }
 }
 
 extension DDViewController: DDViewInput {
+    func reloadData() {
+        tableView.reloadData()
+        output.sectionDelegate = self
+//        activityIndicatorView.stopAnimating()
+    }
+    
+}
+
+extension DDViewController: TableViewCellOutput {
+    func tapMoreNews() {
+        output.goToAllNews()
+    }
+    
+    func tapMoreFood() {
+        output.goToMenu()
+    }
+    
+    func tapOnNews(with id: Int) {
+        output.tapOnNews(with: id)
+    }
+    
+    func tapOnCategory(with id: Int) {
+        output.tapOnCategory(with: id)
+    }
+    
+    func tapOnMap() {
+        output.tapOnMap()
+    }
+    
+    func tapOnPhone() {
+        output.tapOnPhone()
+    }
+    
+    func tapOnEmail() {
+        output.tapOnEmail()
+    }
+    
+    func tapOnVk() {
+        output.tapOnVk()
+    }
+    
+    func tapOnTelegram() {
+        output.tapOnTelegram()
+    }
+    
+    func tapOnInstagram() {
+        output.tapOnInstagram()
+    }
+    
+
+}
+
+extension DDViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("LOGIC getCountCells \(output.getCountCells())")
+        return output.getCountCells()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: output.getCellIdentifier(at: indexPath.row), for: indexPath)
+                as? BaseCell else {
+            return UITableViewCell()
+        }
+        cell.model = output.getCell(at: indexPath.row)
+        print("LOGIC getCell \(output.getCell(at: indexPath.row))")
+        return cell
+    }
+}
+
+extension DDViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        print(CGFloat(output.getCellHeight(at: indexPath.row)))
+        return CGFloat(output.getCellHeight(at: indexPath.row))
+    }
 }

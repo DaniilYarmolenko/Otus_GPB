@@ -30,6 +30,8 @@ final class TabBarViewController: UITabBarController {
         self.tabBar.unselectedItemTintColor = ColorConstants.LightGrey
         self.tabBar.barTintColor = ColorConstants.TabBarColor
         self.tabBar.backgroundColor = ColorConstants.TabBarColor
+        self.tabBar.layer.borderColor = UIColor.black.cgColor
+        self.tabBar.layer.borderWidth = 0.5
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

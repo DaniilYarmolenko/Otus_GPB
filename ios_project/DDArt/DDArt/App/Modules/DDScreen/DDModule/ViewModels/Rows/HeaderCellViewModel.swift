@@ -7,12 +7,15 @@
 
 import Foundation
 final class HeaderCellViewModel: CellIdentifiable {
+    var cellHeight: Float {
+        return -1
+    }
+    
     typealias ActionHandler = () -> Void
     var action: ActionHandler?
 
     var cellIdentifier: String {
-//        return HeaderCellView.cellIdentifier
-        ""
+        return HeaderCellView.cellIdentifier
     }
 
     var title: String
@@ -20,8 +23,7 @@ final class HeaderCellViewModel: CellIdentifiable {
 
     init(title: String, action: ActionHandler? = nil) {
         self.title = title
-        self.seeAll = ""
-//        self.seeAll = TitlesConstants.all
+        self.seeAll = TitlesConstants.MoreBarTitle
         self.action = action
     }
 }

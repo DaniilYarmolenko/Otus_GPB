@@ -15,9 +15,8 @@ class EventModel: Codable {
     var dateStart: String
     var dateEnd: String
     var eventType: EventType
-    var categories: [CategoryModel]
     
-    init(authorName: String, nameEvent: String, description: String, photos: [String], dateStart: String, dateEnd: String, eventType: EventType, categories: [CategoryModel]) {
+    init(id: UUID? = nil, authorName: String, nameEvent: String, description: String, photos: [String], dateStart: String, dateEnd: String, eventType: EventType) {
         self.authorName = authorName
         self.nameEvent = nameEvent
         self.description = description
@@ -25,7 +24,6 @@ class EventModel: Codable {
         self.dateStart = dateStart
         self.dateEnd = dateEnd
         self.eventType = eventType
-        self.categories = categories
     }
 }
 

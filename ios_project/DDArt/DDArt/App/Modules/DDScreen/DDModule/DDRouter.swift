@@ -12,4 +12,24 @@ final class DDRouter {
 }
 
 extension DDRouter: DDRouterInput {
+    func categoryFoodSelected(with view: DDViewInput?, and id: Int) {
+        
+    }
+    
+    func newsSelected(with view: DDViewInput?, and id: Int) {
+        
+    }
+    
+    func goToMenu(with view: DDViewInput?) {
+        
+    }
+    
+    func goToAllNews(with view: DDViewInput?) {
+        
+    }
+    
+    func presentMap(with view: DDViewInput?) {
+        
+    }
+    
 }

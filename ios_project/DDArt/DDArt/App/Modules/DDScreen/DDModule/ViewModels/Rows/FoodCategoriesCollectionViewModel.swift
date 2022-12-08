@@ -7,11 +7,15 @@
 
 import Foundation
 final class FoodCategoriesCollectionViewModel: CellIdentifiable {
+    var cellHeight: Float {
+        return Float(SizeConstants.screenHeight/5)
+    }
+    
     typealias ActionHandler = (Int) -> Void
     var action: ActionHandler?
 
     var cellIdentifier: String {
-        return FoodCategoryViewModel.cellIdentifier
+        return FoodCategoriesCollectionViewCell.cellIdentifier
     }
 
     let array: [FoodCategory]

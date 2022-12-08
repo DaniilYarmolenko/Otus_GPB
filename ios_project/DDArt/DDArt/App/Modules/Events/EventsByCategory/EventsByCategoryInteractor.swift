@@ -13,7 +13,7 @@ final class EventsByCategoryInteractor {
 }
 
 extension EventsByCategoryInteractor: EventsByCategoryInteractorInput {
-    func loadEventsByCategory(category: Category) {
+    func loadEventsByCategory(category: CategoryModel) {
+        
     }
-    
 }

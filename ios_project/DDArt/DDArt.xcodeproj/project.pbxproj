@@ -27,12 +27,10 @@
 		260D3C40293FED1B007AA3A5 /* HeaderViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C3F293FED1B007AA3A5 /* HeaderViewCell+Constraints.swift */; };
 		260D3C42293FED32007AA3A5 /* InfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C41293FED32007AA3A5 /* InfoViewCell.swift */; };
 		260D3C44293FED44007AA3A5 /* InfoViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C43293FED44007AA3A5 /* InfoViewCell+Constraints.swift */; };
-		260D3C46293FED5E007AA3A5 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C45293FED5E007AA3A5 /* NewsCollectionViewCell.swift */; };
+		260D3C46293FED5E007AA3A5 /* NewsCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C45293FED5E007AA3A5 /* NewsCollectionTableViewCell.swift */; };
 		260D3C49293FED9E007AA3A5 /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C48293FED9E007AA3A5 /* NewsViewCell.swift */; };
 		260D3C4B293FEDA8007AA3A5 /* NewsViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C4A293FEDA8007AA3A5 /* NewsViewCell+Constraints.swift */; };
-		260D3C4F293FEE86007AA3A5 /* NewsCollectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C4E293FEE86007AA3A5 /* NewsCollectionViewCell+Constraints.swift */; };
-		260D3C53293FEF51007AA3A5 /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C52293FEF51007AA3A5 /* InfoCollectionViewCell.swift */; };
-		260D3C55293FEF63007AA3A5 /* InffoCollectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C54293FEF63007AA3A5 /* InffoCollectionViewCell+Constraints.swift */; };
+		260D3C4F293FEE86007AA3A5 /* NewsCollectionTableViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C4E293FEE86007AA3A5 /* NewsCollectionTableViewCell+Constraints.swift */; };
 		260D3C59293FEFE8007AA3A5 /* FoodCategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C58293FEFE8007AA3A5 /* FoodCategoriesCollectionViewCell.swift */; };
 		260D3C5B293FEFF4007AA3A5 /* FoodCategoriesCollectionViewCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C5A293FEFF4007AA3A5 /* FoodCategoriesCollectionViewCell+Constraints.swift */; };
 		260D3C5D293FF005007AA3A5 /* FoodCategoriesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C5C293FF005007AA3A5 /* FoodCategoriesViewCell.swift */; };
@@ -95,6 +93,8 @@
 		265C1819291325620057FB2F /* DDSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1818291325620057FB2F /* DDSegmentControl.swift */; };
 		265C181C29132AC80057FB2F /* EventsViewController + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */; };
 		265C181E29134CAD0057FB2F /* PageControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */; };
+		268ACEAF29410F4E00C82DC6 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ACEAE29410F4E00C82DC6 /* CustomLabel.swift */; };
+		268ACEB1294125CA00C82DC6 /* ButtonWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ACEB0294125CA00C82DC6 /* ButtonWithLabel.swift */; };
 		26F214E4293E1A8800499873 /* DDArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F214E3293E1A8800499873 /* DDArtTests.swift */; };
 		26F214F1293E1B5C00499873 /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F214EB293E1B5C00499873 /* EventDetailPresenter.swift */; };
 		26F214F2293E1B5C00499873 /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F214EC293E1B5C00499873 /* EventDetailRouter.swift */; };
@@ -157,12 +157,10 @@
 		260D3C3F293FED1B007AA3A5 /* HeaderViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderViewCell+Constraints.swift"; sourceTree = "<group>"; };
 		260D3C41293FED32007AA3A5 /* InfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewCell.swift; sourceTree = "<group>"; };
 		260D3C43293FED44007AA3A5 /* InfoViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoViewCell+Constraints.swift"; sourceTree = "<group>"; };
-		260D3C45293FED5E007AA3A5 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		260D3C45293FED5E007AA3A5 /* NewsCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		260D3C48293FED9E007AA3A5 /* NewsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
 		260D3C4A293FEDA8007AA3A5 /* NewsViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewCell+Constraints.swift"; sourceTree = "<group>"; };
-		260D3C4E293FEE86007AA3A5 /* NewsCollectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsCollectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
-		260D3C52293FEF51007AA3A5 /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
-		260D3C54293FEF63007AA3A5 /* InffoCollectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InffoCollectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
+		260D3C4E293FEE86007AA3A5 /* NewsCollectionTableViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsCollectionTableViewCell+Constraints.swift"; sourceTree = "<group>"; };
 		260D3C58293FEFE8007AA3A5 /* FoodCategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		260D3C5A293FEFF4007AA3A5 /* FoodCategoriesCollectionViewCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodCategoriesCollectionViewCell+Constraints.swift"; sourceTree = "<group>"; };
 		260D3C5C293FF005007AA3A5 /* FoodCategoriesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoriesViewCell.swift; sourceTree = "<group>"; };
@@ -227,6 +225,9 @@
 		265C1818291325620057FB2F /* DDSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSegmentControl.swift; sourceTree = "<group>"; };
 		265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventsViewController + Constraints.swift"; sourceTree = "<group>"; };
 		265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerAdapter.swift; sourceTree = "<group>"; };
+		268ACEAE29410F4E00C82DC6 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		268ACEB0294125CA00C82DC6 /* ButtonWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithLabel.swift; sourceTree = "<group>"; };
+		268ACEB42942416B00C82DC6 /* TODOlist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODOlist.md; sourceTree = "<group>"; };
 		26F214E1293E1A8800499873 /* DDArtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDArtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F214E3293E1A8800499873 /* DDArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDArtTests.swift; sourceTree = "<group>"; };
 		26F214EB293E1B5C00499873 /* EventDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailPresenter.swift; sourceTree = "<group>"; };
@@ -376,7 +377,6 @@
 		260D3C3B293FECBF007AA3A5 /* InfoCollectionTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				260D3C51293FEED5007AA3A5 /* InfoCollectionViewCell */,
 				260D3C50293FEEC6007AA3A5 /* InfoViewCell */,
 			);
 			path = InfoCollectionTableViewCell;
@@ -403,8 +403,8 @@
 		260D3C4D293FEE29007AA3A5 /* NewsCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				260D3C45293FED5E007AA3A5 /* NewsCollectionViewCell.swift */,
-				260D3C4E293FEE86007AA3A5 /* NewsCollectionViewCell+Constraints.swift */,
+				260D3C45293FED5E007AA3A5 /* NewsCollectionTableViewCell.swift */,
+				260D3C4E293FEE86007AA3A5 /* NewsCollectionTableViewCell+Constraints.swift */,
 			);
 			name = NewsCollectionViewCell;
 			sourceTree = "<group>";
@@ -416,15 +416,6 @@
 				260D3C43293FED44007AA3A5 /* InfoViewCell+Constraints.swift */,
 			);
 			path = InfoViewCell;
-			sourceTree = "<group>";
-		};
-		260D3C51293FEED5007AA3A5 /* InfoCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				260D3C52293FEF51007AA3A5 /* InfoCollectionViewCell.swift */,
-				260D3C54293FEF63007AA3A5 /* InffoCollectionViewCell+Constraints.swift */,
-			);
-			path = InfoCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		260D3C56293FEF8E007AA3A5 /* FoodCategoriesViewCell */ = {
@@ -498,6 +489,7 @@
 				265C17912912CF450057FB2F /* Assets.xcassets */,
 				262A3FE42913DF3700D8C46E /* Font */,
 				265C17932912CF450057FB2F /* LaunchScreen.storyboard */,
+				268ACEB42942416B00C82DC6 /* TODOlist.md */,
 				265C17962912CF450057FB2F /* Info.plist */,
 			);
 			path = DDArt;
@@ -706,6 +698,8 @@
 			children = (
 				265C1818291325620057FB2F /* DDSegmentControl.swift */,
 				265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */,
+				268ACEAE29410F4E00C82DC6 /* CustomLabel.swift */,
+				268ACEB0294125CA00C82DC6 /* ButtonWithLabel.swift */,
 			);
 			path = "Custom View";
 			sourceTree = "<group>";
@@ -962,7 +956,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				265C17A82912CFFD0057FB2F /* TabBarInteractor.swift in Sources */,
-				260D3C55293FEF63007AA3A5 /* InffoCollectionViewCell+Constraints.swift in Sources */,
 				265C17BD2912DC3B0057FB2F /* EventsRouter.swift in Sources */,
 				26F21510293E743500499873 /* ImageCache.swift in Sources */,
 				265C17A42912CFFD0057FB2F /* TabBarPresenter.swift in Sources */,
@@ -992,7 +985,6 @@
 				26F2153D293F273200499873 /* AuthPresenter.swift in Sources */,
 				260D3C59293FEFE8007AA3A5 /* FoodCategoriesCollectionViewCell.swift in Sources */,
 				265C17CB2912DC5C0057FB2F /* DDViewController.swift in Sources */,
-				260D3C53293FEF51007AA3A5 /* InfoCollectionViewCell.swift in Sources */,
 				26F214F2293E1B5C00499873 /* EventDetailRouter.swift in Sources */,
 				260D3C5D293FF005007AA3A5 /* FoodCategoriesViewCell.swift in Sources */,
 				265C181C29132AC80057FB2F /* EventsViewController + Constraints.swift in Sources */,
@@ -1003,7 +995,7 @@
 				265C18062912EC390057FB2F /* EventsTodayInteractor.swift in Sources */,
 				265C18122912EC4D0057FB2F /* EventsSearchInteractor.swift in Sources */,
 				26F21516293E749A00499873 /* ApiService.swift in Sources */,
-				260D3C46293FED5E007AA3A5 /* NewsCollectionViewCell.swift in Sources */,
+				260D3C46293FED5E007AA3A5 /* NewsCollectionTableViewCell.swift in Sources */,
 				26F214F6293E1B5C00499873 /* EventDetailContainer.swift in Sources */,
 				265C17C02912DC3B0057FB2F /* EventsInteractor.swift in Sources */,
 				265C17F62912EC1B0057FB2F /* EventsFuturePresenter.swift in Sources */,
@@ -1019,7 +1011,7 @@
 				265C17C12912DC3B0057FB2F /* EventsContainer.swift in Sources */,
 				260D3C4B293FEDA8007AA3A5 /* NewsViewCell+Constraints.swift in Sources */,
 				260D3C25293FD47F007AA3A5 /* HeaderCellViewModel.swift in Sources */,
-				260D3C4F293FEE86007AA3A5 /* NewsCollectionViewCell+Constraints.swift in Sources */,
+				260D3C4F293FEE86007AA3A5 /* NewsCollectionTableViewCell+Constraints.swift in Sources */,
 				265C180F2912EC4D0057FB2F /* EventsSearchRouter.swift in Sources */,
 				26F214F5293E1B5C00499873 /* EventDetailInteractor.swift in Sources */,
 				265C17C92912DC5C0057FB2F /* DDPresenter.swift in Sources */,
@@ -1037,6 +1029,7 @@
 				260D3C67293FF198007AA3A5 /* InfoCellViewModel.swift in Sources */,
 				26F2150D293E743500499873 /* ResourceRequestError.swift in Sources */,
 				260D3C0D293F6C10007AA3A5 /* EventsByCategoryPresenter.swift in Sources */,
+				268ACEAF29410F4E00C82DC6 /* CustomLabel.swift in Sources */,
 				265C17FB2912EC1B0057FB2F /* EventsFutureContainer.swift in Sources */,
 				260D3C22293FD41B007AA3A5 /* FoodCategoryModel.swift in Sources */,
 				26F214FA293E738000499873 /* BaseCell.swift in Sources */,
@@ -1063,6 +1056,7 @@
 				26F21506293E73F100499873 /* UIView+Extension.swift in Sources */,
 				26F2152B293E74AF00499873 /* ImageModel.xcdatamodeld in Sources */,
 				260D3C1F293FCE95007AA3A5 /* InfoModel.swift in Sources */,
+				268ACEB1294125CA00C82DC6 /* ButtonWithLabel.swift in Sources */,
 				265C17A72912CFFD0057FB2F /* TabBarProtocols.swift in Sources */,
 				26F21511293E743600499873 /* Verification.swift in Sources */,
 				265C17D72912DC960057FB2F /* ExtraScreenRouter.swift in Sources */,
