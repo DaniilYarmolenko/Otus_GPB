@@ -68,7 +68,7 @@ func printSerialConcurrentQueue() {
         concurrentQueue.sync {
             print("3")
             
-            serialQueue.sync { // блок с данной задачой не выполняется из-за дедлока sync на sync
+            serialQueue.sync {
                 print("4")
                 
                 concurrentQueue.async {
@@ -77,10 +77,10 @@ func printSerialConcurrentQueue() {
                 print("6")
             }
             
-            print("7") // Не выведется в консоль из-за deadlock'а выше.
+            print("7")
         }
         
-        print("8") // Не выведется в консоль из-за deadlock'а выше.
+        print("8")
     }
     
     print("9")
@@ -140,7 +140,7 @@ func changeConcurrentToSerialQueue() {
         concurrentQueue.sync {
             print("3")
             
-            serialQueue.sync { // блок с данной задачой не выполняется из-за дедлока sync на sync
+            serialQueue.sync {
                 print("4")
                 
                 concurrentQueue.async {
@@ -149,10 +149,10 @@ func changeConcurrentToSerialQueue() {
                 print("6")
             }
             
-            print("7") // Не выведется в консоль из-за deadlock'а выше.
+            print("7")
         }
         
-        print("8") // Не выведется в консоль из-за deadlock'а выше.
+        print("8")
     }
     
     print("9")
