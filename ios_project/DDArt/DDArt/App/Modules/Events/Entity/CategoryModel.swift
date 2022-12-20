@@ -7,5 +7,11 @@
 
 import Foundation
 class CategoryModel: Codable {
-    
+    var id: UUID?
+    var name: String
+    var photos: [String]
+    init(name: String, photos: [String]) {
+        self.name = name
+        self.photos = photos
+    }
 }

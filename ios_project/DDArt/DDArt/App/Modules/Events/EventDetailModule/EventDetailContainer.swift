@@ -22,7 +22,6 @@ final class EventDetailContainer {
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
         presenter.event = context.event
-
 		interactor.output = presenter
 
         return EventDetailContainer(view: viewController, input: presenter, router: router)

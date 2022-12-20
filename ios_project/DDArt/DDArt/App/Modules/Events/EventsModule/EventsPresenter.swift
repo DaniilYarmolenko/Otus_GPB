@@ -12,6 +12,10 @@ final class EventsPresenter {
 	weak var view: EventsViewInput?
     weak var moduleOutput: EventsModuleOutput?
     var model: String = ""
+    var allEvents = [EventModel]()
+    var eventsToday = [EventModel]()
+    var eventsFuture = [EventModel]()
+    var categories = [CategoryModel]()
     
 	private let router: EventsRouterInput
 	private let interactor: EventsInteractorInput
@@ -26,17 +30,46 @@ extension EventsPresenter: EventsModuleInput {
 }
 
 extension EventsPresenter: EventsViewOutput {
+    func loadAllData() {
+        interactor.loadData()
+    }
     
     func viewDidLoad() {
-        getViews()
+        interactor.loadData()
     }
     func getViews(){
-        let views = self.router.getViews()
-        self.view?.receiveViews(with: views)
+        if let viewOut = view {
+            let views = self.router.getViews(allEvent: allEvents, eventsToday: eventsToday, eventsFuture: eventsFuture, category: categories, view: viewOut)
+            self.view?.receiveViews(with: views)
+        }
     }
 }
 extension EventsPresenter: EventsInteractorOutput {
-    func receiveViewSegment(model: String, index: Int) {
+    func receiveDataSegment(allEvent: [EventModel], category: [CategoryModel]) {
+        self.allEvents = allEvent
+        self.categories = category
+        let dateToday = Date().convertToTimeZone(initTimeZone: TimeZone(abbreviation: "MSD"))
+        self.eventsToday = allEvent.filter({ event in
+            let dateEventStart = event.dateStart.toDate()
+            let dateEventEnd = event.dateEnd.toDate()
+            print("1")
+            print(dateEventStart, dateEventEnd, dateToday)
+            return dateEventStart <= dateToday &&
+            dateEventEnd > dateToday
+            
+        })
+        self.eventsFuture = allEvent.filter({ event in
+            let dateEventStart = event.dateStart.toDate()
+            print("2")
+            print(dateEventStart, dateToday)
+            return dateEventStart > dateToday
+        })
+        getViews()
     }
+    
+    func didFail(message: String) {
+        print(message) //Make alert
+    }
+    
     
 }

@@ -10,7 +10,11 @@ import UIKit
 
 final class EventsFutureViewController: UIViewController {
 	private let output: EventsFutureViewOutput
-
+    internal lazy var collectionView: UICollectionView = {
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: MosaicLayout())
+            return collectionView
+        }()
+    private let refreshControl = UIRefreshControl()
     init(output: EventsFutureViewOutput) {
         self.output = output
 
@@ -24,13 +28,64 @@ final class EventsFutureViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        view.backgroundColor = .yellow
+        setUp()
 	}
+    private func setUp() {
+            setUpcollectionViewBase()
+            setUpBase()
+        }
+        private func setUpBase() {
+            self.view.backgroundColor = .white
+            print("SetUP BASE \(output.getCountCell())")
+        }
+    
+    private func setUpcollectionViewBase() {
+           let mosaicLayout = MosaicLayout()
+           collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: mosaicLayout)
+           collectionView.backgroundColor = UIColor.clear
+           collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+           collectionView.alwaysBounceVertical = true
+        collectionView.refreshControl = refreshControl
+        collectionView.showsVerticalScrollIndicator = false
+           collectionView.delegate = self
+           collectionView.dataSource = self
+           collectionView.register(EventFutureCell.self, forCellWithReuseIdentifier: EventFutureCell.cellIdentifier)
+            print("setUP Collecttion \(collectionView)")
+           view.addSubview(collectionView)
+       }
+    private func setUpRefreshControll() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...", attributes: nil)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    @objc
+    func refreshData() {
+        output.loadData()
+    }
 }
 
 extension EventsFutureViewController: EventsFutureViewInput {
     func reloadData() {
-//        MARK: Reload Data
+        collectionView.reloadData()
     }
+    
+}
+extension EventsFutureViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("\(output.getCountCell()) TUT")
+        return output.getCountCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventFutureCell.cellIdentifier, for: indexPath) as? EventFutureCell else { return UICollectionViewCell() }
+        cell.configure(model: output.getCell(index: indexPath.row)) {
+            let myCell = collectionView.cellForItem(at: indexPath)
+            return cell == myCell
+        }
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+    }
+    
     
 }

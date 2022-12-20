@@ -26,13 +26,12 @@ protocol EventsViewOutput: AnyObject {
 }
 
 protocol EventsInteractorInput: AnyObject {
-    func getData()
+    func loadData()
 }
 
 protocol EventsInteractorOutput: AnyObject {
-    func receiveViewSegment(model: String, index: Int)
+    func receiveDataSegment(allEvent: [EventModel], category: [CategoryModel])
+    func didFail(message: String)
 }
-
 protocol EventsRouterInput: AnyObject {
-    func getViews() -> [UIViewController]
-}
+    func getViews(allEvent: [EventModel], eventsToday: [EventModel], eventsFuture: [EventModel], category: [CategoryModel], view: EventsViewInput) -> [UIViewController]}

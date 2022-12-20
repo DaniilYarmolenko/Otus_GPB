@@ -24,6 +24,7 @@ final class EventsByCategoryViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        output.viewDidLoad()
 	}
 }
 

@@ -11,7 +11,7 @@ final class DDSectionViewModel: SectionRowsRepresentable {
     var rows: [CellIdentifiable]
     var actions: TableViewCellOutput?
     
-    func fillData(news: [NewsModel], categoriesFood: [FoodCategory], info: [InfoModel]) {
+    func fillData(news: [NewsModel], categoriesFood: [FoodCategory], info: [InfoModel], output: DDViewOutput) {
         rows.insert(
             NewsCollectionViewModel(array: news, action: { [weak self] index in
                 self?.actions?.tapOnNews(with: index)
@@ -22,7 +22,7 @@ final class DDSectionViewModel: SectionRowsRepresentable {
                 self?.actions?.tapOnCategory(with: index)
             })
             , at: 3)
-        rows.append(InfoCollectionViewModel(model: info, action: nil))
+        rows.append(InfoCollectionViewModel(model: info, action: nil, output: output))
         print("LOGIC ROWS \(rows)")
     }
     

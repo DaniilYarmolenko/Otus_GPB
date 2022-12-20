@@ -13,6 +13,7 @@ final class EventsSearchPresenter {
     weak var moduleOutput: EventsSearchModuleOutput?
     var categories = [CategoryModel]()
     var events = [EventModel]()
+    var searchEvents = [EventModel]()
 	private let router: EventsSearchRouterInput
 	private let interactor: EventsSearchInteractorInput
 
@@ -26,12 +27,20 @@ extension EventsSearchPresenter: EventsSearchModuleInput {
 }
 
 extension EventsSearchPresenter: EventsSearchViewOutput {
+    func getEventCell(with index: Int) -> EventModel {
+        searchEvents[index]
+    }
+    
+    func getCategoryCell(with index: Int) -> CategoryModel {
+        categories[index]
+    }
+    
     func viewDidload() {
         interactor.loadAllCategories()
     }
     
     func getCountEventCells() -> Int {
-        events.count
+        searchEvents.count
     }
     
     func clickOnEvent(with id: Int) {
@@ -44,11 +53,11 @@ extension EventsSearchPresenter: EventsSearchViewOutput {
         case .name:
             switch order {
             case .increasing:
-                eventsSort = events.sorted() { first, second in
+                eventsSort = searchEvents.sorted() { first, second in
                     return first.nameEvent > second.nameEvent
                 }
             case .descending:
-                eventsSort = events.sorted() {
+                eventsSort = searchEvents.sorted() {
                     $0.nameEvent < $1.nameEvent
                 }
             }
@@ -66,7 +75,8 @@ extension EventsSearchPresenter: EventsSearchViewOutput {
     }
     
     func searchEventByName(with name: String) {
-        interactor.searchEventByName(with: name)
+        searchEvents = events.filter { $0.nameEvent.lowercased().contains(name) || $0.authorName.lowercased().contains(name)}
+        recieveEventsSearch(events: searchEvents)
     }
     
     func getCountCategoryCells() -> Int {
@@ -80,6 +90,10 @@ extension EventsSearchPresenter: EventsSearchViewOutput {
 }
 
 extension EventsSearchPresenter: EventsSearchInteractorOutput {
+    func recieveEventsSearch(events: [EventModel]) {
+        view?.reloadTableData()
+    }
+    
     func recieveCategories(categories: [CategoryModel]) {
         self.categories = categories
     }

@@ -16,7 +16,7 @@ class EventModel: Codable {
     var dateEnd: String
     var eventType: EventType
     
-    init(id: UUID? = nil, authorName: String, nameEvent: String, description: String, photos: [String], dateStart: String, dateEnd: String, eventType: EventType) {
+    init(authorName: String, nameEvent: String, description: String, photos: [String], dateStart: String, dateEnd: String, eventType: EventType) {
         self.authorName = authorName
         self.nameEvent = nameEvent
         self.description = description
@@ -35,7 +35,7 @@ enum Ordered {
     case increasing
     case descending
 }
-enum EventType: Codable, CodingKey {
+enum EventType: String, Codable {
     case standard
     case admin
 }

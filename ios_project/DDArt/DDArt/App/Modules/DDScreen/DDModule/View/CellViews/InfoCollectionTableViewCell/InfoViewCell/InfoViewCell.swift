@@ -19,7 +19,6 @@ final class InfoViewCell: BaseCell {
     internal var vkButton = UIButton()
     internal var instagramButton = UIButton()
     internal var telegramButton = UIButton()
-    internal var delegate: TableViewCellOutput?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,6 +28,7 @@ final class InfoViewCell: BaseCell {
         contentView.backgroundColor = .clear
         setUp()
         addConstraints()
+        
     }
     
     
@@ -66,6 +66,7 @@ final class InfoViewCell: BaseCell {
         guard !model.infoModel.isEmpty else {return}
         addressButton.setTitle(model.infoModel[0].address, for: .normal)
         phoneButton.setTitle(model.infoModel[0].phoneNumber, for: .normal)
+        print(model.infoModel[0])
     }
     private func setUpSocialHStack() {
         socialButtonHStack.axis  = .horizontal
@@ -92,26 +93,33 @@ final class InfoViewCell: BaseCell {
     }
     @objc
     private func vkButtonAction() {
-        delegate?.tapOnVk()
+//        model.output.tapOnVk()
     }
     @objc
     private func telegramButtonAction() {
-        delegate?.tapOnTelegram()
+        print("1")
+        print("2")
+        guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
+        print("\(model.infoModel) 1")
+        model.output.tapOnTelegram()
     }
     @objc
     private func instagramButtonAction() {
-        delegate?.tapOnInstagram()
+        guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
+        model.output.tapOnInstagram()
+        print("INST 1")
     }
     @objc
     private func phoneButtonAction() {
-        delegate?.tapOnPhone()
+//        output?.tapOnPhone()
+        print("PHONE 1")
     }
     @objc
     private func addressButtonAction() {
-        delegate?.tapOnMap()
+//        output?.tapOnMap()
     }
     @objc
     private func emailButtonAction() {
-        delegate?.tapOnEmail()
+//        output?.tapOnEmail()
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol EventsTodayModuleInput {
 	var moduleOutput: EventsTodayModuleOutput? { get }
@@ -24,9 +25,11 @@ protocol TableEventViewCellOutput: AnyObject {
 }
 
 protocol EventsTodayViewOutput: AnyObject {
-    func viewDidLoad()
+    func loadData()
     func getCountCell() -> Int
     func clickOnEvent(with id: Int)
+    func clickOnRegisterButton(with id: UUID?)
+    func getCell(with index: Int) -> EventModel
 }
 
 protocol EventsTodayInteractorInput: AnyObject {
@@ -35,8 +38,9 @@ protocol EventsTodayInteractorInput: AnyObject {
 
 protocol EventsTodayInteractorOutput: AnyObject {
     func receiveData(events: [EventModel])
+    func didFail(message: String)
 }
 
 protocol EventsTodayRouterInput: AnyObject {
-    func eventSelected(with view: EventsTodayViewInput?, and event: EventModel)
+    func eventSelected(with view: EventsTodayViewInput?, event: EventModel, navigationController: UINavigationController)
 }

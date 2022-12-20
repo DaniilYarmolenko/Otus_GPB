@@ -21,9 +21,11 @@ final class EventsFutureContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-
+        presenter.events = context.eventsFuture
 		interactor.output = presenter
-
+        print("TTUUTTT")
+        print(presenter.events)
+        
         return EventsFutureContainer(view: viewController, input: presenter, router: router)
 	}
 
@@ -36,4 +38,5 @@ final class EventsFutureContainer {
 
 struct EventsFutureContext {
 	weak var moduleOutput: EventsFutureModuleOutput?
+    var eventsFuture: [EventModel]
 }

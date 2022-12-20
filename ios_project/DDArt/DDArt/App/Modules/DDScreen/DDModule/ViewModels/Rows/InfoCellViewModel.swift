@@ -11,6 +11,8 @@ final class InfoCollectionViewModel: CellIdentifiable {
         return Float(SizeConstants.screenHeight/2)
     }
     
+    var output: DDViewOutput
+    
     typealias ActionHandler = (Int) -> Void
     var action: ActionHandler?
 
@@ -20,8 +22,10 @@ final class InfoCollectionViewModel: CellIdentifiable {
 
     var infoModel: [InfoModel]
 
-    init(model: [InfoModel], action: ActionHandler? = nil) {
+    init(model: [InfoModel], action: ActionHandler? = nil, output: DDViewOutput) {
         self.infoModel = model
         self.action = action
+        self.output = output
     }
+
 }

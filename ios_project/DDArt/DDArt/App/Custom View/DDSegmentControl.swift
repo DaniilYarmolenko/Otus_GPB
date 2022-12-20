@@ -12,8 +12,8 @@ protocol DDSegmentControlDelegate: AnyObject {
 }
 
 class DDSegmentControl: UIView {
-    private var buttonTitles: [String]!
-    private var buttons: [UIButton]!
+    private var buttonTitles = [String]()
+    private var buttons = [UIButton]()
     private var selectorView: UIView!
     
     var textUnSelectedColor: UIColor = .gray

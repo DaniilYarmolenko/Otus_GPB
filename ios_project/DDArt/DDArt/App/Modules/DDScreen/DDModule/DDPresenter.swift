@@ -28,10 +28,12 @@ extension DDPresenter: DDModuleInput {
 extension DDPresenter: DDViewOutput {
     func viewDidLoad() {
         ddSectionViewModel = DDSectionViewModel()
-        interactor.loadData()
-        print("LOGIC ddVM \(ddSectionViewModel)")
+        loadData()
     }
-    
+    func loadData() {
+        ddSectionViewModel = DDSectionViewModel()
+        interactor.loadData()
+    }
     func tapOnCategory(with id: Int) {
         guard let category = ddSectionViewModel?.rows[3] as?  FoodCategoriesCollectionViewModel else { return }
 //        router.authorSelected(with: view, and: author.array[id].id)
@@ -42,6 +44,7 @@ extension DDPresenter: DDViewOutput {
     }
     
     func tapOnMap() {
+        
         router.presentMap(with: view)
     }
     
@@ -68,7 +71,6 @@ extension DDPresenter: DDViewOutput {
     }
     
     func getCountCells() -> Int {
-        print(ddSectionViewModel)
         guard let ddSectionViewModel = ddSectionViewModel else { return 0 }
         
         return ddSectionViewModel.rows.count
@@ -107,9 +109,15 @@ extension DDPresenter: DDViewOutput {
 }
 
 extension DDPresenter: DDInteractorOutput {
-    func receiveData(news: [NewsModel], categoriesFoods: [FoodCategory], info: [InfoModel]) {
-        
-        ddSectionViewModel?.fillData(news: news, categoriesFood: categoriesFoods, info: info)
+    func didFail(message: String) {
+        print("LOGIC \(message)")
     }
+    
+    func receiveData(news: [NewsModel], categoriesFoods: [FoodCategory], info: [InfoModel]) {
+        ddSectionViewModel?.fillData(news: news, categoriesFood: categoriesFoods, info: info, output: self)
+        view?.reloadData()
+    }
+    
+    
     
 }

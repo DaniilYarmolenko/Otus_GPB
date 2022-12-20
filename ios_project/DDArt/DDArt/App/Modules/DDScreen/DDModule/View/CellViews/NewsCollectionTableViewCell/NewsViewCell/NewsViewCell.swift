@@ -11,6 +11,8 @@ final class NewsCollectionCell: UICollectionViewCell {
     static let cellIdentifier = String(describing: NewsCollectionCell.self)
 
     internal var imageView = UIImageView()
+    private var image: UIImage?
+    private var imageName: String?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,13 +37,17 @@ final class NewsCollectionCell: UICollectionViewCell {
     }
 
     func configure(model: NewsModel, complition: @escaping () -> (Bool)) {
-        self.imageView.image = UIImage(named: "noData")
+        self.imageView.image = image ?? UIImage(named: "noData")
         guard !model.photos.isEmpty else {return}
-        DispatchQueue.global().async {
-            ImageLoader.shared.image(with: model.photos[0]) { image in
-                DispatchQueue.main.async {
-                    if !complition() { return }
-                    self.imageView.image = image
+        if imageName != model.photos[0] {
+            DispatchQueue.global().async {
+                ImageLoader.shared.image(with: model.photos[0], folder: "NewsPictures") { image in
+                    DispatchQueue.main.async {
+                        if !complition() { return }
+                        self.imageView.image = image
+                        self.image = image
+                        self.imageName = model.photos[0]
+                    }
                 }
             }
         }

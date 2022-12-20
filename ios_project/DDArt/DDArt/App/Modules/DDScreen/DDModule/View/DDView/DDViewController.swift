@@ -11,6 +11,7 @@ import UIKit
 final class DDViewController: UIViewController {
     private let output: DDViewOutput
     internal var tableView =  UITableView()
+    private let refreshControl = UIRefreshControl()
     //    private var activityIndicatorView: !
     init(output: DDViewOutput) {
         self.output = output
@@ -44,6 +45,7 @@ final class DDViewController: UIViewController {
     private func setUpTableView() {
         setUpTableViewBase()
         registerCells()
+        setUpRefreshControll()
     }
     private func registerCells() {
         tableView.register(HeaderCellView.self, forCellReuseIdentifier: HeaderCellView.cellIdentifier)
@@ -51,8 +53,13 @@ final class DDViewController: UIViewController {
         tableView.register(FoodCategoriesCollectionViewCell.self, forCellReuseIdentifier: FoodCategoriesCollectionViewCell.cellIdentifier)
         tableView.register(InfoViewCell.self, forCellReuseIdentifier: InfoViewCell.cellIdentifier)
     }
+    private func setUpRefreshControll() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...", attributes: nil)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
     private func setUpTableViewBase() {
         self.view.addSubview(tableView)
+        tableView.refreshControl = refreshControl
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
@@ -61,10 +68,15 @@ final class DDViewController: UIViewController {
 //        tableView.tableHeaderView = UIView()
         tableView.separatorStyle = .none
     }
+    @objc
+    func refreshData() {
+        output.loadData()
+    }
 }
 
 extension DDViewController: DDViewInput {
     func reloadData() {
+        self.refreshControl.endRefreshing()
         tableView.reloadData()
         output.sectionDelegate = self
 //        activityIndicatorView.stopAnimating()
@@ -128,7 +140,6 @@ extension DDViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.model = output.getCell(at: indexPath.row)
-        print("LOGIC getCell \(output.getCell(at: indexPath.row))")
         return cell
     }
 }

@@ -18,6 +18,7 @@ final class NewsCollectionTableViewCell: BaseCell, UICollectionViewDelegateFlowL
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
+//    collectionView.scrollToItem(at: , at: .center, animated: false)
     static let cellIdentifier = String(describing: NewsCollectionTableViewCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -69,4 +70,5 @@ final class NewsCollectionTableViewCell: BaseCell, UICollectionViewDelegateFlowL
         guard let model = model as? NewsCollectionViewModel else { return }
         model.action?(indexPath.row)
     }
+
 }

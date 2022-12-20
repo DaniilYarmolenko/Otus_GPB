@@ -21,8 +21,9 @@ protocol EventsFutureViewInput: AnyObject {
 }
 
 protocol EventsFutureViewOutput: AnyObject {
-    func viewDidLoad()
+    func loadData()
     func getCountCell() -> Int
+    func getCell(index: Int) -> EventModel
     func clickOnEvent(with id: Int)
 }
 

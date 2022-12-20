@@ -15,12 +15,13 @@ protocol EventsSearchModuleInput {
 protocol EventsSearchModuleOutput: AnyObject {
     var events: [EventModel] {get set}
 }
-protocol TableCategoryViewCellOutput: AnyObject {
-    func clickOnEvent(with id: Int)
-}
+//protocol TableCategoryViewCellOutput: AnyObject {
+//    func clickOnEvent(with id: Int)
+//}
 
 protocol EventsSearchViewInput: AnyObject {
-    func reloadData()
+//    func reloadData()
+    func reloadTableData()
 }
 
 protocol EventsSearchViewOutput: AnyObject {
@@ -31,6 +32,8 @@ protocol EventsSearchViewOutput: AnyObject {
     func searchEventByName(with name: String)
     func getCountCategoryCells() -> Int
     func clickOnCategory(with id: Int)
+    func getEventCell(with index: Int) -> EventModel
+    func getCategoryCell(with index: Int) -> CategoryModel
 }
 
 protocol EventsSearchInteractorInput: AnyObject {
@@ -42,6 +45,7 @@ protocol EventsSearchInteractorInput: AnyObject {
 protocol EventsSearchInteractorOutput: AnyObject {
     func recieveCategories(categories: [CategoryModel])
     func recieveEvents(events: [EventModel])
+    func recieveEventsSearch(events: [EventModel])
     
 }
 

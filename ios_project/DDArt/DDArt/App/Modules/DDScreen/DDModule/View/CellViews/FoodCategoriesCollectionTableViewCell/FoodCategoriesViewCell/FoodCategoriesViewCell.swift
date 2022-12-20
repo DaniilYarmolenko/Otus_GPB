@@ -38,7 +38,7 @@ final class FoodCategoriesViewCell: UICollectionViewCell {
         guard !model.photos.isEmpty else {return}
 //        MARK: Add animating load
         DispatchQueue.global().async {
-            ImageLoader.shared.image(with: model.photos[0]) { image in
+            ImageLoader.shared.image(with: model.photos[0], folder: "FoodCategoriesPictures") { image in
                 DispatchQueue.main.async {
                     if !complition() { return }
                     self.imageView.image = image

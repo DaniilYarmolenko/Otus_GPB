@@ -25,12 +25,16 @@ extension EventsFuturePresenter: EventsFutureModuleInput {
 }
 
 extension EventsFuturePresenter: EventsFutureViewOutput {
-    func viewDidLoad() {
-        interactor.loadFutureEvents()
+    func getCell(index: Int) -> EventModel {
+        self.events?[index] ?? EventModel(authorName: "222", nameEvent: "222", description: "222", photos: [], dateStart: "333", dateEnd: "333", eventType: .standard)
+    }
+    
+    func loadData() {
+        return interactor.loadFutureEvents()
     }
     
     func getCountCell() -> Int {
-        events?.count ?? 0
+       events?.count ?? 0
     }
     
     func clickOnEvent(with id: Int) {

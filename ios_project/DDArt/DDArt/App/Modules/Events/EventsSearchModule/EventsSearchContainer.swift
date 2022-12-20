@@ -21,7 +21,9 @@ final class EventsSearchContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-
+        presenter.events = context.allEvents
+        presenter.categories = context.categories
+        presenter.searchEvents = context.allEvents
 		interactor.output = presenter
 
         return EventsSearchContainer(view: viewController, input: presenter, router: router)
@@ -36,4 +38,6 @@ final class EventsSearchContainer {
 
 struct EventsSearchContext {
 	weak var moduleOutput: EventsSearchModuleOutput?
+    var allEvents: [EventModel]
+    var categories: [CategoryModel]
 }

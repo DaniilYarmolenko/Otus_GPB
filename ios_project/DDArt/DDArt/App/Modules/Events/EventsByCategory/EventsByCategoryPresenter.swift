@@ -33,7 +33,9 @@ extension EventsByCategoryPresenter: EventsByCategoryViewOutput {
     }
     
     func getCountCell() -> Int {
-        events.count
+        return events.count
+        print(events)
+        print(category)
     }
     
     func clickOnEvent(with id: Int) {

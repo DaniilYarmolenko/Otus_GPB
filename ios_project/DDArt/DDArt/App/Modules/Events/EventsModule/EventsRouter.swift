@@ -13,12 +13,12 @@ final class EventsRouter {
 }
 
 extension EventsRouter: EventsRouterInput {
-    func getViews() -> [UIViewController] {
-        // Add  Views
+    func getViews(allEvent: [EventModel], eventsToday: [EventModel], eventsFuture: [EventModel], category: [CategoryModel], view: EventsViewInput) -> [UIViewController] {
+        guard let view = view as? UIViewController, let navigationController = view.navigationController else { return [] }
         views = [
-            EventsTodayContainer.assemble(with: EventsTodayContext()).viewController,
-            EventsFutureContainer.assemble(with: EventsFutureContext()).viewController,
-            EventsSearchContainer.assemble(with: EventsSearchContext()).viewController
+            EventsTodayContainer.assemble(with: EventsTodayContext(eventsToday: eventsToday, navigationController: navigationController)).viewController,
+            EventsFutureContainer.assemble(with: EventsFutureContext(eventsFuture: eventsFuture)).viewController,
+            EventsSearchContainer.assemble(with: EventsSearchContext(allEvents: allEvent, categories: category)).viewController
         ]
         return views
     }

@@ -12,6 +12,7 @@ final class EventsViewController: UIViewController {
 	private let output: EventsViewOutput
     var eventsView = [UIViewController]()
     var eventPageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    var isLoading: Bool = true
     let interfaceSegmented = DDSegmentControl()
     
     var pageControllSegment: PageViewControllerSegmentedAdapter
@@ -28,16 +29,15 @@ final class EventsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         [interfaceSegmented, eventPageVC.view].forEach { [weak self] view in
             self?.view.addSubview(view)
         }
+        eventPageVC.view.isHidden = !isLoading
+        interfaceSegmented.isHidden = !isLoading
         output.viewDidLoad()
         setUp()
         print("didload")
-       
-        
 	}
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -46,6 +46,7 @@ final class EventsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("Appeare")
+        navigationController?.navigationBar.isHidden = true
         
     }
     private func setUp() {
@@ -54,6 +55,7 @@ final class EventsViewController: UIViewController {
     }
     private func setUpPageControllSegment() {
         pageControllSegment = PageViewControllerSegmentedAdapter(pageViewController: eventPageVC, viewControllers: eventsView, segmentControl: interfaceSegmented)
+        
     }
     private func setUpSegmentedControl() {
         interfaceSegmented.setButtonTitles(buttonTitles: [LabelConstants.TodayEventLabelText, LabelConstants.FutureEventLabelText, LabelConstants.SearchEventLabelText])
@@ -69,5 +71,10 @@ final class EventsViewController: UIViewController {
 extension EventsViewController: EventsViewInput {
     func receiveViews(with views: [UIViewController]) {
         eventsView = views
+        print("LOGIC")
+        isLoading = false
+        eventPageVC.view.isHidden = isLoading
+        interfaceSegmented.isHidden = isLoading
+        setUp()
     }
 }

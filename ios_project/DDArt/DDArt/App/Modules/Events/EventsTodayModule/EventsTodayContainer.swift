@@ -21,7 +21,8 @@ final class EventsTodayContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-
+        presenter.events = context.eventsToday
+        presenter.navigationController = context.navigationController
 		interactor.output = presenter
 
         return EventsTodayContainer(view: viewController, input: presenter, router: router)
@@ -36,4 +37,6 @@ final class EventsTodayContainer {
 
 struct EventsTodayContext {
 	weak var moduleOutput: EventsTodayModuleOutput?
+    var eventsToday: [EventModel]
+    var navigationController: UINavigationController
 }

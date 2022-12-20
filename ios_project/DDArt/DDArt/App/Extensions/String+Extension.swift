@@ -44,3 +44,25 @@ extension String {
         return !self.isEmpty
     }
 }
+extension String {
+    func toDate() -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy HH:mm"
+        return formatter.date(from: self) ?? Date()
+    }
+}
+extension Date {
+   
+        func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+            return calendar.dateComponents(Set(components), from: self)
+        }
+
+        func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+            return calendar.component(component, from: self)
+        }
+    func convertToTimeZone(initTimeZone: TimeZone?) -> Date {
+        let delta = TimeInterval(TimeZone.current.secondsFromGMT(for: self) - (initTimeZone?.secondsFromGMT(for: self) ?? 0))
+             return addingTimeInterval(delta)
+        }
+    
+}

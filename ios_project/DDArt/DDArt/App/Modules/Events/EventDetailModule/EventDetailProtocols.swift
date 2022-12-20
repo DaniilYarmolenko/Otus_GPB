@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol EventDetailModuleInput {
 	var moduleOutput: EventDetailModuleOutput? { get }
@@ -17,7 +18,7 @@ protocol EventDetailModuleOutput: AnyObject {
 }
 
 protocol EventDetailViewInput: AnyObject {
-    func reloadData()
+    func loadData(model: EventModel, imageToken: UIImage?) 
 }
 
 protocol EventDetailViewOutput: AnyObject {

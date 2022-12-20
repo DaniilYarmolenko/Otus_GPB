@@ -21,6 +21,7 @@ protocol DDViewInput: AnyObject {
 
 protocol DDViewOutput: AnyObject {
     func viewDidLoad()
+    func loadData()
     func tapOnCategory(with id: Int)
     func tapOnNews(with id: Int)
     func tapOnMap()
@@ -46,6 +47,7 @@ protocol DDInteractorInput: AnyObject {
 
 protocol DDInteractorOutput: AnyObject {
     func receiveData(news: [NewsModel], categoriesFoods: [FoodCategory], info: [InfoModel])
+    func didFail(message: String)
 }
 
 protocol DDRouterInput: AnyObject {
