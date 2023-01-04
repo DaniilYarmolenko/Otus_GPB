@@ -92,6 +92,21 @@
 		265C1819291325620057FB2F /* DDSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1818291325620057FB2F /* DDSegmentControl.swift */; };
 		265C181C29132AC80057FB2F /* EventsViewController + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */; };
 		265C181E29134CAD0057FB2F /* PageControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */; };
+		26674DC3295A034200A31A4F /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DBD295A034200A31A4F /* WelcomePresenter.swift */; };
+		26674DC4295A034200A31A4F /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DBE295A034200A31A4F /* WelcomeRouter.swift */; };
+		26674DC5295A034200A31A4F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DBF295A034200A31A4F /* WelcomeViewController.swift */; };
+		26674DC6295A034200A31A4F /* WelcomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DC0295A034200A31A4F /* WelcomeProtocols.swift */; };
+		26674DC7295A034200A31A4F /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DC1295A034200A31A4F /* WelcomeInteractor.swift */; };
+		26674DC8295A034200A31A4F /* WelcomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DC2295A034200A31A4F /* WelcomeContainer.swift */; };
+		26674DCC295A03CF00A31A4F /* WelcomeViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DCB295A03CF00A31A4F /* WelcomeViewController+Constraints.swift */; };
+		26674DCE295A08D500A31A4F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DCD295A08D500A31A4F /* OnboardingViewController.swift */; };
+		26674DD6295A125C00A31A4F /* SigninPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DD0295A125C00A31A4F /* SigninPresenter.swift */; };
+		26674DD7295A125C00A31A4F /* SigninRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DD1295A125C00A31A4F /* SigninRouter.swift */; };
+		26674DD8295A125C00A31A4F /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DD2295A125C00A31A4F /* SigninViewController.swift */; };
+		26674DD9295A125C00A31A4F /* SigninProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DD3295A125C00A31A4F /* SigninProtocols.swift */; };
+		26674DDA295A125C00A31A4F /* SigninInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DD4295A125C00A31A4F /* SigninInteractor.swift */; };
+		26674DDB295A125C00A31A4F /* SigninContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DD5295A125C00A31A4F /* SigninContainer.swift */; };
+		26674DDE2965D7F400A31A4F /* SigninViewController+Contraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DDD2965D7F400A31A4F /* SigninViewController+Contraints.swift */; };
 		268ACEAF29410F4E00C82DC6 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ACEAE29410F4E00C82DC6 /* CustomLabel.swift */; };
 		268ACEB1294125CA00C82DC6 /* ButtonWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ACEB0294125CA00C82DC6 /* ButtonWithLabel.swift */; };
 		26E774ED294CD9A3009F8550 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E774EC294CD9A3009F8550 /* AuthService.swift */; };
@@ -120,12 +135,6 @@
 		26F2152B293E74AF00499873 /* ImageModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151C293E74AE00499873 /* ImageModel.xcdatamodeld */; };
 		26F2152C293E74AF00499873 /* ImageModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151F293E74AE00499873 /* ImageModel+CoreData.swift */; };
 		26F21536293F1A2100499873 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F21535293F1A2100499873 /* EventModel.swift */; };
-		26F2153D293F273200499873 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F21537293F273200499873 /* AuthPresenter.swift */; };
-		26F2153E293F273200499873 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F21538293F273200499873 /* AuthRouter.swift */; };
-		26F2153F293F273200499873 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F21539293F273200499873 /* AuthViewController.swift */; };
-		26F21540293F273200499873 /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2153A293F273200499873 /* AuthProtocols.swift */; };
-		26F21541293F273200499873 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2153B293F273200499873 /* AuthInteractor.swift */; };
-		26F21542293F273200499873 /* AuthContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2153C293F273200499873 /* AuthContainer.swift */; };
 		26FA9C0229434BE50088249A /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA9BFC29434BE50088249A /* MenuPresenter.swift */; };
 		26FA9C0329434BE50088249A /* MenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA9BFD29434BE50088249A /* MenuRouter.swift */; };
 		26FA9C0429434BE50088249A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA9BFE29434BE50088249A /* MenuViewController.swift */; };
@@ -243,6 +252,21 @@
 		265C1818291325620057FB2F /* DDSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSegmentControl.swift; sourceTree = "<group>"; };
 		265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventsViewController + Constraints.swift"; sourceTree = "<group>"; };
 		265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerAdapter.swift; sourceTree = "<group>"; };
+		26674DBD295A034200A31A4F /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		26674DBE295A034200A31A4F /* WelcomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
+		26674DBF295A034200A31A4F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		26674DC0295A034200A31A4F /* WelcomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeProtocols.swift; sourceTree = "<group>"; };
+		26674DC1295A034200A31A4F /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
+		26674DC2295A034200A31A4F /* WelcomeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContainer.swift; sourceTree = "<group>"; };
+		26674DCB295A03CF00A31A4F /* WelcomeViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeViewController+Constraints.swift"; sourceTree = "<group>"; };
+		26674DCD295A08D500A31A4F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		26674DD0295A125C00A31A4F /* SigninPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninPresenter.swift; sourceTree = "<group>"; };
+		26674DD1295A125C00A31A4F /* SigninRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninRouter.swift; sourceTree = "<group>"; };
+		26674DD2295A125C00A31A4F /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		26674DD3295A125C00A31A4F /* SigninProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninProtocols.swift; sourceTree = "<group>"; };
+		26674DD4295A125C00A31A4F /* SigninInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninInteractor.swift; sourceTree = "<group>"; };
+		26674DD5295A125C00A31A4F /* SigninContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninContainer.swift; sourceTree = "<group>"; };
+		26674DDD2965D7F400A31A4F /* SigninViewController+Contraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SigninViewController+Contraints.swift"; sourceTree = "<group>"; };
 		268ACEAE29410F4E00C82DC6 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		268ACEB0294125CA00C82DC6 /* ButtonWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithLabel.swift; sourceTree = "<group>"; };
 		268ACEB42942416B00C82DC6 /* TODOlist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODOlist.md; sourceTree = "<group>"; };
@@ -273,12 +297,6 @@
 		26F2151D293E74AE00499873 /* ImageModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageModel.xcdatamodel; sourceTree = "<group>"; };
 		26F2151F293E74AE00499873 /* ImageModel+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageModel+CoreData.swift"; sourceTree = "<group>"; };
 		26F21535293F1A2100499873 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
-		26F21537293F273200499873 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
-		26F21538293F273200499873 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
-		26F21539293F273200499873 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		26F2153A293F273200499873 /* AuthProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
-		26F2153B293F273200499873 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
-		26F2153C293F273200499873 /* AuthContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthContainer.swift; sourceTree = "<group>"; };
 		26FA9BFC29434BE50088249A /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
 		26FA9BFD29434BE50088249A /* MenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouter.swift; sourceTree = "<group>"; };
 		26FA9BFE29434BE50088249A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -538,12 +556,12 @@
 		265C179C2912CFC10057FB2F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				26674DCF295A0D9000A31A4F /* SigninModule */,
 				26D5E46E293E18AF00ED1B90 /* DDScreen */,
-				265C17EE2912E10B0057FB2F /* Auth */,
 				26D5E46D293E185400ED1B90 /* Events */,
 				265C17CF2912DC660057FB2F /* ExtraScreenModule */,
 				265C179D2912CFCD0057FB2F /* TabBarModule */,
-				265C17EF2912E11C0057FB2F /* WelcomeModule */,
+				26674DBC295A031A00A31A4F /* WelcomeModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -712,26 +730,6 @@
 			path = NewsDetailModule;
 			sourceTree = "<group>";
 		};
-		265C17EE2912E10B0057FB2F /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				26F21537293F273200499873 /* AuthPresenter.swift */,
-				26F21538293F273200499873 /* AuthRouter.swift */,
-				26F21539293F273200499873 /* AuthViewController.swift */,
-				26F2153A293F273200499873 /* AuthProtocols.swift */,
-				26F2153B293F273200499873 /* AuthInteractor.swift */,
-				26F2153C293F273200499873 /* AuthContainer.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		265C17EF2912E11C0057FB2F /* WelcomeModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WelcomeModule;
-			sourceTree = "<group>";
-		};
 		265C18142912ECA90057FB2F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,6 +754,51 @@
 			children = (
 				265C17B82912DC3B0057FB2F /* EventsViewController.swift */,
 				265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26674DBC295A031A00A31A4F /* WelcomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				26674DCA295A03AA00A31A4F /* View */,
+				26674DBD295A034200A31A4F /* WelcomePresenter.swift */,
+				26674DBE295A034200A31A4F /* WelcomeRouter.swift */,
+				26674DC0295A034200A31A4F /* WelcomeProtocols.swift */,
+				26674DC1295A034200A31A4F /* WelcomeInteractor.swift */,
+				26674DC2295A034200A31A4F /* WelcomeContainer.swift */,
+			);
+			path = WelcomeModule;
+			sourceTree = "<group>";
+		};
+		26674DCA295A03AA00A31A4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26674DBF295A034200A31A4F /* WelcomeViewController.swift */,
+				26674DCB295A03CF00A31A4F /* WelcomeViewController+Constraints.swift */,
+				26674DCD295A08D500A31A4F /* OnboardingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26674DCF295A0D9000A31A4F /* SigninModule */ = {
+			isa = PBXGroup;
+			children = (
+				26674DDC2965D7DB00A31A4F /* View */,
+				26674DD0295A125C00A31A4F /* SigninPresenter.swift */,
+				26674DD1295A125C00A31A4F /* SigninRouter.swift */,
+				26674DD3295A125C00A31A4F /* SigninProtocols.swift */,
+				26674DD4295A125C00A31A4F /* SigninInteractor.swift */,
+				26674DD5295A125C00A31A4F /* SigninContainer.swift */,
+			);
+			path = SigninModule;
+			sourceTree = "<group>";
+		};
+		26674DDC2965D7DB00A31A4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26674DD2295A125C00A31A4F /* SigninViewController.swift */,
+				26674DDD2965D7F400A31A4F /* SigninViewController+Contraints.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1076,21 +1119,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26674DD7295A125C00A31A4F /* SigninRouter.swift in Sources */,
 				265C17A82912CFFD0057FB2F /* TabBarInteractor.swift in Sources */,
 				265C17BD2912DC3B0057FB2F /* EventsRouter.swift in Sources */,
 				26F21510293E743500499873 /* ImageCache.swift in Sources */,
 				265C17A42912CFFD0057FB2F /* TabBarPresenter.swift in Sources */,
 				265C17CC2912DC5C0057FB2F /* DDProtocols.swift in Sources */,
 				260D3C38293FEC86007AA3A5 /* DDViewController+Consraints.swift in Sources */,
+				26674DDE2965D7F400A31A4F /* SigninViewController+Contraints.swift in Sources */,
 				260D3C44293FED44007AA3A5 /* InfoViewCell+Constraints.swift in Sources */,
 				26E774F1294CDBD7009F8550 /* Token.swift in Sources */,
+				26674DD6295A125C00A31A4F /* SigninPresenter.swift in Sources */,
 				26F21504293E73F100499873 /* UIImageView+Extension.swift in Sources */,
 				26F21529293E74AF00499873 /* CoreDataManager.swift in Sources */,
 				265C18042912EC390057FB2F /* EventsTodayViewController.swift in Sources */,
 				265C1819291325620057FB2F /* DDSegmentControl.swift in Sources */,
 				26F214F1293E1B5C00499873 /* EventDetailPresenter.swift in Sources */,
 				265C17F72912EC1B0057FB2F /* EventsFutureRouter.swift in Sources */,
-				26F21540293F273200499873 /* AuthProtocols.swift in Sources */,
 				265C18072912EC390057FB2F /* EventsTodayContainer.swift in Sources */,
 				260D3C34293FDE78007AA3A5 /* NewsCollectionViewModel.swift in Sources */,
 				260D3C10293F6C10007AA3A5 /* EventsByCategoryProtocols.swift in Sources */,
@@ -1099,13 +1144,13 @@
 				265C17AC2912D0980057FB2F /* TabBarItemModel.swift in Sources */,
 				26FA9C0229434BE50088249A /* MenuPresenter.swift in Sources */,
 				265C17B12912D3D30057FB2F /* StringConstants.swift in Sources */,
+				26674DDB295A125C00A31A4F /* SigninContainer.swift in Sources */,
 				26F21505293E73F100499873 /* UISearchBar+Extension.swift in Sources */,
 				26F2150F293E743500499873 /* ImageLoader.swift in Sources */,
 				265C17FA2912EC1B0057FB2F /* EventsFutureInteractor.swift in Sources */,
 				260D3C11293F6C10007AA3A5 /* EventsByCategoryInteractor.swift in Sources */,
 				265C17D82912DC960057FB2F /* ExtraScreenViewController.swift in Sources */,
 				26F21507293E73F100499873 /* String+Extension.swift in Sources */,
-				26F2153D293F273200499873 /* AuthPresenter.swift in Sources */,
 				260D3C59293FEFE8007AA3A5 /* FoodCategoriesCollectionViewCell.swift in Sources */,
 				26FA9C0729434BE50088249A /* MenuContainer.swift in Sources */,
 				265C17CB2912DC5C0057FB2F /* DDViewController.swift in Sources */,
@@ -1113,13 +1158,16 @@
 				26FA9C0F29435CFE0088249A /* CategoryFoodCollection.swift in Sources */,
 				260D3C5D293FF005007AA3A5 /* FoodCategoriesViewCell.swift in Sources */,
 				265C181C29132AC80057FB2F /* EventsViewController + Constraints.swift in Sources */,
+				26674DC3295A034200A31A4F /* WelcomePresenter.swift in Sources */,
 				26FA9C2A29466D980088249A /* EventsSearchTableCell.swift in Sources */,
 				265C17D62912DC960057FB2F /* ExtraScreenPresenter.swift in Sources */,
 				26FA9C0329434BE50088249A /* MenuRouter.swift in Sources */,
+				26674DC7295A034200A31A4F /* WelcomeInteractor.swift in Sources */,
 				265C17CE2912DC5C0057FB2F /* DDContainer.swift in Sources */,
 				260D3C5F293FF00F007AA3A5 /* FoodCategoriesViewCell+Constraints.swift in Sources */,
 				260D3C2B293FD62C007AA3A5 /* FoodCategoriesCollectionViewModel.swift in Sources */,
 				265C18062912EC390057FB2F /* EventsTodayInteractor.swift in Sources */,
+				26674DC8295A034200A31A4F /* WelcomeContainer.swift in Sources */,
 				265C18122912EC4D0057FB2F /* EventsSearchInteractor.swift in Sources */,
 				26F21516293E749A00499873 /* ApiService.swift in Sources */,
 				260D3C46293FED5E007AA3A5 /* NewsCollectionTableViewCell.swift in Sources */,
@@ -1130,7 +1178,6 @@
 				265C17F62912EC1B0057FB2F /* EventsFuturePresenter.swift in Sources */,
 				265C18132912EC4D0057FB2F /* EventsSearchContainer.swift in Sources */,
 				26FA9C20294626BD0088249A /* EventsTodayCell+Constraints.swift in Sources */,
-				26F2153F293F273200499873 /* AuthViewController.swift in Sources */,
 				265C17DB2912DC960057FB2F /* ExtraScreenContainer.swift in Sources */,
 				260D3C3E293FED09007AA3A5 /* HeaderViewCell.swift in Sources */,
 				260D3C42293FED32007AA3A5 /* InfoViewCell.swift in Sources */,
@@ -1147,10 +1194,12 @@
 				265C180F2912EC4D0057FB2F /* EventsSearchRouter.swift in Sources */,
 				26F214F5293E1B5C00499873 /* EventDetailInteractor.swift in Sources */,
 				265C17C92912DC5C0057FB2F /* DDPresenter.swift in Sources */,
+				26674DC6295A034200A31A4F /* WelcomeProtocols.swift in Sources */,
 				265C18112912EC4D0057FB2F /* EventsSearchProtocols.swift in Sources */,
 				26F214F4293E1B5C00499873 /* EventDetailProtocols.swift in Sources */,
 				265C17CA2912DC5C0057FB2F /* DDRouter.swift in Sources */,
 				265C17892912CF420057FB2F /* AppDelegate.swift in Sources */,
+				26674DDA295A125C00A31A4F /* SigninInteractor.swift in Sources */,
 				260D3C19293FCC04007AA3A5 /* NewsModel.swift in Sources */,
 				265C17F92912EC1B0057FB2F /* EventsFutureProtocols.swift in Sources */,
 				265C178B2912CF420057FB2F /* SceneDelegate.swift in Sources */,
@@ -1172,6 +1221,7 @@
 				260D3C6D293FF30A007AA3A5 /* SizeConstants.swift in Sources */,
 				265C18162912ECC40057FB2F /* EventsTitleModel.swift in Sources */,
 				26FA9C2829466D6F0088249A /* CategoriesSearchCollectionCell.swift in Sources */,
+				26674DC5295A034200A31A4F /* WelcomeViewController.swift in Sources */,
 				260D3C12293F6C10007AA3A5 /* EventsByCategoryContainer.swift in Sources */,
 				26E774ED294CD9A3009F8550 /* AuthService.swift in Sources */,
 				26FA9C0A29434C040088249A /* MenuViewController+Constaints.swift in Sources */,
@@ -1179,16 +1229,16 @@
 				26FA9C1E2945FE300088249A /* EventsTodayCell.swift in Sources */,
 				260D3C1B293FCE01007AA3A5 /* TokenModel.swift in Sources */,
 				265C17F82912EC1B0057FB2F /* EventsFutureViewController.swift in Sources */,
-				26F21542293F273200499873 /* AuthContainer.swift in Sources */,
 				26F2152A293E74AF00499873 /* ServiceCoreData.swift in Sources */,
 				26FA9C0429434BE50088249A /* MenuViewController.swift in Sources */,
 				265C18052912EC390057FB2F /* EventsTodayProtocols.swift in Sources */,
 				265C181E29134CAD0057FB2F /* PageControllerAdapter.swift in Sources */,
-				26F2153E293F273200499873 /* AuthRouter.swift in Sources */,
+				26674DC4295A034200A31A4F /* WelcomeRouter.swift in Sources */,
 				265C17A62912CFFD0057FB2F /* TabBarViewController.swift in Sources */,
 				260D3C6A293FF1F9007AA3A5 /* DDSectionViewModel.swift in Sources */,
 				265C17A52912CFFD0057FB2F /* TabBarRouter.swift in Sources */,
 				26F21503293E73F100499873 /* UIButton+Extension.swift in Sources */,
+				26674DCE295A08D500A31A4F /* OnboardingViewController.swift in Sources */,
 				26F2152C293E74AF00499873 /* ImageModel+CoreData.swift in Sources */,
 				26F214F3293E1B5C00499873 /* EventDetailViewController.swift in Sources */,
 				26F21506293E73F100499873 /* UIView+Extension.swift in Sources */,
@@ -1200,12 +1250,14 @@
 				265C17A72912CFFD0057FB2F /* TabBarProtocols.swift in Sources */,
 				26F21511293E743600499873 /* Verification.swift in Sources */,
 				265C17D72912DC960057FB2F /* ExtraScreenRouter.swift in Sources */,
-				26F21541293F273200499873 /* AuthInteractor.swift in Sources */,
 				265C17B32912D9E50057FB2F /* ColorsConstants.swift in Sources */,
+				26674DD9295A125C00A31A4F /* SigninProtocols.swift in Sources */,
 				260D3C14293F6E5B007AA3A5 /* CategoryModel.swift in Sources */,
 				265C17D92912DC960057FB2F /* ExtraScreenProtocols.swift in Sources */,
 				260D3C0E293F6C10007AA3A5 /* EventsByCategoryRouter.swift in Sources */,
+				26674DD8295A125C00A31A4F /* SigninViewController.swift in Sources */,
 				265C17BE2912DC3B0057FB2F /* EventsViewController.swift in Sources */,
+				26674DCC295A03CF00A31A4F /* WelcomeViewController+Constraints.swift in Sources */,
 				260D3C5B293FEFF4007AA3A5 /* FoodCategoriesCollectionViewCell+Constraints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

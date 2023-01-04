@@ -1,17 +1,17 @@
 //
-//  AuthViewController.swift
+//  SigninViewController.swift
 //  DDArt
 //
-//  Created by Даниил Ярмоленко on 06.12.2022.
+//  Created by Даниил Ярмоленко on 26.12.2022.
 //  
 //
 
 import UIKit
 
-final class AuthViewController: UIViewController {
-	private let output: AuthViewOutput
+final class SigninViewController: UIViewController {
+	private let output: SigninViewOutput
 
-    init(output: AuthViewOutput) {
+    init(output: SigninViewOutput) {
         self.output = output
 
         super.init(nibName: nil, bundle: nil)
@@ -27,5 +27,5 @@ final class AuthViewController: UIViewController {
 	}
 }
 
-extension AuthViewController: AuthViewInput {
+extension SigninViewController: SigninViewInput {
 }

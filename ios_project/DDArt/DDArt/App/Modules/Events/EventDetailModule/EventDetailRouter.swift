@@ -16,8 +16,8 @@ extension EventDetailRouter: EventDetailRouterInput {
         let alert = UIAlertController(title: "В не залогинились", message: "Вы точно хотите все удалить ?", preferredStyle: .alert)
         let actionSuccsess = UIAlertAction(title: "Log in", style: .default) { _ in
             guard let view = view as? UIViewController else { return }
-            let authVC = AuthContainer.assemble(with: AuthContext()) // MARK: Add Eventcontext
-            view.navigationController?.present(authVC.viewController, animated: true)
+            let signIn = SigninContainer.assemble(with: SigninContext()) // MARK: Add Eventcontext
+            view.navigationController?.present(signIn.viewController, animated: true)
         }
         let actionFailure = UIAlertAction(title: "No", style: .cancel)
         alert.addAction(actionFailure)
