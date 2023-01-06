@@ -36,7 +36,6 @@ final class EventsFutureViewController: UIViewController {
         }
         private func setUpBase() {
             self.view.backgroundColor = .white
-            print("SetUP BASE \(output.getCountCell())")
         }
     
     private func setUpcollectionViewBase() {
@@ -50,7 +49,6 @@ final class EventsFutureViewController: UIViewController {
            collectionView.delegate = self
            collectionView.dataSource = self
            collectionView.register(EventFutureCell.self, forCellWithReuseIdentifier: EventFutureCell.cellIdentifier)
-            print("setUP Collecttion \(collectionView)")
            view.addSubview(collectionView)
        }
     private func setUpRefreshControll() {
@@ -71,8 +69,7 @@ extension EventsFutureViewController: EventsFutureViewInput {
 }
 extension EventsFutureViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("\(output.getCountCell()) TUT")
-        return output.getCountCell()
+        output.getCountCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -84,7 +81,7 @@ extension EventsFutureViewController: UICollectionViewDataSource, UICollectionVi
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
+        output.clickOnEvent(with: indexPath.row)
     }
     
     

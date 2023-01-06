@@ -9,13 +9,13 @@
 import UIKit
 
 final class EventsByCategoryRouter {
+    var navigationController: UINavigationController?
 }
 
 extension EventsByCategoryRouter: EventsByCategoryRouterInput {
-    func eventSelected(with view: EventsByCategoryViewInput?, and event: EventModel) {
-        guard let view = view as? UIViewController else { return }
-        let eventDetail = EventDetailContainer.assemble(with: EventDetailContext(event: event)) // MARK: Add Eventcontext
-        view.navigationController?.pushViewController(eventDetail.viewController, animated: true)
+    func eventSelected(event: EventModel) {
+        let eventDetail = EventDetailContainer.assemble(with: EventDetailContext(event: event))
+        self.navigationController?.pushViewController(eventDetail.viewController, animated: true)
     }
     
 }

@@ -36,5 +36,5 @@ protocol EventsFutureInteractorOutput: AnyObject {
 }
 
 protocol EventsFutureRouterInput: AnyObject {
-    func eventSelected(with view: EventsFutureViewInput?, and event: EventModel)
+    func eventSelected(event: EventModel)
 }

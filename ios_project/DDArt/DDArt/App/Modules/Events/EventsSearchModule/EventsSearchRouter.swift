@@ -9,19 +9,18 @@
 import UIKit
 
 final class EventsSearchRouter {
+    var navigationController: UINavigationController?
 }
 
 extension EventsSearchRouter: EventsSearchRouterInput {
-    func categorySelected(with view: EventsSearchViewInput?, and category: CategoryModel) {
-        guard let view = view as? UIViewController else { return }
-        let categoryEvents = EventsByCategoryContainer.assemble(with: EventsByCategoryContext(category: category)) // MARK: Add Eventcontext
-        view.navigationController?.pushViewController(categoryEvents.viewController, animated: true)
+    func categorySelected(category: CategoryModel) {
+        let categoryEvents = EventsByCategoryContainer.assemble(with: EventsByCategoryContext(category: category, navigationController: navigationController))
+        navigationController?.pushViewController(categoryEvents.viewController, animated: false)
     }
     
-    func eventSelected(with view: EventsSearchViewInput?, and event: EventModel) {
-        guard let view = view as? UIViewController else { return }
-        let eventDetail = EventDetailContainer.assemble(with: EventDetailContext(event: event)) // MARK: Add Eventcontext
-        view.navigationController?.pushViewController(eventDetail.viewController, animated: true)
+    func eventSelected(event: EventModel) {
+        let eventDetail = EventDetailContainer.assemble(with: EventDetailContext(event: event))
+        navigationController?.pushViewController(eventDetail.viewController, animated: false)
     }
     
 }

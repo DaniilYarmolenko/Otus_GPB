@@ -59,7 +59,6 @@ final class EventsTodayCell: UITableViewCell {
         let transitionOptions = UIView.AnimationOptions.transitionFlipFromLeft
         UIView.transition(with: self.contentView, duration: 0.5, options: transitionOptions, animations: {
             if self.cellViews!.backView == self.infoView {
-                print("LOGIC TUT 1")
                 self.contentView.removeConstraints([
                     self.infoView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
                     self.infoView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
@@ -160,7 +159,6 @@ final class EventsTodayCell: UITableViewCell {
     
     @objc
     private func tapOnReverseButton() {
-        print("TAAAP")
         flipCardAnimation()
     }
     

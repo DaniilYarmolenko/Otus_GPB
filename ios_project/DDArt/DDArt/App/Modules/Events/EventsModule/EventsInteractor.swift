@@ -27,7 +27,6 @@ extension EventsInteractor: EventsInteractorInput {
                 switch eventResult {
                 case .failure (let error):
                     self.group.leave()
-                    print("ERROR \(error)")
                     self.output?.didFail(message: "There was an error getting the Events")
                 case .success(let event):
                     self.group.leave()
@@ -41,7 +40,6 @@ extension EventsInteractor: EventsInteractorInput {
                 self.group.leave()
                 switch categoryResult {
                 case .failure (let error):
-                    print("ERROR \(error)")
                     self.output?.didFail(message: "There was an error getting the categories")
                 case .success(let categories):
                     self.categories = categories

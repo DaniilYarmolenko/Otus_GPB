@@ -23,7 +23,6 @@ final class DDSectionViewModel: SectionRowsRepresentable {
             })
             , at: 3)
         rows.append(InfoCollectionViewModel(model: info, action: nil, output: output))
-        print("LOGIC ROWS \(rows)")
     }
     
     init() {

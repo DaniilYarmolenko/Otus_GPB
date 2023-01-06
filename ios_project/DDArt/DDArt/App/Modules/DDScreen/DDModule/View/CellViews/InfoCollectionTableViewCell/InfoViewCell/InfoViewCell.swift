@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 final class InfoViewCell: BaseCell {
     static let cellIdentifier = String(describing: InfoViewCell.self)
-
+    
     internal var mapView = MKMapView()
     internal var addressButton = ButtonWithLabel()
     internal var phoneButton = ButtonWithLabel()
@@ -32,18 +32,18 @@ final class InfoViewCell: BaseCell {
     }
     
     
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setUp() {
         setUpButtons()
         setUpLabels()
         setUpMap()
         setUpSocialHStack()
     }
-
+    
     private func setUpButtons() {
         phoneButton.setImage(UIImage(named: ImageNameConstants.phone), for: .normal)
         phoneButton.addTarget(self, action: #selector(phoneButtonAction), for: .touchUpInside)
@@ -58,7 +58,7 @@ final class InfoViewCell: BaseCell {
         vkButton.addTarget(self, action: #selector(vkButtonAction), for: .touchUpInside)
         telegramButton.addTarget(self, action: #selector(telegramButtonAction), for: .touchUpInside)
         instagramButton.addTarget(self, action: #selector(instagramButtonAction), for: .touchUpInside)
-
+        
     }
     
     override func updateViews() {
@@ -66,7 +66,25 @@ final class InfoViewCell: BaseCell {
         guard !model.infoModel.isEmpty else {return}
         addressButton.setTitle(model.infoModel[0].address, for: .normal)
         phoneButton.setTitle(model.infoModel[0].phoneNumber, for: .normal)
-        print(model.infoModel[0])
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(model.infoModel[0].latitude) ?? 0.0, longitude: Double(model.infoModel[0].longitude) ?? 0.0)
+        setMapFocus(centerCoordinate: location, radiusInKm: 0.5)
+        addPins(centerCoordinate: location)
+
+    }
+    
+    func setMapFocus(centerCoordinate: CLLocationCoordinate2D, radiusInKm radius: CLLocationDistance)
+    {
+        let diameter = radius * 2000
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: diameter, longitudinalMeters: diameter)
+        self.mapView.setRegion(region, animated: false)
+    }
+    func addPins(centerCoordinate: CLLocationCoordinate2D) {
+        let annotations = mapView.annotations
+        mapView.removeAnnotations(annotations)
+        let ddPin = MKPointAnnotation()
+        ddPin.title = "DD Space"
+        ddPin.coordinate = centerCoordinate
+        mapView.addAnnotation(ddPin)
     }
     private func setUpSocialHStack() {
         socialButtonHStack.axis  = .horizontal
@@ -79,7 +97,7 @@ final class InfoViewCell: BaseCell {
                 views: vkButton, instagramButton, telegramButton)
         )
     }
-
+    
     private func setUpLabels() {
         emailButton.setTitleColor(.black, for: .normal)
         emailButton.contentHorizontalAlignment = .trailing
@@ -93,33 +111,28 @@ final class InfoViewCell: BaseCell {
     }
     @objc
     private func vkButtonAction() {
-//        model.output.tapOnVk()
+        //        model.output.tapOnVk()
     }
     @objc
     private func telegramButtonAction() {
-        print("1")
-        print("2")
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
-        print("\(model.infoModel) 1")
         model.output.tapOnTelegram()
     }
     @objc
     private func instagramButtonAction() {
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
         model.output.tapOnInstagram()
-        print("INST 1")
     }
     @objc
     private func phoneButtonAction() {
-//        output?.tapOnPhone()
-        print("PHONE 1")
+        //        output?.tapOnPhone()
     }
     @objc
     private func addressButtonAction() {
-//        output?.tapOnMap()
+        //        output?.tapOnMap()
     }
     @objc
     private func emailButtonAction() {
-//        output?.tapOnEmail()
+        //        output?.tapOnEmail()
     }
 }

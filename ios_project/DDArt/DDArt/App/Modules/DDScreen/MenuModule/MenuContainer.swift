@@ -21,7 +21,8 @@ final class MenuContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-
+        presenter.categoriesFood = context.categoryFood
+        router.navigationController = context.navigationController
 		interactor.output = presenter
 
         return MenuContainer(view: viewController, input: presenter, router: router)
@@ -36,4 +37,6 @@ final class MenuContainer {
 
 struct MenuContext {
 	weak var moduleOutput: MenuModuleOutput?
+    var categoryFood: [FoodCategory]
+    var navigationController: UINavigationController
 }

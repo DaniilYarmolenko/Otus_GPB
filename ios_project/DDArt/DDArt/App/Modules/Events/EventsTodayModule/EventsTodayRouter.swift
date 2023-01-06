@@ -9,12 +9,12 @@
 import UIKit
 
 final class EventsTodayRouter {
+    var navigationController: UINavigationController?
 }
 
 extension EventsTodayRouter: EventsTodayRouterInput {
-    func eventSelected(with view: EventsTodayViewInput?, event: EventModel, navigationController: UINavigationController) {
-        print("ZASHLI")
+    func eventSelected(event: EventModel) {
         let eventDetail = EventDetailContainer.assemble(with: EventDetailContext(event: event)) // MARK: Add Eventcontext
-        navigationController.pushViewController(eventDetail.viewController, animated: true)
+        self.navigationController?.pushViewController(eventDetail.viewController, animated: true)
     }
 }

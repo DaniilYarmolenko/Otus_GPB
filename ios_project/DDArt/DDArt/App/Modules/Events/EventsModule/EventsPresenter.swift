@@ -52,23 +52,18 @@ extension EventsPresenter: EventsInteractorOutput {
         self.eventsToday = allEvent.filter({ event in
             let dateEventStart = event.dateStart.toDate()
             let dateEventEnd = event.dateEnd.toDate()
-            print("1")
-            print(dateEventStart, dateEventEnd, dateToday)
             return dateEventStart <= dateToday &&
             dateEventEnd > dateToday
             
         })
         self.eventsFuture = allEvent.filter({ event in
             let dateEventStart = event.dateStart.toDate()
-            print("2")
-            print(dateEventStart, dateToday)
             return dateEventStart > dateToday
         })
         getViews()
     }
     
     func didFail(message: String) {
-        print(message) //Make alert
     }
     
     

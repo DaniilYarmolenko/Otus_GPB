@@ -22,8 +22,9 @@ protocol EventsByCategoryViewInput: AnyObject {
 
 protocol EventsByCategoryViewOutput: AnyObject {
     func viewDidLoad()
-    func getCountCell() -> Int
     func clickOnEvent(with id: Int)
+    func getCountEventCells() -> Int
+    func getEventCell(with index: Int) -> EventModel
 }
 
 protocol EventsByCategoryInteractorInput: AnyObject {
@@ -35,5 +36,5 @@ protocol EventsByCategoryInteractorOutput: AnyObject {
 }
 
 protocol EventsByCategoryRouterInput: AnyObject {
-    func eventSelected(with view: EventsByCategoryViewInput?, and event: EventModel)
+    func eventSelected(event: EventModel)
 }

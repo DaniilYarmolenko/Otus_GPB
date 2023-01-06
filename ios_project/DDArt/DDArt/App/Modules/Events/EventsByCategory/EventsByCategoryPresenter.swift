@@ -26,20 +26,22 @@ extension EventsByCategoryPresenter: EventsByCategoryModuleInput {
 }
 
 extension EventsByCategoryPresenter: EventsByCategoryViewOutput {
+    func getCountEventCells() -> Int {
+        events.count
+    }
+    
+    func getEventCell(with index: Int) -> EventModel {
+        events[index]
+    }
+    
     func viewDidLoad() {
         if let category = category {
             interactor.loadEventsByCategory(category: category)
         }
     }
     
-    func getCountCell() -> Int {
-        return events.count
-        print(events)
-        print(category)
-    }
-    
     func clickOnEvent(with id: Int) {
-        router.eventSelected(with: view, and: events[id])
+        router.eventSelected(event: events[id])
     }
     
 }

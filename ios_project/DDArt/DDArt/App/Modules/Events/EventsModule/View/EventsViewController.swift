@@ -37,7 +37,6 @@ final class EventsViewController: UIViewController {
         interfaceSegmented.isHidden = !isLoading
         output.viewDidLoad()
         setUp()
-        print("didload")
 	}
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -45,7 +44,6 @@ final class EventsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("Appeare")
         navigationController?.navigationBar.isHidden = true
         
     }
@@ -71,7 +69,6 @@ final class EventsViewController: UIViewController {
 extension EventsViewController: EventsViewInput {
     func receiveViews(with views: [UIViewController]) {
         eventsView = views
-        print("LOGIC")
         isLoading = false
         eventPageVC.view.isHidden = isLoading
         interfaceSegmented.isHidden = isLoading

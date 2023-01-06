@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class EventsSearchPresenter {
 	weak var view: EventsSearchViewInput?
@@ -16,6 +17,7 @@ final class EventsSearchPresenter {
     var searchEvents = [EventModel]()
 	private let router: EventsSearchRouterInput
 	private let interactor: EventsSearchInteractorInput
+    var navigationController: UINavigationController?
 
     init(router: EventsSearchRouterInput, interactor: EventsSearchInteractorInput) {
         self.router = router
@@ -44,7 +46,7 @@ extension EventsSearchPresenter: EventsSearchViewOutput {
     }
     
     func clickOnEvent(with id: Int) {
-        router.eventSelected(with: view, and: events[id])
+        router.eventSelected(event: events[id])
     }
     
     func sortEvents(typeSort type: typeSort, by order: Ordered = .increasing) {
@@ -84,7 +86,7 @@ extension EventsSearchPresenter: EventsSearchViewOutput {
     }
     
     func clickOnCategory(with id: Int) {
-        router.categorySelected(with: view, and: categories[id])
+        router.categorySelected(category: categories[id])
     }
     
 }

@@ -38,9 +38,8 @@ extension EventsFuturePresenter: EventsFutureViewOutput {
     }
     
     func clickOnEvent(with id: Int) {
-        moduleOutput?.event = events?[id]
-        if let event = moduleOutput?.event {
-            router.eventSelected(with: view, and: event)
+        if let event = events?[id] {
+            router.eventSelected(event: event)
         }
     }
     

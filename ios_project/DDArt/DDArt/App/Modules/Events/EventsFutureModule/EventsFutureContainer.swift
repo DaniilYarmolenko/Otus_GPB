@@ -23,8 +23,7 @@ final class EventsFutureContainer {
 		presenter.moduleOutput = context.moduleOutput
         presenter.events = context.eventsFuture
 		interactor.output = presenter
-        print("TTUUTTT")
-        print(presenter.events)
+        router.navigationController = context.navigationController
         
         return EventsFutureContainer(view: viewController, input: presenter, router: router)
 	}
@@ -39,4 +38,5 @@ final class EventsFutureContainer {
 struct EventsFutureContext {
 	weak var moduleOutput: EventsFutureModuleOutput?
     var eventsFuture: [EventModel]
+    var navigationController: UINavigationController
 }

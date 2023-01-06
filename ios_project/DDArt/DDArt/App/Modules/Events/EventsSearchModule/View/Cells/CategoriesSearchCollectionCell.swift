@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class CategoriesSearchCollectionCell: UICollectionViewCell {
-    
+    var delegate: EventsSearchViewOutput?
     static let cellIdentifier = String(describing: CategoriesSearchCollectionCell.self)
     internal var imageView = UIImageView()
     internal var nameCategory = UILabel()
@@ -29,6 +29,7 @@ final class CategoriesSearchCollectionCell: UICollectionViewCell {
     
     private func setUp() {
         setUpImageView()
+        setUpLabel()
     }
 
     private func setUpImageView() {
@@ -38,9 +39,13 @@ final class CategoriesSearchCollectionCell: UICollectionViewCell {
     }
     
     private func setUpLabel() {
-        nameCategory.font = UIFont(name: FontConstants.MoniqaLightItalicHeading, size: 24)
+        nameCategory.font = UIFont(name: FontConstants.MoniqaMediumNarrow, size: 30)
+        nameCategory.textAlignment = .center
         nameCategory.textColor = .white
+        nameCategory.layer.cornerRadius = 10
+        nameCategory.layer.masksToBounds = true
         nameCategory.backgroundColor = .black
+        imageView.addSubview(nameCategory)
     }
     
     func configure(model: CategoryModel, complition: @escaping () -> (Bool)) {
@@ -70,7 +75,7 @@ extension CategoriesSearchCollectionCell {
         self.nameCategory.translatesAutoresizingMaskIntoConstraints = false
         self.nameCategory.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         self.nameCategory.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-        self.nameCategory.widthAnchor.constraint(equalToConstant: self.contentView.bounds.width/2).isActive = true
-        self.nameCategory.heightAnchor.constraint(equalToConstant: self.contentView.bounds.height/2).isActive = true
+        self.nameCategory.widthAnchor.constraint(equalToConstant: self.contentView.bounds.width - 20).isActive = true
+        self.nameCategory.heightAnchor.constraint(equalToConstant: self.contentView.bounds.height/4).isActive = true
     }
 }

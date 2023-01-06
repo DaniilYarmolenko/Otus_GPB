@@ -17,8 +17,8 @@ extension EventsRouter: EventsRouterInput {
         guard let view = view as? UIViewController, let navigationController = view.navigationController else { return [] }
         views = [
             EventsTodayContainer.assemble(with: EventsTodayContext(eventsToday: eventsToday, navigationController: navigationController)).viewController,
-            EventsFutureContainer.assemble(with: EventsFutureContext(eventsFuture: eventsFuture)).viewController,
-            EventsSearchContainer.assemble(with: EventsSearchContext(allEvents: allEvent, categories: category)).viewController
+            EventsFutureContainer.assemble(with: EventsFutureContext(eventsFuture: eventsFuture, navigationController: navigationController)).viewController,
+            EventsSearchContainer.assemble(with: EventsSearchContext(allEvents: allEvent, categories: category, navigationController: navigationController)).viewController
         ]
         return views
     }

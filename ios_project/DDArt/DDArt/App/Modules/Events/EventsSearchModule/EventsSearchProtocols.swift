@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol EventsSearchModuleInput {
 	var moduleOutput: EventsSearchModuleOutput? { get }
@@ -50,7 +51,7 @@ protocol EventsSearchInteractorOutput: AnyObject {
 }
 
 protocol EventsSearchRouterInput: AnyObject {
-    func categorySelected(with view: EventsSearchViewInput?, and category: CategoryModel)
-    func eventSelected(with view: EventsSearchViewInput?, and event: EventModel)
+    func categorySelected(category: CategoryModel)
+    func eventSelected(event: EventModel)
 }
 

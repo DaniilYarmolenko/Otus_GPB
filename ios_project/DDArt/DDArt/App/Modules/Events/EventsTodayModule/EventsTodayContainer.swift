@@ -22,7 +22,7 @@ final class EventsTodayContainer {
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
         presenter.events = context.eventsToday
-        presenter.navigationController = context.navigationController
+        router.navigationController = context.navigationController
 		interactor.output = presenter
 
         return EventsTodayContainer(view: viewController, input: presenter, router: router)

@@ -24,13 +24,11 @@ final class WelcomeViewController: UIPageViewController{
          UIPageViewController.TransitionStyle, navigationOrientation:
          UIPageViewController.NavigationOrientation, options: [String : Any]? = nil) {
         self.output = output
-        print(output)
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: nil)
     }
     
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
-        print("OSHIBKA")
         fatalError("init(coder:) has not been implemented")
     }
     

@@ -35,12 +35,13 @@ extension DDPresenter: DDViewOutput {
         interactor.loadData()
     }
     func tapOnCategory(with id: Int) {
-        guard let category = ddSectionViewModel?.rows[3] as?  FoodCategoriesCollectionViewModel else { return }
+        guard ddSectionViewModel?.rows[3] is  FoodCategoriesCollectionViewModel else { return }
 //        router.authorSelected(with: view, and: author.array[id].id)
     }
     
     func tapOnNews(with id: Int) {
-        router.newsSelected(with: view, and: id)
+        guard let news = ddSectionViewModel?.rows[1] as?  NewsCollectionViewModel else { return }
+        router.newsSelected(with: self.view, news: news.array[id])
     }
     
     func tapOnMap() {
@@ -57,7 +58,10 @@ extension DDPresenter: DDViewOutput {
     
     func getCellHeight(at index: Int) -> Float {
         guard let ddSectionViewModel = ddSectionViewModel else { return -1 }
-        return ddSectionViewModel.rows[index].cellHeight
+        if ddSectionViewModel.rows.count >= index {
+            return ddSectionViewModel.rows[index].cellHeight
+        }
+        return -1
     }
     
     func getCell(at index: Int) -> CellIdentifiable? {
@@ -67,7 +71,11 @@ extension DDPresenter: DDViewOutput {
     
     func getCellIdentifier(at index: Int) -> String {
         guard let ddSectionViewModel = ddSectionViewModel else { return "" }
-        return ddSectionViewModel.rows[index].cellIdentifier
+        if index == 5 {
+            return InfoViewCell.cellIdentifier
+        } else {
+            return ddSectionViewModel.rows[index].cellIdentifier
+        }
     }
     
     func getCountCells() -> Int {
@@ -87,11 +95,15 @@ extension DDPresenter: DDViewOutput {
     }
     
     func goToAllNews() {
-        router.goToAllNews(with: view)
+        guard let news = ddSectionViewModel?.rows[1] as?  NewsCollectionViewModel else { return }
+        router.goToAllNews(with: self.view, news: news.array)
+        print("LOGIC TAP")
     }
     
     func goToMenu() {
-        router.goToMenu(with: view)
+        print("LOGIC TAPPP") 
+        guard let foodCategory = ddSectionViewModel?.rows[3] as?  FoodCategoriesCollectionViewModel else { return }
+        router.goToMenu(with: view, foodCategory: foodCategory.array)
     }
     
     func tapOnVk() {
@@ -110,7 +122,6 @@ extension DDPresenter: DDViewOutput {
 
 extension DDPresenter: DDInteractorOutput {
     func didFail(message: String) {
-        print("LOGIC \(message)")
     }
     
     func receiveData(news: [NewsModel], categoriesFoods: [FoodCategory], info: [InfoModel]) {

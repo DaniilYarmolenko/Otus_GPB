@@ -14,7 +14,6 @@ final class EventsSearchInteractor {
 
 extension EventsSearchInteractor: EventsSearchInteractorInput {
     func loadAllEvents() -> [EventModel]  {
-//        MARK: API get request
         [EventModel(authorName: "", nameEvent: "", description: "", photos: [], dateStart: "", dateEnd: "", eventType: .admin)]
     }
     

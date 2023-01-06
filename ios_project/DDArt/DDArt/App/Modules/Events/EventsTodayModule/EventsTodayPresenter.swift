@@ -7,14 +7,12 @@
 //
 
 import Foundation
-import UIKit
 final class EventsTodayPresenter {
 	weak var view: EventsTodayViewInput?
     weak var moduleOutput: EventsTodayModuleOutput?
     var events: [EventModel]?
 	private let router: EventsTodayRouterInput
 	private let interactor: EventsTodayInteractorInput
-    var navigationController: UINavigationController?
     init(router: EventsTodayRouterInput, interactor: EventsTodayInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -27,7 +25,6 @@ extension EventsTodayPresenter: EventsTodayModuleInput {
 extension EventsTodayPresenter: EventsTodayViewOutput {
     
     func loadData() {
-        print("")
         interactor.loadTodayEvents()
     }
     
@@ -40,9 +37,8 @@ extension EventsTodayPresenter: EventsTodayViewOutput {
     }
     
     func clickOnEvent(with id: Int) {
-        if let event = events?[id], let navigationController = navigationController{
-            print("LOGIC CLICK \(id)")
-            router.eventSelected(with: view, event: event, navigationController: navigationController)
+        if let event = events?[id] {
+            router.eventSelected(event: event)
         }
     }
     
@@ -58,7 +54,6 @@ extension EventsTodayPresenter: EventsTodayInteractorOutput {
         view?.reloadData()
     }
     func didFail(message: String) {
-        print(message)
         view?.reloadData()
     }
     

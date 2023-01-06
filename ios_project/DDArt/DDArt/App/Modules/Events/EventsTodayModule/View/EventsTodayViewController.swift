@@ -37,7 +37,6 @@ final class EventsTodayViewController: UIViewController {
     }
     private func setUpBase() {
         self.view.backgroundColor = .white
-        print("SetUP BASE \(output.getCountCell())")
     }
     
     private func setUpTableViewBase() {
@@ -47,7 +46,6 @@ final class EventsTodayViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.refreshControl = refreshControl
         tableView.register(EventsTodayCell.self, forCellReuseIdentifier: EventsTodayCell.cellIdentifier)
-        print("setUP Collecttion \(tableView)")
         view.addSubview(tableView)
     }
     private func setUpRefreshControll() {
@@ -56,14 +54,12 @@ final class EventsTodayViewController: UIViewController {
     }
     @objc
     func refreshData() {
-        print("ZASHLI REFRESH")
         output.loadData()
     }
 }
 
 extension EventsTodayViewController: EventsTodayViewInput {
     func reloadData() {
-        print("ZASHLI")
         if output.getCountCell() == 0 {
             self.emptyView.isHidden = false
             self.tableView.isHidden = true
@@ -79,8 +75,7 @@ extension EventsTodayViewController: EventsTodayViewInput {
 
 extension EventsTodayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("\(output.getCountCell()) TUT")
-        return output.getCountCell()
+        output.getCountCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         SizeConstants.screenHeight/4

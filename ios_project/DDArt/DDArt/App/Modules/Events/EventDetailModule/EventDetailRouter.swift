@@ -23,7 +23,6 @@ extension EventDetailRouter: EventDetailRouterInput {
         alert.addAction(actionFailure)
         alert.addAction(actionSuccsess)
         guard let vc = view as? UIViewController else {
-            print("ERROR")
             return}
         vc.navigationController?.present(alert, animated: true, completion: nil)
     }

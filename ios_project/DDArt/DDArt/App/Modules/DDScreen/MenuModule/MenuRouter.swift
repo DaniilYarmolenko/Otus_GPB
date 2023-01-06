@@ -9,7 +9,12 @@
 import UIKit
 
 final class MenuRouter {
+    var navigationController: UINavigationController?
 }
 
 extension MenuRouter: MenuRouterInput {
+    func goToDetailFood(food: FoodModel) {
+        
+    }
+    
 }

@@ -42,5 +42,5 @@ protocol EventsTodayInteractorOutput: AnyObject {
 }
 
 protocol EventsTodayRouterInput: AnyObject {
-    func eventSelected(with view: EventsTodayViewInput?, event: EventModel, navigationController: UINavigationController)
+    func eventSelected(event: EventModel)
 }

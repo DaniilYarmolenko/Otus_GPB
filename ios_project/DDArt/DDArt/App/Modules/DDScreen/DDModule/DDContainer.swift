@@ -21,7 +21,6 @@ final class DDContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-
 		interactor.output = presenter
 
         return DDContainer(view: viewController, input: presenter, router: router)

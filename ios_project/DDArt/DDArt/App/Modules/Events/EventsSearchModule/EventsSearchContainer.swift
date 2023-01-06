@@ -24,6 +24,7 @@ final class EventsSearchContainer {
         presenter.events = context.allEvents
         presenter.categories = context.categories
         presenter.searchEvents = context.allEvents
+        router.navigationController = context.navigationController
 		interactor.output = presenter
 
         return EventsSearchContainer(view: viewController, input: presenter, router: router)
@@ -40,4 +41,5 @@ struct EventsSearchContext {
 	weak var moduleOutput: EventsSearchModuleOutput?
     var allEvents: [EventModel]
     var categories: [CategoryModel]
+    var navigationController: UINavigationController
 }

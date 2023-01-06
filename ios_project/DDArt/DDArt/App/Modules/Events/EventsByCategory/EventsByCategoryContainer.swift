@@ -22,7 +22,7 @@ final class EventsByCategoryContainer {
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
         presenter.category = context.category
-
+        router.navigationController = context.navigationController
 		interactor.output = presenter
 
         return EventsByCategoryContainer(view: viewController, input: presenter, router: router)
@@ -38,4 +38,5 @@ final class EventsByCategoryContainer {
 struct EventsByCategoryContext {
 	weak var moduleOutput: EventsByCategoryModuleOutput?
     var category: CategoryModel
+    var navigationController: UINavigationController?
 }

@@ -52,9 +52,9 @@ protocol DDInteractorOutput: AnyObject {
 
 protocol DDRouterInput: AnyObject {
     func categoryFoodSelected(with view: DDViewInput?, and id: Int)
-    func newsSelected(with view: DDViewInput?, and id: Int)
-    func goToMenu(with view: DDViewInput?)
-    func goToAllNews(with view: DDViewInput?)
+    func newsSelected(with view: DDViewInput?, news: NewsModel)
+    func goToMenu(with view: DDViewInput?, foodCategory: [FoodCategory])
+    func goToAllNews(with view: DDViewInput?, news: [NewsModel])
     func presentMap(with view: DDViewInput?)
 }
 

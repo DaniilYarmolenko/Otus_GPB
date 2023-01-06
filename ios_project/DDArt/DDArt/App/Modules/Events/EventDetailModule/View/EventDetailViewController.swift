@@ -33,24 +33,26 @@ final class EventDetailViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = false
-        view.backgroundColor = .white
         output.viewDidLoad()
+        view.backgroundColor = .white
         setUp()
 	}
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraints()
     }
     private func setUp() {
-        setUpImageEvent()
         setUpLabels()
         setUpTextView()
         setUpRegisterButton()
         setUpTokenImageButton()
         setUpStackButton()
         setUpUnRegisterButton()
+        setUpImageEvent()
     }
     
     private func setUpImageEvent() {
@@ -148,17 +150,14 @@ extension EventDetailViewController: EventDetailViewInput {
         dateLabel.text = "\(dateFormatter.string(from: model.dateStart.toDate())) – \(dateFormatter.string(from: model.dateEnd.toDate()))"
         textView.text = model.description
         guard !model.photos.isEmpty else {return}
-        if imageEvent == nil {
-            DispatchQueue.global().async {
-                ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures") { image in
-                    DispatchQueue.main.async {
-                        self.imageEvent = image
-                        self.imageEventView.image = image
-                    }
+        DispatchQueue.global().async {
+            ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures") { image in
+                DispatchQueue.main.async {
+                    self.imageEvent = image
+                    self.imageEventView.image = image
                 }
             }
         }
-        
     }
 }
 

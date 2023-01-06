@@ -29,6 +29,10 @@ final class DDViewController: UIViewController {
         setUp()
         output.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraint()
@@ -71,6 +75,7 @@ final class DDViewController: UIViewController {
     @objc
     func refreshData() {
         output.loadData()
+        self.refreshControl.endRefreshing()
     }
 }
 
@@ -78,7 +83,7 @@ extension DDViewController: DDViewInput {
     func reloadData() {
         self.refreshControl.endRefreshing()
         tableView.reloadData()
-        output.sectionDelegate = self
+//        output.sectionDelegate = self
 //        activityIndicatorView.stopAnimating()
     }
     
@@ -130,7 +135,6 @@ extension DDViewController: TableViewCellOutput {
 
 extension DDViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("LOGIC getCountCells \(output.getCountCells())")
         return output.getCountCells()
     }
     
@@ -146,7 +150,6 @@ extension DDViewController: UITableViewDataSource {
 
 extension DDViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(CGFloat(output.getCellHeight(at: indexPath.row)))
-        return CGFloat(output.getCellHeight(at: indexPath.row))
+        CGFloat(output.getCellHeight(at: indexPath.row))
     }
 }

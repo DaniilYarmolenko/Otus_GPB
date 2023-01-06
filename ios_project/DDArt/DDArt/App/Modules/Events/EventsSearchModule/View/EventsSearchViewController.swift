@@ -18,7 +18,7 @@ final class EventsSearchViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.collectionView?.numberOfItems(inSection: 2)
-        layout.itemSize = CGSize(width: SizeConstants.screenWidth/2 - 20, height: SizeConstants.screenHeight/3-5)
+        layout.itemSize = CGSize(width: SizeConstants.screenWidth/2 - 20, height: SizeConstants.screenHeight/4)
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     internal var tableViewEvents = UITableView()
@@ -46,6 +46,7 @@ final class EventsSearchViewController: UIViewController {
         setUpTableViewBase()
         setUpCollection()
         setUpSearchBar()
+        setUpEmptyView()
     }
     private func setUpTableViewBase() {
         tableViewEvents.showsVerticalScrollIndicator = false
@@ -73,12 +74,23 @@ final class EventsSearchViewController: UIViewController {
         self.searchBar.placeholder = "Введите название или имя автора для поиска"
         view.addSubview(searchBar)
     }
+    private func setUpEmptyView() {
+        view.addSubview(emptyView)
+        emptyView.isHidden = true
+    }
 
     
 }
 
 extension EventsSearchViewController: EventsSearchViewInput {
     func reloadTableData() {
+        if output.getCountEventCells() == 0 && collectionCategoriesView.isHidden {
+            tableViewEvents.isHidden = true
+            emptyView.isHidden = false
+        } else {
+            tableViewEvents.isHidden = false
+            emptyView.isHidden = true
+        }
         tableViewEvents.reloadData()
     }
     
@@ -107,11 +119,16 @@ extension EventsSearchViewController: UITableViewDataSource, UITableViewDelegate
             let myCell = tableView.cellForRow(at: indexPath)
             return cell == myCell
         }
+        cell.delegate = output
         cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         SizeConstants.screenHeight/5
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.clickOnEvent(with: indexPath.row)
+        
     }
     
     
@@ -132,11 +149,16 @@ extension EventsSearchViewController: UICollectionViewDataSource, UICollectionVi
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
         }
+        cell.delegate = output
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            output.clickOnCategory(with: indexPath.row)
+    }
+
     
 }
+
 
 extension EventsSearchViewController {
     internal func addConstraints() {
@@ -159,5 +181,11 @@ extension EventsSearchViewController {
         tableViewEvents.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableViewEvents.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8).isActive = true
         tableViewEvents.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
+        
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.topAnchor.constraint(equalTo: self.searchBar.bottomAnchor, constant: 10).isActive = true
+        emptyView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        emptyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8).isActive = true
+        emptyView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
     }
 }

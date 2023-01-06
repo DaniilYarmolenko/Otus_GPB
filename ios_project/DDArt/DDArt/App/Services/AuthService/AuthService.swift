@@ -32,13 +32,9 @@ class Auth {
     func logout() {
         token = nil
         DispatchQueue.main.async {
-//            guard let applicationDelegate =
-//                    UIApplication.shared.delegate as? AppDelegate else {
-//                return
-//            }
-//            let rootController =
-//            UIStoryboard(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginNavigation")
-//            applicationDelegate.window?.rootViewController = rootController //MARK: RETURN TO FIRST VIEW
+            guard let applicationDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            let loginContainer = SigninContainer.assemble(with: SigninContext())
+            applicationDelegate.window?.rootViewController = loginContainer.viewController
         }
     }
     

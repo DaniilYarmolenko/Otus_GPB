@@ -9,12 +9,12 @@
 import UIKit
 
 final class EventsFutureRouter {
+    var navigationController: UINavigationController?
 }
 
 extension EventsFutureRouter: EventsFutureRouterInput {
-    func eventSelected(with view: EventsFutureViewInput?, and event: EventModel) {
-        guard let view = view as? UIViewController else { return }
-        let eventDetail = EventDetailContainer.assemble(with: EventDetailContext(event: event)) // MARK: Add Eventcontext
-        view.navigationController?.pushViewController(eventDetail.viewController, animated: true)
+    func eventSelected(event: EventModel) {
+        let eventDetail = EventDetailContainer.assemble(with: EventDetailContext(event: event))
+        self.navigationController?.pushViewController(eventDetail.viewController, animated: false)
     }
 }

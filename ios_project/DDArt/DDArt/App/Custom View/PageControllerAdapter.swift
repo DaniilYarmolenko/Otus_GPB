@@ -35,7 +35,6 @@ final class PageViewControllerSegmentedAdapter: NSObject {
 
     
     private func setViewController(atIndex index: Int, direction: UIPageViewController.NavigationDirection) {
-        print("LOGIC \(viewControllers) \(index)")
         self.pageViewController.setViewControllers([self.viewControllers[index]], direction: direction, animated: true) { [weak self] completed in
             guard let me = self else {
                 return
