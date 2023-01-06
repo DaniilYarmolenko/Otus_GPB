@@ -8,7 +8,7 @@
 import Foundation
 final class NewsCollectionViewModel: CellIdentifiable {
     var cellHeight: Float {
-        return Float(SizeConstants.screenHeight/3)
+        return Float(SizeConstants.screenHeight/4)
     }
     
     typealias ActionHandler = (Int) -> Void

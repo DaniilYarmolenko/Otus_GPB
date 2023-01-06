@@ -28,10 +28,6 @@ extension DDPresenter: DDModuleInput {
 extension DDPresenter: DDViewOutput {
     func viewDidLoad() {
         ddSectionViewModel = DDSectionViewModel()
-        loadData()
-    }
-    func loadData() {
-        ddSectionViewModel = DDSectionViewModel()
         interactor.loadData()
     }
     func tapOnCategory(with id: Int) {

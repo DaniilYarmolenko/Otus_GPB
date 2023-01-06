@@ -68,6 +68,7 @@ final class FoodCategoriesCollectionViewCell: BaseCell, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let model = model as? FoodCategoriesCollectionViewModel else { return }
+        print("OGIC TAP ")
         model.action?(indexPath.row)
     }
 }

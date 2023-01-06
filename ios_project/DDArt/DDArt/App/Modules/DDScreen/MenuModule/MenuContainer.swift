@@ -21,7 +21,7 @@ final class MenuContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-        presenter.categoriesFood = context.categoryFood
+        presenter.categoriesFood = context.categoryFood.sorted {$0.name < $1.name}
         router.navigationController = context.navigationController
 		interactor.output = presenter
 

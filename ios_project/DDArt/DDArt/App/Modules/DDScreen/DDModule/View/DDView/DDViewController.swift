@@ -74,8 +74,7 @@ final class DDViewController: UIViewController {
     }
     @objc
     func refreshData() {
-        output.loadData()
-        self.refreshControl.endRefreshing()
+        output.viewDidLoad()
     }
 }
 
@@ -83,7 +82,7 @@ extension DDViewController: DDViewInput {
     func reloadData() {
         self.refreshControl.endRefreshing()
         tableView.reloadData()
-//        output.sectionDelegate = self
+        output.sectionDelegate = self
 //        activityIndicatorView.stopAnimating()
     }
     

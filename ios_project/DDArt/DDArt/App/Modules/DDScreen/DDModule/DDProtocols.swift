@@ -21,7 +21,6 @@ protocol DDViewInput: AnyObject {
 
 protocol DDViewOutput: AnyObject {
     func viewDidLoad()
-    func loadData()
     func tapOnCategory(with id: Int)
     func tapOnNews(with id: Int)
     func tapOnMap()

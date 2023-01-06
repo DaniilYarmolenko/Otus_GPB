@@ -9,17 +9,19 @@
 import Foundation
 
 final class MenuInteractor {
-	weak var output: MenuInteractorOutput?
+    weak var output: MenuInteractorOutput?
     private let group = DispatchGroup()
+    private let dispatchQueue = DispatchQueue(label: "loadData")
+    private let dispatchSemaphore = DispatchSemaphore(value: 0)
     var foods = [FoodModel]()
 }
 
 extension MenuInteractor: MenuInteractorInput {
     func loadData(categories: [FoodCategory]) {
-        categories.forEach { category in
-            print("LOGIC 1")
-            group.enter()
-            DispatchQueue.global(qos: .userInitiated).async { [self] in
+        dispatchQueue.async {
+            categories.forEach { category in
+                print("LOGIC 1")
+                self.group.enter()
                 ApiService<FoodModel>(resourcePath: "foodCategories/\(category.id ?? UUID())/food").getAll { result in
                     switch result {
                     case .success(let foods):
@@ -29,12 +31,16 @@ extension MenuInteractor: MenuInteractorInput {
                     case .failure(let error):
                         print("LOGIC \(error)")
                     }
-                    group.leave()
+                    self.dispatchSemaphore.signal()
+                    self.group.leave()
                 }
+                self.dispatchSemaphore.wait()
             }
         }
-        group.notify(queue: .main, execute: { [self] in
-            self.output?.reloadCollection()
+        group.notify(queue: dispatchQueue, execute: { [self] in
+            DispatchQueue.main.async {
+                self.output?.reloadCollection()
+            }
         })
     }
     

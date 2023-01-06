@@ -14,7 +14,7 @@ final class NewsCollectionTableViewCell: BaseCell, UICollectionViewDelegateFlowL
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        layout.itemSize = CGSize(width: SizeConstants.screenWidth - 40, height: SizeConstants.screenHeight/3-5)
+        layout.itemSize = CGSize(width: SizeConstants.screenWidth - 40, height: SizeConstants.screenHeight/4-5)
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
