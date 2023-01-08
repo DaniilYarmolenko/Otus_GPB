@@ -26,12 +26,7 @@ final class CoreDataService: ServiceCoreDataInput {
         }
         return 0
     }
-//    func updateCount(food: FoodModel, value: Int) {
-//        let fetchRequest = CartCoreModel.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "name == %@", "\(food.id ?? UUID())")
-//        let food = self.dataManager.fetch(with: fetchRequest)
-//        self.dataManager.
-//    }
+
     func isContain(with id: String) -> Bool {
         let fetchRequest = CartCoreModel.fetchRequest()
 //        "\(#keyPath(Scene.relatedProject.name)) == %@", projectName)
@@ -76,7 +71,6 @@ final class CoreDataService: ServiceCoreDataInput {
         }
     func update(with model: FoodSaveModel) {
         let fetchRequest = CartCoreModel.fetchRequest()
-
         fetchRequest.predicate = NSPredicate(format: "id == %@", model.id)
         let food = self.dataManager.fetch(with: fetchRequest)
         food?.first?.count = Int16(model.count)

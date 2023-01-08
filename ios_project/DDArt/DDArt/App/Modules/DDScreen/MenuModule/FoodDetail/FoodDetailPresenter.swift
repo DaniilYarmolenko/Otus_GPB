@@ -49,7 +49,7 @@ extension FoodDetailPresenter: FoodDetailViewOutput {
     }
     
     func getFoodCountInCart() -> Int {
-        interactor.getFoodCountInCart(id: "\(food?.id ?? UUID())")
+        return interactor.getFoodCountInCart(id: "\(food?.id ?? UUID())")
     }
     
     func updateFood(image: Data, value: Int) {
