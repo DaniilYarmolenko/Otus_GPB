@@ -17,17 +17,24 @@ final class MenuInteractor {
 }
 
 extension MenuInteractor: MenuInteractorInput {
+    func countCart() -> Int {
+        let coreDataItems = CoreDataService.shared.fetchAll()
+        var count = 0
+        coreDataItems.forEach { cart in
+            count += Int(cart.count)
+        }
+        return count
+    }
+    
     func loadData(categories: [FoodCategory]) {
         dispatchQueue.async {
             categories.forEach { category in
-                print("LOGIC 1")
                 self.group.enter()
                 ApiService<FoodModel>(resourcePath: "foodCategories/\(category.id ?? UUID())/food").getAll { result in
                     switch result {
                     case .success(let foods):
                         self.foods = foods
                         self.output?.receiveData(foods: foods)
-                        print("LOGIC \(foods)")
                     case .failure(let error):
                         print("LOGIC \(error)")
                     }

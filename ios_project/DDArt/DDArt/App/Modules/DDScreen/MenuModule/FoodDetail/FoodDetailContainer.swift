@@ -21,7 +21,7 @@ final class FoodDetailContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-
+        presenter.food = context.food
 		interactor.output = presenter
 
         return FoodDetailContainer(view: viewController, input: presenter, router: router)
@@ -36,4 +36,5 @@ final class FoodDetailContainer {
 
 struct FoodDetailContext {
 	weak var moduleOutput: FoodDetailModuleOutput?
+    var food: FoodModel
 }

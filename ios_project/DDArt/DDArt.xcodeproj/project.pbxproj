@@ -40,6 +40,8 @@
 		260D3C6D293FF30A007AA3A5 /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D3C6C293FF30A007AA3A5 /* SizeConstants.swift */; };
 		262A3FE62913E09B00D8C46E /* Moniqa-MediumNarrowHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */; };
 		262A3FE82913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */; };
+		2651073B2969D3F7008B56E7 /* FoodSaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */; };
+		2651073F2969FCDB008B56E7 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651073E2969FCDB008B56E7 /* CartCell.swift */; };
 		265C17892912CF420057FB2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C17882912CF420057FB2F /* AppDelegate.swift */; };
 		265C178B2912CF420057FB2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C178A2912CF420057FB2F /* SceneDelegate.swift */; };
 		265C17952912CF450057FB2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265C17932912CF450057FB2F /* LaunchScreen.storyboard */; };
@@ -119,6 +121,7 @@
 		26674DF72967427600A31A4F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26674DF62967427600A31A4F /* User.swift */; };
 		268ACEAF29410F4E00C82DC6 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ACEAE29410F4E00C82DC6 /* CustomLabel.swift */; };
 		268ACEB1294125CA00C82DC6 /* ButtonWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ACEB0294125CA00C82DC6 /* ButtonWithLabel.swift */; };
+		26B1FFAD2969983700B25524 /* CategoryFoodCellMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B1FFAC2969983700B25524 /* CategoryFoodCellMenu.swift */; };
 		26DDCBF72968497E00DD1C71 /* EventsByCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDCBF62968497E00DD1C71 /* EventsByCategoryCell.swift */; };
 		26DDCC0B29684C6900DD1C71 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDCC0529684C6900DD1C71 /* NewsPresenter.swift */; };
 		26DDCC0C29684C6900DD1C71 /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDCC0629684C6900DD1C71 /* NewsRouter.swift */; };
@@ -150,7 +153,6 @@
 		26E774ED294CD9A3009F8550 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E774EC294CD9A3009F8550 /* AuthService.swift */; };
 		26E774EF294CD9F3009F8550 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E774EE294CD9F3009F8550 /* Keychain.swift */; };
 		26E774F1294CDBD7009F8550 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E774F0294CDBD7009F8550 /* Token.swift */; };
-		26F214E4293E1A8800499873 /* DDArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F214E3293E1A8800499873 /* DDArtTests.swift */; };
 		26F214F1293E1B5C00499873 /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F214EB293E1B5C00499873 /* EventDetailPresenter.swift */; };
 		26F214F2293E1B5C00499873 /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F214EC293E1B5C00499873 /* EventDetailRouter.swift */; };
 		26F214F3293E1B5C00499873 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F214ED293E1B5C00499873 /* EventDetailViewController.swift */; };
@@ -170,8 +172,8 @@
 		26F21516293E749A00499873 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F21514293E749A00499873 /* ApiService.swift */; };
 		26F21529293E74AF00499873 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151A293E74AE00499873 /* CoreDataManager.swift */; };
 		26F2152A293E74AF00499873 /* ServiceCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151B293E74AE00499873 /* ServiceCoreData.swift */; };
-		26F2152B293E74AF00499873 /* ImageModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151C293E74AE00499873 /* ImageModel.xcdatamodeld */; };
-		26F2152C293E74AF00499873 /* ImageModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151F293E74AE00499873 /* ImageModel+CoreData.swift */; };
+		26F2152B293E74AF00499873 /* CoreDataFood.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151C293E74AE00499873 /* CoreDataFood.xcdatamodeld */; };
+		26F2152C293E74AF00499873 /* CartModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2151F293E74AE00499873 /* CartModel+CoreData.swift */; };
 		26F21536293F1A2100499873 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F21535293F1A2100499873 /* EventModel.swift */; };
 		26FA9C0229434BE50088249A /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA9BFC29434BE50088249A /* MenuPresenter.swift */; };
 		26FA9C0329434BE50088249A /* MenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FA9BFD29434BE50088249A /* MenuRouter.swift */; };
@@ -236,6 +238,8 @@
 		260D3C6C293FF30A007AA3A5 /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
 		262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-MediumNarrowHeading.otf"; sourceTree = "<group>"; };
 		262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-LightItalicHeading.otf"; sourceTree = "<group>"; };
+		2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSaveModel.swift; sourceTree = "<group>"; };
+		2651073E2969FCDB008B56E7 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		265C17852912CF420057FB2F /* DDArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		265C17882912CF420057FB2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		265C178A2912CF420057FB2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 		268ACEAE29410F4E00C82DC6 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		268ACEB0294125CA00C82DC6 /* ButtonWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithLabel.swift; sourceTree = "<group>"; };
 		268ACEB42942416B00C82DC6 /* TODOlist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODOlist.md; sourceTree = "<group>"; };
+		26B1FFAC2969983700B25524 /* CategoryFoodCellMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFoodCellMenu.swift; sourceTree = "<group>"; };
 		26DDCBF62968497E00DD1C71 /* EventsByCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsByCategoryCell.swift; sourceTree = "<group>"; };
 		26DDCC0529684C6900DD1C71 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 		26DDCC0629684C6900DD1C71 /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
@@ -371,7 +376,7 @@
 		26F2151A293E74AE00499873 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		26F2151B293E74AE00499873 /* ServiceCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCoreData.swift; sourceTree = "<group>"; };
 		26F2151D293E74AE00499873 /* ImageModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageModel.xcdatamodel; sourceTree = "<group>"; };
-		26F2151F293E74AE00499873 /* ImageModel+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageModel+CoreData.swift"; sourceTree = "<group>"; };
+		26F2151F293E74AE00499873 /* CartModel+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CartModel+CoreData.swift"; sourceTree = "<group>"; };
 		26F21535293F1A2100499873 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		26FA9BFC29434BE50088249A /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
 		26FA9BFD29434BE50088249A /* MenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouter.swift; sourceTree = "<group>"; };
@@ -598,6 +603,23 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		265107392969D3EA008B56E7 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2651073D2969FCC8008B56E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26DDCC2F29684D9000DD1C71 /* FoodCartViewController.swift */,
+				2651073E2969FCDB008B56E7 /* CartCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		265C177C2912CF420057FB2F = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +798,7 @@
 		265C17E82912E0580057FB2F /* MenuModule */ = {
 			isa = PBXGroup;
 			children = (
+				265107392969D3EA008B56E7 /* Entity */,
 				26DDCC2C29684D7800DD1C71 /* FoodCart */,
 				26DDCC1F29684D5800DD1C71 /* FoodDetail */,
 				26FA9C0829434BEF0088249A /* View */,
@@ -874,6 +897,8 @@
 		26674DE2296722DC00A31A4F /* FoodCart */ = {
 			isa = PBXGroup;
 			children = (
+				26F21519293E74AE00499873 /* CoreDataManager */,
+				26F2151E293E74AE00499873 /* Entities */,
 			);
 			path = FoodCart;
 			sourceTree = "<group>";
@@ -995,9 +1020,9 @@
 		26DDCC2C29684D7800DD1C71 /* FoodCart */ = {
 			isa = PBXGroup;
 			children = (
+				2651073D2969FCC8008B56E7 /* View */,
 				26DDCC2D29684D9000DD1C71 /* FoodCartPresenter.swift */,
 				26DDCC2E29684D9000DD1C71 /* FoodCartRouter.swift */,
-				26DDCC2F29684D9000DD1C71 /* FoodCartViewController.swift */,
 				26DDCC3029684D9000DD1C71 /* FoodCartProtocols.swift */,
 				26DDCC3129684D9000DD1C71 /* FoodCartInteractor.swift */,
 				26DDCC3229684D9000DD1C71 /* FoodCartContainer.swift */,
@@ -1088,11 +1113,9 @@
 		26F21518293E74AE00499873 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				26F2151C293E74AE00499873 /* CoreDataFood.xcdatamodeld */,
 				26674DE2296722DC00A31A4F /* FoodCart */,
 				26674DE1296722C100A31A4F /* User */,
-				26F21519293E74AE00499873 /* CoreDataManager */,
-				26F2151C293E74AE00499873 /* ImageModel.xcdatamodeld */,
-				26F2151E293E74AE00499873 /* Entities */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1109,7 +1132,7 @@
 		26F2151E293E74AE00499873 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				26F2151F293E74AE00499873 /* ImageModel+CoreData.swift */,
+				26F2151F293E74AE00499873 /* CartModel+CoreData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1149,6 +1172,7 @@
 			isa = PBXGroup;
 			children = (
 				26DDCC3E2968B53C00DD1C71 /* FoodCell.swift */,
+				26B1FFAC2969983700B25524 /* CategoryFoodCellMenu.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1335,15 +1359,18 @@
 				260D3C11293F6C10007AA3A5 /* EventsByCategoryInteractor.swift in Sources */,
 				265C17D82912DC960057FB2F /* ExtraScreenViewController.swift in Sources */,
 				26F21507293E73F100499873 /* String+Extension.swift in Sources */,
+				2651073B2969D3F7008B56E7 /* FoodSaveModel.swift in Sources */,
 				260D3C59293FEFE8007AA3A5 /* FoodCategoriesCollectionViewCell.swift in Sources */,
 				26FA9C0729434BE50088249A /* MenuContainer.swift in Sources */,
 				265C17CB2912DC5C0057FB2F /* DDViewController.swift in Sources */,
 				26F214F2293E1B5C00499873 /* EventDetailRouter.swift in Sources */,
 				26FA9C0F29435CFE0088249A /* CategoryFoodCollection.swift in Sources */,
 				260D3C5D293FF005007AA3A5 /* FoodCategoriesViewCell.swift in Sources */,
+				26B1FFAD2969983700B25524 /* CategoryFoodCellMenu.swift in Sources */,
 				265C181C29132AC80057FB2F /* EventsViewController + Constraints.swift in Sources */,
 				26674DC3295A034200A31A4F /* WelcomePresenter.swift in Sources */,
 				26FA9C2A29466D980088249A /* EventsSearchTableCell.swift in Sources */,
+				2651073F2969FCDB008B56E7 /* CartCell.swift in Sources */,
 				265C17D62912DC960057FB2F /* ExtraScreenPresenter.swift in Sources */,
 				26674DEC296723E100A31A4F /* SignUpViewController.swift in Sources */,
 				26FA9C0329434BE50088249A /* MenuRouter.swift in Sources */,
@@ -1453,10 +1480,10 @@
 				26674DCE295A08D500A31A4F /* OnboardingViewController.swift in Sources */,
 				26674DF72967427600A31A4F /* User.swift in Sources */,
 				26DDCC3F2968B53C00DD1C71 /* FoodCell.swift in Sources */,
-				26F2152C293E74AF00499873 /* ImageModel+CoreData.swift in Sources */,
+				26F2152C293E74AF00499873 /* CartModel+CoreData.swift in Sources */,
 				26F214F3293E1B5C00499873 /* EventDetailViewController.swift in Sources */,
 				26F21506293E73F100499873 /* UIView+Extension.swift in Sources */,
-				26F2152B293E74AF00499873 /* ImageModel.xcdatamodeld in Sources */,
+				26F2152B293E74AF00499873 /* CoreDataFood.xcdatamodeld in Sources */,
 				260D3C1F293FCE95007AA3A5 /* InfoModel.swift in Sources */,
 				268ACEB1294125CA00C82DC6 /* ButtonWithLabel.swift in Sources */,
 				26FA9C14294549140088249A /* EventFutureCell.swift in Sources */,
@@ -1482,7 +1509,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F214E4293E1A8800499873 /* DDArtTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1761,13 +1787,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		26F2151C293E74AE00499873 /* ImageModel.xcdatamodeld */ = {
+		26F2151C293E74AE00499873 /* CoreDataFood.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				26F2151D293E74AE00499873 /* ImageModel.xcdatamodel */,
 			);
 			currentVersion = 26F2151D293E74AE00499873 /* ImageModel.xcdatamodel */;
-			path = ImageModel.xcdatamodeld;
+			path = CoreDataFood.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

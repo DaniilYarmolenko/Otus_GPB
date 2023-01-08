@@ -31,8 +31,8 @@ extension DDPresenter: DDViewOutput {
         interactor.loadData()
     }
     func tapOnCategory(with id: Int) {
-        guard ddSectionViewModel?.rows[3] is  FoodCategoriesCollectionViewModel else { return }
-//        router.authorSelected(with: view, and: author.array[id].id)
+        guard let foodCategory = ddSectionViewModel?.rows[3] as?  FoodCategoriesCollectionViewModel else { return }
+        router.categoryFoodSelected(with: view, and: id, foodCategories: foodCategory.array)
     }
     
     func tapOnNews(with id: Int) {
@@ -93,11 +93,9 @@ extension DDPresenter: DDViewOutput {
     func goToAllNews() {
         guard let news = ddSectionViewModel?.rows[1] as?  NewsCollectionViewModel else { return }
         router.goToAllNews(with: self.view, news: news.array)
-        print("LOGIC TAP")
     }
     
     func goToMenu() {
-        print("LOGIC TAPPP") 
         guard let foodCategory = ddSectionViewModel?.rows[3] as?  FoodCategoriesCollectionViewModel else { return }
         router.goToMenu(with: view, foodCategory: foodCategory.array)
     }

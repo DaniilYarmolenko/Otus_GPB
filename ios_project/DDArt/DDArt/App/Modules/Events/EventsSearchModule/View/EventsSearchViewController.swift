@@ -53,8 +53,7 @@ final class EventsSearchViewController: UIViewController {
         tableViewEvents.delegate = self
         tableViewEvents.refreshControl = refreshControl
         tableViewEvents.dataSource = self
-        tableViewEvents.separatorStyle = .singleLine
-        tableViewEvents.separatorColor = .black
+        tableViewEvents.separatorStyle = .none
         tableViewEvents.isHidden = true
         tableViewEvents.register(EventsSearchTableCell.self, forCellReuseIdentifier: EventsSearchTableCell.cellIdentifier)
         view.addSubview(tableViewEvents)
@@ -68,10 +67,11 @@ final class EventsSearchViewController: UIViewController {
         self.view.addSubview(collectionCategoriesView)
     }
     private func setUpSearchBar() {
-        self.searchBar.delegate = self
-        self.searchBar.layer.cornerRadius = 10
-        self.searchBar.barTintColor = .white
-        self.searchBar.placeholder = "Введите название или имя автора для поиска"
+        searchBar.delegate = self
+        searchBar.layer.cornerRadius = 10
+        searchBar.barTintColor = .white
+        searchBar.placeholder = "Введите название или имя автора для поиска"
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).font = UIFont(name: FontConstants.MoniqaLightItalicHeading, size: 20)
         view.addSubview(searchBar)
     }
     private func setUpEmptyView() {

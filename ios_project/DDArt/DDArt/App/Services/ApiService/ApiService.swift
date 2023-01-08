@@ -6,7 +6,7 @@
 //
 
 import Foundation
-let apiHostname = "http://daniilyarmolenko.fvds.ru"
+let apiHostname = "http://ddspace.ru"
 
 struct ApiService<ResourceType> where ResourceType: Codable {
     let baseURL = "\(apiHostname)/api/"

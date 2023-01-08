@@ -34,6 +34,10 @@ extension EventDetailPresenter: EventDetailModuleInput {
 }
 
 extension EventDetailPresenter: EventDetailViewOutput {
+    func showOpsAlert() {
+        router.showOpsAlert(with: view)
+    }
+    
     func viewDidLoad() {
         if let event = eventDetail {
             receiveData(event: event)

@@ -12,4 +12,8 @@ final class FoodCartRouter {
 }
 
 extension FoodCartRouter: FoodCartRouterInput {
+    func goToDeleteAlert(from vc: FoodCartViewInput?) {
+        
+    }
+    
 }

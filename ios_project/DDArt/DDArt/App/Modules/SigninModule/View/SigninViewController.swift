@@ -32,6 +32,7 @@ final class SigninViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setUp()
+        view.backgroundColor = .white
 	}
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

@@ -26,6 +26,10 @@ extension EventsByCategoryPresenter: EventsByCategoryModuleInput {
 }
 
 extension EventsByCategoryPresenter: EventsByCategoryViewOutput {
+    func getTitle() -> String {
+        category?.name ?? ""
+    }
+    
     func getCountEventCells() -> Int {
         events.count
     }

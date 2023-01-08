@@ -12,9 +12,12 @@ final class DDRouter {
 }
 
 extension DDRouter: DDRouterInput {
-    func categoryFoodSelected(with view: DDViewInput?, and id: Int) {
-        
+    func categoryFoodSelected(with view: DDViewInput?, and id: Int, foodCategories: [FoodCategory]) {
+        guard let view = view as? UIViewController, let navigationController = view.navigationController else { return }
+        let menuContainer = MenuContainer.assemble(with: MenuContext(categoryFood: foodCategories, navigationController: navigationController, scrollSection: id))
+        navigationController.pushViewController(menuContainer.viewController, animated: true)
     }
+    
     
     func newsSelected(with view: DDViewInput?, news: NewsModel) {
         guard let view = view as? UIViewController, let navigationController = view.navigationController else { return }
@@ -31,7 +34,6 @@ extension DDRouter: DDRouterInput {
     func goToAllNews(with view: DDViewInput?, news: [NewsModel]) {
         guard let view = view as? UIViewController, let navigationController = view.navigationController else { return }
         let newsContainer = NewsContainer.assemble(with: NewsContext(news: news, navigationController: navigationController))
-        print("LOGIC \(navigationController)")
         navigationController.pushViewController(newsContainer.viewController, animated: true)
     }
     

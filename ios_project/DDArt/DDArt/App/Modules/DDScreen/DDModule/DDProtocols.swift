@@ -50,7 +50,7 @@ protocol DDInteractorOutput: AnyObject {
 }
 
 protocol DDRouterInput: AnyObject {
-    func categoryFoodSelected(with view: DDViewInput?, and id: Int)
+    func categoryFoodSelected(with view: DDViewInput?, and id: Int, foodCategories: [FoodCategory])
     func newsSelected(with view: DDViewInput?, news: NewsModel)
     func goToMenu(with view: DDViewInput?, foodCategory: [FoodCategory])
     func goToAllNews(with view: DDViewInput?, news: [NewsModel])

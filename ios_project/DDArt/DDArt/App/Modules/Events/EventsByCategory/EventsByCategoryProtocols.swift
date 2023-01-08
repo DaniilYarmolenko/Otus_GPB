@@ -25,6 +25,7 @@ protocol EventsByCategoryViewOutput: AnyObject {
     func clickOnEvent(with id: Int)
     func getCountEventCells() -> Int
     func getEventCell(with index: Int) -> EventModel
+    func getTitle() -> String
 }
 
 protocol EventsByCategoryInteractorInput: AnyObject {

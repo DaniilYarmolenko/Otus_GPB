@@ -26,6 +26,7 @@ protocol EventDetailViewOutput: AnyObject {
     func updateData()
     func getToken()
     func showAlertAuth()
+    func showOpsAlert()
 }
 
 protocol EventDetailInteractorInput: AnyObject {
@@ -41,4 +42,5 @@ protocol EventDetailInteractorOutput: AnyObject {
 
 protocol EventDetailRouterInput: AnyObject {
     func showAlertAuth(with view: EventDetailViewInput?)
+    func showOpsAlert(with view: EventDetailViewInput?)
 }

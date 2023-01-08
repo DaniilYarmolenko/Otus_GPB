@@ -8,7 +8,7 @@
 		<false/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>daniilyarmolenko.fvds.ru</key>
+			<key>ddspace.ru</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>

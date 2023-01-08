@@ -75,12 +75,14 @@ final class DDViewController: UIViewController {
     @objc
     func refreshData() {
         output.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
 extension DDViewController: DDViewInput {
     func reloadData() {
-        self.refreshControl.endRefreshing()
         tableView.reloadData()
         output.sectionDelegate = self
 //        activityIndicatorView.stopAnimating()

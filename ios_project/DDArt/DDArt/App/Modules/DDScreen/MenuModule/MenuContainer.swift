@@ -24,6 +24,7 @@ final class MenuContainer {
         presenter.categoriesFood = context.categoryFood.sorted {$0.name < $1.name}
         router.navigationController = context.navigationController
 		interactor.output = presenter
+        viewController.scrollSection = context.scrollSection
 
         return MenuContainer(view: viewController, input: presenter, router: router)
 	}
@@ -39,4 +40,5 @@ struct MenuContext {
 	weak var moduleOutput: MenuModuleOutput?
     var categoryFood: [FoodCategory]
     var navigationController: UINavigationController
+    var scrollSection: Int?
 }

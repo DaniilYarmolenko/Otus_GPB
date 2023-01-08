@@ -55,7 +55,7 @@ extension DDInteractor: DDInteractorInput {
                 case .failure (let error):
                     self.output?.didFail(message: "There was an error getting the category Food")
                 case .success(let category):
-                    self.categoryFoodModel = category
+                    self.categoryFoodModel = category.sorted{$0.name < $1.name}
                 }
             }
         }

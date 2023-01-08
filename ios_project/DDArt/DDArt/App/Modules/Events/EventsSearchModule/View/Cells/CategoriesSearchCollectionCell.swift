@@ -49,7 +49,7 @@ final class CategoriesSearchCollectionCell: UICollectionViewCell {
     }
     
     func configure(model: CategoryModel, complition: @escaping () -> (Bool)) {
-        self.imageView.image = UIImage(named: "noData")
+        self.imageView.image = UIImage(named: "category")
         nameCategory.attributedText = model.name.underLined
         guard !model.photos.isEmpty else {return}
         DispatchQueue.global().async {

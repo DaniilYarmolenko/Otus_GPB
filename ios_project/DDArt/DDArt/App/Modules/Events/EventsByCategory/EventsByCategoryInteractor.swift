@@ -30,7 +30,6 @@ extension EventsByCategoryInteractor: EventsByCategoryInteractorInput {
             }
         }
         group.notify(queue: .main, execute: { [self] in
-            print(self.events)
             output?.receiveData(events: self.events)
         })
     }

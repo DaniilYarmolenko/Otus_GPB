@@ -26,7 +26,20 @@ extension MenuPresenter: MenuModuleInput {
 }
 
 extension MenuPresenter: MenuViewOutput {
+    func goToCart() {
+        router.goToCart()
+    }
+    
+    func countCart() -> Int {
+        interactor.countCart()
+    }
+    
+    func selectCategory(index: Int) {
+        view?.goToCategory(section: index)
+    }
+    
     func loadData() {
+        NotificationCenter.default.post(name: NSNotification.Name("cartBadge"), object: nil)
         interactor.loadData(categories: categoriesFood)
     }
     func getCategoriesName(index: Int) -> String {
@@ -60,7 +73,6 @@ extension MenuPresenter: MenuInteractorOutput {
         self.foods.append(foods)
     }
     func reloadCollection(){
-        print("LOGIC foods \(foods)")
         view?.reloadCollection()
     }
     

@@ -13,4 +13,22 @@ final class FoodDetailInteractor {
 }
 
 extension FoodDetailInteractor: FoodDetailInteractorInput {
+    func updateFood(food: FoodSaveModel) {
+        CoreDataService.shared.update(with: food)
+    }
+    
+    func addToCoreData(food: FoodSaveModel) {
+        CoreDataService.shared.insert(with: food)
+    }
+    
+    func deleteFromCoreData(id: String) {
+        CoreDataService.shared.delete(with: id)
+    }
+    
+    func getFoodCountInCart(id: String) -> Int {
+        CoreDataService.shared.fetchCountCart(with: id)
+    }
+    
+
+    
 }

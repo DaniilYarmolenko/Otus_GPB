@@ -28,6 +28,7 @@ final class EventsByCategoryViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         view.backgroundColor = .white
         setUp()
+        navigationItem.title = output.getTitle()
         output.viewDidLoad()
     }
     override func viewWillLayoutSubviews() {
@@ -42,8 +43,7 @@ final class EventsByCategoryViewController: UIViewController {
         tableViewEvents.delegate = self
         tableViewEvents.refreshControl = refreshControl
         tableViewEvents.dataSource = self
-        tableViewEvents.separatorStyle = .singleLine
-        tableViewEvents.separatorColor = .black
+        tableViewEvents.separatorStyle = .none
         tableViewEvents.register(EventsByCategoryCell.self, forCellReuseIdentifier: EventsByCategoryCell.cellIdentifier)
         
         tableViewEvents.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +59,6 @@ extension EventsByCategoryViewController: EventsByCategoryViewInput {
 }
 extension EventsByCategoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("LOGIC \(output.getCountEventCells())")
         return output.getCountEventCells()
     }
     

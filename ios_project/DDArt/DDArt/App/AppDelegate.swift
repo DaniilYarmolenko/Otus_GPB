@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let signInContainer = SigninContainer.assemble(with: SigninContext())
             self.window?.rootViewController = signInContainer.viewController
             self.window?.makeKeyAndVisible()
+
             return true
         } else {
 
@@ -35,5 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window!.backgroundColor = .red
             return true
         }
+    }
+    func applicationWillTerminate(_ application: UIApplication) {
+        CoreDataService.shared.deleteAll()
+        UserDefaults.standard.setValue(0, forKey: "countCart")
     }
 }

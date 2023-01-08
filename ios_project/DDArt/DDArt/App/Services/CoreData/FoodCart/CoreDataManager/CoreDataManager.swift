@@ -15,10 +15,12 @@ protocol CoreDataManagerDescription {
     func delete<T: NSManagedObject>(with entityName: String, configBlock: () -> NSFetchRequest<T>)
 }
 
-class CoreDataManager: CoreDataManagerDescription {
-    private let modelName = "ImageModel"
-    static let shared = CoreDataManager()
-    private let storeContainer: NSPersistentContainer
+class CoreDataCartManager: CoreDataManagerDescription {
+    
+    
+    private let modelName = "CoreDataFood"
+    static let shared = CoreDataCartManager()
+    let storeContainer: NSPersistentContainer
     var mainQueueContext: NSManagedObjectContext {
         return storeContainer.viewContext
     }
@@ -39,7 +41,6 @@ class CoreDataManager: CoreDataManagerDescription {
     func fetch<T>(with request: NSFetchRequest<T>) -> [T]? {
         return try? storeContainer.viewContext.fetch(request)
     }
-    
     func create<T>(with entityName: String, configBlock: (T) -> Void) where T: NSManagedObject {
         guard let obj = NSEntityDescription.insertNewObject(forEntityName: entityName, into: storeContainer.viewContext) as? T else { return }
         
