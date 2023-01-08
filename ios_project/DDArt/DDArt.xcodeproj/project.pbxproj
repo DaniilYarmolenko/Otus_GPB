@@ -45,6 +45,7 @@
 		26126AFB296B618900AEE136 /* EventMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 26126AF1296B5B5E00AEE136 /* EventMock.json */; };
 		26126AFC296B618C00AEE136 /* NewsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 26126AF3296B5BDD00AEE136 /* NewsMock.json */; };
 		26126AFE296B650000AEE136 /* EventsFuturePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */; };
+		26126B00296B6A7100AEE136 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126AFF296B6A7100AEE136 /* FoodCell.swift */; };
 		262A3FE62913E09B00D8C46E /* Moniqa-MediumNarrowHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */; };
 		262A3FE82913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */; };
 		2651073B2969D3F7008B56E7 /* FoodSaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */; };
@@ -156,7 +157,6 @@
 		26DDCC3829684D9000DD1C71 /* FoodCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDCC3229684D9000DD1C71 /* FoodCartContainer.swift */; };
 		26DDCC3B2968632F00DD1C71 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDCC3A2968632F00DD1C71 /* NewsCell.swift */; };
 		26DDCC3D2968A6ED00DD1C71 /* BudgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDCC3C2968A6ED00DD1C71 /* BudgetButton.swift */; };
-		26DDCC3F2968B53C00DD1C71 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDCC3E2968B53C00DD1C71 /* FoodCell.swift */; };
 		26E774ED294CD9A3009F8550 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E774EC294CD9A3009F8550 /* AuthService.swift */; };
 		26E774EF294CD9F3009F8550 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E774EE294CD9F3009F8550 /* Keychain.swift */; };
 		26E774F1294CDBD7009F8550 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E774F0294CDBD7009F8550 /* Token.swift */; };
@@ -249,6 +249,7 @@
 		26126AF5296B5C1C00AEE136 /* CategoriesEventMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CategoriesEventMock.json; sourceTree = "<group>"; };
 		26126AF8296B5CC900AEE136 /* NewsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenterTest.swift; sourceTree = "<group>"; };
 		26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFuturePresenterTest.swift; sourceTree = "<group>"; };
+		26126AFF296B6A7100AEE136 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodCell.swift; path = DDArt/App/Modules/DDScreen/MenuModule/Entity/FoodCell.swift; sourceTree = SOURCE_ROOT; };
 		262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-MediumNarrowHeading.otf"; sourceTree = "<group>"; };
 		262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-LightItalicHeading.otf"; sourceTree = "<group>"; };
 		2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSaveModel.swift; sourceTree = "<group>"; };
@@ -363,7 +364,6 @@
 		26DDCC3229684D9000DD1C71 /* FoodCartContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartContainer.swift; sourceTree = "<group>"; };
 		26DDCC3A2968632F00DD1C71 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		26DDCC3C2968A6ED00DD1C71 /* BudgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetButton.swift; sourceTree = "<group>"; };
-		26DDCC3E2968B53C00DD1C71 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodCell.swift; path = ../../../../../../../../../../../../Downloads/FoodCell.swift; sourceTree = "<group>"; };
 		26E774EC294CD9A3009F8550 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		26E774EE294CD9F3009F8550 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		26E774F0294CDBD7009F8550 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -1198,7 +1198,7 @@
 		26FA9C0B29435BBF0088249A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				26DDCC3E2968B53C00DD1C71 /* FoodCell.swift */,
+				26126AFF296B6A7100AEE136 /* FoodCell.swift */,
 				26B1FFAC2969983700B25524 /* CategoryFoodCellMenu.swift */,
 			);
 			path = Cell;
@@ -1472,6 +1472,7 @@
 				26F2150D293E743500499873 /* ResourceRequestError.swift in Sources */,
 				26FA9C26294658CD0088249A /* EmptyView.swift in Sources */,
 				26DDCC1B29684C9800DD1C71 /* NewsDetailViewController.swift in Sources */,
+				26126B00296B6A7100AEE136 /* FoodCell.swift in Sources */,
 				26DDCC0B29684C6900DD1C71 /* NewsPresenter.swift in Sources */,
 				260D3C0D293F6C10007AA3A5 /* EventsByCategoryPresenter.swift in Sources */,
 				268ACEAF29410F4E00C82DC6 /* CustomLabel.swift in Sources */,
@@ -1509,7 +1510,6 @@
 				26F21503293E73F100499873 /* UIButton+Extension.swift in Sources */,
 				26674DCE295A08D500A31A4F /* OnboardingViewController.swift in Sources */,
 				26674DF72967427600A31A4F /* User.swift in Sources */,
-				26DDCC3F2968B53C00DD1C71 /* FoodCell.swift in Sources */,
 				26F2152C293E74AF00499873 /* CartModel+CoreData.swift in Sources */,
 				26F214F3293E1B5C00499873 /* EventDetailViewController.swift in Sources */,
 				26F21506293E73F100499873 /* UIView+Extension.swift in Sources */,
