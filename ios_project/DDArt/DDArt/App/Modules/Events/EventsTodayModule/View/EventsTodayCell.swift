@@ -120,7 +120,6 @@ final class EventsTodayCell: UITableViewCell {
         contentView.layer.cornerRadius = 15
         contentView.layer.backgroundColor = UIColor.white.cgColor
         imageEventView.layer.cornerRadius = 15
-        imageEventView.image = UIImage(named: "ddLarge")
         self.contentView.addSubview(imageEventView)
         self.contentView.addSubview(reverseButton)
         reverseButton.addTarget(self, action: #selector(tapOnReverseButton), for: .touchUpInside)
@@ -176,7 +175,5 @@ final class EventsTodayCell: UITableViewCell {
         dateFormatter.locale = Locale.current
         dateEvent.text = "\(dateFormatter.string(from: model.dateStart.toDate())) – \(dateFormatter.string(from: model.dateEnd.toDate()))"
         self.id = model.id
-        guard !model.photos.isEmpty else {return}
-        
     }
 }

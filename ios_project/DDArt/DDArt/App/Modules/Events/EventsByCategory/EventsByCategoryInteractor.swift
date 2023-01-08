@@ -25,7 +25,7 @@ extension EventsByCategoryInteractor: EventsByCategoryInteractorInput {
                 case .success(let events):
                     self.events = events
                 case .failure(let error):
-                    print("LOGIC \(error)")
+                    print(error.localizedDescription)
                 }
             }
         }

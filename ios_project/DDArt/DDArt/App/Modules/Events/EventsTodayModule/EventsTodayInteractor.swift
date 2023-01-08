@@ -11,9 +11,8 @@ import Foundation
 final class EventsTodayInteractor {
 	weak var output: EventsTodayInteractorOutput?
     var eventsRequest = ApiService<EventModel>(resourcePath: "events")
-    private let group = DispatchGroup()
     private var eventToday = [EventModel]()
-    
+    private let group = DispatchGroup()
 }
 
 extension EventsTodayInteractor: EventsTodayInteractorInput {
@@ -24,7 +23,6 @@ extension EventsTodayInteractor: EventsTodayInteractorInput {
             eventsRequest.getAll { eventResult in
                 switch eventResult {
                 case .failure (let error):
-                    self.group.leave()
                     self.output?.didFail(message: "There was an error getting the Events\(error)")
                 case .success(let event):
                     let dateToday = Date().convertToTimeZone(initTimeZone: TimeZone(abbreviation: "MSD"))

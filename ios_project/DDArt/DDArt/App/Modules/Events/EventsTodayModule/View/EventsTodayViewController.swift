@@ -12,6 +12,7 @@ final class EventsTodayViewController: UIViewController {
     private let output: EventsTodayViewOutput
     internal var emptyView =  EmptyView(titleText: "Сегодня событий нет(",subtitleText: "Но вы все равно к нам заглядывайте!", imageString: "emptyDB")
     internal var tableView = UITableView()
+    private let dispatchSemaphore = DispatchSemaphore(value: 0)
     private let refreshControl = UIRefreshControl()
     init(output: EventsTodayViewOutput) {
         self.output = output
@@ -55,11 +56,13 @@ final class EventsTodayViewController: UIViewController {
     @objc
     func refreshData() {
         output.loadData()
+        self.refreshControl.endRefreshing()
     }
 }
 
 extension EventsTodayViewController: EventsTodayViewInput {
     func reloadData() {
+        tableView.reloadData()
         if output.getCountCell() == 0 {
             self.emptyView.isHidden = false
             self.tableView.isHidden = true
@@ -67,8 +70,6 @@ extension EventsTodayViewController: EventsTodayViewInput {
             self.emptyView.isHidden = true
             self.tableView.isHidden = false
         }
-        self.refreshControl.endRefreshing()
-        tableView.reloadData()
     }
     
 }
@@ -90,14 +91,12 @@ extension EventsTodayViewController: UITableViewDataSource {
             return cell == myCell
         }
         if !model.photos.isEmpty {
-            ImageLoader.shared.image(with: model.photos[0], folder: "EventsPictures"){ result in
+            ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures"){ result in
                 let image = result
                 DispatchQueue.main.async {
                     cell.imageEventView.image = image
                 }
             }
-        } else {
-            cell.imageEventView.image = UIImage(named: "ddLarge")
         }
         cell.delegate = output
         cell.selectionStyle = .none

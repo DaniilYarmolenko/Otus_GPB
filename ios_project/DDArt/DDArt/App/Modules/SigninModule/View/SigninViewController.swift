@@ -97,7 +97,7 @@ final class SigninViewController: UIViewController {
     }
     func setUpImageView() {
         view.addSubview(ddImageView)
-        ddImageView.image = UIImage(named: "dd")
+        ddImageView.image = UIImage(named: "ddLarge")
     }
     @objc
     func tapSeePaassword() {

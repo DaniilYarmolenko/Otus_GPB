@@ -36,7 +36,7 @@ extension MenuInteractor: MenuInteractorInput {
                         self.foods = foods
                         self.output?.receiveData(foods: foods)
                     case .failure(let error):
-                        print("LOGIC \(error)")
+                        print(error.localizedDescription)
                     }
                     self.dispatchSemaphore.signal()
                     self.group.leave()
