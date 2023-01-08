@@ -159,9 +159,9 @@ extension EventDetailViewController: EventDetailViewInput {
                 self.group.enter()
                 ImageLoader.shared.image(with: photo, folder: "EventPictures") { image in
                     self.images.append((image ?? UIImage(named: "ddLarge")) ?? UIImage())
-                    DispatchQueue.main.async {
-                        self.imageEventView.image = self.images.first
-                    }
+//                    DispatchQueue.main.async {
+//                        self.imageEventView.image = self.images.first
+//                    }
                     self.dispatchSemaphore.signal()
                     self.group.leave()
                 }

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "265C17842912CF420057FB2F"
-               BuildableName = "DDArt.app"
-               BlueprintName = "DDArt"
-               ReferencedContainer = "container:DDArt.xcodeproj">
+               BuildableName = "DDSpace.app"
+               BlueprintName = "DDSpace"
+               ReferencedContainer = "container:DDSpace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26F214E0293E1A8800499873"
-               BuildableName = "DDArtTests.xctest"
-               BlueprintName = "DDArtTests"
-               ReferencedContainer = "container:DDArt.xcodeproj">
+               BuildableName = "DDSpaceTests.xctest"
+               BlueprintName = "DDSpaceTests"
+               ReferencedContainer = "container:DDSpace.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "265C17842912CF420057FB2F"
-            BuildableName = "DDArt.app"
-            BlueprintName = "DDArt"
-            ReferencedContainer = "container:DDArt.xcodeproj">
+            BuildableName = "DDSpace.app"
+            BlueprintName = "DDSpace"
+            ReferencedContainer = "container:DDSpace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "265C17842912CF420057FB2F"
-            BuildableName = "DDArt.app"
-            BlueprintName = "DDArt"
-            ReferencedContainer = "container:DDArt.xcodeproj">
+            BuildableName = "DDSpace.app"
+            BlueprintName = "DDSpace"
+            ReferencedContainer = "container:DDSpace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

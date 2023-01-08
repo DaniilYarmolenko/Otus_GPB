@@ -45,7 +45,7 @@
 		26126AFB296B618900AEE136 /* EventMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 26126AF1296B5B5E00AEE136 /* EventMock.json */; };
 		26126AFC296B618C00AEE136 /* NewsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 26126AF3296B5BDD00AEE136 /* NewsMock.json */; };
 		26126AFE296B650000AEE136 /* EventsFuturePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */; };
-		26126B00296B6A7100AEE136 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126AFF296B6A7100AEE136 /* FoodCell.swift */; };
+		26126B04296B6FBA00AEE136 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126B03296B6FBA00AEE136 /* FoodCell.swift */; };
 		262A3FE62913E09B00D8C46E /* Moniqa-MediumNarrowHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */; };
 		262A3FE82913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */; };
 		2651073B2969D3F7008B56E7 /* FoodSaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */; };
@@ -249,12 +249,12 @@
 		26126AF5296B5C1C00AEE136 /* CategoriesEventMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CategoriesEventMock.json; sourceTree = "<group>"; };
 		26126AF8296B5CC900AEE136 /* NewsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenterTest.swift; sourceTree = "<group>"; };
 		26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFuturePresenterTest.swift; sourceTree = "<group>"; };
-		26126AFF296B6A7100AEE136 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodCell.swift; path = DDArt/App/Modules/DDScreen/MenuModule/Entity/FoodCell.swift; sourceTree = SOURCE_ROOT; };
+		26126B03296B6FBA00AEE136 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-MediumNarrowHeading.otf"; sourceTree = "<group>"; };
 		262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-LightItalicHeading.otf"; sourceTree = "<group>"; };
 		2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSaveModel.swift; sourceTree = "<group>"; };
 		2651073E2969FCDB008B56E7 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
-		265C17852912CF420057FB2F /* DDArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		265C17852912CF420057FB2F /* DDSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		265C17882912CF420057FB2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		265C178A2912CF420057FB2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		265C17942912CF450057FB2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -367,7 +367,7 @@
 		26E774EC294CD9A3009F8550 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		26E774EE294CD9F3009F8550 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		26E774F0294CDBD7009F8550 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		26F214E1293E1A8800499873 /* DDArtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDArtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26F214E1293E1A8800499873 /* DDSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F214E3293E1A8800499873 /* FoodDetailPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailPresenterTest.swift; sourceTree = "<group>"; };
 		26F214EB293E1B5C00499873 /* EventDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailPresenter.swift; sourceTree = "<group>"; };
 		26F214EC293E1B5C00499873 /* EventDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailRouter.swift; sourceTree = "<group>"; };
@@ -646,8 +646,8 @@
 		265C177C2912CF420057FB2F = {
 			isa = PBXGroup;
 			children = (
-				265C17872912CF420057FB2F /* DDArt */,
-				26F214E2293E1A8800499873 /* DDArtTests */,
+				265C17872912CF420057FB2F /* DDSpace */,
+				26F214E2293E1A8800499873 /* DDSpaceTests */,
 				265C17862912CF420057FB2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -655,13 +655,13 @@
 		265C17862912CF420057FB2F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				265C17852912CF420057FB2F /* DDArt.app */,
-				26F214E1293E1A8800499873 /* DDArtTests.xctest */,
+				265C17852912CF420057FB2F /* DDSpace.app */,
+				26F214E1293E1A8800499873 /* DDSpaceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		265C17872912CF420057FB2F /* DDArt */ = {
+		265C17872912CF420057FB2F /* DDSpace */ = {
 			isa = PBXGroup;
 			children = (
 				268ACEB42942416B00C82DC6 /* TODOlist.md */,
@@ -672,7 +672,7 @@
 				262A3FE42913DF3700D8C46E /* Font */,
 				265C17932912CF450057FB2F /* LaunchScreen.storyboard */,
 			);
-			path = DDArt;
+			path = DDSpace;
 			sourceTree = "<group>";
 		};
 		265C179C2912CFC10057FB2F /* Modules */ = {
@@ -1073,7 +1073,7 @@
 			path = AuthService;
 			sourceTree = "<group>";
 		};
-		26F214E2293E1A8800499873 /* DDArtTests */ = {
+		26F214E2293E1A8800499873 /* DDSpaceTests */ = {
 			isa = PBXGroup;
 			children = (
 				26F214E3293E1A8800499873 /* FoodDetailPresenterTest.swift */,
@@ -1081,7 +1081,7 @@
 				26126AF8296B5CC900AEE136 /* NewsPresenterTest.swift */,
 				26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */,
 			);
-			path = DDArtTests;
+			path = DDSpaceTests;
 			sourceTree = "<group>";
 		};
 		26F214EA293E1B3E00499873 /* EventDetailModule */ = {
@@ -1198,7 +1198,7 @@
 		26FA9C0B29435BBF0088249A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				26126AFF296B6A7100AEE136 /* FoodCell.swift */,
+				26126B03296B6FBA00AEE136 /* FoodCell.swift */,
 				26B1FFAC2969983700B25524 /* CategoryFoodCellMenu.swift */,
 			);
 			path = Cell;
@@ -1249,9 +1249,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		265C17842912CF420057FB2F /* DDArt */ = {
+		265C17842912CF420057FB2F /* DDSpace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 265C17992912CF450057FB2F /* Build configuration list for PBXNativeTarget "DDArt" */;
+			buildConfigurationList = 265C17992912CF450057FB2F /* Build configuration list for PBXNativeTarget "DDSpace" */;
 			buildPhases = (
 				265C17812912CF420057FB2F /* Sources */,
 				265C17822912CF420057FB2F /* Frameworks */,
@@ -1261,14 +1261,14 @@
 			);
 			dependencies = (
 			);
-			name = DDArt;
+			name = DDSpace;
 			productName = DDArt;
-			productReference = 265C17852912CF420057FB2F /* DDArt.app */;
+			productReference = 265C17852912CF420057FB2F /* DDSpace.app */;
 			productType = "com.apple.product-type.application";
 		};
-		26F214E0293E1A8800499873 /* DDArtTests */ = {
+		26F214E0293E1A8800499873 /* DDSpaceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26F214E9293E1A8800499873 /* Build configuration list for PBXNativeTarget "DDArtTests" */;
+			buildConfigurationList = 26F214E9293E1A8800499873 /* Build configuration list for PBXNativeTarget "DDSpaceTests" */;
 			buildPhases = (
 				26F214DD293E1A8800499873 /* Sources */,
 				26F214DE293E1A8800499873 /* Frameworks */,
@@ -1279,9 +1279,9 @@
 			dependencies = (
 				26F214E6293E1A8800499873 /* PBXTargetDependency */,
 			);
-			name = DDArtTests;
+			name = DDSpaceTests;
 			productName = DDArtTests;
-			productReference = 26F214E1293E1A8800499873 /* DDArtTests.xctest */;
+			productReference = 26F214E1293E1A8800499873 /* DDSpaceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1303,7 +1303,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 265C17802912CF420057FB2F /* Build configuration list for PBXProject "DDArt" */;
+			buildConfigurationList = 265C17802912CF420057FB2F /* Build configuration list for PBXProject "DDSpace" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1316,8 +1316,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				265C17842912CF420057FB2F /* DDArt */,
-				26F214E0293E1A8800499873 /* DDArtTests */,
+				265C17842912CF420057FB2F /* DDSpace */,
+				26F214E0293E1A8800499873 /* DDSpaceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1472,7 +1472,7 @@
 				26F2150D293E743500499873 /* ResourceRequestError.swift in Sources */,
 				26FA9C26294658CD0088249A /* EmptyView.swift in Sources */,
 				26DDCC1B29684C9800DD1C71 /* NewsDetailViewController.swift in Sources */,
-				26126B00296B6A7100AEE136 /* FoodCell.swift in Sources */,
+				26126B04296B6FBA00AEE136 /* FoodCell.swift in Sources */,
 				26DDCC0B29684C6900DD1C71 /* NewsPresenter.swift in Sources */,
 				260D3C0D293F6C10007AA3A5 /* EventsByCategoryPresenter.swift in Sources */,
 				268ACEAF29410F4E00C82DC6 /* CustomLabel.swift in Sources */,
@@ -1551,7 +1551,7 @@
 /* Begin PBXTargetDependency section */
 		26F214E6293E1A8800499873 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 265C17842912CF420057FB2F /* DDArt */;
+			target = 265C17842912CF420057FB2F /* DDSpace */;
 			targetProxy = 26F214E5293E1A8800499873 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1691,7 +1691,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE6KQ6G544;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DDArt/Info.plist;
+				INFOPLIST_FILE = DDSpace/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1702,7 +1702,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "otus-project.DDArt";
+				PRODUCT_BUNDLE_IDENTIFIER = "otus-project.DDSpace";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1722,7 +1722,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE6KQ6G544;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DDArt/Info.plist;
+				INFOPLIST_FILE = DDSpace/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1733,7 +1733,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "otus-project.DDArt";
+				PRODUCT_BUNDLE_IDENTIFIER = "otus-project.DDSpace";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1762,7 +1762,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DDArt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DDArt";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DDSpace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DDSpace";
 			};
 			name = Debug;
 		};
@@ -1784,14 +1784,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DDArt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DDArt";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DDSpace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DDSpace";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		265C17802912CF420057FB2F /* Build configuration list for PBXProject "DDArt" */ = {
+		265C17802912CF420057FB2F /* Build configuration list for PBXProject "DDSpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				265C17972912CF450057FB2F /* Debug */,
@@ -1800,7 +1800,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		265C17992912CF450057FB2F /* Build configuration list for PBXNativeTarget "DDArt" */ = {
+		265C17992912CF450057FB2F /* Build configuration list for PBXNativeTarget "DDSpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				265C179A2912CF450057FB2F /* Debug */,
@@ -1809,7 +1809,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26F214E9293E1A8800499873 /* Build configuration list for PBXNativeTarget "DDArtTests" */ = {
+		26F214E9293E1A8800499873 /* Build configuration list for PBXNativeTarget "DDSpaceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26F214E7293E1A8800499873 /* Debug */,
