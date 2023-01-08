@@ -39,11 +39,14 @@ final class NewsCell: UITableViewCell {
     }
     
     private func setUpLabels() {
-        nameLabel.font = UIFont(name: FontConstants.MoniqaMediumNarrow, size: 36)
+        nameLabel.font = UIFont(name: FontConstants.MoniqaMediumNarrow, size: 28)
         nameLabel.textColor = .black
         nameLabel.textAlignment = .center
+        nameLabel.numberOfLines = 0
+        nameLabel.layer.cornerRadius = 10
         titleLabel.font = UIFont(name: FontConstants.MoniqaMediumNarrow, size: 24)
         titleLabel.textColor = .black
+        titleLabel.layer.cornerRadius = 10
         titleLabel.textAlignment = .center
     }
     
@@ -69,22 +72,9 @@ final class NewsCell: UITableViewCell {
         self.newsImage.addSubview(stackView)
     }
     func configure(model: NewsModel, complition: @escaping () -> (Bool)) {
-        self.newsImage.image = image ?? UIImage(named: "noData")
         nameLabel.attributedText = model.newsName.underLined
         titleLabel.text = model.titleNews
         self.id = model.id
-        guard !model.photos.isEmpty else {return}
-        if image == nil {
-            DispatchQueue.global().async {
-                ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures") { image in
-                    DispatchQueue.main.async {
-                        if !complition() { return }
-                        self.image = image
-                        self.newsImage.image = image
-                    }
-                }
-            }
-        }
     }
 }
 

@@ -25,8 +25,16 @@ extension FoodCartPresenter: FoodCartModuleInput {
 }
 
 extension FoodCartPresenter: FoodCartViewOutput {
-    func getTotalAmount() {
-        
+    func clickOnOrderButton() {
+        if Auth().token == nil {
+            router.showAlertAuth(with: view)
+        } else {
+            router.showOpsAlert(with: view)
+        }
+    }
+    
+    func getTotalAmount() -> Int {
+        interactor.totalAmount
     }
     
     func viewDidLoad() {
@@ -37,10 +45,12 @@ extension FoodCartPresenter: FoodCartViewOutput {
         array.isEmpty
     }
     
-    func deleteAll() {
-        router.goToDeleteAlert(from: view)
+    func deleteAllAlert() {
+        router.goToDeleteAlert(from: view, output: self)
     }
-    
+    func deleteAllItems(){
+        interactor.deleteAll()
+    }
     func delete(id: String) {
         interactor.deleteBy(with: id)
     }

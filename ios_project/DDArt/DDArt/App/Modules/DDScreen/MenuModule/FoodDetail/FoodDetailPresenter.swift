@@ -26,6 +26,10 @@ extension FoodDetailPresenter: FoodDetailModuleInput {
 }
 
 extension FoodDetailPresenter: FoodDetailViewOutput {
+    func getTitle() -> String {
+        food?.nameFood ?? ""
+    }
+    
     func goToCart() {
         router.goToCart(with: view)
     }

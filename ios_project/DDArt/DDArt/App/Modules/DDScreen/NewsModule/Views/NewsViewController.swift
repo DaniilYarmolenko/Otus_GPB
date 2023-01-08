@@ -9,28 +9,28 @@
 import UIKit
 
 final class NewsViewController: UIViewController {
-	private let output: NewsViewOutput
+    private let output: NewsViewOutput
     private let refreshControl = UIRefreshControl()
     internal var tableViewNews = UITableView()
     init(output: NewsViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "News"
         view.backgroundColor = .white
         setUp()
         output.viewDidLoad()
-	}
+    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addConstraints()
@@ -54,7 +54,7 @@ final class NewsViewController: UIViewController {
 
 extension NewsViewController: NewsViewInput {
     func reloadData() {
-            self.tableViewNews.reloadData()
+        self.tableViewNews.reloadData()
     }
 }
 extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -64,9 +64,21 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsCell.cellIdentifier, for: indexPath) as? NewsCell else { return UITableViewCell() }
-        cell.configure(model: output.getNewsCell(with: indexPath.row)) {
+        let model = output.getNewsCell(with: indexPath.row)
+        cell.configure(model: model) {
             let myCell = tableView.cellForRow(at: indexPath)
             return cell == myCell
+        }
+        if !model.photos.isEmpty {
+            ImageLoader.shared.image(with: model.photos[0], folder: "NewsPictures"){ result in
+                let image = result
+                DispatchQueue.main.async {
+                    cell.newsImage.image = image
+                }
+            }
+        } else {
+            
+            cell.newsImage.image = UIImage(named: "ddLarge")
         }
         cell.selectionStyle = .none
         return cell

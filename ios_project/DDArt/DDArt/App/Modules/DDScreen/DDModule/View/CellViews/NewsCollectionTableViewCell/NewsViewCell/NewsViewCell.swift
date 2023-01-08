@@ -37,19 +37,6 @@ final class NewsCollectionCell: UICollectionViewCell {
     }
 
     func configure(model: NewsModel, complition: @escaping () -> (Bool)) {
-        self.imageView.image = image ?? UIImage(named: "noData")
-        guard !model.photos.isEmpty else {return}
-        if imageName != model.photos[0] {
-            DispatchQueue.global().async {
-                ImageLoader.shared.image(with: model.photos[0], folder: "NewsPictures") { image in
-                    DispatchQueue.main.async {
-                        if !complition() { return }
-                        self.imageView.image = image
-                        self.image = image
-                        self.imageName = model.photos[0]
-                    }
-                }
-            }
+            
         }
-    }
 }

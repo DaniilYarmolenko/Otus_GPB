@@ -25,6 +25,14 @@ extension ExtraScreenPresenter: ExtraScreenModuleInput {
 }
 
 extension ExtraScreenPresenter: ExtraScreenViewOutput {
+    func touchLogoutButton() {
+        router.touchLogoutButton(view: view)
+    }
+    
+    func touchLoginButton() {
+        router.touchLoginButton(view: view)
+    }
+    
 }
 
 extension ExtraScreenPresenter: ExtraScreenInteractorOutput {

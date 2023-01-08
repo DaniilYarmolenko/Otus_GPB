@@ -51,7 +51,7 @@ extension MenuPresenter: MenuViewOutput {
     }
     
     func getCountNumberInSection(section: Int) -> Int {
-        if !foods.isEmpty{
+        if foods.count > section {
             return foods[section].count
         }
         return 0

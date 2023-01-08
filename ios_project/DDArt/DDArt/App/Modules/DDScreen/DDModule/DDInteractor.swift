@@ -21,7 +21,19 @@ final class DDInteractor {
 
 extension DDInteractor: DDInteractorInput {
     func loadData() {
-//        NotificationCenter.default.post(name: NSNotification.Name("cart"), object: nil)
+        group.enter()
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
+            categoryFoodRequest.getAll { categoryFoodResult in
+                switch categoryFoodResult {
+                case .failure (let error):
+                    self.output?.didFail(message: "There was an error getting the category Food")
+                    self.group.leave()
+                case .success(let category):
+                    self.categoryFoodModel = category.sorted{$0.name < $1.name}
+                    self.group.leave()
+                }
+            }
+        }
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             newsRequest.getAll { newsResult in
@@ -44,18 +56,6 @@ extension DDInteractor: DDInteractorInput {
                     self.output?.didFail(message: "There was an error getting the info")
                 case .success(let info):
                     self.infoModel = info
-                }
-            }
-        }
-        group.enter()
-        DispatchQueue.global(qos: .userInitiated).async { [self] in
-            categoryFoodRequest.getAll { categoryFoodResult in
-                self.group.leave()
-                switch categoryFoodResult {
-                case .failure (let error):
-                    self.output?.didFail(message: "There was an error getting the category Food")
-                case .success(let category):
-                    self.categoryFoodModel = category.sorted{$0.name < $1.name}
                 }
             }
         }

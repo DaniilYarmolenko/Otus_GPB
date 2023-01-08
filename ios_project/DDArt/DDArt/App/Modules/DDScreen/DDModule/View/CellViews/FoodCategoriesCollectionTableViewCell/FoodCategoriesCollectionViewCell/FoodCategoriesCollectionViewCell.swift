@@ -58,10 +58,20 @@ final class FoodCategoriesCollectionViewCell: BaseCell, UICollectionViewDelegate
                 as? FoodCategoriesViewCell else {
                     return UICollectionViewCell()
                 }
-        
-        cell.configure(model: array[indexPath.row]) {
+        let model = array[indexPath.row]
+        cell.configure(model: model) {
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
+        }
+        if !model.photos.isEmpty {
+        ImageLoader.shared.image(with: model.photos[0], folder: "FoodCategoriesPictures"){ result in
+                    let image = result
+                    DispatchQueue.main.async {
+                        cell.imageView.image = image
+                    }
+                }
+        } else {
+            cell.imageView.image = UIImage(named: "fon")
         }
         return cell
     }

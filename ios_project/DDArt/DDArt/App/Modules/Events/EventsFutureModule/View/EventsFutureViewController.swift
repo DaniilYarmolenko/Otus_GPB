@@ -30,9 +30,14 @@ final class EventsFutureViewController: UIViewController {
 		super.viewDidLoad()
         setUp()
 	}
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+    }
     private func setUp() {
             setUpcollectionViewBase()
             setUpBase()
+        setUpRefreshControll()
         }
         private func setUpBase() {
             self.view.backgroundColor = .white
@@ -64,6 +69,7 @@ final class EventsFutureViewController: UIViewController {
 extension EventsFutureViewController: EventsFutureViewInput {
     func reloadData() {
         collectionView.reloadData()
+        refreshControl.endRefreshing()
     }
     
 }
@@ -71,12 +77,20 @@ extension EventsFutureViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         output.getCountCell()
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventFutureCell.cellIdentifier, for: indexPath) as? EventFutureCell else { return UICollectionViewCell() }
-        cell.configure(model: output.getCell(index: indexPath.row)) {
+        let model = output.getCell(index: indexPath.row)
+        cell.configure(model: model) {
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
+        }
+        if !model.photos.isEmpty {
+        ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures"){ result in
+                    let image = result
+                    DispatchQueue.main.async {
+                        cell.imageView.image = image
+                    }
+                }
         }
         return cell
     }

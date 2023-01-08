@@ -33,7 +33,13 @@ extension EventsTodayPresenter: EventsTodayViewOutput {
     }
     
     func clickOnRegisterButton(with id: UUID?) {
-        
+        if Auth().token == nil {
+            print("LOGIC TAP 1")
+            router.showAlertAuth(with: view)
+        } else {
+            print("LOGIC TAP 2")
+            router.showOpsAlert(with: view)
+        }
     }
     
     func clickOnEvent(with id: Int) {

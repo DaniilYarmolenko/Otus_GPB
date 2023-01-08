@@ -43,4 +43,6 @@ protocol EventsTodayInteractorOutput: AnyObject {
 
 protocol EventsTodayRouterInput: AnyObject {
     func eventSelected(event: EventModel)
+    func showAlertAuth(with view: EventsTodayViewInput?)
+    func showOpsAlert(with view: EventsTodayViewInput?)
 }

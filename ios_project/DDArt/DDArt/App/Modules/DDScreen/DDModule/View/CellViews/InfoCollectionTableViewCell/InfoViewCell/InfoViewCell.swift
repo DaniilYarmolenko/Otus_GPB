@@ -111,7 +111,8 @@ final class InfoViewCell: BaseCell {
     }
     @objc
     private func vkButtonAction() {
-        //        model.output.tapOnVk()
+        guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
+        model.output.tapOnVk()
     }
     @objc
     private func telegramButtonAction() {
@@ -125,14 +126,17 @@ final class InfoViewCell: BaseCell {
     }
     @objc
     private func phoneButtonAction() {
-        //        output?.tapOnPhone()
+        guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
+        model.output.tapOnPhone()
     }
     @objc
     private func addressButtonAction() {
-        //        output?.tapOnMap()
+        guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
+        model.output.tapOnMap()
     }
     @objc
     private func emailButtonAction() {
-        //        output?.tapOnEmail()
+        guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
+        model.output.tapOnEmail()
     }
 }

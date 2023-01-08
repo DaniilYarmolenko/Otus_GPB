@@ -77,16 +77,29 @@ extension EventsTodayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         output.getCountCell()
     }
+   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        SizeConstants.screenHeight/4
+        SizeConstants.screenHeight/3.5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventsTodayCell.cellIdentifier, for: indexPath) as? EventsTodayCell else { return UITableViewCell() }
-        cell.configure(model: output.getCell(with: indexPath.row)) {
+        let model = output.getCell(with: indexPath.row)
+        cell.configure(model: model) {
             let myCell = tableView.cellForRow(at: indexPath)
             return cell == myCell
         }
+        if !model.photos.isEmpty {
+            ImageLoader.shared.image(with: model.photos[0], folder: "EventsPictures"){ result in
+                let image = result
+                DispatchQueue.main.async {
+                    cell.imageEventView.image = image
+                }
+            }
+        } else {
+            cell.imageEventView.image = UIImage(named: "ddLarge")
+        }
+        cell.delegate = output
         cell.selectionStyle = .none
         return cell
     }

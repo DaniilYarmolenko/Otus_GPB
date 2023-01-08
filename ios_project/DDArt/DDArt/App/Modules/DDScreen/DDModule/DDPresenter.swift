@@ -41,15 +41,15 @@ extension DDPresenter: DDViewOutput {
     }
     
     func tapOnMap() {
-        
-        router.presentMap(with: view)
+        router.tapToUnworkButton(with: view, message: "Причина: карта итак зумится, зачем тебе фулскрин ?)")
     }
     
     func tapOnPhone() {
-        
+        router.tapToUnworkButton(with: view, message: "Причина: мы забыли оплатить телефон:(")
     }
     
     func tapOnEmail() {
+        router.tapToUnworkButton(with: view, message: "Робот Федор еще не отошел от новогодних праздников")
     }
     
     func getCellHeight(at index: Int) -> Float {
@@ -101,15 +101,15 @@ extension DDPresenter: DDViewOutput {
     }
     
     func tapOnVk() {
-//
+        router.tapToUnworkButton(with: view, message: "Причина зачем VK, если тут есть вся иннформация ?)")
     }
     
     func tapOnTelegram() {
-//
+        router.tapToUnworkButton(with: view, message: "Причина: не оплатили премимум, а без него не оч")
     }
     
     func tapOnInstagram() {
-//
+        router.tapToUnworkButton(with: view, message: "Причина: заблокировано роскомнадзором")
     }
     
 }

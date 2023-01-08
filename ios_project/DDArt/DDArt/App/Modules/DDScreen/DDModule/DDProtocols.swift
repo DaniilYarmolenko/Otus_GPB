@@ -55,6 +55,7 @@ protocol DDRouterInput: AnyObject {
     func goToMenu(with view: DDViewInput?, foodCategory: [FoodCategory])
     func goToAllNews(with view: DDViewInput?, news: [NewsModel])
     func presentMap(with view: DDViewInput?)
+    func tapToUnworkButton(with view: DDViewInput?, message: String)
 }
 
 protocol CellIdentifiable {

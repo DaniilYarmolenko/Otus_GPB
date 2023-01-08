@@ -36,15 +36,6 @@ final class EventFutureCell: UICollectionViewCell {
     }
     
     func configure(model: EventModel, complition: @escaping () -> (Bool)) {
-        self.imageView.image = UIImage(named: "noData")
         guard !model.photos.isEmpty else {return}
-        DispatchQueue.global().async {
-            ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures") { image in
-                DispatchQueue.main.async {
-                    if !complition() { return }
-                    self.imageView.image = image
-                }
-            }
-        }
     }
 }

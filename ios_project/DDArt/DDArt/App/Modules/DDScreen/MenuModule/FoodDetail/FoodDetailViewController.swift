@@ -20,7 +20,7 @@ final class FoodDetailViewController: UIViewController {
     private var image: UIImage?
     let number: Int = UserDefaults.standard.integer(forKey: "countCart")
     var count: Int?
-    let btn = BadgedButtonItem(with: UIImage(named: "dd"))
+    let btn = BadgedButtonItem(with: UIImage(named: "cart"))
 
     init(output: FoodDetailViewOutput) {
         self.output = output
@@ -38,6 +38,7 @@ final class FoodDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeBudged), name: NSNotification.Name("detailFoodBadge"), object: nil)
         view.backgroundColor = .white
         count = output.getFoodCountInCart()
+        navigationItem.title = output.getTitle()
         setUp()
         output.viewDidLoad()
 	}

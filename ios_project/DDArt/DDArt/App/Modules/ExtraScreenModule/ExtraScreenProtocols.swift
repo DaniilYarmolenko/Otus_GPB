@@ -19,6 +19,8 @@ protocol ExtraScreenViewInput: AnyObject {
 }
 
 protocol ExtraScreenViewOutput: AnyObject {
+    func touchLogoutButton()
+    func touchLoginButton()
 }
 
 protocol ExtraScreenInteractorInput: AnyObject {
@@ -28,4 +30,6 @@ protocol ExtraScreenInteractorOutput: AnyObject {
 }
 
 protocol ExtraScreenRouterInput: AnyObject {
+    func touchLogoutButton(view: ExtraScreenViewInput?)
+    func touchLoginButton(view: ExtraScreenViewInput?)
 }

@@ -26,7 +26,7 @@ final class MenuViewController: UIViewController {
         layout.itemSize = CGSize(width: SizeConstants.screenWidth/2 - 20, height: SizeConstants.screenHeight/4)
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
-    let btn = BadgedButtonItem(with: UIImage(named: "dd"))
+    let btn = BadgedButtonItem(with: UIImage(named: "cart"))
     init(output: MenuViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -79,6 +79,8 @@ final class MenuViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "MENU"
         navigationItem.rightBarButtonItem = btn
+        navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedString.Key.font: UIFont(name: FontConstants.MoniqaMediumNarrow, size: 32)!, NSAttributedString.Key.baselineOffset: -2]
         btn.tapAction = {
             self.output.goToCart()
         }
@@ -135,17 +137,19 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
         let model = output.getCell(section: indexPath.section, index: indexPath.row)
-        cell.configure(model: output.getCell(section: indexPath.section, index: indexPath.row)) {
+        cell.configure(model: model) {
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
         }
-        if !output.getCell(section: indexPath.section, index: indexPath.row).photos.isEmpty {
+        if !model.photos.isEmpty {
         ImageLoader.shared.image(with: model.photos[0], folder: "FoodPictures"){ result in
                     let image = result
                     DispatchQueue.main.async {
                         cell.imageView.image = image
                     }
                 }
+        } else {
+            cell.imageView.image = UIImage(named: "ddLarge")
         }
         cell.delegate = output
         return cell

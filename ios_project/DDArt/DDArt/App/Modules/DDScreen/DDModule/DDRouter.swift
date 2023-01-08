@@ -12,6 +12,15 @@ final class DDRouter {
 }
 
 extension DDRouter: DDRouterInput {
+    func tapToUnworkButton(with view: DDViewInput?, message: String) {
+        let alert = UIAlertController(title: "Данный функционал не работает(", message: message, preferredStyle: .alert)
+        let actionFailure = UIAlertAction(title: "Простить", style: .default)
+        alert.addAction(actionFailure)
+        guard let vc = view as? UIViewController, let navigationController = vc.navigationController else {
+            return}
+        navigationController.present(alert, animated: true, completion: nil)
+    }
+    
     func categoryFoodSelected(with view: DDViewInput?, and id: Int, foodCategories: [FoodCategory]) {
         guard let view = view as? UIViewController, let navigationController = view.navigationController else { return }
         let menuContainer = MenuContainer.assemble(with: MenuContext(categoryFood: foodCategories, navigationController: navigationController, scrollSection: id))

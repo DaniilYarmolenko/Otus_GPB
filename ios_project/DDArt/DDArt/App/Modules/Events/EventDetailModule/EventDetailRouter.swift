@@ -22,7 +22,7 @@ extension EventDetailRouter: EventDetailRouterInput {
     }
     
     func showAlertAuth(with view: EventDetailViewInput?) {
-        let alert = UIAlertController(title: "В не залогинились", message: "Вы точно хотите все удалить ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Вы не залогинились", message: "Хотите залогиниться ?", preferredStyle: .alert)
         let actionSuccsess = UIAlertAction(title: "Log in", style: .default) { _ in
             guard let view = view as? UIViewController else { return }
             let signIn = SigninContainer.assemble(with: SigninContext()) // MARK: Add Eventcontext

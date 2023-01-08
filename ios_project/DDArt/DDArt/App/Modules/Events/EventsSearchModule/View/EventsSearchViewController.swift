@@ -115,9 +115,20 @@ extension EventsSearchViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventsSearchTableCell.cellIdentifier, for: indexPath) as? EventsSearchTableCell else { return UITableViewCell() }
-        cell.configure(model: output.getEventCell(with: indexPath.row)) {
+        let model = output.getEventCell(with: indexPath.row)
+        cell.configure(model: model) {
             let myCell = tableView.cellForRow(at: indexPath)
             return cell == myCell
+        }
+        if !model.photos.isEmpty {
+            ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures"){ result in
+                let image = result
+                DispatchQueue.main.async {
+                    cell.eventImage.image = image
+                }
+            }
+        } else {
+            cell.eventImage.image = UIImage(named: "ddLarge")
         }
         cell.delegate = output
         cell.selectionStyle = .none

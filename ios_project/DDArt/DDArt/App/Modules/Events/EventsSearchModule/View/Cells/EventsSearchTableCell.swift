@@ -71,18 +71,6 @@ final class EventsSearchTableCell: UITableViewCell {
         dateFormatter.locale = Locale.current
         dateLabel.text = "\(dateFormatter.string(from: model.dateStart.toDate())) – \(dateFormatter.string(from: model.dateEnd.toDate()))"
         self.id = model.id
-        guard !model.photos.isEmpty else {return}
-        if image == nil {
-            DispatchQueue.global().async {
-                ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures") { image in
-                    DispatchQueue.main.async {
-                        if !complition() { return }
-                        self.image = image
-                        self.eventImage.image = image
-                    }
-                }
-            }
-        }
     }
 }
 

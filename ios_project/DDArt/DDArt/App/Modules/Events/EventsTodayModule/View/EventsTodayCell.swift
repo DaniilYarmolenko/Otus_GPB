@@ -30,7 +30,11 @@ final class EventsTodayCell: UITableViewCell {
         
     }
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0))
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -116,6 +120,7 @@ final class EventsTodayCell: UITableViewCell {
         contentView.layer.cornerRadius = 15
         contentView.layer.backgroundColor = UIColor.white.cgColor
         imageEventView.layer.cornerRadius = 15
+        imageEventView.image = UIImage(named: "ddLarge")
         self.contentView.addSubview(imageEventView)
         self.contentView.addSubview(reverseButton)
         reverseButton.addTarget(self, action: #selector(tapOnReverseButton), for: .touchUpInside)
@@ -171,19 +176,7 @@ final class EventsTodayCell: UITableViewCell {
         dateFormatter.locale = Locale.current
         dateEvent.text = "\(dateFormatter.string(from: model.dateStart.toDate())) – \(dateFormatter.string(from: model.dateEnd.toDate()))"
         self.id = model.id
-        self.imageEventView.image = imageLoaded ?? UIImage(named: "noData")
         guard !model.photos.isEmpty else {return}
-        if imageName != model.photos[0] {
-            DispatchQueue.global().async {
-                ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures") { image in
-                    DispatchQueue.main.async {
-                        if !complition() { return }
-                        self.imageEventView.image = image
-                        self.imageName = model.photos[0]
-                        self.imageLoaded = image
-                    }
-                }
-            }
-        }
+        
     }
 }

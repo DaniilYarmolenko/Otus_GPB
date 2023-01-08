@@ -22,12 +22,14 @@ protocol FoodCartViewInput: AnyObject {
 protocol FoodCartViewOutput: AnyObject {
     func viewDidLoad()
     func checkEmpty() -> Bool
-    func deleteAll()
+    func deleteAllAlert()
+    func deleteAllItems()
     func delete(id: String)
-    func getTotalAmount()
+    func getTotalAmount() -> Int
     func updateCount(food: FoodSaveModel)
     func getCellsCount() -> Int
     func getCell(id: Int) -> FoodSaveModel
+    func clickOnOrderButton()
 }
 
 protocol FoodCartInteractorInput: AnyObject {
@@ -43,5 +45,7 @@ protocol FoodCartInteractorOutput: AnyObject {
 }
 
 protocol FoodCartRouterInput: AnyObject {
-    func goToDeleteAlert(from vc: FoodCartViewInput?)
+    func showAlertAuth(with view: FoodCartViewInput?)
+    func showOpsAlert(with view: FoodCartViewInput?)
+    func goToDeleteAlert(from vc: FoodCartViewInput?, output: FoodCartViewOutput)
 }

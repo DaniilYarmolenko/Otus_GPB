@@ -63,6 +63,17 @@ final class NewsCollectionTableViewCell: BaseCell, UICollectionViewDelegateFlowL
             let myCell = collectionView.cellForItem(at: indexPath)
             return cell == myCell
         }
+        if !array[indexPath.row].photos.isEmpty {
+        ImageLoader.shared.image(with: array[indexPath.row].photos[0], folder: "NewsPictures"){ result in
+                    let image = result
+                    DispatchQueue.main.async {
+                        cell.imageView.image = image
+                    }
+                }
+        } else {
+            cell.imageView.image = UIImage(named: "ddLarge")
+        }
+
         return cell
     }
     

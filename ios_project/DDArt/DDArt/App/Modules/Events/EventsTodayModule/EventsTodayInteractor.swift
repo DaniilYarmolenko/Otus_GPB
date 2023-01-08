@@ -25,9 +25,8 @@ extension EventsTodayInteractor: EventsTodayInteractorInput {
                 switch eventResult {
                 case .failure (let error):
                     self.group.leave()
-                    self.output?.didFail(message: "There was an error getting the Events")
+                    self.output?.didFail(message: "There was an error getting the Events\(error)")
                 case .success(let event):
-                    sleep(2)
                     let dateToday = Date().convertToTimeZone(initTimeZone: TimeZone(abbreviation: "MSD"))
                     self.eventToday = event.filter({ event in
                         let dateEventStart = event.dateStart.toDate()

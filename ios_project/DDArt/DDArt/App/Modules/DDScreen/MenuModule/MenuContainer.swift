@@ -25,7 +25,6 @@ final class MenuContainer {
         router.navigationController = context.navigationController
 		interactor.output = presenter
         viewController.scrollSection = context.scrollSection
-
         return MenuContainer(view: viewController, input: presenter, router: router)
 	}
 

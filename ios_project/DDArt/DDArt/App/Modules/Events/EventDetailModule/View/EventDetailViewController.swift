@@ -17,16 +17,16 @@ final class EventDetailViewController: UIViewController {
     internal var authorLabel = UILabel()
     internal var dateLabel = UILabel()
     internal var registerButton = UIButton()
-    internal var unRegisterButton = UIButton()
-    internal var tokenImageButton = UIButton()//MARK: make auth
-    internal var VStackButton = UIStackView()
     
     private var imageEvent: UIImage?
     private var images = [UIImage]()
     let animationDuration: TimeInterval = 0.4
-    let switchingInterval: TimeInterval = 8
+    let switchingInterval: TimeInterval = 5
     var index = 0
     var transition = CATransition()
+    private let dispatchQueue = DispatchQueue(label: "loadImage")
+    private let dispatchSemaphore = DispatchSemaphore(value: 0)
+    private let group = DispatchGroup()
     
     init(output: EventDetailViewOutput) {
         self.output = output
@@ -57,16 +57,12 @@ final class EventDetailViewController: UIViewController {
         setUpLabels()
         setUpTextView()
         setUpRegisterButton()
-        setUpTokenImageButton()
-        setUpStackButton()
-        setUpUnRegisterButton()
         setUpImageEvent()
     }
     
     private func setUpImageEvent() {
         imageEventView.clipsToBounds = true
         imageEventView.layer.cornerRadius = 15
-        imageEventView.image = UIImage(named: "dd")
         self.view.addSubview(imageEventView)
     }
     
@@ -88,7 +84,8 @@ final class EventDetailViewController: UIViewController {
         textView.textColor = .black
         textView.isEditable = false
         textView.textAlignment = .center
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        textView.scrollRangeToVisible(NSMakeRange(0, 0))
+        textView.showsVerticalScrollIndicator = false
         self.view.addSubview(textView)
     }
     
@@ -103,58 +100,29 @@ final class EventDetailViewController: UIViewController {
         registerButton.layer.cornerRadius = 15
         view.addSubview(registerButton)
     }
-    private func setUpUnRegisterButton() {
-        unRegisterButton.setBackgroundColor(color: .black, forState: .normal)
-        unRegisterButton.setBackgroundColor(color: .blue, forState: .highlighted)
-        unRegisterButton.setTitleColor(.white, for: .normal)
-        unRegisterButton.setTitleColor(.white, for: .highlighted)
-        unRegisterButton.setTitle("Я не смогу прийти", for: .normal)
-        unRegisterButton.addTarget(self, action: #selector(tapOnUnRegisterButton), for: .touchUpInside)
-        unRegisterButton.clipsToBounds = true
-        unRegisterButton.layer.cornerRadius = 15
-    }
     private func animateImageView() {
-        //Begin the CATransaction
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(animationDuration)
-        CATransaction.setCompletionBlock {
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.switchingInterval) {[weak self] in
-                self?.animateImageView()
+        if images.count > 1 {
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(animationDuration)
+            CATransaction.setCompletionBlock {
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.switchingInterval) {[weak self] in
+                    self?.animateImageView()
+                }
             }
+            
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            imageEventView.layer.add(transition, forKey: kCATransition)
+            if images.count != 0 {
+                imageEventView.image = images[index]
+            }
+            CATransaction.commit()
+            index = index < images.count-1 ? index+1 : 0
+        } else {
+            imageEventView.image = self.images.first
         }
-        
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        
-        /*
-         transition.type = CATransitionType.fade
-         transition.subtype = CATransitionSubtype.fromRight
-         */
-        
-        imageEventView.layer.add(transition, forKey: kCATransition)
-        if images.count != 0 {
-            imageEventView.image = images[index]
-        }
-        CATransaction.commit()
-        index = index < images.count-1 ? index+1 : 0
-    }
-    private func setUpStackButton() {
-        VStackButton.isHidden = true
-        VStackButton.axis  = .vertical
-        VStackButton.addArrangedSubview(
-            CreateStack.createStack(
-                axis: .vertical,
-                distribution: .fillEqually,
-                alignmentStack: .center,
-                spacing: 5,
-                views: tokenImageButton, unRegisterButton)
-        )
-        view.addSubview(VStackButton)
     }
     
-    private func setUpTokenImageButton() {
-        tokenImageButton.addTarget(self, action: #selector(tapOnQRcodeButton), for: .touchUpInside)
-    }
     @objc
     private func tapOnRegisterButton() {
         if Auth().token == nil {
@@ -176,31 +144,35 @@ final class EventDetailViewController: UIViewController {
 
 extension EventDetailViewController: EventDetailViewInput {
     func loadData(model: EventModel, imageToken: UIImage?){
-        if let imageToken = imageToken {
-            tokenImageButton.setImage(imageToken, for: .normal)
-            VStackButton.isHidden = false
-            registerButton.isHidden = true
-        }
         nameLabel.text = model.nameEvent
         authorLabel.text = model.authorName
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
+        dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale.current
         dateLabel.text = "\(dateFormatter.string(from: model.dateStart.toDate())) – \(dateFormatter.string(from: model.dateEnd.toDate()))"
         textView.text = model.description
         guard !model.photos.isEmpty else {return}
-        self.animateImageView()
-        model.photos.forEach { photo in
-            DispatchQueue.global().async {
+        dispatchQueue.async {
+            
+            model.photos.forEach { photo in
+                self.group.enter()
                 ImageLoader.shared.image(with: photo, folder: "EventPictures") { image in
+                    self.images.append((image ?? UIImage(named: "ddLarge")) ?? UIImage())
                     DispatchQueue.main.async {
-                        self.images.append(image ?? UIImage())
+                        self.imageEventView.image = self.images.first
                     }
+                    self.dispatchSemaphore.signal()
+                    self.group.leave()
                 }
+                self.dispatchSemaphore.wait()
             }
-            self.imageEventView.image = self.images.first
         }
+        group.notify(queue: dispatchQueue, execute: { [self] in
+            DispatchQueue.main.async {
+                self.animateImageView()
+            }
+        })
     }
 }
 
@@ -210,7 +182,7 @@ extension EventDetailViewController {
         imageEventView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         imageEventView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         imageEventView.heightAnchor.constraint(equalToConstant: SizeConstants.screenHeight/4).isActive = true
-        imageEventView.widthAnchor.constraint(equalToConstant: SizeConstants.screenHeight/2).isActive = true
+        imageEventView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -50).isActive = true
         
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false

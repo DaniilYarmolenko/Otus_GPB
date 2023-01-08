@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window = UIWindow()
             self.window!.rootViewController = tabBarContainer.viewController
             self.window!.makeKeyAndVisible()
-            self.window!.backgroundColor = .red
+            self.window!.backgroundColor = .white
             return true
         }
     }

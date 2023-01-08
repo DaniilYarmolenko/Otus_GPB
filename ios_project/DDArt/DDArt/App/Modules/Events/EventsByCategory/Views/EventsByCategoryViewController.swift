@@ -37,6 +37,10 @@ final class EventsByCategoryViewController: UIViewController {
     }
     private func setUp() {
         setUpTableViewBase()
+        setUpRefreshContoll()
+    }
+    private func setUpRefreshContoll() {
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     private func setUpTableViewBase() {
         tableViewEvents.showsVerticalScrollIndicator = false
@@ -49,11 +53,16 @@ final class EventsByCategoryViewController: UIViewController {
         tableViewEvents.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableViewEvents)
     }
+    @objc
+    func refresh() {
+        output.viewDidLoad()
+    }
 }
 
 extension EventsByCategoryViewController: EventsByCategoryViewInput {
     func reloadData() {
         self.tableViewEvents.reloadData()
+        refreshControl.endRefreshing()
     }
     
 }
@@ -64,9 +73,20 @@ extension EventsByCategoryViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventsByCategoryCell.cellIdentifier, for: indexPath) as? EventsByCategoryCell else { return UITableViewCell() }
-        cell.configure(model: output.getEventCell(with: indexPath.row)) {
+        let model = output.getEventCell(with: indexPath.row)
+        cell.configure(model: model) {
             let myCell = tableView.cellForRow(at: indexPath)
             return cell == myCell
+        }
+        if !model.photos.isEmpty {
+            ImageLoader.shared.image(with: model.photos[0], folder: "EventPictures"){ result in
+                let image = result
+                DispatchQueue.main.async {
+                    cell.eventImage.image = image
+                }
+            }
+        } else {
+            cell.eventImage.image = UIImage(named: "ddLarge")
         }
         cell.delegate = output
         cell.selectionStyle = .none

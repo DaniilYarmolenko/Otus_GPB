@@ -12,7 +12,7 @@ final class EventsFutureInteractor {
 	weak var output: EventsFutureInteractorOutput?
     var eventsRequest = ApiService<EventModel>(resourcePath: "events")
     private let group = DispatchGroup()
-    private var eventToday = [EventModel]()
+    private var eventFuture = [EventModel]()
 }
 
 extension EventsFutureInteractor: EventsFutureInteractorInput {
@@ -22,22 +22,20 @@ extension EventsFutureInteractor: EventsFutureInteractorInput {
             eventsRequest.getAll { eventResult in
                 switch eventResult {
                 case .failure (let error):
-                    self.group.leave()
-//                    self.output?.didFail(message: "There was an error getting the Events")
+                    print(error.localizedDescription)
                 case .success(let event):
-                    self.group.leave()
                     let dateToday = Date().convertToTimeZone(initTimeZone: TimeZone(abbreviation: "MSD"))
-                    self.eventToday = event.filter({ event in
-                        let dateEventStart = event.dateStart.toDate()
+                    self.eventFuture = event.filter({ event in
                         let dateEventEnd = event.dateEnd.toDate()
-                        return dateEventStart <= dateToday &&
-                        dateEventEnd > dateToday
+                        return dateEventEnd > dateToday
                     })
+                    sleep(1)
+                    self.group.leave()
                 }
             }
         }
         group.notify(queue: .main, execute: { [self] in
-            output?.receiveData(events: eventToday)
+            output?.receiveData(events: eventFuture)
         })
     }
     

@@ -26,7 +26,7 @@ protocol FoodDetailViewOutput: AnyObject {
     func deleteFromCoreData()
     func updateFood(image: Data, value: Int)
     func goToCart()
-    
+    func getTitle() -> String
 }
 
 protocol FoodDetailInteractorInput: AnyObject {
