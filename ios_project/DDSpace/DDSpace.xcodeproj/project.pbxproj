@@ -740,7 +740,6 @@
 		265C17B52912DC260057FB2F /* EventsModule */ = {
 			isa = PBXGroup;
 			children = (
-				26FA9C12294509340088249A /* ViewModel */,
 				265C181A29132AAB0057FB2F /* View */,
 				265C18142912ECA90057FB2F /* Entity */,
 				265C17B62912DC3B0057FB2F /* EventsPresenter.swift */,
@@ -1211,13 +1210,6 @@
 				26FA9C1029435E5B0088249A /* CategoryFoodCell.swift */,
 			);
 			path = FoodCategoryCollection;
-			sourceTree = "<group>";
-		};
-		26FA9C12294509340088249A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		26FA9C1829454BF70088249A /* Layout */ = {

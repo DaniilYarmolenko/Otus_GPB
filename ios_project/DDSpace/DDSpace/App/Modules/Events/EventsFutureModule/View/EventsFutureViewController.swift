@@ -68,8 +68,8 @@ final class EventsFutureViewController: UIViewController {
 
 extension EventsFutureViewController: EventsFutureViewInput {
     func reloadData() {
-        collectionView.reloadData()
         refreshControl.endRefreshing()
+        collectionView.reloadData()
     }
     
 }

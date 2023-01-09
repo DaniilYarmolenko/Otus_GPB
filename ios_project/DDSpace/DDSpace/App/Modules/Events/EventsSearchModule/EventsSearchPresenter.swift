@@ -29,6 +29,10 @@ extension EventsSearchPresenter: EventsSearchModuleInput {
 }
 
 extension EventsSearchPresenter: EventsSearchViewOutput {
+    func updateEvents() {
+        interactor.loadAllEvents()
+    }
+    
     func getEventCell(with index: Int) -> EventModel {
         searchEvents[index]
     }
@@ -98,6 +102,7 @@ extension EventsSearchPresenter: EventsSearchInteractorOutput {
     
     func recieveCategories(categories: [CategoryModel]) {
         self.categories = categories
+        view?.reloadCategory()
     }
     
     func recieveEvents(events: [EventModel]) {

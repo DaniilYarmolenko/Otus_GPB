@@ -40,6 +40,7 @@ final class EventsByCategoryViewController: UIViewController {
         setUpRefreshContoll()
     }
     private func setUpRefreshContoll() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...", attributes: nil)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     private func setUpTableViewBase() {

@@ -56,7 +56,6 @@ final class EventsTodayViewController: UIViewController {
     @objc
     func refreshData() {
         output.loadData()
-        self.refreshControl.endRefreshing()
     }
 }
 
@@ -70,6 +69,7 @@ extension EventsTodayViewController: EventsTodayViewInput {
             self.emptyView.isHidden = true
             self.tableView.isHidden = false
         }
+        self.refreshControl.endRefreshing()
     }
     
 }

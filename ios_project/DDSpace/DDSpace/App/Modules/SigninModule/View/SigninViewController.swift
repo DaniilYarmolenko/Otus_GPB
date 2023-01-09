@@ -53,7 +53,7 @@ final class SigninViewController: UIViewController {
         view.addSubview(password)
         loginTF.delegate = self
         loginTF.isEnabled = true
-        loginTF.placeholder = "Login"
+        loginTF.placeholder = "Email"
         password.delegate = self
         password.isEnabled = true
         password.placeholder = "Password"
@@ -97,6 +97,7 @@ final class SigninViewController: UIViewController {
     }
     func setUpImageView() {
         view.addSubview(ddImageView)
+        self.hideKeyboardWhenTappedAround() 
         ddImageView.image = UIImage(named: "ddLarge")
     }
     @objc

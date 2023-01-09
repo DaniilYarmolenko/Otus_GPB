@@ -10,7 +10,7 @@ import UIKit
 
 final class FoodCartViewController: UIViewController {
     private let output: FoodCartViewOutput
-    internal var emptyCoreDataView =  EmptyView(titleText: "Корзина пуста",subtitleText: "Добавьте в Корзину на странице с меню, чтобы тут не было пусто :(", imageString: "emptyDB")
+    internal var emptyCoreDataView =  EmptyView(titleText: "Корзина пуста",subtitleText: "Добавьте в Корзину на странице с меню, чтобы тут не было пусто :(", imageString: "emptyCart")
     internal var tableView =  UITableView()
     internal var totalAmountLabel = UILabel()
     let btn = BadgedButtonItem(with: UIImage(named: "trash"))
@@ -121,7 +121,7 @@ extension FoodCartViewController: UITableViewDataSource, UITableViewDelegate {
 extension FoodCartViewController {
     func addViewConstraints() {
         self.emptyCoreDataView.translatesAutoresizingMaskIntoConstraints = false
-        self.emptyCoreDataView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20).isActive = true
+        self.emptyCoreDataView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         self.emptyCoreDataView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         self.emptyCoreDataView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.emptyCoreDataView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true

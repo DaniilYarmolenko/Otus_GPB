@@ -16,12 +16,10 @@ protocol EventsSearchModuleInput {
 protocol EventsSearchModuleOutput: AnyObject {
     var events: [EventModel] {get set}
 }
-//protocol TableCategoryViewCellOutput: AnyObject {
-//    func clickOnEvent(with id: Int)
-//}
+
 
 protocol EventsSearchViewInput: AnyObject {
-//    func reloadData()
+    func reloadCategory()
     func reloadTableData()
 }
 
@@ -31,6 +29,7 @@ protocol EventsSearchViewOutput: AnyObject {
     func clickOnEvent(with id: Int)
     func sortEvents(typeSort type: typeSort, by order: Ordered)
     func searchEventByName(with name: String)
+    func updateEvents()
     func getCountCategoryCells() -> Int
     func clickOnCategory(with id: Int)
     func getEventCell(with index: Int) -> EventModel
@@ -38,7 +37,7 @@ protocol EventsSearchViewOutput: AnyObject {
 }
 
 protocol EventsSearchInteractorInput: AnyObject {
-    func loadAllEvents() -> [EventModel]
+    func loadAllEvents()
     func loadAllCategories()
     func searchEventByName(with name: String)
 }

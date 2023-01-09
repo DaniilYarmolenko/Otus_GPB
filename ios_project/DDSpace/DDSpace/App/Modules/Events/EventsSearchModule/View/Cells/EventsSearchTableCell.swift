@@ -62,7 +62,6 @@ final class EventsSearchTableCell: UITableViewCell {
     }
     
     func configure(model: EventModel, complition: @escaping () -> (Bool)) {
-        self.eventImage.image = image ?? UIImage(named: "noData")
         nameLabel.attributedText = model.nameEvent.underLined
         authorLabel.attributedText = model.authorName.underLined
         let dateFormatter = DateFormatter()

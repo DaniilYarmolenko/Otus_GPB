@@ -28,6 +28,7 @@ final class DDViewController: UIViewController {
         super.viewDidLoad()
         setUp()
         output.viewDidLoad()
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

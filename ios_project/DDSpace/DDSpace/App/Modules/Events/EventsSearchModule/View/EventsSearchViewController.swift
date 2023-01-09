@@ -12,7 +12,9 @@ final class EventsSearchViewController: UIViewController {
 	private let output: EventsSearchViewOutput
     internal var searchBar = UISearchBar()
     internal var emptyView =  EmptyView(titleText: "К сожалению такого события нет",subtitleText: "Попробуйте найти другое", imageString: "emptyDB")
-    private let refreshControl = UIRefreshControl()
+    var searchText = ""
+    private let refreshControlTableView = UIRefreshControl()
+    private let refreshControlCollection = UIRefreshControl()
     lazy var collectionCategoriesView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -35,6 +37,7 @@ final class EventsSearchViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         view.backgroundColor = .white
         setUp()
 	}
@@ -47,11 +50,13 @@ final class EventsSearchViewController: UIViewController {
         setUpCollection()
         setUpSearchBar()
         setUpEmptyView()
+        setUpRefreshControll()
+        setUpRefreshControllCollection()
     }
     private func setUpTableViewBase() {
         tableViewEvents.showsVerticalScrollIndicator = false
         tableViewEvents.delegate = self
-        tableViewEvents.refreshControl = refreshControl
+        tableViewEvents.refreshControl = refreshControlTableView
         tableViewEvents.dataSource = self
         tableViewEvents.separatorStyle = .none
         tableViewEvents.isHidden = true
@@ -63,6 +68,7 @@ final class EventsSearchViewController: UIViewController {
         collectionCategoriesView.dataSource = self
         collectionCategoriesView.backgroundColor = .clear
         collectionCategoriesView.showsHorizontalScrollIndicator = false
+        collectionCategoriesView.refreshControl = refreshControlCollection
         collectionCategoriesView.register(CategoriesSearchCollectionCell.self, forCellWithReuseIdentifier: CategoriesSearchCollectionCell.cellIdentifier)
         self.view.addSubview(collectionCategoriesView)
     }
@@ -74,6 +80,25 @@ final class EventsSearchViewController: UIViewController {
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).font = UIFont(name: FontConstants.MoniqaLightItalicHeading, size: 20)
         view.addSubview(searchBar)
     }
+    private func setUpRefreshControll() {
+        refreshControlTableView.attributedTitle = NSAttributedString(string: "Fetching Data ...", attributes: nil)
+        refreshControlTableView.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    private func setUpRefreshControllCollection() {
+        refreshControlCollection.attributedTitle = NSAttributedString(string: "Fetching Data ...", attributes: nil)
+        refreshControlCollection.addTarget(self, action: #selector(refreshDataCategory), for: .valueChanged)
+    }
+    @objc
+    func refreshData() {
+        searchBar.text = ""
+        output.updateEvents()
+        output.searchEventByName(with: searchText)
+    }
+    @objc
+    func refreshDataCategory() {
+        refreshControlCollection.endRefreshing()
+        output.viewDidload()
+    }
     private func setUpEmptyView() {
         view.addSubview(emptyView)
         emptyView.isHidden = true
@@ -83,6 +108,11 @@ final class EventsSearchViewController: UIViewController {
 }
 
 extension EventsSearchViewController: EventsSearchViewInput {
+    func reloadCategory() {
+        refreshControlTableView.endRefreshing()
+        collectionCategoriesView.reloadData()
+    }
+    
     func reloadTableData() {
         if output.getCountEventCells() == 0 && collectionCategoriesView.isHidden {
             tableViewEvents.isHidden = true
@@ -92,6 +122,8 @@ extension EventsSearchViewController: EventsSearchViewInput {
             emptyView.isHidden = true
         }
         tableViewEvents.reloadData()
+        searchBar.text = searchText
+        refreshControlTableView.endRefreshing()
     }
     
 }
@@ -104,6 +136,7 @@ extension EventsSearchViewController: UISearchBarDelegate {
             collectionCategoriesView.isHidden = false
             tableViewEvents.isHidden = true
         }
+        self.searchText = searchText.lowercased()
         output.searchEventByName(with: searchText.lowercased())
     }
 }

@@ -50,6 +50,15 @@ final class NewsViewController: UIViewController {
         tableViewNews.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableViewNews)
     }
+    private func setUpRefresh() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...", attributes: nil)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    @objc
+    func refresh() {
+        output.viewDidLoad()
+        refreshControl.endRefreshing()
+    }
 }
 
 extension NewsViewController: NewsViewInput {
