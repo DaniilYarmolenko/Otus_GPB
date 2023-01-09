@@ -1,0 +1,20 @@
+#if(count(eventTokens) > 0):
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>id</th>
+        <th>Life</th>
+        </tr>
+    </thead>
+    <tbody>
+        #for(token in eventTokens):
+        <tr>
+            <td><a href="/users/#(user.id)/">#(token.id)</a></td>
+            <td>#(token.life)</td>
+        </tr>
+        #endfor
+    </tbody>
+    </table>
+#else:
+    <h2>There aren’t any tokens yet!</h2>
+#endif

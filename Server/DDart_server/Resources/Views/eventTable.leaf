@@ -1,0 +1,28 @@
+#if(count(events) > 0):
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>Name Event</th>
+        <th>Author</th>
+        <th>Date Start Event</th>
+        <th>Date End Event</th>
+        <th>Description</th>
+        <th>Event Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        #for(event in events):
+        <tr>
+            <td><a href="/events/#(event.id)">#(event.nameEvent)</a></td>
+            <td>#(event.authorName)</td>
+            <td>#(event.dateStart)</td>
+            <td>#(event.dateEnd)</td>
+            <td>#(event.description)</td>
+            <td>#(event.eventType.)</td>
+        </tr>
+        #endfor
+    </tbody>
+    </table>
+#else:
+    <h2>There aren’t any event yet!</h2>
+#endif

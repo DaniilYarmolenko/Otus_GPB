@@ -1,0 +1,45 @@
+#extend("base"):
+  #export("content"):
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>Name Food</th>
+        <th>Description</th>
+        <th>Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>#(food.nameFood)</a></td>
+            <td>#(food.description)</td>
+            <td>#(food.cost.)</td>
+        </tr>
+    </tbody>
+    </table>
+    <p id = "example"> #(food.description)</p>
+        #if(count(food.photos) > 0):
+            <div class="row">
+            #for(photoName in food.photos):
+                <img src="/Pictures/FoodPictures/#(photoName)" class="rounded img-fluid" alt="#(nameEvent)" />
+             #endfor
+            </div>
+         #endif
+    #if(count(categories) > 0):
+      <h3>Categories</h3>
+      <ul>
+        #for(category in categories):
+          <li>
+            <a href="/categories/#(category.id)">
+              #(category.name)
+            </a>
+          </li>
+        #endfor
+      </ul>
+    #endif
+    <form method="post" action="/foods/#(food.id)/delete">
+      <a class="btn btn-primary" href="/foods/#(food.id)/edit"
+      role="button">Edit</a>&nbsp;
+      <input class="btn btn-danger" type="submit" value="Delete" />
+    </form>
+  #endexport
+#endextend

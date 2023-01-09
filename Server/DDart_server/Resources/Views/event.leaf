@@ -1,0 +1,56 @@
+#extend("base"):
+  #export("content"):
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>Name Event</th>
+        <th>Author</th>
+        <th>Date Start Event</th>
+        <th>Date End Event</th>
+        <th>Description</th>
+        <th>Event Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>#(event.nameEvent)</a></td>
+            <td>#(event.authorName)</td>
+            <td>#(event.dateStart)</td>
+            <td>#(event.dateEnd)</td>
+            <td>#(event.description)</td>
+            <td>#(event.eventType.)</td>
+        </tr>
+    </tbody>
+    </table>
+    <p id = "example"> #(event.description)</p>
+        #if(count(event.photos) > 0):
+            <div class="row">
+            #for(photoName in event.photos):
+                <img src="/Pictures/EventPictures/#(photoName)" class="rounded img-fluid" alt="#(nameEvent)" />
+             #endfor
+            </div>
+         #endif
+    #if(count(eventTokens) > 0):
+        #extend("eventTokenTable")
+    #else:
+    <h3>There aren’t any token for event yet!</h3>
+    #endif
+    #if(count(categories) > 0):
+      <h3>Categories</h3>
+      <ul>
+        #for(category in categories):
+          <li>
+            <a href="/categories/#(category.id)">
+              #(category.name)
+            </a>
+          </li>
+        #endfor
+      </ul>
+    #endif
+    <form method="post" action="/events/#(event.id)/delete">
+      <a class="btn btn-primary" href="/events/#(event.id)/edit"
+      role="button">Edit</a>&nbsp;
+      <input class="btn btn-danger" type="submit" value="Delete" />
+    </form>
+  #endexport
+#endextend
