@@ -14,10 +14,10 @@ final class MenuViewController: UIViewController {
     lazy var collectionCategoryView: CategoryCollectionAdapter = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)
         layout.itemSize = CGSize(width: SizeConstants.screenWidth/4, height: SizeConstants.screenHeight/20)
         return CategoryCollectionAdapter(frame: .zero, collectionViewLayout: layout, output: output)
     }()
+    var currentSection: Int = 0
     lazy var collectionMenuView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -60,9 +60,17 @@ final class MenuViewController: UIViewController {
             collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: true)
         }
     }
+    private func scrollCategory(index: IndexPath?) {
+        if let index = index {
+            let newIndex = IndexPath(row: index.section, section: 0)
+            collectionCategoryView.scrollToItem(at: newIndex, at: .centeredHorizontally, animated: true)
+        }
+    }
     private func setUpCollectionCategory() {
         collectionCategoryView.backgroundColor = .clear
         collectionCategoryView.setup(for: collectionCategoryView)
+        collectionCategoryView.cellForItem(at: IndexPath(row: 0, section: 0))?.backgroundColor = .lightGray
+        collectionCategoryView.showsHorizontalScrollIndicator = false
         self.view.addSubview(collectionCategoryView)
         
     }
@@ -142,12 +150,12 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell == myCell
         }
         if !model.photos.isEmpty {
-        ImageLoader.shared.image(with: model.photos[0], folder: "FoodPictures"){ result in
-                    let image = result
-                    DispatchQueue.main.async {
-                        cell.imageView.image = image
-                    }
+            ImageLoader.shared.image(with: model.photos[0], folder: "FoodPictures"){ result in
+                let image = result
+                DispatchQueue.main.async {
+                    cell.imageView.image = image
                 }
+            }
         } else {
             cell.imageView.image = UIImage(named: "ddLarge")
         }
@@ -157,19 +165,29 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         output.tapOnFood(section: indexPath.section, index: indexPath.row)
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == self.collectionMenuView {
+            var point = scrollView.contentOffset
+            var indexPath = self.collectionMenuView.indexPathForItem(at: CGPoint(x: point.x + 30.0, y: point.y))
+            if indexPath?.section != self.currentSection  {
+                currentSection = indexPath?.section ?? 0
+                scrollCategory(index: indexPath)
+            }
+        }
+    }
 }
 
 extension MenuViewController {
     internal func addConstraints() {
         
         collectionCategoryView.translatesAutoresizingMaskIntoConstraints = false
-        collectionCategoryView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        collectionCategoryView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true
         collectionCategoryView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
         collectionCategoryView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         collectionCategoryView.heightAnchor.constraint(equalToConstant: SizeConstants.screenHeight/20).isActive = true
         collectionMenuView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionMenuView.topAnchor.constraint(equalTo: self.collectionCategoryView.bottomAnchor, constant:    10).isActive = true
+        collectionMenuView.topAnchor.constraint(equalTo: self.collectionCategoryView.bottomAnchor, constant:    4).isActive = true
         collectionMenuView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         collectionMenuView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         collectionMenuView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -223,7 +241,7 @@ extension CategoryCollectionAdapter: UICollectionViewDataSource, UICollectionVie
         collectionView.delegate = self
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            output.getCountSections()
+        output.getCountSections()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -239,6 +257,14 @@ extension CategoryCollectionAdapter: UICollectionViewDataSource, UICollectionVie
         return CGSize(width: collectionView.frame.width, height: SizeConstants.screenHeight/7)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        output.selectCategory(index: indexPath.row)
-    }
+//        let count = collectionView.numberOfItems(inSection: 0)
+//        collectionView.visibleCells.forEach { cell in
+//            cell.backgroundColor = .white
+//        }
+//
+//            if indexPath.row == 0  || indexPath.row == count-1 {
+//                collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
+//            }
+            output.selectCategory(index: indexPath.row)
+        }
 }
