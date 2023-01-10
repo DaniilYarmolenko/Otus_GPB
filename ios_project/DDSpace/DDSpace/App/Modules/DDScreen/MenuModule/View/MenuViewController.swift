@@ -57,7 +57,7 @@ final class MenuViewController: UIViewController {
     private func scrollToSection() {
         if let section = scrollSection {
             let scrollableSection = IndexPath.init(row: 0, section: section)
-            collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: true)
+            collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: false)
         }
     }
     private func scrollCategory(index: IndexPath?) {
@@ -107,7 +107,7 @@ final class MenuViewController: UIViewController {
 extension MenuViewController: MenuViewInput {
     func goToCategory(section: Int) {
         let scrollableSection = IndexPath.init(row: 0, section: section)
-        collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: true)
+        collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: false)
     }
     
     func reloadCollection() {
