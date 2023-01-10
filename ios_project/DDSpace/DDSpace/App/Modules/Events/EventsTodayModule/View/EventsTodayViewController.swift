@@ -119,8 +119,8 @@ extension EventsTodayViewController {
     internal func addConstraints() {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
-        self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
+        self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8).isActive = true
+        self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
         self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
         self.emptyView.translatesAutoresizingMaskIntoConstraints = false

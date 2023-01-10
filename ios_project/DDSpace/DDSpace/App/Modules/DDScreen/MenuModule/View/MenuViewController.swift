@@ -182,7 +182,7 @@ extension MenuViewController {
         
         collectionCategoryView.translatesAutoresizingMaskIntoConstraints = false
         collectionCategoryView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true
-        collectionCategoryView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        collectionCategoryView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
         collectionCategoryView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         collectionCategoryView.heightAnchor.constraint(equalToConstant: SizeConstants.screenHeight/20).isActive = true
         collectionMenuView.translatesAutoresizingMaskIntoConstraints = false

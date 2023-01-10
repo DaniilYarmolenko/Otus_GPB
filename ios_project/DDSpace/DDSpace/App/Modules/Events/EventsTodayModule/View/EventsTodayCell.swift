@@ -115,8 +115,6 @@ final class EventsTodayCell: UITableViewCell {
         imageEventView.clipsToBounds = true
         layer.masksToBounds = true
         self.clipsToBounds = true
-        contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.borderWidth = 2.0
         contentView.layer.cornerRadius = 15
         contentView.layer.backgroundColor = UIColor.white.cgColor
         imageEventView.layer.cornerRadius = 15
