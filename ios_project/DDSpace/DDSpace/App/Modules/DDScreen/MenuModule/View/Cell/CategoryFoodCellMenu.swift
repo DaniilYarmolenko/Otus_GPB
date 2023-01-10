@@ -34,6 +34,7 @@ final class CategoryFoodMenuCell: UICollectionViewCell {
     private func setUpLabel() {
         nameCategory.font = UIFont(name: FontConstants.MoniqaLightItalicHeading, size: 30)
         nameCategory.textColor = .black
+        nameCategory.textAlignment = .center
         self.contentView.addSubview(nameCategory)
     }
     
@@ -50,6 +51,5 @@ extension CategoryFoodMenuCell {
         self.nameCategory.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
         self.nameCategory.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
         self.nameCategory.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-        
     }
 }
