@@ -66,9 +66,9 @@ final class SigninViewController: UIViewController {
         view.addSubview(loginButton)
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(.black, for: .normal)
-        loginButton.setTitleColor(.green, for: .focused)
+        loginButton.setTitleColor(.white, for: .highlighted)
         loginButton.setBackgroundColor(color: .white, forState: .normal)
-        loginButton.setBackgroundColor(color: .purple, forState: .focused)
+        loginButton.setBackgroundColor(color: .purple, forState: .highlighted)
         loginButton.layer.cornerRadius = 10
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
@@ -137,11 +137,12 @@ extension SigninViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard textField is CustomTextField else { return }
         if textField.text?.isEmpty == false {
-            textField.tintColor = .green
+            textField.tintColor = .black
             labelError.isHidden = true
             loginButton.isEnabled = true
+            
         } else {
-            textField.tintColor = .red
+            labelError.text = "empty field"
             labelError.isHidden = false
             loginButton.isEnabled = false
         }
