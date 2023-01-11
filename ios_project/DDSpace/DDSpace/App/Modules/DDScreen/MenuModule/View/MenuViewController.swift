@@ -57,7 +57,7 @@ final class MenuViewController: UIViewController {
     private func scrollToSection() {
         if let section = scrollSection {
             let scrollableSection = IndexPath.init(row: 0, section: section)
-            collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: true)
+            collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: false)
         }
     }
     private func scrollCategory(index: IndexPath?) {
@@ -107,7 +107,7 @@ final class MenuViewController: UIViewController {
 extension MenuViewController: MenuViewInput {
     func goToCategory(section: Int) {
         let scrollableSection = IndexPath.init(row: 0, section: section)
-        collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: true)
+        collectionMenuView.scrollToItem(at: scrollableSection, at: .top, animated: false)
     }
     
     func reloadCollection() {
@@ -167,8 +167,8 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.collectionMenuView {
-            var point = scrollView.contentOffset
-            var indexPath = self.collectionMenuView.indexPathForItem(at: CGPoint(x: point.x + 30.0, y: point.y))
+            let point = scrollView.contentOffset
+            let indexPath = self.collectionMenuView.indexPathForItem(at: CGPoint(x: point.x + 30.0, y: point.y))
             if indexPath?.section != self.currentSection  {
                 currentSection = indexPath?.section ?? 0
                 scrollCategory(index: indexPath)

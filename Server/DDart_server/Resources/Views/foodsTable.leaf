@@ -1,0 +1,22 @@
+#if(count(foods) > 0):
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>Name Food</th>
+        <th>Description</th>
+        <th>Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        #for(food in foods):
+        <tr>
+            <td><a href="/foods/#(food.id)">#(food.nameFood)</a></td>
+            <td>#(food.description)</td>
+            <td>#(food.cost)</td>
+        </tr>
+        #endfor
+    </tbody>
+    </table>
+#else:
+    <h2>There aren’t any event yet!</h2>
+#endif

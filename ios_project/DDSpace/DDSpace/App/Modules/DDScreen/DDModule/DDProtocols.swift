@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DDModuleInput {
-	var moduleOutput: DDModuleOutput? { get }
+    var moduleOutput: DDModuleOutput? { get }
 }
 
 protocol DDModuleOutput: AnyObject {

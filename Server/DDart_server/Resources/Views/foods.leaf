@@ -1,0 +1,8 @@
+#extend("base"):
+  #export("content"):
+    <img src="/images/DD.png" class="mx-auto d-block" alt="DD Logo" />
+
+    <h1>Foods</h1>
+    #extend("foodsTable")
+  #endexport
+#endextend

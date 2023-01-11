@@ -1,0 +1,51 @@
+#extend("base"):
+  #export("content"):
+    <h1>#(title)</h1>
+    <form method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="phoneNumber">phone number</label>
+        <input type="text" name="phoneNumber" class="form-control"
+        id="name" value="#(info.phoneNumber)"/>
+      </div>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" name="email" class="form-control"
+        id="email" value="#(info.email)"/>
+      </div>
+      <div class="form-group">
+        <label for="address">address</label>
+        <input type="text" name="address" class="form-control"
+        id="name" value="#(info.address)"/>
+      </div>
+      <div class="form-group">
+        <label for="vk">vk</label>
+        <input type="text" name="vk" class="form-control"
+        id="name" value="#(info.vk)"/>
+      </div>
+      <div class="form-group">
+        <label for="instagram">instagram</label>
+        <input type="text" name="instagram" class="form-control"
+        id="name" value="#(info.instagram)"/>
+      </div>
+      <div class="form-group">
+        <label for="telegram">telegramr</label>
+        <input type="text" name="telegram" class="form-control"
+        id="name" value="#(info.telegram)"/>
+      </div>
+      <div class="form-group">
+        <label for="longitude">longitude</label>
+        <input type="text" name="longitude" class="form-control"
+        id="name" value="#(info.longitude)"/>
+      </div>
+      <div class="form-group">
+        <label for="latitude">latitude</label>
+        <input type="text" name="latitude" class="form-control"
+        id="name" value="#(info.latitude)"/>
+      </div>
+      
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+  #endexport
+#endextend

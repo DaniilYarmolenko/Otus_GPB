@@ -1,0 +1,28 @@
+#extend("base"):
+  #export("content"):
+    <h1>News page</h1>
+    
+    #if(count(news) > 0):
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>Title</th>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          #for(new in news):
+            <tr>
+              <td><a href="/news/#(new.id)">#(new.titleNews)</a></td>
+              <td>#(new.newsName)</td>
+              <td>#(new.description)</td>
+            </tr>
+          #endfor
+        </tbody>
+      </table>
+    #else:
+      <h2>There aren’t any news yet!</h2>
+    #endif
+  #endexport
+#endextend

@@ -1,0 +1,38 @@
+#extend("base"):
+  #export("content"):
+    <h1>Info page</h1>
+    
+    #if(count(infos) > 0):
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address/th>
+            <th>vk</th>
+            <th>instagram</th>
+            <th>telegram</th>
+            <th>longitude</th>
+            <th>latitude</th>
+          </tr>
+        </thead>
+        <tbody>
+          #for(info in infos):
+            <tr>
+              <td><a href="/info/#(info.id)">#(info.phoneNumber)</a></td>
+              <td>#(info.email)</td>
+              <td>#(info.address)</td>
+              <td>#(info.vk)</td>
+              <td>#(info.instagram)</td>
+              <td>#(info.telegram)</td>
+              <td>#(info.longitude)</td>
+              <td>#(info.latitude)</td>
+            </tr>
+          #endfor
+        </tbody>
+      </table>
+    #else:
+      <h2>There aren’t any info yet!</h2>
+    #endif
+  #endexport
+#endextend

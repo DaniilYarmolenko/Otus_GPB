@@ -1,0 +1,33 @@
+#extend("base"):
+  #export("content"):
+    <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>#(news.titleNews)</a></td>
+            <td>#(news.newsName)</td>
+            <td>#(news.description)</td>
+        </tr>
+    </tbody>
+    </table>
+    <p id = "example"> #(news.description)</p>
+        #if(count(news.photos) > 0):
+            <div class="row">
+            #for(photoName in news.photos):
+                <img src="/Pictures/NewsPictures/#(photoName)" class="rounded img-fluid" alt="#(photoName)" />
+             #endfor
+            </div>
+         #endif
+    <form method="post" action="/news/#(news.id)/delete">
+      <a class="btn btn-primary" href="/news/#(news.id)/edit"
+      role="button">Edit</a>&nbsp;
+      <input class="btn btn-danger" type="submit" value="Delete" />
+    </form>
+  #endexport
+#endextend

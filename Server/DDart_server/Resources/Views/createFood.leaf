@@ -1,0 +1,49 @@
+#extend("base"):
+  #export("content"):
+    <h1>#(title)</h1>
+
+    <form method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="nameFood">Name food</label>
+        <input type="text" name="nameFood" class="form-control"
+        id="nameFood" placeholder="name" #if(editing): value="#(food.nameFood)" #endif/>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" rows="4" class="form-control"
+        id="description" placeholder="descriptionFood" #if(editing): value="#(food.description)" #else: value= "" #endif/></textarea>
+      </div>
+      
+      <div class="form-group">
+            <div class="mb-3">
+                <label for="files">Images (Нужно выбирать в нужном порядке и ккаждый раз при обновлении)</label>
+                <input type="file" accept="image/*" name="files[]" class="form-control"
+                id="files" #if(editing): value="#(event)" #endif multiple/>
+            </div>
+        </div>
+        <div class="form-group">
+        <label for="cost">Cost (int)</label>
+        <input type="text" name="cost" class="form-control"
+        id="cost" placeholder="cost" #if(editing): value="#(food.cost)" #endif/>
+        </div>
+        <div class="form-group">
+        <label for="categoriesFood">Categories</label>
+        <select name="categoriesFood[]" class="form-control"
+        id="categoriesFood" placeholder="CategoriesFood" multiple="multiple">
+            #if(editing):
+                        #for(category in categoriesFood):
+                        <option value="#(category.name)" selected="selected">
+                            #(category.name)
+                        </option>
+                        #endfor
+                    #endif
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                #if(editing): Update #else: Submit #endif
+            </button>
+        </div>
+    </form>
+  #endexport
+#endextend

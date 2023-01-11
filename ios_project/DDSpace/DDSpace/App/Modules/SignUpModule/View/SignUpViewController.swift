@@ -57,7 +57,8 @@ final class SignUpViewController: UIViewController {
         signUpButton.setTitle("Sign Up", for: .normal)
         signUpButton.layer.cornerRadius = 50
         signUpButton.addTarget(self, action: #selector(clickSignUp), for: .touchUpInside)
-        signUpButton.backgroundColor = .blue
+        signUpButton.setBackgroundColor(color: .blue, forState: .normal)
+        signUpButton.setBackgroundColor(color: .green, forState: .highlighted)
         signUpButton.layer.cornerRadius = 20
         signUpButton.isEnabled = false
         self.view.addSubview(signUpButton)
@@ -155,7 +156,7 @@ extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.isEmpty == false {
-            textField.tintColor = .green
+            textField.tintColor = .black
 //            labelError.isHidden = true
             signUpButton.isEnabled = true
         } else {

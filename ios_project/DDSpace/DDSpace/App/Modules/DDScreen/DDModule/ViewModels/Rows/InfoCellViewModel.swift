@@ -11,7 +11,7 @@ final class InfoCollectionViewModel: CellIdentifiable {
         return Float(SizeConstants.screenHeight/2)
     }
     
-    var output: DDViewOutput
+    weak var output: DDViewOutput?
     
     typealias ActionHandler = (Int) -> Void
     var action: ActionHandler?
