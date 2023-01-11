@@ -167,8 +167,8 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.collectionMenuView {
-            var point = scrollView.contentOffset
-            var indexPath = self.collectionMenuView.indexPathForItem(at: CGPoint(x: point.x + 30.0, y: point.y))
+            let point = scrollView.contentOffset
+            let indexPath = self.collectionMenuView.indexPathForItem(at: CGPoint(x: point.x + 30.0, y: point.y))
             if indexPath?.section != self.currentSection  {
                 currentSection = indexPath?.section ?? 0
                 scrollCategory(index: indexPath)

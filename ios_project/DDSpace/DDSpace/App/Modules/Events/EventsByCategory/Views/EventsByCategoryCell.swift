@@ -10,7 +10,7 @@ import UIKit
 
 final class EventsByCategoryCell: UITableViewCell {
     static let cellIdentifier = String(describing: EventsByCategoryCell.self)
-    var delegate: EventsByCategoryViewOutput?
+    weak var delegate: EventsByCategoryViewOutput?
     internal var eventImage = UIImageView()
     internal var nameLabel = UILabel()
     internal var authorLabel = UILabel()
