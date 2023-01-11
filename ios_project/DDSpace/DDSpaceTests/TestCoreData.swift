@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreData
-@testable import DDArt
+@testable import DDSpace
 
 final class TestCoreData: XCTestCase {
 

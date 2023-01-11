@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import DDArt
+@testable import DDSpace
 
 final class NewsPresenterTest: XCTestCase {
     
@@ -59,7 +59,7 @@ final class NewsPresenterTest: XCTestCase {
 extension NewsPresenterTest {
     class TestNewsPresenterRouter: NewsRouterInput {
         var news: NewsModel?
-        func newsSelected(news: DDArt.NewsModel) {
+        func newsSelected(news: DDSpace.NewsModel) {
             self.news = news
         }
     }
