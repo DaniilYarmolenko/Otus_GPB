@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 
 final class FoodCell: UICollectionViewCell {
-    weak var delegate: MenuViewOutput?
+    var delegate: MenuViewOutput?
     static let cellIdentifier = String(describing: CategoriesSearchCollectionCell.self)
     internal var imageView = UIImageView()
     internal var nameFoodLabel = UILabel()

@@ -11,7 +11,7 @@ class CartCell: UITableViewCell{
     internal var imageV = UIImageView()
     internal var costCountLabel = UILabel()
     internal var stepper = UIStepper()
-    weak var delegate: FoodCartViewOutput?
+    internal var delegate: FoodCartViewOutput?
     var model: FoodSaveModel?
     var cost: Int = 0
     static let cellIdentifier = "CartCell"

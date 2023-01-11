@@ -112,31 +112,31 @@ final class InfoViewCell: BaseCell {
     @objc
     private func vkButtonAction() {
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
-        model.output?.tapOnVk()
+        model.output.tapOnVk()
     }
     @objc
     private func telegramButtonAction() {
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
-        model.output?.tapOnTelegram()
+        model.output.tapOnTelegram()
     }
     @objc
     private func instagramButtonAction() {
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
-        model.output?.tapOnInstagram()
+        model.output.tapOnInstagram()
     }
     @objc
     private func phoneButtonAction() {
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
-        model.output?.tapOnPhone()
+        model.output.tapOnPhone()
     }
     @objc
     private func addressButtonAction() {
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
-        model.output?.tapOnMap()
+        model.output.tapOnMap()
     }
     @objc
     private func emailButtonAction() {
         guard let model = model as? InfoCollectionViewModel, !model.infoModel.isEmpty else { return }
-        model.output?.tapOnEmail()
+        model.output.tapOnEmail()
     }
 }

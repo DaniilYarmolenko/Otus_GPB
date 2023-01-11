@@ -14,10 +14,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow()
-        Coordinator(window: window).start()
-        self.window?.backgroundColor = .white
-        self.window?.makeKeyAndVisible()
-        return true
+        if !UserDefaults.standard.bool(forKey: "firstVisit") {
+            let welcomeContainer = WelcomeContainer.assemble(with: WelcomeContext())
+            self.window!.rootViewController = welcomeContainer.viewController
+            self.window!.makeKeyAndVisible()
+            UserDefaults.standard.set(true, forKey: "firstVisit")
+            return true
+        } else if Auth().token == nil {
+
+            let signInContainer = SigninContainer.assemble(with: SigninContext())
+            self.window?.rootViewController = signInContainer.viewController
+            self.window?.makeKeyAndVisible()
+
+            return true
+        } else {
+
+            let tabBarContainer = TabBarContainer.assemble(with: TabBarContext())
+            self.window = UIWindow()
+            self.window!.rootViewController = tabBarContainer.viewController
+            self.window!.makeKeyAndVisible()
+            self.window!.backgroundColor = .white
+            return true
+        }
     }
     func applicationWillTerminate(_ application: UIApplication) {
         CoreDataService.shared.deleteAll()

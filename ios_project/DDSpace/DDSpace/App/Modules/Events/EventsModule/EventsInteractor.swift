@@ -25,7 +25,7 @@ extension EventsInteractor: EventsInteractorInput {
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             eventsRequest.getAll { eventResult in
                 switch eventResult {
-                case .failure (_):
+                case .failure (let error):
                     self.group.leave()
                     self.output?.didFail(message: "There was an error getting the Events")
                 case .success(let event):
@@ -39,7 +39,7 @@ extension EventsInteractor: EventsInteractorInput {
             categoryRequest.getAll { categoryResult in
                 self.group.leave()
                 switch categoryResult {
-                case .failure (_):
+                case .failure (let error):
                     self.output?.didFail(message: "There was an error getting the categories")
                 case .success(let categories):
                     self.categories = categories

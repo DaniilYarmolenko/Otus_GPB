@@ -25,7 +25,7 @@ extension DDInteractor: DDInteractorInput {
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             categoryFoodRequest.getAll { categoryFoodResult in
                 switch categoryFoodResult {
-                case .failure (_):
+                case .failure (let error):
                     self.output?.didFail(message: "There was an error getting the category Food")
                     self.group.leave()
                 case .success(let category):
@@ -38,7 +38,7 @@ extension DDInteractor: DDInteractorInput {
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             newsRequest.getAll { newsResult in
                 switch newsResult {
-                case .failure (_):
+                case .failure (let error):
                     self.group.leave()
                     self.output?.didFail(message: "There was an error getting the news")
                 case .success(let news):
@@ -52,7 +52,7 @@ extension DDInteractor: DDInteractorInput {
             infoRequest.getAll { infoResult in
                 self.group.leave()
                 switch infoResult {
-                case .failure (_):
+                case .failure (let error):
                     self.output?.didFail(message: "There was an error getting the info")
                 case .success(let info):
                     self.infoModel = info
