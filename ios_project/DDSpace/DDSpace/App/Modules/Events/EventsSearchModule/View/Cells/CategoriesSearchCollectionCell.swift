@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class CategoriesSearchCollectionCell: UICollectionViewCell {
-    var delegate: EventsSearchViewOutput?
+    weak var delegate: EventsSearchViewOutput?
     static let cellIdentifier = String(describing: CategoriesSearchCollectionCell.self)
     internal var imageView = UIImageView()
     internal var nameCategory = UILabel()

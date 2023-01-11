@@ -21,7 +21,7 @@ extension NewsInteractor: NewsInteractorInput {
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             newsRequest.getAll { newsResult in
                 switch newsResult {
-                case .failure (let error):
+                case .failure (_):
                     self.group.leave()
 //                    self.output?.didFail(message: "There was an error getting the news")
                 case .success(let news):
