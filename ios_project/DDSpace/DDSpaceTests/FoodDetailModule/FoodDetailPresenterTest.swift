@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import DDArt
+@testable import DDSpace
 
 final class FoodDetailPresenterTest: XCTestCase {
     
@@ -56,7 +56,7 @@ final class FoodDetailPresenterTest: XCTestCase {
 extension FoodDetailPresenterTest {
     class TestFoodDetailRouter: FoodDetailRouterInput {
         var state = false
-        func goToCart(with view: DDArt.FoodDetailViewInput?) {
+        func goToCart(with view: DDSpace.FoodDetailViewInput?) {
             state.toggle()
         }
     }
@@ -67,11 +67,11 @@ extension FoodDetailPresenterTest {
             CoreDataService.shared.fetchCountCart(with: id)
         }
         
-        func updateFood(food: DDArt.FoodSaveModel) {
+        func updateFood(food: DDSpace.FoodSaveModel) {
             CoreDataService.shared.update(with: food)
         }
         
-        func addToCoreData(food: DDArt.FoodSaveModel) {
+        func addToCoreData(food: DDSpace.FoodSaveModel) {
             CoreDataService.shared.insert(with: food)
         }
         

@@ -17,13 +17,14 @@ final class NewsInteractor {
 
 extension NewsInteractor: NewsInteractorInput {
     func loadNews() {
+    print("LOAD 1")
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             newsRequest.getAll { newsResult in
+                print("LOAD 2")
                 switch newsResult {
                 case .failure (_):
                     self.group.leave()
-//                    self.output?.didFail(message: "There was an error getting the news")
                 case .success(let news):
                     self.group.leave()
                     self.news = news
@@ -31,6 +32,7 @@ extension NewsInteractor: NewsInteractorInput {
             }
         }
         group.notify(queue: .main, execute: { [self] in
+            print("LOAD 2")
             output?.receiveData(news: news)
         })
     }
