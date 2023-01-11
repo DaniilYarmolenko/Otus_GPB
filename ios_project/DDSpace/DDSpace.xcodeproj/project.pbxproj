@@ -47,6 +47,9 @@
 		26126AFE296B650000AEE136 /* EventsFuturePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */; };
 		26126B04296B6FBA00AEE136 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126B03296B6FBA00AEE136 /* FoodCell.swift */; };
 		26126B07296E9AEC00AEE136 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126B06296E9AEC00AEE136 /* Coordinator.swift */; };
+		26126B0D296F2EE200AEE136 /* FoodDetailInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126B0C296F2EE200AEE136 /* FoodDetailInteractorTest.swift */; };
+		26243128296F3AC300EE6575 /* NewsInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26243127296F3AC300EE6575 /* NewsInteractorTest.swift */; };
+		2624312A296F48B700EE6575 /* EventsFutureInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26243129296F48B700EE6575 /* EventsFutureInteractorTest.swift */; };
 		262A3FE62913E09B00D8C46E /* Moniqa-MediumNarrowHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */; };
 		262A3FE82913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */; };
 		2651073B2969D3F7008B56E7 /* FoodSaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */; };
@@ -251,6 +254,9 @@
 		26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFuturePresenterTest.swift; sourceTree = "<group>"; };
 		26126B03296B6FBA00AEE136 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		26126B06296E9AEC00AEE136 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		26126B0C296F2EE200AEE136 /* FoodDetailInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailInteractorTest.swift; sourceTree = "<group>"; };
+		26243127296F3AC300EE6575 /* NewsInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInteractorTest.swift; sourceTree = "<group>"; };
+		26243129296F48B700EE6575 /* EventsFutureInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFutureInteractorTest.swift; sourceTree = "<group>"; };
 		262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-MediumNarrowHeading.otf"; sourceTree = "<group>"; };
 		262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-LightItalicHeading.otf"; sourceTree = "<group>"; };
 		2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSaveModel.swift; sourceTree = "<group>"; };
@@ -615,6 +621,33 @@
 				26126AF3296B5BDD00AEE136 /* NewsMock.json */,
 			);
 			path = MockData;
+			sourceTree = "<group>";
+		};
+		26126B08296F2E8600AEE136 /* FoodDetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				26F214E3293E1A8800499873 /* FoodDetailPresenterTest.swift */,
+				26126B0C296F2EE200AEE136 /* FoodDetailInteractorTest.swift */,
+			);
+			path = FoodDetailModule;
+			sourceTree = "<group>";
+		};
+		26126B09296F2EA000AEE136 /* NewsModule */ = {
+			isa = PBXGroup;
+			children = (
+				26126AF8296B5CC900AEE136 /* NewsPresenterTest.swift */,
+				26243127296F3AC300EE6575 /* NewsInteractorTest.swift */,
+			);
+			path = NewsModule;
+			sourceTree = "<group>";
+		};
+		26126B0B296F2EB700AEE136 /* EventsFutureModule */ = {
+			isa = PBXGroup;
+			children = (
+				26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */,
+				26243129296F48B700EE6575 /* EventsFutureInteractorTest.swift */,
+			);
+			path = EventsFutureModule;
 			sourceTree = "<group>";
 		};
 		262A3FE42913DF3700D8C46E /* Font */ = {
@@ -1075,10 +1108,10 @@
 		26F214E2293E1A8800499873 /* DDSpaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				26F214E3293E1A8800499873 /* FoodDetailPresenterTest.swift */,
+				26126B0B296F2EB700AEE136 /* EventsFutureModule */,
+				26126B09296F2EA000AEE136 /* NewsModule */,
+				26126B08296F2E8600AEE136 /* FoodDetailModule */,
 				26126AEF296B58FE00AEE136 /* TestCoreData.swift */,
-				26126AF8296B5CC900AEE136 /* NewsPresenterTest.swift */,
-				26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */,
 			);
 			path = DDSpaceTests;
 			sourceTree = "<group>";
@@ -1532,7 +1565,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				26126AF0296B58FE00AEE136 /* TestCoreData.swift in Sources */,
+				26126B0D296F2EE200AEE136 /* FoodDetailInteractorTest.swift in Sources */,
+				2624312A296F48B700EE6575 /* EventsFutureInteractorTest.swift in Sources */,
 				26126AEE296B457100AEE136 /* FoodDetailPresenterTest.swift in Sources */,
+				26243128296F3AC300EE6575 /* NewsInteractorTest.swift in Sources */,
 				26126AFE296B650000AEE136 /* EventsFuturePresenterTest.swift in Sources */,
 				26126AF9296B5CC900AEE136 /* NewsPresenterTest.swift in Sources */,
 			);

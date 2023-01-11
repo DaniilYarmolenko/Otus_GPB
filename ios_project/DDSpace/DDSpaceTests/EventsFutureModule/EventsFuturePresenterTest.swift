@@ -11,7 +11,7 @@
  */
 
 import XCTest
-@testable import DDArt
+@testable import DDSpace
 
 
 final class EventsFuturePresenterTest: XCTestCase {
@@ -63,7 +63,7 @@ extension EventsFuturePresenterTest {
     class EventsFuturePresenterRouter: EventsFutureRouterInput {
         var event: EventModel?
         
-        func eventSelected(event: DDArt.EventModel) {
+        func eventSelected(event: DDSpace.EventModel) {
             self.event = event
         }
         
