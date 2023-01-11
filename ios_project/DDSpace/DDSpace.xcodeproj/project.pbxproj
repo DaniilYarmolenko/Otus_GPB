@@ -46,12 +46,12 @@
 		26126AFC296B618C00AEE136 /* NewsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 26126AF3296B5BDD00AEE136 /* NewsMock.json */; };
 		26126AFE296B650000AEE136 /* EventsFuturePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */; };
 		26126B04296B6FBA00AEE136 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126B03296B6FBA00AEE136 /* FoodCell.swift */; };
+		26126B07296E9AEC00AEE136 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26126B06296E9AEC00AEE136 /* Coordinator.swift */; };
 		262A3FE62913E09B00D8C46E /* Moniqa-MediumNarrowHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */; };
 		262A3FE82913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf in Resources */ = {isa = PBXBuildFile; fileRef = 262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */; };
 		2651073B2969D3F7008B56E7 /* FoodSaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */; };
 		2651073F2969FCDB008B56E7 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651073E2969FCDB008B56E7 /* CartCell.swift */; };
 		265C17892912CF420057FB2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C17882912CF420057FB2F /* AppDelegate.swift */; };
-		265C178B2912CF420057FB2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C178A2912CF420057FB2F /* SceneDelegate.swift */; };
 		265C17952912CF450057FB2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265C17932912CF450057FB2F /* LaunchScreen.storyboard */; };
 		265C17A42912CFFD0057FB2F /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C179E2912CFFD0057FB2F /* TabBarPresenter.swift */; };
 		265C17A52912CFFD0057FB2F /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C179F2912CFFD0057FB2F /* TabBarRouter.swift */; };
@@ -250,13 +250,13 @@
 		26126AF8296B5CC900AEE136 /* NewsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenterTest.swift; sourceTree = "<group>"; };
 		26126AFD296B650000AEE136 /* EventsFuturePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFuturePresenterTest.swift; sourceTree = "<group>"; };
 		26126B03296B6FBA00AEE136 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
+		26126B06296E9AEC00AEE136 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		262A3FE52913E02B00D8C46E /* Moniqa-MediumNarrowHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-MediumNarrowHeading.otf"; sourceTree = "<group>"; };
 		262A3FE72913E0BE00D8C46E /* Moniqa-LightItalicHeading.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moniqa-LightItalicHeading.otf"; sourceTree = "<group>"; };
 		2651073A2969D3F7008B56E7 /* FoodSaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSaveModel.swift; sourceTree = "<group>"; };
 		2651073E2969FCDB008B56E7 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		265C17852912CF420057FB2F /* DDSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		265C17882912CF420057FB2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		265C178A2912CF420057FB2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		265C17942912CF450057FB2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		265C17962912CF450057FB2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		265C179E2912CFFD0057FB2F /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
@@ -715,7 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				265C17882912CF420057FB2F /* AppDelegate.swift */,
-				265C178A2912CF420057FB2F /* SceneDelegate.swift */,
+				26126B06296E9AEC00AEE136 /* Coordinator.swift */,
 				26F214F7293E1BEE00499873 /* Base */,
 				265C17AF2912D38C0057FB2F /* Constants */,
 				265C1817291325320057FB2F /* Custom View */,
@@ -1450,7 +1450,6 @@
 				26674DDA295A125C00A31A4F /* SigninInteractor.swift in Sources */,
 				260D3C19293FCC04007AA3A5 /* NewsModel.swift in Sources */,
 				265C17F92912EC1B0057FB2F /* EventsFutureProtocols.swift in Sources */,
-				265C178B2912CF420057FB2F /* SceneDelegate.swift in Sources */,
 				265C17A92912CFFD0057FB2F /* TabBarContainer.swift in Sources */,
 				26F21536293F1A2100499873 /* EventModel.swift in Sources */,
 				26DDCC1929684C9800DD1C71 /* NewsDetailPresenter.swift in Sources */,
@@ -1460,6 +1459,7 @@
 				26DDCC3729684D9000DD1C71 /* FoodCartInteractor.swift in Sources */,
 				265C18022912EC390057FB2F /* EventsTodayPresenter.swift in Sources */,
 				260D3C0F293F6C10007AA3A5 /* EventsByCategoryViewController.swift in Sources */,
+				26126B07296E9AEC00AEE136 /* Coordinator.swift in Sources */,
 				260D3C67293FF198007AA3A5 /* InfoCellViewModel.swift in Sources */,
 				26F2150D293E743500499873 /* ResourceRequestError.swift in Sources */,
 				26FA9C26294658CD0088249A /* EmptyView.swift in Sources */,
