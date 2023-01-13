@@ -38,5 +38,5 @@ final class NewsContainer {
 struct NewsContext {
 	weak var moduleOutput: NewsModuleOutput?
     var news: [NewsModel]
-    var navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 }

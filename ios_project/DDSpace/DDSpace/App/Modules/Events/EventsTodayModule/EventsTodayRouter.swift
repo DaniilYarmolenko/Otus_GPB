@@ -9,7 +9,7 @@
 import UIKit
 
 final class EventsTodayRouter {
-    var navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 }
 
 extension EventsTodayRouter: EventsTodayRouterInput {

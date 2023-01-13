@@ -18,16 +18,16 @@ extension SigninRouter: SigninRouterInput {
         DispatchQueue.main.async {
             let tabBarContainer = TabBarContainer.assemble(with: TabBarContext())
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.window?.rootViewController = nil
             appDelegate?.window?.rootViewController = tabBarContainer.viewController
         }
     }
     
     func goAsGuess() {
-//        guard let view = view as? UIViewController else {return}
         let tabBarContainer = TabBarContainer.assemble(with: TabBarContext())
-//        view.navigationController?.pushViewController(tabBarContainer.viewController, animated: true)
         DispatchQueue.main.async {
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.window?.rootViewController = nil
             appDelegate?.window?.rootViewController = tabBarContainer.viewController
         }
     }

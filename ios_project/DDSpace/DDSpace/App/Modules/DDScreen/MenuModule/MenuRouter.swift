@@ -9,7 +9,7 @@
 import UIKit
 
 final class MenuRouter {
-    var navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 }
 
 extension MenuRouter: MenuRouterInput {

@@ -17,7 +17,7 @@ final class EventsSearchPresenter {
     var searchEvents = [EventModel]()
 	private let router: EventsSearchRouterInput
 	private let interactor: EventsSearchInteractorInput
-    var navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 
     init(router: EventsSearchRouterInput, interactor: EventsSearchInteractorInput) {
         self.router = router

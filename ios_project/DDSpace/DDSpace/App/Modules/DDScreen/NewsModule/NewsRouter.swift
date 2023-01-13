@@ -9,7 +9,7 @@
 import UIKit
 
 final class NewsRouter {
-    var navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 }
 
 extension NewsRouter: NewsRouterInput {

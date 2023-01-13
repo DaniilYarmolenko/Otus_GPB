@@ -41,5 +41,5 @@ struct EventsSearchContext {
 	weak var moduleOutput: EventsSearchModuleOutput?
     var allEvents: [EventModel]
     var categories: [CategoryModel]
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
 }

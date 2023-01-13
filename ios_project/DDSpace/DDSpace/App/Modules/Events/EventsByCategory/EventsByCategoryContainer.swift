@@ -38,5 +38,5 @@ final class EventsByCategoryContainer {
 struct EventsByCategoryContext {
 	weak var moduleOutput: EventsByCategoryModuleOutput?
     var category: CategoryModel
-    var navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 }

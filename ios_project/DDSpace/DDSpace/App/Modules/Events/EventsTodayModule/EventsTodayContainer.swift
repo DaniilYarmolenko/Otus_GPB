@@ -38,5 +38,5 @@ final class EventsTodayContainer {
 struct EventsTodayContext {
 	weak var moduleOutput: EventsTodayModuleOutput?
     var eventsToday: [EventModel]
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
 }

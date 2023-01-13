@@ -19,13 +19,16 @@ class Coordinator: AppCoordinator {
         self.window = window
     }
     func start() {
+        self.window?.rootViewController = nil
         if !UserDefaults.standard.bool(forKey: "firstVisit") {
             let welcomeContainer = WelcomeContainer.assemble(with: WelcomeContext())
+            
             self.window?.rootViewController = welcomeContainer.viewController
             UserDefaults.standard.set(true, forKey: "firstVisit")
         } else if Auth().token == nil {
             let signInContainer = SigninContainer.assemble(with: SigninContext())
             self.window?.rootViewController = signInContainer.viewController
+            
         } else {
             let tabBarContainer = TabBarContainer.assemble(with: TabBarContext())
             self.window?.rootViewController = tabBarContainer.viewController

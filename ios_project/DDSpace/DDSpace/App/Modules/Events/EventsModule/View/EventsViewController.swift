@@ -11,10 +11,10 @@ import UIKit
 final class EventsViewController: UIViewController {
 	private let output: EventsViewOutput
     var eventsView = [UIViewController]()
-    var eventPageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    internal var eventPageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     var isLoading: Bool = true
     let interfaceSegmented = DDSegmentControl()
-    var pageControllSegment: PageViewControllerSegmentedAdapter?
+    internal var pageControllSegment: PageViewControllerSegmentedAdapter?
     init(output: EventsViewOutput) {
         self.output = output
         pageControllSegment = PageViewControllerSegmentedAdapter(pageViewController: eventPageVC, viewControllers: [], segmentControl: interfaceSegmented)

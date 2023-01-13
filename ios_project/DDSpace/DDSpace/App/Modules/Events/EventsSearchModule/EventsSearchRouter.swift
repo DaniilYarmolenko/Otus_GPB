@@ -9,7 +9,7 @@
 import UIKit
 
 final class EventsSearchRouter {
-    var navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 }
 
 extension EventsSearchRouter: EventsSearchRouterInput {
