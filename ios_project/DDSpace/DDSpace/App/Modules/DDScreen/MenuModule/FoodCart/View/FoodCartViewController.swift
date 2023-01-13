@@ -41,8 +41,8 @@ final class FoodCartViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .white
         navigationItem.rightBarButtonItem = btn
         self.view.backgroundColor = .white
-        btn.tapAction = {
-            self.output.deleteAllAlert()
+        btn.tapAction = { [weak self] in
+            self?.output.deleteAllAlert()
         }
     }
     
