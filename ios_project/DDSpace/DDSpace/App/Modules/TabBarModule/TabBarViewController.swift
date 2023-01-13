@@ -22,7 +22,6 @@ final class TabBarViewController: UITabBarController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        
         setUp()
 	}
     
@@ -37,22 +36,21 @@ final class TabBarViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        self.output.getViews()
+        output.getViews()
+    }
+    func getImageFromString(withName name: String) -> UIImage? {
+        UIImage(named: name)
     }
 }
 
 extension TabBarViewController: TabBarViewInput {
-    func getImageFromString(withName name: String) -> UIImage? {
-        UIImage(named: name)
-    }
-    func receiveViews(with views: [UIViewController]) {
+    func receiveViews(with views: [UIViewController], tabBar: [TabBarItemModel]) {
         for i in 0..<views.count {
-            let model = output.getModel(at: i)
+            let model = tabBar[i]
             let icon = UITabBarItem(title: model.title, image: getImageFromString(withName: model.image), selectedImage: getImageFromString(withName: model.selectedImage))
             views[i].tabBarItem = icon
             self.viewControllers = views.map {
                 let nv = UINavigationController(rootViewController: $0)
-                //MARK: add appearance
                 return nv
             }
         }

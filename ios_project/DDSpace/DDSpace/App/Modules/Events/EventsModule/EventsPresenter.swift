@@ -7,11 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 final class EventsPresenter {
 	weak var view: EventsViewInput?
     weak var moduleOutput: EventsModuleOutput?
-    var model: String = ""
     var allEvents = [EventModel]()
     var eventsToday = [EventModel]()
     var eventsFuture = [EventModel]()
@@ -38,10 +38,13 @@ extension EventsPresenter: EventsViewOutput {
         interactor.loadData()
     }
     func getViews(){
-        if let viewOut = view {
-            let views = self.router.getViews(allEvent: allEvents, eventsToday: eventsToday, eventsFuture: eventsFuture, category: categories, view: viewOut)
-            self.view?.receiveViews(with: views)
-        }
+        guard let view = view as? UIViewController, let navigationController = view.navigationController else { return }
+        let recievesViews = [
+            EventsTodayContainer.assemble(with: EventsTodayContext(eventsToday: eventsToday, navigationController: navigationController)).viewController,
+            EventsFutureContainer.assemble(with: EventsFutureContext(eventsFuture: eventsFuture, navigationController: navigationController)).viewController,
+            EventsSearchContainer.assemble(with: EventsSearchContext(allEvents: allEvents, categories: categories, navigationController: navigationController)).viewController
+        ]
+        self.view?.receiveViews(with: recievesViews)
     }
 }
 extension EventsPresenter: EventsInteractorOutput {

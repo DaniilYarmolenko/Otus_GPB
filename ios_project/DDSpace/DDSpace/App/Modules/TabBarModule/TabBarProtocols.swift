@@ -17,7 +17,7 @@ protocol TabBarModuleOutput: AnyObject {
 }
 
 protocol TabBarViewInput: AnyObject {
-    func receiveViews(with views: [UIViewController])
+    func receiveViews(with views: [UIViewController], tabBar: [TabBarItemModel])
 }
 
 protocol TabBarViewOutput: AnyObject {
@@ -34,5 +34,4 @@ protocol TabBarInteractorOutput: AnyObject {
 }
 
 protocol TabBarRouterInput: AnyObject {
-    func getViews() -> [UIViewController]
 }

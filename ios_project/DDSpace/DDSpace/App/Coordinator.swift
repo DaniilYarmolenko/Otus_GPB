@@ -14,8 +14,7 @@ protocol AppCoordinator {
 }
 
 class Coordinator: AppCoordinator {
-    var window: UIWindow?
-    
+    weak var window: UIWindow?
     init(window: UIWindow?) {
         self.window = window
     }

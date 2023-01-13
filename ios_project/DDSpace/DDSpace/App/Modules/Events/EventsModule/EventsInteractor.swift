@@ -14,7 +14,7 @@ final class EventsInteractor {
 	weak var output: EventsInteractorOutput?
     private var events = [EventModel]()
     private var categories = [CategoryModel]()
-    var eventsRequest = ApiService<EventModel>(resourcePath: "events")
+    let eventsRequest = ApiService<EventModel>(resourcePath: "events")
     let categoryRequest = ApiService<CategoryModel>(resourcePath: "categories")
     private let group = DispatchGroup()
 }
@@ -22,8 +22,10 @@ final class EventsInteractor {
 extension EventsInteractor: EventsInteractorInput {
     func loadData() {
         group.enter()
-        DispatchQueue.global(qos: .userInitiated).async { [self] in
-            eventsRequest.getAll { eventResult in
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            self.eventsRequest.getAll { [weak self] eventResult in
+                guard let self = self else { return }
                 switch eventResult {
                 case .failure (_):
                     self.group.leave()
@@ -35,8 +37,10 @@ extension EventsInteractor: EventsInteractorInput {
             }
         }
         group.enter()
-        DispatchQueue.global(qos: .userInitiated).async { [self] in
-            categoryRequest.getAll { categoryResult in
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            self.categoryRequest.getAll { [weak self] categoryResult in
+                guard let self = self else { return }
                 self.group.leave()
                 switch categoryResult {
                 case .failure (_):
@@ -47,8 +51,9 @@ extension EventsInteractor: EventsInteractorInput {
             }
         }
         
-        group.notify(queue: .main, execute: { [self] in
-            output?.receiveDataSegment(allEvent: events, category: categories)
+        group.notify(queue: .main, execute: { [weak self] in
+            guard let self = self else { return }
+            self.output?.receiveDataSegment(allEvent: self.events, category: self.categories)
         })
     }
 }

@@ -39,7 +39,7 @@ class DDSegmentControl: UIView {
     
     func setButtonTitles(buttonTitles: [String]) {
         self.buttonTitles = buttonTitles
-        self.updateView()
+        updateView()
     }
     
     func setIndex(index: Int) {

@@ -34,5 +34,4 @@ protocol EventsInteractorOutput: AnyObject {
     func didFail(message: String)
 }
 protocol EventsRouterInput: AnyObject {
-    func getViews(allEvent: [EventModel], eventsToday: [EventModel], eventsFuture: [EventModel], category: [CategoryModel], view: EventsViewInput) -> [UIViewController]
 }

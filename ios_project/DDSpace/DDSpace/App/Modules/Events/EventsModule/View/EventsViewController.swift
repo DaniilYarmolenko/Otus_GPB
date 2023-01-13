@@ -14,8 +14,7 @@ final class EventsViewController: UIViewController {
     var eventPageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     var isLoading: Bool = true
     let interfaceSegmented = DDSegmentControl()
-    
-    var pageControllSegment: PageViewControllerSegmentedAdapter
+    var pageControllSegment: PageViewControllerSegmentedAdapter?
     init(output: EventsViewOutput) {
         self.output = output
         pageControllSegment = PageViewControllerSegmentedAdapter(pageViewController: eventPageVC, viewControllers: [], segmentControl: interfaceSegmented)
@@ -30,9 +29,7 @@ final class EventsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         view.backgroundColor = .white
-        [interfaceSegmented, eventPageVC.view].forEach { [weak self] view in
-            self?.view.addSubview(view)
-        }
+        [interfaceSegmented, eventPageVC.view].forEach {view.addSubview($0)}
         eventPageVC.view.isHidden = !isLoading
         interfaceSegmented.isHidden = !isLoading
         output.viewDidLoad()

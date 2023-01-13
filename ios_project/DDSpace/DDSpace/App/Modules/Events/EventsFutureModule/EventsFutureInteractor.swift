@@ -26,8 +26,8 @@ extension EventsFutureInteractor: EventsFutureInteractorInput {
                 case .success(let event):
                     let dateToday = Date().convertToTimeZone(initTimeZone: TimeZone(abbreviation: "MSD"))
                     self.eventFuture = event.filter({ event in
-                        let dateEventEnd = event.dateEnd.toDate()
-                        return dateEventEnd > dateToday
+                        let dateEventStart = event.dateStart.toDate()
+                        return dateEventStart > dateToday
                     })
                     sleep(1)
                     self.group.leave()

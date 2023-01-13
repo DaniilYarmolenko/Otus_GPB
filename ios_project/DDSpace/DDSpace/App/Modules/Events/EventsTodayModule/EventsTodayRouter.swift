@@ -26,9 +26,9 @@ extension EventsTodayRouter: EventsTodayRouterInput {
     
     func showAlertAuth(with view: EventsTodayViewInput?) {
         let alert = UIAlertController(title: "В не залогинились", message: "Вы точно хотите все удалить ?", preferredStyle: .alert)
-        let actionSuccsess = UIAlertAction(title: "Log in", style: .default) { _ in
+        let actionSuccsess = UIAlertAction(title: "Log in", style: .default) { [weak self] _ in
             let signIn = SigninContainer.assemble(with: SigninContext()) // MARK: Add Eventcontext
-            self.navigationController?.present(signIn.viewController, animated: true)
+            self?.navigationController?.present(signIn.viewController, animated: true)
         }
         let actionFailure = UIAlertAction(title: "No", style: .cancel)
         alert.addAction(actionFailure)

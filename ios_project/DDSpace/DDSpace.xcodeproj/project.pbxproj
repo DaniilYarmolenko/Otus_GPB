@@ -101,7 +101,6 @@
 		265C18112912EC4D0057FB2F /* EventsSearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C180B2912EC4D0057FB2F /* EventsSearchProtocols.swift */; };
 		265C18122912EC4D0057FB2F /* EventsSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C180C2912EC4D0057FB2F /* EventsSearchInteractor.swift */; };
 		265C18132912EC4D0057FB2F /* EventsSearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C180D2912EC4D0057FB2F /* EventsSearchContainer.swift */; };
-		265C18162912ECC40057FB2F /* EventsTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C18152912ECC40057FB2F /* EventsTitleModel.swift */; };
 		265C1819291325620057FB2F /* DDSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1818291325620057FB2F /* DDSegmentControl.swift */; };
 		265C181C29132AC80057FB2F /* EventsViewController + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */; };
 		265C181E29134CAD0057FB2F /* PageControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */; };
@@ -310,7 +309,6 @@
 		265C180B2912EC4D0057FB2F /* EventsSearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsSearchProtocols.swift; sourceTree = "<group>"; };
 		265C180C2912EC4D0057FB2F /* EventsSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsSearchInteractor.swift; sourceTree = "<group>"; };
 		265C180D2912EC4D0057FB2F /* EventsSearchContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsSearchContainer.swift; sourceTree = "<group>"; };
-		265C18152912ECC40057FB2F /* EventsTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTitleModel.swift; sourceTree = "<group>"; };
 		265C1818291325620057FB2F /* DDSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSegmentControl.swift; sourceTree = "<group>"; };
 		265C181B29132AC80057FB2F /* EventsViewController + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventsViewController + Constraints.swift"; sourceTree = "<group>"; };
 		265C181D29134CAD0057FB2F /* PageControllerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerAdapter.swift; sourceTree = "<group>"; };
@@ -774,7 +772,6 @@
 			isa = PBXGroup;
 			children = (
 				265C181A29132AAB0057FB2F /* View */,
-				265C18142912ECA90057FB2F /* Entity */,
 				265C17B62912DC3B0057FB2F /* EventsPresenter.swift */,
 				265C17B72912DC3B0057FB2F /* EventsRouter.swift */,
 				265C17B92912DC3B0057FB2F /* EventsProtocols.swift */,
@@ -865,14 +862,6 @@
 				26FA9C0129434BE50088249A /* MenuContainer.swift */,
 			);
 			path = MenuModule;
-			sourceTree = "<group>";
-		};
-		265C18142912ECA90057FB2F /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				265C18152912ECC40057FB2F /* EventsTitleModel.swift */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		265C1817291325320057FB2F /* Custom View */ = {
@@ -1509,7 +1498,6 @@
 				265C17CD2912DC5C0057FB2F /* DDInteractor.swift in Sources */,
 				260D3C40293FED1B007AA3A5 /* HeaderViewCell+Constraints.swift in Sources */,
 				260D3C6D293FF30A007AA3A5 /* SizeConstants.swift in Sources */,
-				265C18162912ECC40057FB2F /* EventsTitleModel.swift in Sources */,
 				26DDCC3329684D9000DD1C71 /* FoodCartPresenter.swift in Sources */,
 				26FA9C2829466D6F0088249A /* CategoriesSearchCollectionCell.swift in Sources */,
 				26674DEA296723E100A31A4F /* SignUpPresenter.swift in Sources */,

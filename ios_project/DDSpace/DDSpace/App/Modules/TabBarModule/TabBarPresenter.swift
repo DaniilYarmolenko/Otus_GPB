@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class TabBarPresenter {
 	weak var view: TabBarViewInput?
@@ -15,10 +16,13 @@ final class TabBarPresenter {
 	private let router: TabBarRouterInput
 	private let interactor: TabBarInteractorInput
     private var tabBars: [TabBarItemModel] = []
-
+    var views = [UIViewController]()
     init(router: TabBarRouterInput, interactor: TabBarInteractorInput) {
         self.router = router
         self.interactor = interactor
+        self.views = [EventsContainer.assemble(with: EventsContext()).viewController,
+                      DDContainer.assemble(with: DDContext()).viewController,
+                      ExtraScreenContainer.assemble(with: ExtraScreenContext()).viewController]
     }
 }
 
@@ -39,8 +43,7 @@ extension TabBarPresenter: TabBarViewOutput {
 extension TabBarPresenter: TabBarInteractorOutput {
     func receiveTabBarItemsInfo(with tabBar: [TabBarItemModel]) {
         self.tabBars = tabBar
-        let views = self.router.getViews()
-        self.view?.receiveViews(with: views)
+        self.view?.receiveViews(with: views, tabBar: tabBar)
     }
     
 }

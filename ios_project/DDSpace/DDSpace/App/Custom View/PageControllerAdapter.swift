@@ -9,7 +9,7 @@ import UIKit
 
 final class PageViewControllerSegmentedAdapter: NSObject {
     
-    private let pageViewController: UIPageViewController
+    weak var pageViewController: UIPageViewController?
     fileprivate let segmentControl: DDSegmentControl
     fileprivate let viewControllers: [UIViewController]
     fileprivate var selectedIndex = 0 {
@@ -35,7 +35,7 @@ final class PageViewControllerSegmentedAdapter: NSObject {
 
     
     private func setViewController(atIndex index: Int, direction: UIPageViewController.NavigationDirection) {
-        self.pageViewController.setViewControllers([self.viewControllers[index]], direction: direction, animated: true) { [weak self] completed in
+        self.pageViewController?.setViewControllers([self.viewControllers[index]], direction: direction, animated: true) { [weak self] completed in
             guard let me = self else {
                 return
             }
@@ -88,12 +88,12 @@ extension PageViewControllerSegmentedAdapter: DDSegmentControlDelegate {
         if index > selectedIndex {
             let nextIndex = index
             for i in nextIndex...index {
-                self.setViewController(atIndex: i, direction: .forward)
+                setViewController(atIndex: i, direction: .forward)
             }
         } else if index < selectedIndex {
             let previousIndex = index
             for i in (index...previousIndex).reversed() {
-                self.setViewController(atIndex: i, direction: .reverse)
+                setViewController(atIndex: i, direction: .reverse)
             }
         }
     }

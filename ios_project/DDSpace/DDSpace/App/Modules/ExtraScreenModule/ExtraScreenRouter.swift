@@ -19,6 +19,7 @@ extension ExtraScreenRouter: ExtraScreenRouterInput {
             let signIn = SigninContainer.assemble(with: SigninContext()) // MARK: Add Eventcontext
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                appDelegate?.window?.rootViewController = nil
                 appDelegate?.window?.rootViewController = signIn.viewController
             }
         }
@@ -32,10 +33,9 @@ extension ExtraScreenRouter: ExtraScreenRouterInput {
     
     func touchLoginButton(view: ExtraScreenViewInput?) {
         let signIn = SigninContainer.assemble(with: SigninContext()) // MARK: Add Eventcontext
-        DispatchQueue.main.async {
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            appDelegate?.window?.rootViewController = signIn.viewController
-        }
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.window?.rootViewController = nil
+        appDelegate?.window?.rootViewController = signIn.viewController
     }
     
 }

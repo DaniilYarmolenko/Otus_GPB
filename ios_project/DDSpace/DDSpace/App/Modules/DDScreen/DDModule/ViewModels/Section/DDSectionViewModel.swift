@@ -9,7 +9,7 @@ import Foundation
 
 final class DDSectionViewModel: SectionRowsRepresentable {
     var rows: [CellIdentifiable]
-    var actions: TableViewCellOutput?
+    weak var actions: TableViewCellOutput?
     
     func fillData(news: [NewsModel], categoriesFood: [FoodCategory], info: [InfoModel], output: DDViewOutput) {
         rows.insert(
@@ -27,12 +27,12 @@ final class DDSectionViewModel: SectionRowsRepresentable {
     
     init() {
         rows = [CellIdentifiable]()
-        rows.append(HeaderCellViewModel(title: TitlesConstants.NewsTitle, action: {
-            self.actions?.tapMoreNews()
+        rows.append(HeaderCellViewModel(title: TitlesConstants.NewsTitle, action: { [weak self] in
+            self?.actions?.tapMoreNews()
         }))
         
-        rows.append(HeaderCellViewModel(title: TitlesConstants.MenuTitle, action: {
-            self.actions?.tapMoreFood()
+        rows.append(HeaderCellViewModel(title: TitlesConstants.MenuTitle, action: {  [weak self] in
+            self?.actions?.tapMoreFood()
         }))
 
         rows.append(HeaderCellViewModel(title: TitlesConstants.InfoTitle, action: nil))

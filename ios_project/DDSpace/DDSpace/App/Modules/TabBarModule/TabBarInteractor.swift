@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 final class TabBarInteractor {
 	weak var output: TabBarInteractorOutput?
 }
 
 extension TabBarInteractor: TabBarInteractorInput {
+    
     func getTabBarItemsInfo() {
         output?.receiveTabBarItemsInfo(with: [
             TabBarItemModel(image: "events", title: TitlesConstants.EventsBarTitle, selectedImage: "events"),

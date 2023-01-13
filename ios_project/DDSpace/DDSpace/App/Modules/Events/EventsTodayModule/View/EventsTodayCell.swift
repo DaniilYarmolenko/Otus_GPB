@@ -20,7 +20,7 @@ final class EventsTodayCell: UITableViewCell {
     internal var imageName: String?
     internal var imageLoaded: UIImage?
     private var id: UUID?
-    var delegate: EventsTodayViewOutput?
+    weak var delegate: EventsTodayViewOutput?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
