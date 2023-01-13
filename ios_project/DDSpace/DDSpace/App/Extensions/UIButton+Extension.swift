@@ -21,11 +21,11 @@ extension UIButton {
     }
 }
 final class CreateStack {
-   static func createStack(axis: NSLayoutConstraint.Axis = .vertical,
-                           distribution: UIStackView.Distribution = .fillEqually,
-                           alignmentStack: UIStackView.Alignment,
-                           spacing: CGFloat = 5,
-                           views: UIView...) -> UIStackView {
+    static func createStack(axis: NSLayoutConstraint.Axis = .vertical,
+                            distribution: UIStackView.Distribution = .fillEqually,
+                            alignmentStack: UIStackView.Alignment,
+                            spacing: CGFloat = 5,
+                            views: UIView...) -> UIStackView {
         let stack = UIStackView()
         stack.axis = axis
         stack.distribution = distribution

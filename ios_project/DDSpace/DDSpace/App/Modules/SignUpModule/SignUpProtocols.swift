@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SignUpModuleInput {
-	var moduleOutput: SignUpModuleOutput? { get }
+    var moduleOutput: SignUpModuleOutput? { get }
 }
 
 protocol SignUpModuleOutput: AnyObject {
@@ -29,7 +29,7 @@ protocol SignUpInteractorInput: AnyObject {
 }
 
 protocol SignUpInteractorOutput: AnyObject {
-   func successSignUp()
+    func successSignUp()
     func errorSignUp()
 }
 

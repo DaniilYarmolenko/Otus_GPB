@@ -9,7 +9,7 @@
 import UIKit
 
 final class FoodDetailViewController: UIViewController {
-	private let output: FoodDetailViewOutput
+    private let output: FoodDetailViewOutput
     internal var imageFoodView = UIImageView()
     internal var descriptionLabel = UILabel()
     internal var nameLabel = UILabel()
@@ -21,19 +21,19 @@ final class FoodDetailViewController: UIViewController {
     let number: Int = UserDefaults.standard.integer(forKey: "countCart")
     var count: Int?
     let btn = BadgedButtonItem(with: UIImage(named: "cart"))
-
+    
     init(output: FoodDetailViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(changeBudged), name: NSNotification.Name("detailFoodBadge"), object: nil)
         view.backgroundColor = .white
@@ -41,7 +41,7 @@ final class FoodDetailViewController: UIViewController {
         navigationItem.title = output.getTitle()
         setUp()
         output.viewDidLoad()
-	}
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         btn.setBadge(with: UserDefaults.standard.integer(forKey: "countCart"))
@@ -86,12 +86,12 @@ final class FoodDetailViewController: UIViewController {
         stepper.addTarget(self, action: #selector(changeValueStepper), for: .valueChanged)
         stepper.contentVerticalAlignment = .center
         stepper.contentHorizontalAlignment = .center
-    
+        
         view.addSubview(stepper)
     }
     private func setUpNavigtion() {
         navigationController?.navigationBar.isHidden = false
-//        navigationItem.title = output
+        //        navigationItem.title = output
         navigationItem.rightBarButtonItem = btn
         btn.tapAction = {
             self.output.goToCart()
@@ -99,7 +99,7 @@ final class FoodDetailViewController: UIViewController {
     }
     @objc
     func changeValueStepper() {
-//        UserDefaults.standard.set(number+Int(stepper.value), forKey: "countCart")
+        //        UserDefaults.standard.set(number+Int(stepper.value), forKey: "countCart")
         switch output.getFoodCountInCart() {
         case 0:
             self.output.addToCoreData(image: image?.pngData() ?? Data())

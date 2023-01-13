@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol EventsModuleInput {
-	var moduleOutput: EventsModuleOutput? { get }
+    var moduleOutput: EventsModuleOutput? { get }
 }
 
 protocol EventsModuleOutput: AnyObject {

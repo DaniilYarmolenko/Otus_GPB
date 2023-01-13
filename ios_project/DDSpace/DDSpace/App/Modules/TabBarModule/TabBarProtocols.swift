@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol TabBarModuleInput {
-	var moduleOutput: TabBarModuleOutput? { get }
+    var moduleOutput: TabBarModuleOutput? { get }
 }
 
 protocol TabBarModuleOutput: AnyObject {

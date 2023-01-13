@@ -9,13 +9,13 @@
 import Foundation
 
 final class EventsByCategoryPresenter {
-	weak var view: EventsByCategoryViewInput?
+    weak var view: EventsByCategoryViewInput?
     weak var moduleOutput: EventsByCategoryModuleOutput?
     var events = [EventModel]()
     var category: CategoryModel?
-	private let router: EventsByCategoryRouterInput
-	private let interactor: EventsByCategoryInteractorInput
-
+    private let router: EventsByCategoryRouterInput
+    private let interactor: EventsByCategoryInteractorInput
+    
     init(router: EventsByCategoryRouterInput, interactor: EventsByCategoryInteractorInput) {
         self.router = router
         self.interactor = interactor

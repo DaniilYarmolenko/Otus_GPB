@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum AuthResult {
-  case success
-  case failure
+    case success
+    case failure
 }
 
 class Auth {

@@ -9,7 +9,7 @@
 import Foundation
 
 final class EventDetailInteractor {
-	weak var output: EventDetailInteractorOutput?
+    weak var output: EventDetailInteractorOutput?
 }
 
 extension EventDetailInteractor: EventDetailInteractorInput {
@@ -22,7 +22,7 @@ extension EventDetailInteractor: EventDetailInteractorInput {
     }
     
     func userAuth() -> Bool {
-        return false
+        Auth().token != nil
     }
     
 }

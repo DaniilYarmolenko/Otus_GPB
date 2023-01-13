@@ -13,14 +13,14 @@ final class HeaderCellViewModel: CellIdentifiable {
     
     typealias ActionHandler = () -> Void
     var action: ActionHandler?
-
+    
     var cellIdentifier: String {
         return HeaderCellView.cellIdentifier
     }
-
+    
     var title: String
     var seeAll: String
-
+    
     init(title: String, action: ActionHandler? = nil) {
         self.title = title
         self.seeAll = TitlesConstants.MoreBarTitle

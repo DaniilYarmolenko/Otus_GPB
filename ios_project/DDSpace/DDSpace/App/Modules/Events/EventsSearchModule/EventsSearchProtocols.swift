@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol EventsSearchModuleInput {
-	var moduleOutput: EventsSearchModuleOutput? { get }
+    var moduleOutput: EventsSearchModuleOutput? { get }
 }
 
 protocol EventsSearchModuleOutput: AnyObject {

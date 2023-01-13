@@ -53,7 +53,7 @@ extension OnboardingViewController {
         
         subtitleLabel.numberOfLines = 0
     }
-        
+    
     func layout() {
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)

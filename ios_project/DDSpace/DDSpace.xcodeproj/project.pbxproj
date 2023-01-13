@@ -932,13 +932,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		26674DE1296722C100A31A4F /* User */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		26674DE2296722DC00A31A4F /* FoodCart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,7 +1156,6 @@
 			children = (
 				26F2151C293E74AE00499873 /* CoreDataFood.xcdatamodeld */,
 				26674DE2296722DC00A31A4F /* FoodCart */,
-				26674DE1296722C100A31A4F /* User */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
 import Foundation
 
 final class FoodCartInteractor {
-	weak var output: FoodCartInteractorOutput?
+    weak var output: FoodCartInteractorOutput?
     var total: Int = 0
 }
 

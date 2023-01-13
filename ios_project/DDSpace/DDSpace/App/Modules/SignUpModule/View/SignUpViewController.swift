@@ -10,12 +10,6 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
     private let output: SignUpViewOutput
-    //    internal var firsNameTF = CustomTextField()
-    //    internal var lastNameTF = CustomTextField()
-    //    internal var userNameTF = CustomTextField()
-    //    internal var emailTF = CustomTextField()
-    //    internal var passwordTF = CustomTextField()
-    //    internal var confirmPassword = CustomTextField()
     internal var stack = UIStackView()
     internal var dismissButton = UIButton()
     internal var scroll = UIScrollView()
@@ -157,11 +151,9 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.isEmpty == false {
             textField.tintColor = .black
-//            labelError.isHidden = true
             signUpButton.isEnabled = true
         } else {
             textField.tintColor = .red
-//            labelError.isHidden = false
             signUpButton.isEnabled = false
         }
     }

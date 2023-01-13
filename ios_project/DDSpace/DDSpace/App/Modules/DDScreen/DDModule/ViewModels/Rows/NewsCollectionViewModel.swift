@@ -13,13 +13,13 @@ final class NewsCollectionViewModel: CellIdentifiable {
     
     typealias ActionHandler = (Int) -> Void
     var action: ActionHandler?
-
+    
     var cellIdentifier: String {
         return NewsCollectionTableViewCell.cellIdentifier
     }
-
+    
     var array: [NewsModel]
-
+    
     init(array: [NewsModel], action: ActionHandler? = nil) {
         self.array = array
         self.action = action

@@ -8,7 +8,7 @@
 import CoreData
 
 final class CoreDataService: ServiceCoreDataInput {
-        
+    
     
     static let shared = CoreDataService()
     private var dataManager = CoreDataCartManager.shared
@@ -26,10 +26,10 @@ final class CoreDataService: ServiceCoreDataInput {
         }
         return 0
     }
-
+    
     func isContain(with id: String) -> Bool {
         let fetchRequest = CartCoreModel.fetchRequest()
-//        "\(#keyPath(Scene.relatedProject.name)) == %@", projectName)
+        //        "\(#keyPath(Scene.relatedProject.name)) == %@", projectName)
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         let count = self.dataManager.fetch(with: fetchRequest)?.count
         return count != 0
@@ -58,17 +58,17 @@ final class CoreDataService: ServiceCoreDataInput {
     }
     
     func insert(with model: FoodSaveModel) {
-            self.dataManager.create(with: "CartFood") { item in
-                guard let item = item as? CartCoreModel else {
-                    return
-                }
-                item.id = model.id
-                item.name = model.nameFood
-                item.data = model.data
-                item.count = Int16(model.count)
-                item.cost = Int32(model.cost)
+        self.dataManager.create(with: "CartFood") { item in
+            guard let item = item as? CartCoreModel else {
+                return
             }
+            item.id = model.id
+            item.name = model.nameFood
+            item.data = model.data
+            item.count = Int16(model.count)
+            item.cost = Int32(model.cost)
         }
+    }
     func update(with model: FoodSaveModel) {
         let fetchRequest = CartCoreModel.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", model.id)

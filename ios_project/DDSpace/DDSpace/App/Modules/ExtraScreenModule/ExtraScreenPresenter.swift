@@ -9,12 +9,12 @@
 import Foundation
 
 final class ExtraScreenPresenter {
-	weak var view: ExtraScreenViewInput?
+    weak var view: ExtraScreenViewInput?
     weak var moduleOutput: ExtraScreenModuleOutput?
-
-	private let router: ExtraScreenRouterInput
-	private let interactor: ExtraScreenInteractorInput
-
+    
+    private let router: ExtraScreenRouterInput
+    private let interactor: ExtraScreenInteractorInput
+    
     init(router: ExtraScreenRouterInput, interactor: ExtraScreenInteractorInput) {
         self.router = router
         self.interactor = interactor

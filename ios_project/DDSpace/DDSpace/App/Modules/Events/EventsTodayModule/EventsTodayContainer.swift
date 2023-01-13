@@ -10,33 +10,33 @@ import UIKit
 
 final class EventsTodayContainer {
     let input: EventsTodayModuleInput
-	let viewController: UIViewController
-	private(set) weak var router: EventsTodayRouterInput!
-
-	class func assemble(with context: EventsTodayContext) -> EventsTodayContainer {
+    let viewController: UIViewController
+    private(set) weak var router: EventsTodayRouterInput!
+    
+    class func assemble(with context: EventsTodayContext) -> EventsTodayContainer {
         let router = EventsTodayRouter()
         let interactor = EventsTodayInteractor()
         let presenter = EventsTodayPresenter(router: router, interactor: interactor)
-		let viewController = EventsTodayViewController(output: presenter)
-
-		presenter.view = viewController
-		presenter.moduleOutput = context.moduleOutput
+        let viewController = EventsTodayViewController(output: presenter)
+        
+        presenter.view = viewController
+        presenter.moduleOutput = context.moduleOutput
         presenter.events = context.eventsToday
         router.navigationController = context.navigationController
-		interactor.output = presenter
-
+        interactor.output = presenter
+        
         return EventsTodayContainer(view: viewController, input: presenter, router: router)
-	}
-
+    }
+    
     private init(view: UIViewController, input: EventsTodayModuleInput, router: EventsTodayRouterInput) {
-		self.viewController = view
+        self.viewController = view
         self.input = input
-		self.router = router
-	}
+        self.router = router
+    }
 }
 
 struct EventsTodayContext {
-	weak var moduleOutput: EventsTodayModuleOutput?
+    weak var moduleOutput: EventsTodayModuleOutput?
     var eventsToday: [EventModel]
     weak var navigationController: UINavigationController?
 }

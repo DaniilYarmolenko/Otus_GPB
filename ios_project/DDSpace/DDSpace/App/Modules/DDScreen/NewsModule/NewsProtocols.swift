@@ -9,7 +9,7 @@
 import Foundation
 
 protocol NewsModuleInput {
-	var moduleOutput: NewsModuleOutput? { get }
+    var moduleOutput: NewsModuleOutput? { get }
 }
 
 protocol NewsModuleOutput: AnyObject {

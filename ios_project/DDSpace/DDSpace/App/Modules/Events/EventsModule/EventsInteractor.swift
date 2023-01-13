@@ -11,7 +11,7 @@ import Foundation
 
 final class EventsInteractor {
     
-	weak var output: EventsInteractorOutput?
+    weak var output: EventsInteractorOutput?
     private var events = [EventModel]()
     private var categories = [CategoryModel]()
     let eventsRequest = ApiService<EventModel>(resourcePath: "events")

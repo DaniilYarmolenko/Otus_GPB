@@ -9,7 +9,7 @@
 import Foundation
 
 final class NewsDetailInteractor {
-	weak var output: NewsDetailInteractorOutput?
+    weak var output: NewsDetailInteractorOutput?
 }
 
 extension NewsDetailInteractor: NewsDetailInteractorInput {

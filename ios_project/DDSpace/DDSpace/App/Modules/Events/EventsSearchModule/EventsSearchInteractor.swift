@@ -9,7 +9,7 @@
 import Foundation
 
 final class EventsSearchInteractor {
-	weak var output: EventsSearchInteractorOutput?
+    weak var output: EventsSearchInteractorOutput?
     private var category = [CategoryModel]()
     var categoryRequest = ApiService<CategoryModel>(resourcePath: "categories")
     var eventsRequest = ApiService<EventModel>(resourcePath: "events")

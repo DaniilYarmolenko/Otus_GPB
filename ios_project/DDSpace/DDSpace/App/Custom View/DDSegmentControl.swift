@@ -61,7 +61,7 @@ class DDSegmentControl: UIView {
                 UIView.animate(withDuration: 0.3) {
                     self.selectorView.frame.origin.x = selectorPosition
                 }
-
+                
             }
         }
     }

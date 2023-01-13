@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 class BadgedButtonItem: UIBarButtonItem {
-
+    
     public func setBadge(with value: Int) {
         self.badgeValue = value
     }
-
+    
     private var badgeValue: Int? {
         didSet {
             if let value = badgeValue,
-                value > 0 {
+               value > 0 {
                 lblBadge.isHidden = false
                 lblBadge.text = "\(value)"
             } else {
@@ -24,34 +24,34 @@ class BadgedButtonItem: UIBarButtonItem {
             }
         }
     }
-
+    
     var tapAction: (() -> Void)?
-
+    
     private let filterBtn = UIButton()
     private let lblBadge = UILabel()
-
+    
     override init() {
         super.init()
         setup()
     }
-
+    
     init(with image: UIImage?) {
         super.init()
         setup(image: image)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-
+    
     private func setup(image: UIImage? = nil) {
-
+        
         self.filterBtn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         self.filterBtn.adjustsImageWhenHighlighted = false
         self.filterBtn.setImage(image, for: .normal)
         self.filterBtn.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-
+        
         self.lblBadge.frame = CGRect(x: 20, y: 0, width: 15, height: 15)
         self.lblBadge.backgroundColor = .red
         self.lblBadge.clipsToBounds = true
@@ -65,11 +65,11 @@ class BadgedButtonItem: UIBarButtonItem {
         self.filterBtn.addSubview(lblBadge)
         self.customView = filterBtn
     }
-
+    
     @objc func buttonPressed() {
         if let action = tapAction {
             action()
         }
     }
-
+    
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SigninModuleInput {
-	var moduleOutput: SigninModuleOutput? { get }
+    var moduleOutput: SigninModuleOutput? { get }
 }
 
 protocol SigninModuleOutput: AnyObject {

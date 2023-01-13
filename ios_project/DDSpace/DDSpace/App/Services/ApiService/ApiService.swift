@@ -54,7 +54,6 @@ struct ApiService<ResourceType> where ResourceType: Codable {
                     completion(.failure(.noData))
                     return
                 }
-                
                 do {
                     let resource = try JSONDecoder().decode(ResourceType.self, from: jsonData)
                     completion(.success(resource))

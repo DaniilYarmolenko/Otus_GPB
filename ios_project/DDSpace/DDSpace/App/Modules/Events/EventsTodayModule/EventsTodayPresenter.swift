@@ -8,11 +8,11 @@
 
 import Foundation
 final class EventsTodayPresenter {
-	weak var view: EventsTodayViewInput?
+    weak var view: EventsTodayViewInput?
     weak var moduleOutput: EventsTodayModuleOutput?
     var events: [EventModel]?
-	private let router: EventsTodayRouterInput
-	private let interactor: EventsTodayInteractorInput
+    private let router: EventsTodayRouterInput
+    private let interactor: EventsTodayInteractorInput
     init(router: EventsTodayRouterInput, interactor: EventsTodayInteractorInput) {
         self.router = router
         self.interactor = interactor

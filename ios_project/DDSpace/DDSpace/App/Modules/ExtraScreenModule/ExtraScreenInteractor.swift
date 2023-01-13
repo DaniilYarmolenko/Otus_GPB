@@ -9,7 +9,7 @@
 import Foundation
 
 final class ExtraScreenInteractor {
-	weak var output: ExtraScreenInteractorOutput?
+    weak var output: ExtraScreenInteractorOutput?
 }
 
 extension ExtraScreenInteractor: ExtraScreenInteractorInput {

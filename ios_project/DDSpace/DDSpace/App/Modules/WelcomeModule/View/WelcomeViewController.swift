@@ -37,7 +37,6 @@ final class WelcomeViewController: UIPageViewController{
         view
             .backgroundColor = .white
         output.getViews()
-//                output.viewDidLoad()
         setUp()
         setUpStyle()
         layout()
@@ -70,31 +69,31 @@ final class WelcomeViewController: UIPageViewController{
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
     }
     func layout() {
-            view.addSubview(pageControl)
-            view.addSubview(nextButton)
-            view.addSubview(skipButton)
+        view.addSubview(pageControl)
+        view.addSubview(nextButton)
+        view.addSubview(skipButton)
+        
+        NSLayoutConstraint.activate([
+            pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: 20),
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            NSLayoutConstraint.activate([
-                pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
-                pageControl.heightAnchor.constraint(equalToConstant: 20),
-                pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-                
-                skipButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-
-                
-                view.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2),
-            ])
             
-            // for animations
-            pageControlBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 2)
-            skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
-            nextButtonTopAnchor = nextButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+            skipButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             
-            pageControlBottomAnchor?.isActive = true
-            skipButtonTopAnchor?.isActive = true
-            nextButtonTopAnchor?.isActive = true
-        }
+            
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2),
+        ])
+        
+        // for animations
+        pageControlBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 2)
+        skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+        nextButtonTopAnchor = nextButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+        
+        pageControlBottomAnchor?.isActive = true
+        skipButtonTopAnchor?.isActive = true
+        nextButtonTopAnchor?.isActive = true
+    }
     
 }
 

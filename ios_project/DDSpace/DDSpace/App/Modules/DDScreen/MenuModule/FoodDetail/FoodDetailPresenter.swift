@@ -9,13 +9,13 @@
 import Foundation
 
 final class FoodDetailPresenter {
-	weak var view: FoodDetailViewInput?
+    weak var view: FoodDetailViewInput?
     weak var moduleOutput: FoodDetailModuleOutput?
     var food: FoodModel?
-
-	private let router: FoodDetailRouterInput
-	private let interactor: FoodDetailInteractorInput
-
+    
+    private let router: FoodDetailRouterInput
+    private let interactor: FoodDetailInteractorInput
+    
     init(router: FoodDetailRouterInput, interactor: FoodDetailInteractorInput) {
         self.router = router
         self.interactor = interactor

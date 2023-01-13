@@ -32,7 +32,7 @@ final class EventsTodayCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
+        
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0))
     }
     required init?(coder: NSCoder) {
@@ -133,7 +133,7 @@ final class EventsTodayCell: UITableViewCell {
         registerButton.clipsToBounds = true
         registerButton.layer.cornerRadius = 15
     }
-
+    
     private func setUpReverseButton() {
         reverseButton.setBackgroundColor(color: .white, forState: .normal)
         reverseButton.setBackgroundColor(color: .white, forState: .highlighted)

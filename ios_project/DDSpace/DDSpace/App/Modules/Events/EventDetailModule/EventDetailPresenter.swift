@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 final class EventDetailPresenter {
-	weak var view: EventDetailViewInput?
+    weak var view: EventDetailViewInput?
     weak var moduleOutput: EventDetailModuleOutput?
     var eventDetail: EventModel?
-	private let router: EventDetailRouterInput
-	private let interactor: EventDetailInteractorInput
-
+    private let router: EventDetailRouterInput
+    private let interactor: EventDetailInteractorInput
+    
     init(router: EventDetailRouterInput, interactor: EventDetailInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -34,6 +34,14 @@ extension EventDetailPresenter: EventDetailModuleInput {
 }
 
 extension EventDetailPresenter: EventDetailViewOutput {
+    func tapOnRegister() {
+        if Auth().token == nil {
+            showAlertAuth()
+        } else {
+            showOpsAlert()
+        }
+    }
+    
     func showOpsAlert() {
         router.showOpsAlert(with: view)
     }
@@ -62,16 +70,16 @@ extension EventDetailPresenter: EventDetailViewOutput {
     
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
-
+        
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
             let transform = CGAffineTransform(scaleX: 3, y: 3)
-
+            
             if let output = filter.outputImage?.transformed(by: transform) {
                 return UIImage(ciImage: output)
             }
         }
-
+        
         return nil
     }
     

@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 final class EventsPresenter {
-	weak var view: EventsViewInput?
+    weak var view: EventsViewInput?
     weak var moduleOutput: EventsModuleOutput?
     var allEvents = [EventModel]()
     var eventsToday = [EventModel]()
     var eventsFuture = [EventModel]()
     var categories = [CategoryModel]()
     
-	private let router: EventsRouterInput
-	private let interactor: EventsInteractorInput
-
+    private let router: EventsRouterInput
+    private let interactor: EventsInteractorInput
+    
     init(router: EventsRouterInput, interactor: EventsInteractorInput) {
         self.router = router
         self.interactor = interactor

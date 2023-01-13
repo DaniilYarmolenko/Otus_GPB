@@ -15,17 +15,17 @@ final class InfoCollectionViewModel: CellIdentifiable {
     
     typealias ActionHandler = (Int) -> Void
     var action: ActionHandler?
-
+    
     var cellIdentifier: String {
         return InfoViewCell.cellIdentifier
     }
-
+    
     var infoModel: [InfoModel]
-
+    
     init(model: [InfoModel], action: ActionHandler? = nil, output: DDViewOutput) {
         self.infoModel = model
         self.action = action
         self.output = output
     }
-
+    
 }

@@ -9,13 +9,13 @@
 import Foundation
 
 final class WelcomePresenter {
-	weak var view: WelcomeViewInput?
+    weak var view: WelcomeViewInput?
     weak var moduleOutput: WelcomeModuleOutput?
-
-	private let router: WelcomeRouterInput
-	private let interactor: WelcomeInteractorInput
     
-
+    private let router: WelcomeRouterInput
+    private let interactor: WelcomeInteractorInput
+    
+    
     init(router: WelcomeRouterInput, interactor: WelcomeInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -25,11 +25,7 @@ final class WelcomePresenter {
 extension WelcomePresenter: WelcomeModuleInput {
 }
 
-extension WelcomePresenter: WelcomeViewOutput {
-    func viewDidLoad() {
-        
-    }
-    
+extension WelcomePresenter: WelcomeViewOutput {    
     func getViews() {
         let views = router.receiveViews()
         self.view?.receiveViews(with: views)

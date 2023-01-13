@@ -8,8 +8,6 @@
 import Foundation
 import UIKit.UIImage
 final class ImageLoader {
-    
-//http://127.0.0.1:8080/Pictures/FoodCategoriesPictures/B57D85D1-9075-41AB-9920-00673162F7BC-DA9E87A5-AD76-4E10-B8D8-5BB2441ECC83.jpg
     public static let shared = ImageLoader()
     
     private let cache: ImageCacheType

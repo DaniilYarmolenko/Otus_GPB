@@ -12,7 +12,7 @@ final class CategoryFoodMenuCell: UICollectionViewCell {
     var delegate: MenuViewOutput?
     static let cellIdentifier = String(describing: CategoryFoodMenuCell.self)
     internal var nameCategory = UILabel()
-
+    
     
     
     override init(frame: CGRect) {
@@ -21,7 +21,7 @@ final class CategoryFoodMenuCell: UICollectionViewCell {
         setUp()
         addConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -29,7 +29,7 @@ final class CategoryFoodMenuCell: UICollectionViewCell {
     private func setUp() {
         setUpLabel()
     }
-
+    
     
     private func setUpLabel() {
         nameCategory.font = UIFont(name: FontConstants.MoniqaLightItalicHeading, size: 30)

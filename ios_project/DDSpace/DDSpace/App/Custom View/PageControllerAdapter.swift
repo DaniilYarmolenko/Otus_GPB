@@ -32,7 +32,7 @@ final class PageViewControllerSegmentedAdapter: NSObject {
             pageViewController.setViewControllers([firstViewController], direction: .forward, animated: true)
         }
     }
-
+    
     
     private func setViewController(atIndex index: Int, direction: UIPageViewController.NavigationDirection) {
         self.pageViewController?.setViewControllers([self.viewControllers[index]], direction: direction, animated: true) { [weak self] completed in
@@ -49,8 +49,8 @@ final class PageViewControllerSegmentedAdapter: NSObject {
 extension PageViewControllerSegmentedAdapter: UIPageViewControllerDelegate {
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = self.viewControllers.firstIndex(of: viewController),
-            index > 0 else {
-                return nil
+              index > 0 else {
+            return nil
         }
         return self.viewControllers[index-1]
     }
@@ -67,15 +67,15 @@ extension PageViewControllerSegmentedAdapter: UIPageViewControllerDelegate {
 }
 
 extension PageViewControllerSegmentedAdapter: UIPageViewControllerDataSource {
-
+    
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
                             transitionCompleted completed: Bool) {
         guard let viewControllers = pageViewController.viewControllers,
-            let lastViewController = viewControllers.last,
+              let lastViewController = viewControllers.last,
               let index = self.viewControllers.firstIndex(of: lastViewController) else {
-                return
+            return
         }
         
         if finished && completed {

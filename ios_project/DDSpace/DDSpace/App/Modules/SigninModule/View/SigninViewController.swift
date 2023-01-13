@@ -9,7 +9,7 @@
 import UIKit
 
 final class SigninViewController: UIViewController {
-	private let output: SigninViewOutput
+    private let output: SigninViewOutput
     internal var loginTF = CustomTextField()
     internal var password = CustomTextField()
     internal var labelError = UILabel()
@@ -20,20 +20,20 @@ final class SigninViewController: UIViewController {
     internal var ddImageView = UIImageView()
     init(output: SigninViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setUp()
         view.backgroundColor = .white
-	}
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraint()
@@ -45,7 +45,7 @@ final class SigninViewController: UIViewController {
         setUpGuessButton()
         setUpSignUpButton()
         setUpImageView()
-
+        
     }
     
     func setUpTextFields() {

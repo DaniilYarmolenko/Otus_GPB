@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 final class TabBarInteractor {
-	weak var output: TabBarInteractorOutput?
+    weak var output: TabBarInteractorOutput?
 }
 
 extension TabBarInteractor: TabBarInteractorInput {

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol EventsByCategoryModuleInput {
-	var moduleOutput: EventsByCategoryModuleOutput? { get }
+    var moduleOutput: EventsByCategoryModuleOutput? { get }
     var category: CategoryModel? {get set}
 }
 

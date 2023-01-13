@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MenuModuleInput {
-	var moduleOutput: MenuModuleOutput? { get }
+    var moduleOutput: MenuModuleOutput? { get }
 }
 
 protocol MenuModuleOutput: AnyObject {

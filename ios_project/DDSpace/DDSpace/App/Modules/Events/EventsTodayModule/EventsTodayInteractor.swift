@@ -9,7 +9,7 @@
 import Foundation
 
 final class EventsTodayInteractor {
-	weak var output: EventsTodayInteractorOutput?
+    weak var output: EventsTodayInteractorOutput?
     var eventsRequest = ApiService<EventModel>(resourcePath: "events")
     private var eventToday = [EventModel]()
     private let group = DispatchGroup()

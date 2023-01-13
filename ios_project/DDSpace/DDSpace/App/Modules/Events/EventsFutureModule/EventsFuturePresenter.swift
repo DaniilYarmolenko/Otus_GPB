@@ -9,12 +9,12 @@
 import Foundation
 
 final class EventsFuturePresenter {
-	weak var view: EventsFutureViewInput?
+    weak var view: EventsFutureViewInput?
     weak var moduleOutput: EventsFutureModuleOutput?
     var events: [EventModel]?
-	private let router: EventsFutureRouterInput
-	private let interactor: EventsFutureInteractorInput
-
+    private let router: EventsFutureRouterInput
+    private let interactor: EventsFutureInteractorInput
+    
     init(router: EventsFutureRouterInput, interactor: EventsFutureInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -34,7 +34,7 @@ extension EventsFuturePresenter: EventsFutureViewOutput {
     }
     
     func getCountCell() -> Int {
-       events?.count ?? 0
+        events?.count ?? 0
     }
     
     func clickOnEvent(with id: Int) {

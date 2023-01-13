@@ -9,7 +9,7 @@
 import Foundation
 
 final class EventsFutureInteractor {
-	weak var output: EventsFutureInteractorOutput?
+    weak var output: EventsFutureInteractorOutput?
     var eventsRequest = ApiService<EventModel>(resourcePath: "events")
     private let group = DispatchGroup()
     private var eventFuture = [EventModel]()

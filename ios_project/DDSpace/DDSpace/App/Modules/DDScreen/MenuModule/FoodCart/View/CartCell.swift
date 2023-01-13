@@ -23,9 +23,8 @@ class CartCell: UITableViewCell{
         cost = model.cost
         self.model = model
         costCountLabel.attributedText = "\(cost)₽ X \(model.count)".underLined
-//        totalAmount.text = "\(model.count*cost)₽"
     }
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUp()
@@ -36,7 +35,7 @@ class CartCell: UITableViewCell{
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -72,12 +71,12 @@ class CartCell: UITableViewCell{
                 let newModel = FoodSaveModel(id: model.id, nameFood: model.nameFood, data: model.data, count: Int(stepper.value), cost: model.cost)
                 delegate?.updateCount(food: newModel)
             }
-
+            
         }
         
     }
     func addViewConstraints() {
-       
+        
         imageV.translatesAutoresizingMaskIntoConstraints = false
         imageV.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant:  -10).isActive = true
         imageV.widthAnchor.constraint(equalTo: imageV.heightAnchor).isActive = true
@@ -102,5 +101,5 @@ class CartCell: UITableViewCell{
         stepper.trailingAnchor
             .constraint(equalTo: contentView.trailingAnchor).isActive = true
         stepper.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
-   }
+    }
 }

@@ -64,12 +64,12 @@ final class CustomTextField: UITextField {
         lblPlaceholder.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
         guard let clearButton = self.value(forKey: "_clearButton") as? UIButton else {
-             return
-         }
-         let templateImage = clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
-         clearButton.setImage(templateImage, for: .normal)
-         clearButton.setImage(templateImage, for: .highlighted)
-         clearButton.tintColor = .gray
+            return
+        }
+        let templateImage = clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        clearButton.setImage(templateImage, for: .normal)
+        clearButton.setImage(templateImage, for: .highlighted)
+        clearButton.tintColor = .gray
     }
     
     private func slidePlaceholderIfNeeded(newText: String?) {
@@ -77,8 +77,8 @@ final class CustomTextField: UITextField {
         let lineHieght = font?.lineHeight ?? 0
         let translationY = lineHieght + 4
         let transform = text.isEmpty
-            ? CGAffineTransform.identity
-            : CGAffineTransform(translationX: 0, y: -translationY).scaledBy(x: 0.95, y: 0.95)
+        ? CGAffineTransform.identity
+        : CGAffineTransform(translationX: 0, y: -translationY).scaledBy(x: 0.95, y: 0.95)
         let size: CGFloat = text.isEmpty ? 16 : 12
         let fontWeight = text.isEmpty ? UIFont.Weight.regular : UIFont.Weight.thin
         UIView.animate(

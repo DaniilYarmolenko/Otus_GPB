@@ -37,6 +37,7 @@ final class NewsViewController: UIViewController {
     }
     private func setUp() {
         setUpTableViewBase()
+        setUpRefresh()
     }
     private func setUpTableViewBase() {
         tableViewNews.showsVerticalScrollIndicator = false
@@ -57,12 +58,12 @@ final class NewsViewController: UIViewController {
     @objc
     func refresh() {
         output.viewDidLoad()
-        refreshControl.endRefreshing()
     }
 }
 
 extension NewsViewController: NewsViewInput {
     func reloadData() {
+        refreshControl.endRefreshing()
         self.tableViewNews.reloadData()
     }
 }

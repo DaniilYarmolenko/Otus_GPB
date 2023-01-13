@@ -9,12 +9,12 @@
 import Foundation
 
 final class FoodCartPresenter {
-	weak var view: FoodCartViewInput?
+    weak var view: FoodCartViewInput?
     weak var moduleOutput: FoodCartModuleOutput?
     var array = [FoodSaveModel]()
-	private let router: FoodCartRouterInput
-	private let interactor: FoodCartInteractorInput
-
+    private let router: FoodCartRouterInput
+    private let interactor: FoodCartInteractorInput
+    
     init(router: FoodCartRouterInput, interactor: FoodCartInteractorInput) {
         self.router = router
         self.interactor = interactor

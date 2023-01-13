@@ -22,7 +22,7 @@ final class CategoriesSearchCollectionCell: UICollectionViewCell {
         addConstraints()
         setUp()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -31,7 +31,7 @@ final class CategoriesSearchCollectionCell: UICollectionViewCell {
         setUpImageView()
         setUpLabel()
     }
-
+    
     private func setUpImageView() {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill

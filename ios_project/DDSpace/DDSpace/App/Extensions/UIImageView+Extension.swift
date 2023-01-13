@@ -12,7 +12,7 @@ extension UIImageView {
         let imageWidth = image.size.width
         let imageHeight = image.size.height
         guard imageWidth > 0 && imageHeight > 0 else { return bounds }
-
+        
         let scale: CGFloat
         if imageWidth > imageHeight {
             scale = bounds.size.width / imageWidth

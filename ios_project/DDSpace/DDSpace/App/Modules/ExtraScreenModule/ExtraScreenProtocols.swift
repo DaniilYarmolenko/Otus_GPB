@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ExtraScreenModuleInput {
-	var moduleOutput: ExtraScreenModuleOutput? { get }
+    var moduleOutput: ExtraScreenModuleOutput? { get }
 }
 
 protocol ExtraScreenModuleOutput: AnyObject {

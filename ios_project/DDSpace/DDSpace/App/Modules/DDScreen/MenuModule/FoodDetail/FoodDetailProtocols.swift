@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FoodDetailModuleInput {
-	var moduleOutput: FoodDetailModuleOutput? { get }
+    var moduleOutput: FoodDetailModuleOutput? { get }
 }
 
 protocol FoodDetailModuleOutput: AnyObject {

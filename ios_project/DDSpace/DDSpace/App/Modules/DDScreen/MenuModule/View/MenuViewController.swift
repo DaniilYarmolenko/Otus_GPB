@@ -22,7 +22,6 @@ final class MenuViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        //        layout.collectionView?.numberOfItems(inSection: 2)
         layout.itemSize = CGSize(width: SizeConstants.screenWidth/2 - 20, height: SizeConstants.screenHeight/4)
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
@@ -257,14 +256,6 @@ extension CategoryCollectionAdapter: UICollectionViewDataSource, UICollectionVie
         return CGSize(width: collectionView.frame.width, height: SizeConstants.screenHeight/7)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let count = collectionView.numberOfItems(inSection: 0)
-//        collectionView.visibleCells.forEach { cell in
-//            cell.backgroundColor = .white
-//        }
-//
-//            if indexPath.row == 0  || indexPath.row == count-1 {
-//                collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
-//            }
-            output.selectCategory(index: indexPath.row)
-        }
+        output.selectCategory(index: indexPath.row)
+    }
 }

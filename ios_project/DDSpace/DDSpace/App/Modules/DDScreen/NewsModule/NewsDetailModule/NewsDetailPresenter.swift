@@ -9,12 +9,12 @@
 import Foundation
 
 final class NewsDetailPresenter {
-	weak var view: NewsDetailViewInput?
+    weak var view: NewsDetailViewInput?
     weak var moduleOutput: NewsDetailModuleOutput?
     var newsDetail: NewsModel?
-	private let router: NewsDetailRouterInput
-	private let interactor: NewsDetailInteractorInput
-
+    private let router: NewsDetailRouterInput
+    private let interactor: NewsDetailInteractorInput
+    
     init(router: NewsDetailRouterInput, interactor: NewsDetailInteractorInput) {
         self.router = router
         self.interactor = interactor

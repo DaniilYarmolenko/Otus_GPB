@@ -11,7 +11,7 @@ extension String {
     var underLined: NSAttributedString {
         NSMutableAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
-
+    
     func textWithLineSpace(lineSpacing: CGFloat = 5) -> NSAttributedString? {
         let attrString = NSMutableAttributedString(string: self)
         let style = NSMutableParagraphStyle()
@@ -52,17 +52,17 @@ extension String {
     }
 }
 extension Date {
-   
-        func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
-            return calendar.dateComponents(Set(components), from: self)
-        }
-
-        func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
-            return calendar.component(component, from: self)
-        }
+    
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+    
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
+    }
     func convertToTimeZone(initTimeZone: TimeZone?) -> Date {
         let delta = TimeInterval(TimeZone.current.secondsFromGMT(for: self) - (initTimeZone?.secondsFromGMT(for: self) ?? 0))
-             return addingTimeInterval(delta)
-        }
+        return addingTimeInterval(delta)
+    }
     
 }

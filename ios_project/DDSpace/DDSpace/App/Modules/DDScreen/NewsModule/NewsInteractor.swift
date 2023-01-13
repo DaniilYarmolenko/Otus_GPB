@@ -9,7 +9,7 @@
 import Foundation
 
 final class NewsInteractor {
-	weak var output: NewsInteractorOutput?
+    weak var output: NewsInteractorOutput?
     let newsRequest = ApiService<NewsModel>(resourcePath: "news")
     private var news = [NewsModel]()
     private let group = DispatchGroup()
@@ -17,11 +17,9 @@ final class NewsInteractor {
 
 extension NewsInteractor: NewsInteractorInput {
     func loadNews() {
-    print("LOAD 1")
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             newsRequest.getAll { newsResult in
-                print("LOAD 2")
                 switch newsResult {
                 case .failure (_):
                     self.group.leave()
@@ -32,7 +30,6 @@ extension NewsInteractor: NewsInteractorInput {
             }
         }
         group.notify(queue: .main, execute: { [self] in
-            print("LOAD 2")
             output?.receiveData(news: news)
         })
     }

@@ -28,7 +28,7 @@ final class DDViewController: UIViewController {
         super.viewDidLoad()
         setUp()
         output.viewDidLoad()
-
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,11 +41,7 @@ final class DDViewController: UIViewController {
     private func setUp() {
         navigationController?.navigationBar.isHidden = true
         setUpTableView()
-        //        setUpIndicator()
-        
         self.view.backgroundColor = .white
-//        self.view.addSubview(activityIndicatorView)
-//        activityIndicatorView.startAnimating()
     }
     private func setUpTableView() {
         setUpTableViewBase()
@@ -70,7 +66,7 @@ final class DDViewController: UIViewController {
         tableView.delegate = self
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
-//        tableView.tableHeaderView = UIView()
+        //        tableView.tableHeaderView = UIView()
         tableView.separatorStyle = .none
     }
     @objc
@@ -86,7 +82,6 @@ extension DDViewController: DDViewInput {
     func reloadData() {
         tableView.reloadData()
         output.sectionDelegate = self
-//        activityIndicatorView.stopAnimating()
     }
     
 }
@@ -132,7 +127,7 @@ extension DDViewController: TableViewCellOutput {
         output.tapOnInstagram()
     }
     
-
+    
 }
 
 extension DDViewController: UITableViewDataSource {

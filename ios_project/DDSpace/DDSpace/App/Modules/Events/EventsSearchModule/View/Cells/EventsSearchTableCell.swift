@@ -10,7 +10,7 @@ import UIKit
 
 final class EventsSearchTableCell: UITableViewCell {
     static let cellIdentifier = String(describing: EventsSearchTableCell.self)
-    var delegate: EventsSearchViewOutput?
+    weak var delegate: EventsSearchViewOutput?
     internal var eventImage = UIImageView()
     internal var nameLabel = UILabel()
     internal var authorLabel = UILabel()
@@ -80,7 +80,7 @@ extension EventsSearchTableCell {
         self.eventImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
         self.eventImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
         self.eventImage.widthAnchor.constraint(equalToConstant: SizeConstants.screenWidth/2).isActive = true
-//        self.eventImage.heightAnchor.constraint(equalToConstant: SizeConstants.screenWidth/3).isActive = true
+        //        self.eventImage.heightAnchor.constraint(equalToConstant: SizeConstants.screenWidth/3).isActive = true
         
         self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.nameLabel.leadingAnchor.constraint(equalTo: self.eventImage.trailingAnchor, constant: 8).isActive = true

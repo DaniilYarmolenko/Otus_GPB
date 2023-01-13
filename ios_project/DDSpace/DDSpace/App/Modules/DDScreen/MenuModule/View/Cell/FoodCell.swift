@@ -4,10 +4,6 @@
 //
 //  Created by Даниил Ярмоленко on 06.01.2023.
 //
-//var nameFood: String
-//var description: String
-//var photos: [String]
-//var cost: Int
 import Foundation
 import UIKit
 
@@ -26,7 +22,7 @@ final class FoodCell: UICollectionViewCell {
         setUp()
         addConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,7 +31,7 @@ final class FoodCell: UICollectionViewCell {
         setUpLabel()
         setUpImageView()
     }
-
+    
     private func setUpImageView() {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
@@ -72,11 +68,5 @@ extension FoodCell {
         self.stackLabels.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
         self.stackLabels.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
         self.stackLabels.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-        
-//        self.nameCategory.translatesAutoresizingMaskIntoConstraints = false
-//        self.nameCategory.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
-//        self.nameCategory.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-//        self.nameCategory.widthAnchor.constraint(equalToConstant: self.contentView.bounds.width/2).isActive = true
-//        self.nameCategory.heightAnchor.constraint(equalToConstant: self.contentView.bounds.height/2).isActive = true
     }
 }

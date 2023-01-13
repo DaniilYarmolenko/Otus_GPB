@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 final class EventsSearchPresenter {
-	weak var view: EventsSearchViewInput?
+    weak var view: EventsSearchViewInput?
     weak var moduleOutput: EventsSearchModuleOutput?
     var categories = [CategoryModel]()
     var events = [EventModel]()
     var searchEvents = [EventModel]()
-	private let router: EventsSearchRouterInput
-	private let interactor: EventsSearchInteractorInput
+    private let router: EventsSearchRouterInput
+    private let interactor: EventsSearchInteractorInput
     weak var navigationController: UINavigationController?
-
+    
     init(router: EventsSearchRouterInput, interactor: EventsSearchInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -70,10 +70,10 @@ extension EventsSearchPresenter: EventsSearchViewOutput {
         case .dateEvent:
             switch order {
             case .increasing:
-//                $0.dateStart.toDate > $0.dateStart.toDate MARK: Add to date method
+                //                $0.dateStart.toDate > $0.dateStart.toDate MARK: Add to date method
                 break
             case .descending:
-//                $0.dateStart.toDate < $0.dateStart.toDate
+                //                $0.dateStart.toDate < $0.dateStart.toDate
                 break
             }
         }

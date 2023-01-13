@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FoodCartModuleInput {
-	var moduleOutput: FoodCartModuleOutput? { get }
+    var moduleOutput: FoodCartModuleOutput? { get }
 }
 
 protocol FoodCartModuleOutput: AnyObject {

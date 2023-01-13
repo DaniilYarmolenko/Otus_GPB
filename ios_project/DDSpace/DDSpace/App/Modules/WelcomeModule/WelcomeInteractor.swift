@@ -9,7 +9,7 @@
 import Foundation
 
 final class WelcomeInteractor {
-	weak var output: WelcomeInteractorOutput?
+    weak var output: WelcomeInteractorOutput?
 }
 
 extension WelcomeInteractor: WelcomeInteractorInput {

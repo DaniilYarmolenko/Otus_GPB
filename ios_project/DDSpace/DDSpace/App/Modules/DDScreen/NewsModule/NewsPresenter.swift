@@ -9,12 +9,12 @@
 import Foundation
 
 final class NewsPresenter {
-	weak var view: NewsViewInput?
+    weak var view: NewsViewInput?
     weak var moduleOutput: NewsModuleOutput?
     var news = [NewsModel]()
-	private let router: NewsRouterInput
-	private let interactor: NewsInteractorInput
-
+    private let router: NewsRouterInput
+    private let interactor: NewsInteractorInput
+    
     init(router: NewsRouterInput, interactor: NewsInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -30,7 +30,7 @@ extension NewsPresenter: NewsViewOutput {
     }
     
     func clickOnNews(with id: Int) {
-            router.newsSelected(news: news[id])
+        router.newsSelected(news: news[id])
     }
     
     func getCountNewsCells() -> Int {

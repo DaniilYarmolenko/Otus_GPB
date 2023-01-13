@@ -9,13 +9,13 @@
 import Foundation
 
 final class DDPresenter {
-	weak var view: DDViewInput?
+    weak var view: DDViewInput?
     weak var moduleOutput: DDModuleOutput?
-
-	private let router: DDRouterInput
-	private let interactor: DDInteractorInput
+    
+    private let router: DDRouterInput
+    private let interactor: DDInteractorInput
     private var ddSectionViewModel: DDSectionViewModel?
-
+    
     init(router: DDRouterInput, interactor: DDInteractorInput) {
         self.router = router
         self.interactor = interactor

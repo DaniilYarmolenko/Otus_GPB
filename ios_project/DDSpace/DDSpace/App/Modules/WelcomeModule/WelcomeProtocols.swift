@@ -10,7 +10,7 @@ import Foundation
 import  UIKit
 
 protocol WelcomeModuleInput {
-	var moduleOutput: WelcomeModuleOutput? { get }
+    var moduleOutput: WelcomeModuleOutput? { get }
 }
 
 protocol WelcomeModuleOutput: AnyObject {
@@ -21,7 +21,6 @@ protocol WelcomeViewInput: AnyObject {
 }
 
 protocol WelcomeViewOutput: AnyObject {
-    func viewDidLoad()
     func getViews()
 }
 

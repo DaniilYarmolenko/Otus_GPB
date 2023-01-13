@@ -9,21 +9,21 @@
 import UIKit
 
 final class TabBarViewController: UITabBarController {
-	private let output: TabBarViewOutput
+    private let output: TabBarViewOutput
     init(output: TabBarViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setUp()
-	}
+    }
     
     private func setUp() {
         self.tabBar.tintColor = ColorConstants.TintColor

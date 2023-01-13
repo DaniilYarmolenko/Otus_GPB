@@ -9,7 +9,7 @@
 import Foundation
 
 final class FoodDetailInteractor {
-	weak var output: FoodDetailInteractorOutput?
+    weak var output: FoodDetailInteractorOutput?
 }
 
 extension FoodDetailInteractor: FoodDetailInteractorInput {
@@ -29,6 +29,6 @@ extension FoodDetailInteractor: FoodDetailInteractorInput {
         CoreDataService.shared.fetchCountCart(with: id)
     }
     
-
+    
     
 }

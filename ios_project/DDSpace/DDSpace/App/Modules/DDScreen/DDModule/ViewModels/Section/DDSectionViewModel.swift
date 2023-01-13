@@ -34,7 +34,7 @@ final class DDSectionViewModel: SectionRowsRepresentable {
         rows.append(HeaderCellViewModel(title: TitlesConstants.MenuTitle, action: {  [weak self] in
             self?.actions?.tapMoreFood()
         }))
-
+        
         rows.append(HeaderCellViewModel(title: TitlesConstants.InfoTitle, action: nil))
     }
 }

@@ -78,7 +78,7 @@ extension EventsTodayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         output.getCountCell()
     }
-   
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         SizeConstants.screenHeight/3.5
     }

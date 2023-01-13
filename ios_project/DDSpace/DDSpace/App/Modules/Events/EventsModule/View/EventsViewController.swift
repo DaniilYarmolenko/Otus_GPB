@@ -9,7 +9,7 @@
 import UIKit
 
 final class EventsViewController: UIViewController {
-	private let output: EventsViewOutput
+    private let output: EventsViewOutput
     var eventsView = [UIViewController]()
     internal var eventPageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     var isLoading: Bool = true
@@ -20,21 +20,21 @@ final class EventsViewController: UIViewController {
         pageControllSegment = PageViewControllerSegmentedAdapter(pageViewController: eventPageVC, viewControllers: [], segmentControl: interfaceSegmented)
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .white
         [interfaceSegmented, eventPageVC.view].forEach {view.addSubview($0)}
         eventPageVC.view.isHidden = !isLoading
         interfaceSegmented.isHidden = !isLoading
         output.viewDidLoad()
         setUp()
-	}
+    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addViewConstraints()

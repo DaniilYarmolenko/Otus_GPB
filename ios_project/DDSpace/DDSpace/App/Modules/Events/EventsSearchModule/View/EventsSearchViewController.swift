@@ -9,7 +9,7 @@
 import UIKit
 
 final class EventsSearchViewController: UIViewController {
-	private let output: EventsSearchViewOutput
+    private let output: EventsSearchViewOutput
     internal var searchBar = UISearchBar()
     internal var emptyView =  EmptyView(titleText: "К сожалению такого события нет",subtitleText: "Попробуйте найти другое", imageString: "emptyDB")
     var searchText = ""
@@ -26,21 +26,21 @@ final class EventsSearchViewController: UIViewController {
     internal var tableViewEvents = UITableView()
     init(output: EventsSearchViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         view.backgroundColor = .white
         setUp()
-	}
+    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addConstraints()
@@ -103,7 +103,7 @@ final class EventsSearchViewController: UIViewController {
         view.addSubview(emptyView)
         emptyView.isHidden = true
     }
-
+    
     
 }
 
@@ -186,8 +186,8 @@ extension EventsSearchViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesSearchCollectionCell.cellIdentifier, for: indexPath)
                 as? CategoriesSearchCollectionCell else {
-                    return UICollectionViewCell()
-                }
+            return UICollectionViewCell()
+        }
         
         cell.configure(model: output.getCategoryCell(with: indexPath.row)) {
             let myCell = collectionView.cellForItem(at: indexPath)
@@ -197,9 +197,9 @@ extension EventsSearchViewController: UICollectionViewDataSource, UICollectionVi
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            output.clickOnCategory(with: indexPath.row)
+        output.clickOnCategory(with: indexPath.row)
     }
-
+    
     
 }
 

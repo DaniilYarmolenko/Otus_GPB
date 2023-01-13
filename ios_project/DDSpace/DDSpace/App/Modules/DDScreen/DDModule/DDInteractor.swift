@@ -9,7 +9,7 @@
 import Foundation
 
 final class DDInteractor {
-	weak var output: DDInteractorOutput?
+    weak var output: DDInteractorOutput?
     private var newsModel = [NewsModel]()
     private var infoModel = [InfoModel]()
     private var categoryFoodModel = [FoodCategory]()

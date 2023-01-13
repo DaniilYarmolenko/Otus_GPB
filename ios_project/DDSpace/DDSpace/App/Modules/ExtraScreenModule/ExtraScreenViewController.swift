@@ -9,25 +9,25 @@
 import UIKit
 
 final class ExtraScreenViewController: UIViewController {
-	private let output: ExtraScreenViewOutput
+    private let output: ExtraScreenViewOutput
     internal var sorryLabel = UILabel()
     internal var buttonAuth = UIButton()
     init(output: ExtraScreenViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
         setUp()
-	}
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addConstraints()

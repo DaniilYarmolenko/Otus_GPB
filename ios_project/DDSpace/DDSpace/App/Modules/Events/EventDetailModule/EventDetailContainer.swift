@@ -10,31 +10,31 @@ import UIKit
 
 final class EventDetailContainer {
     let input: EventDetailModuleInput
-	let viewController: UIViewController
-	private(set) weak var router: EventDetailRouterInput!
-
-	class func assemble(with context: EventDetailContext) -> EventDetailContainer {
+    let viewController: UIViewController
+    private(set) weak var router: EventDetailRouterInput!
+    
+    class func assemble(with context: EventDetailContext) -> EventDetailContainer {
         let router = EventDetailRouter()
         let interactor = EventDetailInteractor()
         let presenter = EventDetailPresenter(router: router, interactor: interactor)
-		let viewController = EventDetailViewController(output: presenter)
-
-		presenter.view = viewController
-		presenter.moduleOutput = context.moduleOutput
+        let viewController = EventDetailViewController(output: presenter)
+        
+        presenter.view = viewController
+        presenter.moduleOutput = context.moduleOutput
         presenter.event = context.event
-		interactor.output = presenter
-
+        interactor.output = presenter
+        
         return EventDetailContainer(view: viewController, input: presenter, router: router)
-	}
-
+    }
+    
     private init(view: UIViewController, input: EventDetailModuleInput, router: EventDetailRouterInput) {
-		self.viewController = view
+        self.viewController = view
         self.input = input
-		self.router = router
-	}
+        self.router = router
+    }
 }
 
 struct EventDetailContext {
-	weak var moduleOutput: EventDetailModuleOutput?
+    weak var moduleOutput: EventDetailModuleOutput?
     var event: EventModel
 }

@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 final class TabBarPresenter {
-	weak var view: TabBarViewInput?
+    weak var view: TabBarViewInput?
     weak var moduleOutput: TabBarModuleOutput?
-
-	private let router: TabBarRouterInput
-	private let interactor: TabBarInteractorInput
+    
+    private let router: TabBarRouterInput
+    private let interactor: TabBarInteractorInput
     private var tabBars: [TabBarItemModel] = []
     var views = [UIViewController]()
     init(router: TabBarRouterInput, interactor: TabBarInteractorInput) {

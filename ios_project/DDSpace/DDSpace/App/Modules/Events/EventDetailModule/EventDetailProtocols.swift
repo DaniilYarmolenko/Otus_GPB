@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol EventDetailModuleInput {
-	var moduleOutput: EventDetailModuleOutput? { get }
+    var moduleOutput: EventDetailModuleOutput? { get }
     var event: EventModel? {get set}
 }
 
@@ -18,15 +18,14 @@ protocol EventDetailModuleOutput: AnyObject {
 }
 
 protocol EventDetailViewInput: AnyObject {
-    func loadData(model: EventModel, imageToken: UIImage?) 
+    func loadData(model: EventModel, imageToken: UIImage?)
 }
 
 protocol EventDetailViewOutput: AnyObject {
     func viewDidLoad()
     func updateData()
     func getToken()
-    func showAlertAuth()
-    func showOpsAlert()
+    func tapOnRegister()
 }
 
 protocol EventDetailInteractorInput: AnyObject {
@@ -36,7 +35,6 @@ protocol EventDetailInteractorInput: AnyObject {
 }
 
 protocol EventDetailInteractorOutput: AnyObject {
-//    func receiveToken(token: Token?) MARK: Token Api get request
     func receiveData(event: EventModel)
 }
 
