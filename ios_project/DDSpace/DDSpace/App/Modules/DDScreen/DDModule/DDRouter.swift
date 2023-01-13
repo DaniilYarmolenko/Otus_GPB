@@ -23,7 +23,7 @@ extension DDRouter: DDRouterInput {
     
     func categoryFoodSelected(with view: DDViewInput?, and id: Int, foodCategories: [FoodCategory]) {
         guard let view = view as? UIViewController, let navigationController = view.navigationController else { return }
-        let menuContainer = MenuContainer.assemble(with: MenuContext(categoryFood: foodCategories, navigationController: navigationController, scrollSection: id))
+        let menuContainer = MenuContainer.assemble(with: MenuContext(categoryFood: foodCategories, navigationController: navigationController, id: id))
         navigationController.pushViewController(menuContainer.viewController, animated: true)
     }
     

@@ -93,8 +93,8 @@ final class FoodDetailViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         //        navigationItem.title = output
         navigationItem.rightBarButtonItem = btn
-        btn.tapAction = {
-            self.output.goToCart()
+        btn.tapAction = { [weak self] in
+            self?.output.goToCart()
         }
     }
     @objc

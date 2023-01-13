@@ -88,8 +88,8 @@ final class MenuViewController: UIViewController {
         navigationItem.rightBarButtonItem = btn
         navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.font: UIFont(name: FontConstants.MoniqaMediumNarrow, size: 32)!, NSAttributedString.Key.baselineOffset: -2]
-        btn.tapAction = {
-            self.output.goToCart()
+        btn.tapAction = { [weak self] in
+            self?.output.goToCart()
         }
     }
     @objc
@@ -223,7 +223,7 @@ class SectionHeader: UICollectionReusableView {
 }
 
 class CategoryCollectionAdapter: UICollectionView {
-    let output: MenuViewOutput
+    weak var output: MenuViewOutput?
     init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout, output: MenuViewOutput) {
         self.output = output
         super.init(frame: frame, collectionViewLayout: layout)
@@ -240,15 +240,17 @@ extension CategoryCollectionAdapter: UICollectionViewDataSource, UICollectionVie
         collectionView.delegate = self
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        output.getCountSections()
+        output?.getCountSections() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryFoodMenuCell.cellIdentifier, for: indexPath)
                 as? CategoryFoodMenuCell else { return UICollectionViewCell()}
-        cell.configure(name: output.getCategoriesName(index: indexPath.row) ) {
-            let myCell = collectionView.cellForItem(at: indexPath)
-            return cell == myCell
+        if let output = output {
+            cell.configure(name: output.getCategoriesName(index: indexPath.row) ) {
+                let myCell = collectionView.cellForItem(at: indexPath)
+                return cell == myCell
+            }
         }
         return cell
     }
@@ -256,6 +258,8 @@ extension CategoryCollectionAdapter: UICollectionViewDataSource, UICollectionVie
         return CGSize(width: collectionView.frame.width, height: SizeConstants.screenHeight/7)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        output.selectCategory(index: indexPath.row)
+        if let output = output {
+            output.selectCategory(index: indexPath.row)
+        }
     }
 }

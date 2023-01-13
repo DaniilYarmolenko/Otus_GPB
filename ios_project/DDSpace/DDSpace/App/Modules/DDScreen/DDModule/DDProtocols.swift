@@ -13,6 +13,7 @@ protocol DDModuleInput {
 }
 
 protocol DDModuleOutput: AnyObject {
+    var scrollId: Int? {get set}
 }
 
 protocol DDViewInput: AnyObject {
