@@ -26,7 +26,7 @@
 - CoreData
 - NSCache
 - URLSession (clean)
-_ Partial coverage unit test
+- Partial coverage unit test
 
 ## _Ссылки_:
 - [Видео-презентация проекта](https://youtu.be/OffblmqXmZc)
